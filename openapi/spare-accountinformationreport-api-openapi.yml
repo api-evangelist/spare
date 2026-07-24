@@ -1,0 +1,1113 @@
+openapi: 3.0.1
+info:
+  title: Information Account AccountInformationReport API
+  description: Spare account information API documentation
+  termsOfService: https://terms.tryspare.com/en
+  contact:
+    name: Spare Technologies WLL.
+    email: hello@tryspare.com
+  license:
+    name: Spare Technologies WLL.
+  version: '1.0'
+security:
+- Bearer: []
+tags:
+- name: AccountInformationReport
+paths:
+  /api/v1.0/ais/AccountInformationReport/Create:
+    post:
+      tags:
+      - AccountInformationReport
+      summary: Create account information job report.
+      description: '**Unique resource name :** ais.v1.account_information_report.create'
+      requestBody:
+        description: Account information report model
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/AccountInformationReportModel'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AccountInformationReportModel'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/AccountInformationReportModel'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/AccountInformationReportModel'
+      responses:
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectApiResponse'
+        '402':
+          description: Payment Required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectApiResponse'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectApiResponse'
+        '500':
+          description: Internal Server Error
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccountInformationReportJobResponseModelApiResponse'
+        '400':
+          description: '- If model is not valid'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectApiResponse'
+        '404':
+          description: '- If bank account not found
+
+            - If customer not found'
+  /api/v1.0/ais/AccountInformationReport/Get:
+    get:
+      tags:
+      - AccountInformationReport
+      summary: Get account information job report by id.
+      description: '**Unique resource name :** ais.v1.account_information_report.get'
+      parameters:
+      - name: jobId
+        in: query
+        description: Account information report job id
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: customerId
+        in: query
+        description: Customer id
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectApiResponse'
+        '402':
+          description: Payment Required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectApiResponse'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectApiResponse'
+        '500':
+          description: Internal Server Error
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccountInformationReportJobDetailsResponseModelApiResponse'
+        '400':
+          description: '- If job id is not valid.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectApiResponse'
+        '404':
+          description: '- - If customer not found'
+  /api/v1.0/ais/AccountInformationReport/File:
+    get:
+      tags:
+      - AccountInformationReport
+      summary: Download account information job report.
+      description: '**Unique resource name :** ais.v1.account_information_report.file'
+      parameters:
+      - name: jobId
+        in: query
+        description: Account information report job id
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: customerId
+        in: query
+        description: Customer id
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '401':
+          description: Unauthorized
+          content:
+            application/pdf:
+              schema:
+                $ref: '#/components/schemas/ObjectApiResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectApiResponse'
+        '402':
+          description: Payment Required
+          content:
+            application/pdf:
+              schema:
+                $ref: '#/components/schemas/ObjectApiResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectApiResponse'
+        '403':
+          description: Forbidden
+          content:
+            application/pdf:
+              schema:
+                $ref: '#/components/schemas/ObjectApiResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectApiResponse'
+        '500':
+          description: Internal Server Error
+        '200':
+          description: ''
+          content:
+            application/pdf:
+              schema:
+                $ref: '#/components/schemas/AccountInformationReportJobDetailsResponseModelApiResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccountInformationReportJobDetailsResponseModelApiResponse'
+        '400':
+          description: '- If job id is not valid.'
+          content:
+            application/pdf:
+              schema:
+                $ref: '#/components/schemas/ObjectApiResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectApiResponse'
+        '404':
+          description: '- - If customer not found'
+          content:
+            application/pdf:
+              schema:
+                $ref: '#/components/schemas/ObjectApiResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectApiResponse'
+  /api/v1.0/ais/AccountInformationReport/List:
+    post:
+      tags:
+      - AccountInformationReport
+      summary: List account information reports.
+      description: '**Unique resource name :** ais.v1.account_information_report.list'
+      parameters:
+      - name: customerId
+        in: query
+        description: Customer id
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: page
+        in: query
+        description: Page number
+        schema:
+          type: integer
+          format: int32
+          default: '1'
+      - name: perPage
+        in: query
+        description: Number of items per page maximum allow is 10 per page
+        schema:
+          type: integer
+          format: int32
+          default: '10'
+      responses:
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectApiResponse'
+        '402':
+          description: Payment Required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectApiResponse'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectApiResponse'
+        '500':
+          description: Internal Server Error
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccountInformationReportJobResponseModelIEnumerablePagesModelMetaApiResponse'
+        '400':
+          description: '- If pagination is not valid.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectApiResponse'
+        '404':
+          description: '- If customer not found'
+  /api/v1.0/ais/AccountInformationReport/Status:
+    get:
+      tags:
+      - AccountInformationReport
+      summary: Get account information report job status.
+      description: '**Unique resource name :** ais.v1.account_information_report.status'
+      parameters:
+      - name: jobId
+        in: query
+        description: Job id
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: customerId
+        in: query
+        description: Customer id
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectApiResponse'
+        '402':
+          description: Payment Required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectApiResponse'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectApiResponse'
+        '500':
+          description: Internal Server Error
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccountInformationReportJobResponseModelApiResponse'
+        '400':
+          description: '- If the job is null or not a valid UUID.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectApiResponse'
+        '404':
+          description: '- If the job does not exist.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectApiResponse'
+components:
+  schemas:
+    AccountInformationPermission:
+      enum:
+      - ReadAccountsBasic
+      - ReadAccountsDetail
+      - ReadBalances
+      - ReadBeneficiariesBasic
+      - ReadBeneficiariesDetail
+      - ReadDirectDebits
+      - ReadTransactionsBasic
+      - ReadTransactionsDetail
+      - ReadTransactionsCredits
+      - ReadTransactionsDebits
+      - ReadStatementsBasic
+      - ReadStatementsDetail
+      - ReadSupplementaryAccountInfo
+      - ReadOffers
+      - ReadParty
+      - ReadPartyCustomer
+      - ReadFutureDatedPaymentsBasic
+      - ReadFutureDatedPaymentsDetail
+      - ReadPAN
+      - ReadPartyPSU
+      - ReadPartyPSUIdentity
+      - ReadScheduledPaymentsBasic
+      - ReadScheduledPaymentsDetail
+      - ReadStandingOrdersBasic
+      - ReadStandingOrdersDetail
+      type: string
+    AccountInformationReportJobResponseModel:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          nullable: true
+        jobId:
+          type: string
+          nullable: true
+        customerId:
+          type: string
+          format: uuid
+          nullable: true
+        startDate:
+          type: string
+          format: date-time
+          nullable: true
+        endDate:
+          type: string
+          format: date-time
+          nullable: true
+        createdAt:
+          type: string
+          format: date-time
+          nullable: true
+        accountsCount:
+          type: integer
+          format: int32
+          nullable: true
+        totalBalance:
+          type: number
+          format: double
+          nullable: true
+        status:
+          $ref: '#/components/schemas/AccountInformationReportJobStatus'
+        currency:
+          $ref: '#/components/schemas/CurrencyResponseModel'
+      additionalProperties: false
+    AccountInformationProviderModel:
+      required:
+      - englishName
+      - isEnable
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        country:
+          $ref: '#/components/schemas/CountryResponseModel'
+        allowedPermissions:
+          type: array
+          items:
+            $ref: '#/components/schemas/AccountInformationPermission'
+          nullable: true
+        address:
+          type: string
+          nullable: true
+        phone:
+          type: string
+          nullable: true
+        useBenefit:
+          type: boolean
+          nullable: true
+        arabicName:
+          maxLength: 255
+          type: string
+          nullable: true
+        englishName:
+          maxLength: 255
+          minLength: 1
+          type: string
+        status:
+          $ref: '#/components/schemas/ProviderStatus'
+        isEnable:
+          type: boolean
+        logo:
+          maxLength: 255
+          type: string
+          format: uri
+          nullable: true
+      additionalProperties: false
+    BalanceAmountModel:
+      type: object
+      properties:
+        amount:
+          type: number
+          format: double
+        currency:
+          type: string
+          nullable: true
+        localExchange:
+          $ref: '#/components/schemas/BalanceLocalExchangeModel'
+      additionalProperties: false
+    AccountInformationReportBankAccountResponseModel:
+      type: object
+      properties:
+        provider:
+          $ref: '#/components/schemas/AccountInformationProviderModel'
+        createdAt:
+          type: string
+          format: date-time
+          nullable: true
+        id:
+          type: string
+          format: uuid
+        currency:
+          $ref: '#/components/schemas/CurrencyResponseModel'
+        servicer:
+          $ref: '#/components/schemas/ServicerResponseModel'
+        accounts:
+          type: array
+          items:
+            $ref: '#/components/schemas/SubAccountsResponseModel'
+          nullable: true
+        status:
+          type: string
+          nullable: true
+        statusUpdatedDateTime:
+          type: string
+          format: date-time
+          nullable: true
+        type:
+          type: string
+          nullable: true
+        subType:
+          type: string
+          nullable: true
+        description:
+          type: string
+          nullable: true
+        openingDate:
+          type: string
+          format: date-time
+          nullable: true
+        maturityDate:
+          type: string
+          format: date-time
+          nullable: true
+      additionalProperties: false
+    AccountBalanceHistoryModel:
+      type: object
+      properties:
+        accountId:
+          type: string
+          format: uuid
+          nullable: true
+        history:
+          type: array
+          items:
+            $ref: '#/components/schemas/BalanceHistoryModel'
+          nullable: true
+      additionalProperties: false
+    BalanceHistoryModel:
+      type: object
+      properties:
+        date:
+          type: string
+          nullable: true
+        balances:
+          type: array
+          items:
+            $ref: '#/components/schemas/BalanceBaseModel'
+          nullable: true
+      additionalProperties: false
+    SubAccountsResponseModel:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        scheme:
+          type: string
+          nullable: true
+        identification:
+          type: string
+          nullable: true
+        name:
+          type: string
+          nullable: true
+      additionalProperties: false
+    ApiError:
+      enum:
+      - INVALID_DATA
+      - INVALID_SIGNATURE
+      - RESOURCE_LOCKED
+      - COUNTRY_NOT_FOUND
+      - CURRENCY_NOT_FOUND
+      - PROVIDER_NOT_FOUND
+      - CONNECTION_NOT_FOUND
+      - INSUFFICIENT_CONSENT_PERMISSIONS
+      - CONSENT_EXPIRED
+      - CONSENT_REVOKED
+      - CONSENT_UNAUTHORIZED
+      - CONSENT_NOT_FOUND
+      - RISK_REPORT_NOT_FOUND
+      - ACCOUNT_INFORMATION_REPORT_NOT_FOUND
+      - MULTIPLE_CURRENCY_NOT_ALLOWED
+      - MULTIPLE_CONSENT_DATE_NOT_ALLOWED
+      - PAYMENT_NOT_FOUND
+      - CONSENT_REJECTED
+      - PAYMENT_REQUEST_NOT_FOUND
+      - CUSTOMER_NOT_FOUND
+      - CUSTOMER_ALREADY_EXISTS
+      - BANK_ACCOUNT_NOT_FOUND
+      - SERVER_ERROR
+      - PROVIDER_CONNECTION_FAILURE
+      - TRANSACTION_NOT_FOUND
+      - ACCOUNT_INFORMATION_ACCESS_REQUEST_NOT_FOUND
+      - CONSENT_REVOCATION_FAILED
+      - CONSENT_REVOKED_OR_EXPIRED
+      - SUBSCRIPTION_EXPIRED
+      - NOT_SUBSCRIBED_TO_SERVICE
+      - BENEFICIARY_NOT_FOUND
+      - PARTIES_NOT_FOUND
+      - DIRECT_DEBIT_NOT_FOUND
+      - SCHEDULED_PAYMENT_NOT_FOUND
+      - DEBTOR_ACCOUNT_NOT_FOUND
+      - CREDITOR_ACCOUNT_NOT_FOUND
+      - UNAUTHORIZED_IP_ADDRESS
+      type: string
+    ServicerAddressResponseModel:
+      type: object
+      properties:
+        addressType:
+          type: string
+          nullable: true
+        department:
+          type: string
+          nullable: true
+        subDepartment:
+          type: string
+          nullable: true
+        addressLine:
+          type: string
+          nullable: true
+        streetName:
+          type: string
+          nullable: true
+        buildingNumber:
+          type: string
+          nullable: true
+        postalCode:
+          type: string
+          nullable: true
+        townName:
+          type: string
+          nullable: true
+        countrySubDivision:
+          type: string
+          nullable: true
+        country:
+          type: string
+          nullable: true
+        shortAddress:
+          type: string
+          nullable: true
+        unitNumber:
+          type: number
+          format: double
+          nullable: true
+        secondaryNumber:
+          type: string
+          nullable: true
+        district:
+          type: string
+          nullable: true
+        city:
+          type: string
+          nullable: true
+      additionalProperties: false
+    DebitTransactionCategoryModel:
+      type: object
+      properties:
+        totalDebit:
+          type: number
+          format: double
+          nullable: true
+        currency:
+          $ref: '#/components/schemas/CurrencyResponseModel'
+        categories:
+          type: array
+          items:
+            $ref: '#/components/schemas/TransactionCategory'
+          nullable: true
+      additionalProperties: false
+    BalanceBaseModel:
+      type: object
+      properties:
+        type:
+          type: string
+          nullable: true
+        amount:
+          $ref: '#/components/schemas/BalanceAmountModel'
+      additionalProperties: false
+    ObjectApiResponse:
+      type: object
+      properties:
+        error:
+          $ref: '#/components/schemas/ApiError'
+        errorDescription:
+          type: object
+          additionalProperties:
+            type: array
+            items:
+              type: string
+            nullable: true
+          nullable: true
+        data:
+          nullable: true
+      additionalProperties: false
+    TransactionCategory:
+      type: object
+      properties:
+        subCategoryName:
+          type: string
+          nullable: true
+        amount:
+          type: number
+          format: double
+          nullable: true
+        bookingDateTime:
+          type: string
+          format: date
+          nullable: true
+        categoryName:
+          type: string
+          nullable: true
+        transactionInformation:
+          type: string
+          nullable: true
+      additionalProperties: false
+    DateTimeDecimalValueAggregationModel:
+      type: object
+      properties:
+        key:
+          type: string
+          format: date-time
+        value:
+          type: number
+          format: double
+      additionalProperties: false
+    CreditTransactionCategoryModel:
+      type: object
+      properties:
+        totalCredit:
+          type: number
+          format: double
+          nullable: true
+        totalDebit:
+          type: number
+          format: double
+          nullable: true
+        currency:
+          $ref: '#/components/schemas/CurrencyResponseModel'
+        categories:
+          type: array
+          items:
+            $ref: '#/components/schemas/TransactionCategory'
+          nullable: true
+      additionalProperties: false
+    TransactionCategorizationResponseModel:
+      type: object
+      properties:
+        debit:
+          $ref: '#/components/schemas/DebitTransactionCategoryModel'
+        credit:
+          $ref: '#/components/schemas/CreditTransactionCategoryModel'
+      additionalProperties: false
+    AccountInformationReportJobDetailsResponseModel:
+      type: object
+      properties:
+        accountHolderName:
+          type: string
+          nullable: true
+        cashFlowTrend:
+          $ref: '#/components/schemas/CashFlowTrendModel'
+        affordability:
+          $ref: '#/components/schemas/AccountInformationReportJobAffordabilityModel'
+        accounts:
+          type: array
+          items:
+            $ref: '#/components/schemas/AccountInformationReportBankAccountResponseModel'
+          nullable: true
+        transactionsCategories:
+          $ref: '#/components/schemas/TransactionCategorizationResponseModel'
+        balanceSummary:
+          $ref: '#/components/schemas/BalanceSummaryModel'
+        id:
+          type: string
+          format: uuid
+          nullable: true
+        jobId:
+          type: string
+          nullable: true
+        customerId:
+          type: string
+          format: uuid
+          nullable: true
+        startDate:
+          type: string
+          format: date-time
+          nullable: true
+        endDate:
+          type: string
+          format: date-time
+          nullable: true
+        createdAt:
+          type: string
+          format: date-time
+          nullable: true
+        accountsCount:
+          type: integer
+          format: int32
+          nullable: true
+        totalBalance:
+          type: number
+          format: double
+          nullable: true
+        status:
+          $ref: '#/components/schemas/AccountInformationReportJobStatus'
+        currency:
+          $ref: '#/components/schemas/CurrencyResponseModel'
+      additionalProperties: false
+    CashFlowTrendModel:
+      type: object
+      properties:
+        accounts:
+          type: array
+          items:
+            type: string
+            format: uuid
+          nullable: true
+        currency:
+          $ref: '#/components/schemas/CurrencyResponseModel'
+        dailyTotalCredit:
+          type: array
+          items:
+            $ref: '#/components/schemas/DateTimeDecimalValueAggregationModel'
+          nullable: true
+        dailyTotalDebit:
+          type: array
+          items:
+            $ref: '#/components/schemas/DateTimeDecimalValueAggregationModel'
+          nullable: true
+      additionalProperties: false
+    BalanceLocalExchangeModel:
+      type: object
+      properties:
+        sourceCurrency:
+          type: string
+          nullable: true
+        targetCurrency:
+          type: string
+          nullable: true
+        rate:
+          type: number
+          format: double
+        date:
+          type: string
+          format: date
+        value:
+          type: number
+          format: double
+      additionalProperties: false
+    ServicerResponseModel:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        address:
+          $ref: '#/components/schemas/ServicerAddressResponseModel'
+        scheme:
+          type: string
+          nullable: true
+        identification:
+          type: string
+          nullable: true
+      additionalProperties: false
+    AccountInformationReportJobResponseModelIEnumerablePagesModelMetaApiResponse:
+      type: object
+      properties:
+        error:
+          $ref: '#/components/schemas/ApiError'
+        errorDescription:
+          type: object
+          additionalProperties:
+            type: array
+            items:
+              type: string
+            nullable: true
+          nullable: true
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/AccountInformationReportJobResponseModel'
+          nullable: true
+        meta:
+          $ref: '#/components/schemas/PagesModel'
+      additionalProperties: false
+    ProviderStatus:
+      enum:
+      - Active
+      - Inactive
+      type: string
+    CountryResponseModel:
+      required:
+      - englishName
+      - iso3166Code
+      - timeZone
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+        currency:
+          $ref: '#/components/schemas/CurrencyResponseModel'
+        englishName:
+          maxLength: 50
+          minLength: 1
+          type: string
+        arabicName:
+          maxLength: 50
+          type: string
+          nullable: true
+        iso3166Code:
+          maxLength: 2
+          minLength: 1
+          pattern: ^[A-Z]{2}$
+          type: string
+        timeZone:
+          maxLength: 50
+          minLength: 1
+          type: string
+      additionalProperties: false
+    AccountInformationReportJobDetailsResponseModelApiResponse:
+      type: object
+      properties:
+        error:
+          $ref: '#/components/schemas/ApiError'
+        errorDescription:
+          type: object
+          additionalProperties:
+            type: array
+            items:
+              type: string
+            nullable: true
+          nullable: true
+        data:
+          $ref: '#/components/schemas/AccountInformationReportJobDetailsResponseModel'
+      additionalProperties: false
+    AccountInformationReportModel:
+      type: object
+      properties:
+        accountIds:
+          type: array
+          items:
+            type: string
+            format: uuid
+          nullable: true
+        customerId:
+          type: string
+          format: uuid
+      additionalProperties: false
+    AccountInformationReportJobAffordabilityModel:
+      type: object
+      properties:
+        month:
+          type: string
+          format: date-time
+          nullable: true
+        averageIncomeAffordability:
+          type: number
+          format: double
+          nullable: true
+        averageNetAffordability:
+          type: number
+          format: double
+          nullable: true
+        income:
+          type: number
+          format: double
+          nullable: true
+        expenses:
+          type: number
+          format: double
+          nullable: true
+        incomeAffordability:
+          type: number
+          format: double
+          nullable: true
+        netAffordability:
+          type: number
+          format: double
+          nullable: true
+        currency:
+          $ref: '#/components/schemas/CurrencyResponseModel'
+      additionalProperties: false
+    AccountInformationReportJobStatus:
+      enum:
+      - Awaiting
+      - Deleted
+      - Enqueued
+      - Failed
+      - Processing
+      - Scheduled
+      - Succeeded
+      - Created
+      type: string
+    BalanceSummaryModel:
+      type: object
+      properties:
+        accounts:
+          type: array
+          items:
+            type: string
+            format: uuid
+          nullable: true
+        currency:
+          $ref: '#/components/schemas/CurrencyResponseModel'
+        currentBalance:
+          type: number
+          format: double
+          nullable: true
+        minimumBalance:
+          type: number
+          format: double
+          nullable: true
+        maximumBalance:
+          type: number
+          format: double
+          nullable: true
+        averageBalance:
+          type: number
+          format: double
+          nullable: true
+        totalCredit:
+          type: number
+          format: double
+          nullable: true
+        totalSixMonthCredit:
+          type: number
+          format: double
+          nullable: true
+        totalDebit:
+          type: number
+          format: double
+          nullable: true
+        averageMonthlyCredit:
+          type: number
+          format: double
+          nullable: true
+        averageMonthlyDebit:
+          type: number
+          format: double
+          nullable: true
+        daysBelowMean:
+          type: integer
+          format: int32
+          nullable: true
+        trendLine:
+          type: number
+          format: double
+          nullable: true
+        balanceTrendModel:
+          type: array
+          items:
+            $ref: '#/components/schemas/BalanceTrendModel'
+          nullable: true
+      additionalProperties: false
+    CurrencyResponseModel:
+      required:
+      - englishName
+      - iso4117Code
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        englishName:
+          maxLength: 50
+          minLength: 1
+          type: string
+        arabicName:
+          maxLength: 50
+          type: string
+          nullable: true
+        iso4117Code:
+          maxLength: 3
+          minLength: 1
+          type: string
+        iso4117Number:
+          maxLength: 4
+          type: string
+          nullable: true
+      additionalProperties: false
+    PagesModel:
+      type: object
+      properties:
+        currentPageNumber:
+          type: integer
+          format: int32
+        pageSize:
+          type: integer
+          format: int32
+        totalNumberOfPages:
+          type: integer
+          format: int32
+      additionalProperties: false
+    BalanceTrendModel:
+      type: object
+      properties:
+        slope:
+          type: number
+          format: double
+          nullable: true
+        intercept:
+          type: number
+          format: double
+          nullable: true
+        accountBalanceHistory:
+          $ref: '#/components/schemas/AccountBalanceHistoryModel'
+      additionalProperties: false
+    AccountInformationReportJobResponseModelApiResponse:
+      type: object
+      properties:
+        error:
+          $ref: '#/components/schemas/ApiError'
+        errorDescription:
+          type: object
+          additionalProperties:
+            type: array
+            items:
+              type: string
+            nullable: true
+          nullable: true
+        data:
+          $ref: '#/components/schemas/AccountInformationReportJobResponseModel'
+      additionalProperties: false
+  securitySchemes:
+    Bearer:
+      type: apiKey
+      description: Please enter into field the word 'Bearer' followed by a space and JWT
+      name: Authorization
+      in: header

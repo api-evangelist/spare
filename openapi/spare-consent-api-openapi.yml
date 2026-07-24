@@ -1,0 +1,1285 @@
+openapi: 3.0.1
+info:
+  title: Information Account Consent API
+  description: Spare account information API documentation
+  termsOfService: https://terms.tryspare.com/en
+  contact:
+    name: Spare Technologies WLL.
+    email: hello@tryspare.com
+  license:
+    name: Spare Technologies WLL.
+  version: '1.0'
+security:
+- Bearer: []
+tags:
+- name: Consent
+paths:
+  /api/v1.0/ais/Consent/Create:
+    post:
+      tags:
+      - Consent
+      summary: Create consent
+      description: '**Unique resource name :** ais.v1.consent.create'
+      requestBody:
+        description: ''
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/ConsentRequestModel'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ConsentRequestModel'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/ConsentRequestModel'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/ConsentRequestModel'
+        required: true
+      responses:
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectApiResponse'
+        '402':
+          description: Payment Required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectApiResponse'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectApiResponse'
+        '500':
+          description: Internal Server Error
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccountInformationConsentResponseModelApiResponse'
+        '400':
+          description: '- If provider id is not valid'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectApiResponse'
+        '404':
+          description: '- If provider does not exist
+
+            - If connection does not exist'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectApiResponse'
+  /api/v1.0/ais/Consent/List:
+    get:
+      tags:
+      - Consent
+      summary: List consent
+      description: '**Unique resource name :** ais.v1.consent.list'
+      parameters:
+      - name: page
+        in: query
+        description: Page number
+        schema:
+          type: integer
+          format: int32
+          default: '1'
+      - name: perPage
+        in: query
+        description: Number of items per page maximum allow is 500 per page
+        schema:
+          type: integer
+          format: int32
+          default: '20'
+      - name: providerId
+        in: query
+        description: Provider id (Optional)
+        schema:
+          type: string
+          format: uuid
+      - name: connectionId
+        in: query
+        description: Connection id (Optional)
+        schema:
+          type: string
+          format: uuid
+      - name: customerId
+        in: query
+        description: Customer id (Optional)
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectApiResponse'
+        '402':
+          description: Payment Required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectApiResponse'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectApiResponse'
+        '500':
+          description: Internal Server Error
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccountInformationConsentResponseModelIEnumerablePagesModelMetaApiResponse'
+        '400':
+          description: '- If connection id is not valid'
+  /api/v1.0/ais/Consent/Get:
+    get:
+      tags:
+      - Consent
+      summary: Get consent by id
+      description: '**Unique resource name :** ais.v1.consent.get'
+      parameters:
+      - name: id
+        in: query
+        description: Consent id
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectApiResponse'
+        '402':
+          description: Payment Required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectApiResponse'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectApiResponse'
+        '500':
+          description: Internal Server Error
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccountInformationConsentResponseModelApiResponse'
+        '400':
+          description: '- If id is not valid'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectApiResponse'
+        '404':
+          description: '- If consent does not exist'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectApiResponse'
+  /api/v1.0/ais/Consent/Revoke:
+    patch:
+      tags:
+      - Consent
+      summary: Revoke consent
+      description: '**Unique resource name :** ais.v1.consent.revoke'
+      parameters:
+      - name: id
+        in: query
+        description: Consent id
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectApiResponse'
+        '402':
+          description: Payment Required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectApiResponse'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectApiResponse'
+        '500':
+          description: Internal Server Error
+        '204':
+          description: ''
+        '400':
+          description: '- If id is not valid
+
+            - If consent revocation fails'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectApiResponse'
+  /api/v1.0/pis/Consent/Create:
+    post:
+      tags:
+      - Consent
+      summary: Create domestic payment consent
+      parameters:
+      - name: x-signature
+        in: header
+        description: 'Json web signature (JWS: RFC7519) of the payment initiation consent request payload in detached mode. <see href="https://datatracker.ietf.org/doc/html/rfc7519" />'
+        required: true
+        schema:
+          type: string
+      requestBody:
+        description: Payment initiation consent request model.
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/DomesticPaymentConsentRequestModel'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DomesticPaymentConsentRequestModel'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/DomesticPaymentConsentRequestModel'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/DomesticPaymentConsentRequestModel'
+        required: true
+      responses:
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectApiResponse'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectApiResponse'
+        '500':
+          description: Internal Server Error
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DomesticPaymentConsentResponseModelApiResponse'
+        '400':
+          description: '- If model is not valid.
+
+            - If signature is null or invalid.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectApiResponse'
+        '404':
+          description: '- If provider does not exist
+
+            - If connection does not exist'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectApiResponse'
+  /api/v1.0/pis/Consent/List:
+    get:
+      tags:
+      - Consent
+      summary: List consent
+      parameters:
+      - name: page
+        in: query
+        description: Page number
+        schema:
+          type: integer
+          format: int32
+          default: '1'
+      - name: perPage
+        in: query
+        description: Number of items per page maximum allow is 100 per page
+        schema:
+          type: integer
+          format: int32
+          default: '20'
+      - name: providerId
+        in: query
+        description: Provider id (Optional)
+        schema:
+          type: string
+          format: uuid
+      - name: connectionId
+        in: query
+        description: Connection id (Optional)
+        schema:
+          type: string
+          format: uuid
+      - name: externalReference
+        in: query
+        description: External reference (Optional)
+        schema:
+          type: string
+      responses:
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectApiResponse'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectApiResponse'
+        '500':
+          description: Internal Server Error
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DomesticPaymentConsentResponseModelIEnumerablePagesModelMetaApiResponse'
+        '400':
+          description: '- If connection id is not valid
+
+            - If provider id is not valid
+
+            - If pagination parameters are not valid.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectApiResponse'
+  /api/v1.0/pis/Consent/Get:
+    get:
+      tags:
+      - Consent
+      summary: Get consent by id
+      parameters:
+      - name: consentId
+        in: query
+        description: ''
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectApiResponse'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectApiResponse'
+        '500':
+          description: Internal Server Error
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DomesticPaymentConsentResponseModelApiResponse'
+        '400':
+          description: '- If consents id is not valid UUID'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectApiResponse'
+        '404':
+          description: '- If consents does not exist'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectApiResponse'
+  /api/v1.0/ais/Consent/CreateShortLivedConsent:
+    post:
+      tags:
+      - Consent
+      summary: Create short-lived consent
+      description: "**Unique resource name :** ais.v1.consent.create_short_lived_consent\r\n            \r\n**Consent lifetime :** 1 Day"
+      requestBody:
+        description: ''
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/ConsentRequestModel_2'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ConsentRequestModel_2'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/ConsentRequestModel_2'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/ConsentRequestModel_2'
+        required: true
+      responses:
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectApiResponse'
+        '402':
+          description: Payment Required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectApiResponse'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectApiResponse'
+        '500':
+          description: Internal Server Error
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccountInformationConsentResponseModelApiResponse'
+        '400':
+          description: '- If provider id is not valid'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectApiResponse'
+        '404':
+          description: "- If provider does not exist\r\n- If connection does not exist"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectApiResponse'
+  /api/v1.0/ais/Consent/CreateLongLivedConsent:
+    post:
+      tags:
+      - Consent
+      summary: Create long-lived consent
+      description: "**Unique resource name :** ais.v1.consent.create_long_lived_consent\r\n            \r\n**Consent lifetime :** expiry date input"
+      requestBody:
+        description: Long-lived consent request model
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/LongLivedConsentRequestModel'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LongLivedConsentRequestModel'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/LongLivedConsentRequestModel'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/LongLivedConsentRequestModel'
+        required: true
+      responses:
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectApiResponse'
+        '402':
+          description: Payment Required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectApiResponse'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectApiResponse'
+        '500':
+          description: Internal Server Error
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccountInformationConsentResponseModelApiResponse'
+        '400':
+          description: '- If provider id is not valid'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectApiResponse'
+        '404':
+          description: "- If provider does not exist\r\n- If connection does not exist"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectApiResponse'
+components:
+  schemas:
+    DomesticPaymentConsentRequestModel:
+      required:
+      - amount
+      - creditorAccount
+      - currency
+      - paymentConsentType
+      - providerId
+      - purpose
+      type: object
+      properties:
+        connectionId:
+          type: string
+          format: uuid
+          nullable: true
+        providerId:
+          type: string
+          format: uuid
+        externalReference:
+          maxLength: 255
+          type: string
+          nullable: true
+        description:
+          maxLength: 500
+          type: string
+          nullable: true
+        amount:
+          minLength: 1
+          pattern: ^\d{1,3}(\.\d{3})?$
+          type: string
+        currency:
+          minLength: 1
+          pattern: ^[A-Z]{3}
+          type: string
+        successRedirectUrl:
+          maxLength: 255
+          type: string
+          format: uri
+          nullable: true
+        failureRedirectUrl:
+          maxLength: 255
+          type: string
+          format: uri
+          nullable: true
+        paymentConsentType:
+          $ref: '#/components/schemas/ConsentPaymentType'
+        purpose:
+          $ref: '#/components/schemas/PaymentPurpose'
+        note:
+          type: string
+          nullable: true
+        autoRedirect:
+          type: boolean
+        debtorAccount:
+          $ref: '#/components/schemas/AccountRequestModel'
+        creditorAccount:
+          $ref: '#/components/schemas/AccountRequestModel'
+      additionalProperties: false
+    DomesticPaymentConsentResponseModelApiResponse:
+      type: object
+      properties:
+        error:
+          $ref: '#/components/schemas/ApiError'
+        errorDescription:
+          type: object
+          additionalProperties:
+            type: array
+            items:
+              type: string
+            nullable: true
+          nullable: true
+        data:
+          $ref: '#/components/schemas/DomesticPaymentConsentResponseModel'
+      additionalProperties: false
+    ConsentScope:
+      enum:
+      - Accounts
+      - Payments
+      type: string
+    AccountInformationPermission:
+      enum:
+      - ReadAccountsBasic
+      - ReadAccountsDetail
+      - ReadBalances
+      - ReadBeneficiariesBasic
+      - ReadBeneficiariesDetail
+      - ReadDirectDebits
+      - ReadTransactionsBasic
+      - ReadTransactionsDetail
+      - ReadTransactionsCredits
+      - ReadTransactionsDebits
+      - ReadStatementsBasic
+      - ReadStatementsDetail
+      - ReadSupplementaryAccountInfo
+      - ReadOffers
+      - ReadParty
+      - ReadPartyCustomer
+      - ReadFutureDatedPaymentsBasic
+      - ReadFutureDatedPaymentsDetail
+      - ReadPAN
+      - ReadPartyPSU
+      - ReadPartyPSUIdentity
+      - ReadScheduledPaymentsBasic
+      - ReadScheduledPaymentsDetail
+      - ReadStandingOrdersBasic
+      - ReadStandingOrdersDetail
+      type: string
+    AccountInformationProviderModel:
+      required:
+      - englishName
+      - isEnable
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        country:
+          $ref: '#/components/schemas/CountryResponseModel'
+        allowedPermissions:
+          type: array
+          items:
+            $ref: '#/components/schemas/AccountInformationPermission'
+          nullable: true
+        address:
+          type: string
+          nullable: true
+        phone:
+          type: string
+          nullable: true
+        useBenefit:
+          type: boolean
+          nullable: true
+        arabicName:
+          maxLength: 255
+          type: string
+          nullable: true
+        englishName:
+          maxLength: 255
+          minLength: 1
+          type: string
+        status:
+          $ref: '#/components/schemas/ProviderStatus'
+        isEnable:
+          type: boolean
+        logo:
+          maxLength: 255
+          type: string
+          format: uri
+          nullable: true
+      additionalProperties: false
+    ApiError:
+      enum:
+      - INVALID_DATA
+      - INVALID_SIGNATURE
+      - RESOURCE_LOCKED
+      - COUNTRY_NOT_FOUND
+      - CURRENCY_NOT_FOUND
+      - PROVIDER_NOT_FOUND
+      - CONNECTION_NOT_FOUND
+      - INSUFFICIENT_CONSENT_PERMISSIONS
+      - CONSENT_EXPIRED
+      - CONSENT_REVOKED
+      - CONSENT_UNAUTHORIZED
+      - CONSENT_NOT_FOUND
+      - RISK_REPORT_NOT_FOUND
+      - ACCOUNT_INFORMATION_REPORT_NOT_FOUND
+      - MULTIPLE_CURRENCY_NOT_ALLOWED
+      - MULTIPLE_CONSENT_DATE_NOT_ALLOWED
+      - PAYMENT_NOT_FOUND
+      - CONSENT_REJECTED
+      - PAYMENT_REQUEST_NOT_FOUND
+      - CUSTOMER_NOT_FOUND
+      - CUSTOMER_ALREADY_EXISTS
+      - BANK_ACCOUNT_NOT_FOUND
+      - SERVER_ERROR
+      - PROVIDER_CONNECTION_FAILURE
+      - TRANSACTION_NOT_FOUND
+      - ACCOUNT_INFORMATION_ACCESS_REQUEST_NOT_FOUND
+      - CONSENT_REVOCATION_FAILED
+      - CONSENT_REVOKED_OR_EXPIRED
+      - SUBSCRIPTION_EXPIRED
+      - NOT_SUBSCRIBED_TO_SERVICE
+      - BENEFICIARY_NOT_FOUND
+      - PARTIES_NOT_FOUND
+      - DIRECT_DEBIT_NOT_FOUND
+      - SCHEDULED_PAYMENT_NOT_FOUND
+      - DEBTOR_ACCOUNT_NOT_FOUND
+      - CREDITOR_ACCOUNT_NOT_FOUND
+      - UNAUTHORIZED_IP_ADDRESS
+      type: string
+    PaymentPurpose:
+      enum:
+      - SELF
+      - ONLP
+      - LORP
+      - BIL
+      - DONA
+      - DUES
+      - GOPT
+      - PERS
+      - PERL
+      type: string
+    AccountInformationConsentResponseModelApiResponse:
+      type: object
+      properties:
+        error:
+          $ref: '#/components/schemas/ApiError'
+        errorDescription:
+          type: object
+          additionalProperties:
+            type: array
+            items:
+              type: string
+            nullable: true
+          nullable: true
+        data:
+          $ref: '#/components/schemas/AccountInformationConsentResponseModel'
+      additionalProperties: false
+    PaymentAmountResponseModel:
+      type: object
+      properties:
+        value:
+          type: number
+          format: double
+          nullable: true
+        currency:
+          $ref: '#/components/schemas/CurrencyResponseModel'
+      additionalProperties: false
+    SchemeName:
+      enum:
+      - IBAN
+      - BBAN
+      type: string
+    ObjectApiResponse:
+      type: object
+      properties:
+        error:
+          $ref: '#/components/schemas/ApiError'
+        errorDescription:
+          type: object
+          additionalProperties:
+            type: array
+            items:
+              type: string
+            nullable: true
+          nullable: true
+        data:
+          nullable: true
+      additionalProperties: false
+    ConnectionStatus:
+      enum:
+      - ACTIVE
+      - INACTIVE
+      type: string
+    PaymentInitiationProviderModel:
+      required:
+      - englishName
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          nullable: true
+        country:
+          $ref: '#/components/schemas/CountryResponseModel'
+        address:
+          type: string
+          nullable: true
+        phone:
+          type: string
+          nullable: true
+        isEnable:
+          type: boolean
+        arabicName:
+          maxLength: 255
+          type: string
+          nullable: true
+        englishName:
+          maxLength: 255
+          minLength: 1
+          type: string
+        status:
+          $ref: '#/components/schemas/ProviderStatus'
+        logo:
+          maxLength: 255
+          type: string
+          format: uri
+          nullable: true
+      additionalProperties: false
+    DomesticPaymentConsentResponseModel:
+      type: object
+      properties:
+        paymentId:
+          type: string
+          format: uuid
+          nullable: true
+        consentId:
+          type: string
+          format: uuid
+          nullable: true
+        externalReference:
+          type: string
+          nullable: true
+        scope:
+          $ref: '#/components/schemas/ConsentScope'
+        paymentConsentType:
+          $ref: '#/components/schemas/ConsentPaymentType'
+        executionDateTime:
+          type: string
+          format: date-time
+          nullable: true
+        authorizationLink:
+          type: string
+          nullable: true
+        amount:
+          $ref: '#/components/schemas/PaymentAmountResponseModel'
+        createdAt:
+          type: string
+          format: date-time
+        status:
+          $ref: '#/components/schemas/ObConsentsStatus'
+        creditorAccount:
+          $ref: '#/components/schemas/PaymentAccountModel'
+        debtorAccount:
+          $ref: '#/components/schemas/PaymentAccountModel'
+        connection:
+          $ref: '#/components/schemas/PaymentInitiationConnectionResponseModel'
+        purpose:
+          type: string
+          nullable: true
+        note:
+          type: string
+          nullable: true
+      additionalProperties: false
+    ConsentPaymentType:
+      enum:
+      - SingleInstantPayment
+      type: string
+    ConsentStatusHistoryModel:
+      type: object
+      properties:
+        status:
+          $ref: '#/components/schemas/ObConsentsStatus'
+        dateTime:
+          type: string
+          format: date-time
+      additionalProperties: false
+    AccountInformationConnectionResponseModel:
+      type: object
+      properties:
+        provider:
+          $ref: '#/components/schemas/AccountInformationProviderModel'
+        id:
+          type: string
+          format: uuid
+        status:
+          $ref: '#/components/schemas/ConnectionStatus'
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+      additionalProperties: false
+    ProviderStatus:
+      enum:
+      - Active
+      - Inactive
+      type: string
+    CountryResponseModel:
+      required:
+      - englishName
+      - iso3166Code
+      - timeZone
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+        currency:
+          $ref: '#/components/schemas/CurrencyResponseModel'
+        englishName:
+          maxLength: 50
+          minLength: 1
+          type: string
+        arabicName:
+          maxLength: 50
+          type: string
+          nullable: true
+        iso3166Code:
+          maxLength: 2
+          minLength: 1
+          pattern: ^[A-Z]{2}$
+          type: string
+        timeZone:
+          maxLength: 50
+          minLength: 1
+          type: string
+      additionalProperties: false
+    ConsentRequestModel_2:
+      required:
+      - customerId
+      - providerId
+      type: object
+      properties:
+        connectionId:
+          type: string
+          format: uuid
+          nullable: true
+        providerId:
+          type: string
+          format: uuid
+        customerId:
+          type: string
+          format: uuid
+        transactionsFromDate:
+          type: string
+          format: date-time
+          nullable: true
+        transactionsToDate:
+          type: string
+          format: date-time
+          nullable: true
+        permissions:
+          type: array
+          items:
+            $ref: '#/components/schemas/AccountInformationPermission'
+          nullable: true
+        successRedirectUrl:
+          maxLength: 255
+          type: string
+          format: uri
+          nullable: true
+        failureRedirectUrl:
+          maxLength: 255
+          type: string
+          format: uri
+          nullable: true
+        autoRedirect:
+          type: boolean
+      additionalProperties: false
+    ConsentRequestModel:
+      required:
+      - customerId
+      - providerId
+      type: object
+      properties:
+        connectionId:
+          type: string
+          format: uuid
+          nullable: true
+        providerId:
+          type: string
+          format: uuid
+        customerId:
+          type: string
+          format: uuid
+        expiryDate:
+          type: string
+          format: date-time
+          nullable: true
+        transactionsFromDate:
+          type: string
+          format: date-time
+          nullable: true
+        transactionsToDate:
+          type: string
+          format: date-time
+          nullable: true
+        permissions:
+          type: array
+          items:
+            $ref: '#/components/schemas/AccountInformationPermission'
+          nullable: true
+        successRedirectUrl:
+          maxLength: 255
+          type: string
+          format: uri
+          nullable: true
+        failureRedirectUrl:
+          maxLength: 255
+          type: string
+          format: uri
+          nullable: true
+        autoRedirect:
+          type: boolean
+      additionalProperties: false
+    DomesticPaymentConsentResponseModelIEnumerablePagesModelMetaApiResponse:
+      type: object
+      properties:
+        error:
+          $ref: '#/components/schemas/ApiError'
+        errorDescription:
+          type: object
+          additionalProperties:
+            type: array
+            items:
+              type: string
+            nullable: true
+          nullable: true
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/DomesticPaymentConsentResponseModel'
+          nullable: true
+        meta:
+          $ref: '#/components/schemas/PagesModel'
+      additionalProperties: false
+    ObConsentsStatus:
+      enum:
+      - AwaitingAuthorization
+      - Authorized
+      - Authorised
+      - Consumed
+      - Rejected
+      - Expired
+      - Revoked
+      type: string
+    AccountInformationConsentResponseModelIEnumerablePagesModelMetaApiResponse:
+      type: object
+      properties:
+        error:
+          $ref: '#/components/schemas/ApiError'
+        errorDescription:
+          type: object
+          additionalProperties:
+            type: array
+            items:
+              type: string
+            nullable: true
+          nullable: true
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/AccountInformationConsentResponseModel'
+          nullable: true
+        meta:
+          $ref: '#/components/schemas/PagesModel'
+      additionalProperties: false
+    PaymentAccountModel:
+      required:
+      - identification
+      - scheme
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          nullable: true
+        scheme:
+          $ref: '#/components/schemas/SchemeName'
+        identification:
+          minLength: 1
+          type: string
+        name:
+          type: string
+          nullable: true
+      additionalProperties: false
+    AccountRequestModel:
+      required:
+      - identification
+      - scheme
+      type: object
+      properties:
+        scheme:
+          $ref: '#/components/schemas/SchemeName'
+        identification:
+          minLength: 1
+          type: string
+        name:
+          type: string
+          nullable: true
+      additionalProperties: false
+    CurrencyResponseModel:
+      required:
+      - englishName
+      - iso4117Code
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        englishName:
+          maxLength: 50
+          minLength: 1
+          type: string
+        arabicName:
+          maxLength: 50
+          type: string
+          nullable: true
+        iso4117Code:
+          maxLength: 3
+          minLength: 1
+          type: string
+        iso4117Number:
+          maxLength: 4
+          type: string
+          nullable: true
+      additionalProperties: false
+    PagesModel:
+      type: object
+      properties:
+        currentPageNumber:
+          type: integer
+          format: int32
+        pageSize:
+          type: integer
+          format: int32
+        totalNumberOfPages:
+          type: integer
+          format: int32
+      additionalProperties: false
+    PaymentInitiationConnectionResponseModel:
+      type: object
+      properties:
+        provider:
+          $ref: '#/components/schemas/PaymentInitiationProviderModel'
+        id:
+          type: string
+          format: uuid
+        status:
+          $ref: '#/components/schemas/ConnectionStatus'
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+      additionalProperties: false
+    LongLivedConsentRequestModel:
+      required:
+      - customerId
+      - expiryDate
+      - providerId
+      type: object
+      properties:
+        connectionId:
+          type: string
+          format: uuid
+          nullable: true
+        providerId:
+          type: string
+          format: uuid
+        customerId:
+          type: string
+          format: uuid
+        expiryDate:
+          type: string
+          format: date-time
+        transactionsFromDate:
+          type: string
+          format: date-time
+          nullable: true
+        transactionsToDate:
+          type: string
+          format: date-time
+          nullable: true
+        permissions:
+          type: array
+          items:
+            $ref: '#/components/schemas/AccountInformationPermission'
+          nullable: true
+        successRedirectUrl:
+          maxLength: 255
+          type: string
+          format: uri
+          nullable: true
+        failureRedirectUrl:
+          maxLength: 255
+          type: string
+          format: uri
+          nullable: true
+        autoRedirect:
+          type: boolean
+      additionalProperties: false
+    AccountInformationConsentResponseModel:
+      type: object
+      properties:
+        expiryDate:
+          type: string
+          format: date-time
+          nullable: true
+        transactionsFromDate:
+          type: string
+          format: date-time
+          nullable: true
+        transactionsToDate:
+          type: string
+          format: date-time
+          nullable: true
+        permissions:
+          type: array
+          items:
+            type: string
+          nullable: true
+        statusHistory:
+          type: array
+          items:
+            $ref: '#/components/schemas/ConsentStatusHistoryModel'
+          nullable: true
+        connection:
+          $ref: '#/components/schemas/AccountInformationConnectionResponseModel'
+        id:
+          type: string
+          format: uuid
+        customerId:
+          type: string
+          format: uuid
+          nullable: true
+        scope:
+          $ref: '#/components/schemas/ConsentScope'
+        createdAt:
+          type: string
+          format: date-time
+        status:
+          $ref: '#/components/schemas/ObConsentsStatus'
+        authorizationLink:
+          type: string
+          nullable: true
+        successRedirectUrl:
+          type: string
+          nullable: true
+        failureRedirectUrl:
+          type: string
+          nullable: true
+      additionalProperties: false
+  securitySchemes:
+    Bearer:
+      type: apiKey
+      description: Please enter into field the word 'Bearer' followed by a space and JWT
+      name: Authorization
+      in: header

@@ -1,0 +1,1232 @@
+openapi: 3.0.1
+info:
+  title: Information Account RiskReport API
+  description: Spare account information API documentation
+  termsOfService: https://terms.tryspare.com/en
+  contact:
+    name: Spare Technologies WLL.
+    email: hello@tryspare.com
+  license:
+    name: Spare Technologies WLL.
+  version: '1.0'
+security:
+- Bearer: []
+tags:
+- name: RiskReport
+paths:
+  /api/v1.0/ais/RiskReport/Create:
+    get:
+      tags:
+      - RiskReport
+      summary: Create account information risk report.
+      description: '**Unique resource name :** ais.v1.risk_report.create'
+      parameters:
+      - name: customerId
+        in: query
+        description: Customer ID
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectApiResponse'
+        '402':
+          description: Payment Required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectApiResponse'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectApiResponse'
+        '500':
+          description: Internal Server Error
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RiskReportStatusResponseModelApiResponse'
+        '400':
+          description: '- If customer ID not valid
+
+            - If consent is expired
+
+            - If consent is not authorized
+
+            - If account data not found
+
+            - If balance data not found
+
+            - If transaction data not found'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectApiResponse'
+        '404':
+          description: '- If customer not found'
+  /api/v1.0/ais/RiskReport/Get:
+    get:
+      tags:
+      - RiskReport
+      summary: Get account information risk report by id.
+      description: '**Unique resource name :** ais.v1.risk_report.get'
+      parameters:
+      - name: reportId
+        in: query
+        description: Report ID
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectApiResponse'
+        '402':
+          description: Payment Required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectApiResponse'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectApiResponse'
+        '500':
+          description: Internal Server Error
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RiskScoreResponseApiResponse'
+        '400':
+          description: '- If consent id is not valid.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectApiResponse'
+  /api/v1.0/ais/RiskReport/Export:
+    get:
+      tags:
+      - RiskReport
+      summary: Export account information risk report.
+      description: '**Unique resource name :** ais.v1.risk_report.export'
+      parameters:
+      - name: reportId
+        in: query
+        description: Report ID
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '401':
+          description: Unauthorized
+          content:
+            application/pdf:
+              schema:
+                $ref: '#/components/schemas/ObjectApiResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectApiResponse'
+        '402':
+          description: Payment Required
+          content:
+            application/pdf:
+              schema:
+                $ref: '#/components/schemas/ObjectApiResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectApiResponse'
+        '403':
+          description: Forbidden
+          content:
+            application/pdf:
+              schema:
+                $ref: '#/components/schemas/ObjectApiResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectApiResponse'
+        '500':
+          description: Internal Server Error
+        '200':
+          description: ''
+          content:
+            application/pdf:
+              schema:
+                $ref: '#/components/schemas/ObjectApiResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectApiResponse'
+        '400':
+          description: '- If consent id is not valid.'
+          content:
+            application/pdf:
+              schema:
+                $ref: '#/components/schemas/ObjectApiResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectApiResponse'
+        '404':
+          description: '- - If consent not found'
+          content:
+            application/pdf:
+              schema:
+                $ref: '#/components/schemas/ObjectApiResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectApiResponse'
+  /api/v1.0/ais/RiskReport/List:
+    post:
+      tags:
+      - RiskReport
+      summary: List account information reports.
+      description: '**Unique resource name :** ais.v1.account_information_report.list'
+      parameters:
+      - name: customerId
+        in: query
+        description: Customer id
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: page
+        in: query
+        description: Page number
+        schema:
+          type: integer
+          format: int32
+          default: '1'
+      - name: perPage
+        in: query
+        description: Number of items per page maximum allow is 10 per page
+        schema:
+          type: integer
+          format: int32
+          default: '10'
+      responses:
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectApiResponse'
+        '402':
+          description: Payment Required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectApiResponse'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectApiResponse'
+        '500':
+          description: Internal Server Error
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RiskReportStatusResponseModelIEnumerablePagesModelMetaApiResponse'
+        '400':
+          description: '- If pagination is not valid.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectApiResponse'
+        '404':
+          description: '- If customer not found'
+  /api/v1.0/ais/RiskReport/Status:
+    get:
+      tags:
+      - RiskReport
+      summary: Get account information risk report status.
+      description: '**Unique resource name :** ais.v1.risk_report.status'
+      parameters:
+      - name: reportId
+        in: query
+        description: Report ID
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectApiResponse'
+        '402':
+          description: Payment Required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectApiResponse'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectApiResponse'
+        '500':
+          description: Internal Server Error
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RiskReportStatusResponseModelApiResponse'
+        '400':
+          description: '- If the job is null or not a valid UUID.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectApiResponse'
+        '404':
+          description: '- If the job does not exist.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectApiResponse'
+  /api/v1.0/ais/RiskReport/Delete:
+    delete:
+      tags:
+      - RiskReport
+      summary: Delete account information risk report
+      description: '**Unique resource name :** ais.v1.risk_report.delete'
+      parameters:
+      - name: reportId
+        in: query
+        description: Risk report ID
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectApiResponse'
+        '402':
+          description: Payment Required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectApiResponse'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectApiResponse'
+        '500':
+          description: Internal Server Error
+        '204':
+          description: ''
+        '400':
+          description: '- If id is null or an invalid UUID.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectApiResponse'
+components:
+  schemas:
+    AvgMonthlyInflowDetail:
+      type: object
+      properties:
+        monthlyInflowValues:
+          type: array
+          items:
+            type: number
+            format: double
+          nullable: true
+        avgMonthlyInflow:
+          type: number
+          format: double
+        inflowVariabilityRatio:
+          type: number
+          format: double
+          nullable: true
+        coverageRatio:
+          type: number
+          format: double
+          nullable: true
+        magnitudeScore:
+          type: integer
+          format: int32
+          nullable: true
+        stabilityScore:
+          type: integer
+          format: int32
+          nullable: true
+        observationWindowMonths:
+          type: integer
+          format: int32
+          nullable: true
+        score:
+          type: integer
+          format: int32
+          nullable: true
+        interpretation:
+          type: string
+          nullable: true
+      additionalProperties: false
+    FixedVsDiscretionarySpendDetail:
+      type: object
+      properties:
+        avgFixedSpend:
+          type: number
+          format: double
+        avgDiscretionarySpend:
+          type: number
+          format: double
+        avgTotalSpend:
+          type: number
+          format: double
+        fixedSpendRatio:
+          type: number
+          format: double
+        discretionaryRatio:
+          type: number
+          format: double
+        notApplicable:
+          type: boolean
+        unreliableCategorization:
+          type: boolean
+        observationWindowMonths:
+          type: integer
+          format: int32
+          nullable: true
+        score:
+          type: integer
+          format: int32
+          nullable: true
+        interpretation:
+          type: string
+          nullable: true
+      additionalProperties: false
+    HighRiskCategorySpendDetail:
+      type: object
+      properties:
+        avgTotalSpend:
+          type: number
+          format: double
+        avgHighRiskSpend:
+          type: number
+          format: double
+        highRiskSpendRatio:
+          type: number
+          format: double
+        highRiskSpendPercentage:
+          type: number
+          format: double
+        notApplicable:
+          type: boolean
+        singleIsolatedRiskyTransactionExcluded:
+          type: boolean
+          nullable: true
+        observationWindowMonths:
+          type: integer
+          format: int32
+          nullable: true
+        score:
+          type: integer
+          format: int32
+          nullable: true
+        interpretation:
+          type: string
+          nullable: true
+      additionalProperties: false
+    ApiError:
+      enum:
+      - INVALID_DATA
+      - INVALID_SIGNATURE
+      - RESOURCE_LOCKED
+      - COUNTRY_NOT_FOUND
+      - CURRENCY_NOT_FOUND
+      - PROVIDER_NOT_FOUND
+      - CONNECTION_NOT_FOUND
+      - INSUFFICIENT_CONSENT_PERMISSIONS
+      - CONSENT_EXPIRED
+      - CONSENT_REVOKED
+      - CONSENT_UNAUTHORIZED
+      - CONSENT_NOT_FOUND
+      - RISK_REPORT_NOT_FOUND
+      - ACCOUNT_INFORMATION_REPORT_NOT_FOUND
+      - MULTIPLE_CURRENCY_NOT_ALLOWED
+      - MULTIPLE_CONSENT_DATE_NOT_ALLOWED
+      - PAYMENT_NOT_FOUND
+      - CONSENT_REJECTED
+      - PAYMENT_REQUEST_NOT_FOUND
+      - CUSTOMER_NOT_FOUND
+      - CUSTOMER_ALREADY_EXISTS
+      - BANK_ACCOUNT_NOT_FOUND
+      - SERVER_ERROR
+      - PROVIDER_CONNECTION_FAILURE
+      - TRANSACTION_NOT_FOUND
+      - ACCOUNT_INFORMATION_ACCESS_REQUEST_NOT_FOUND
+      - CONSENT_REVOCATION_FAILED
+      - CONSENT_REVOKED_OR_EXPIRED
+      - SUBSCRIPTION_EXPIRED
+      - NOT_SUBSCRIBED_TO_SERVICE
+      - BENEFICIARY_NOT_FOUND
+      - PARTIES_NOT_FOUND
+      - DIRECT_DEBIT_NOT_FOUND
+      - SCHEDULED_PAYMENT_NOT_FOUND
+      - DEBTOR_ACCOUNT_NOT_FOUND
+      - CREDITOR_ACCOUNT_NOT_FOUND
+      - UNAUTHORIZED_IP_ADDRESS
+      type: string
+    RiskScoreResponseApiResponse:
+      type: object
+      properties:
+        error:
+          $ref: '#/components/schemas/ApiError'
+        errorDescription:
+          type: object
+          additionalProperties:
+            type: array
+            items:
+              type: string
+            nullable: true
+          nullable: true
+        data:
+          $ref: '#/components/schemas/RiskScoreResponse'
+      additionalProperties: false
+    VolatilityIndexDetail:
+      type: object
+      properties:
+        incomeVolatility:
+          type: number
+          format: double
+        expenseVolatility:
+          type: number
+          format: double
+        balanceVolatility:
+          type: number
+          format: double
+        balanceVolatilityFromDailyBalances:
+          type: boolean
+        volatilityIndexRaw:
+          type: number
+          format: double
+        normalizedIndex:
+          type: number
+          format: double
+        observationWindowMonths:
+          type: integer
+          format: int32
+          nullable: true
+        score:
+          type: integer
+          format: int32
+          nullable: true
+        interpretation:
+          type: string
+          nullable: true
+      additionalProperties: false
+    DecimalFeatureSignal:
+      type: object
+      properties:
+        value:
+          type: number
+          format: double
+        observationWindowMonths:
+          type: integer
+          format: int32
+          nullable: true
+        score:
+          type: integer
+          format: int32
+          nullable: true
+        interpretation:
+          type: string
+          nullable: true
+      additionalProperties: false
+    SavingRatioDetail:
+      type: object
+      properties:
+        avgMonthlyInflow:
+          type: number
+          format: double
+        avgMonthlyClosingBalance:
+          type: number
+          format: double
+        savingRatio:
+          type: number
+          format: double
+        savingRatioPercentage:
+          type: number
+          format: double
+        notApplicable:
+          type: boolean
+        usedCurrentBalanceFallback:
+          type: boolean
+        observationWindowMonths:
+          type: integer
+          format: int32
+          nullable: true
+        score:
+          type: integer
+          format: int32
+          nullable: true
+        interpretation:
+          type: string
+          nullable: true
+      additionalProperties: false
+    RiskReportStatusResponseModelApiResponse:
+      type: object
+      properties:
+        error:
+          $ref: '#/components/schemas/ApiError'
+        errorDescription:
+          type: object
+          additionalProperties:
+            type: array
+            items:
+              type: string
+            nullable: true
+          nullable: true
+        data:
+          $ref: '#/components/schemas/RiskReportStatusResponseModel'
+      additionalProperties: false
+    ObjectApiResponse:
+      type: object
+      properties:
+        error:
+          $ref: '#/components/schemas/ApiError'
+        errorDescription:
+          type: object
+          additionalProperties:
+            type: array
+            items:
+              type: string
+            nullable: true
+          nullable: true
+        data:
+          nullable: true
+      additionalProperties: false
+    EmployerConsistencyDetail:
+      type: object
+      properties:
+        distinctEmployers:
+          type: integer
+          format: int32
+        primaryEmployer:
+          type: string
+          nullable: true
+        durationRatio:
+          type: number
+          format: double
+        employerSwitchCount:
+          type: integer
+          format: int32
+        observationWindowMonths:
+          type: integer
+          format: int32
+          nullable: true
+        score:
+          type: integer
+          format: int32
+          nullable: true
+        interpretation:
+          type: string
+          nullable: true
+      additionalProperties: false
+    EmergencyBufferDetail:
+      type: object
+      properties:
+        avgAvailableBalance:
+          type: number
+          format: double
+        avgMonthlyExpense:
+          type: number
+          format: double
+        emergencyBufferMonths:
+          type: number
+          format: double
+        notApplicable:
+          type: boolean
+        usedCurrentBalanceFallback:
+          type: boolean
+        observationWindowMonths:
+          type: integer
+          format: int32
+          nullable: true
+        score:
+          type: integer
+          format: int32
+          nullable: true
+        interpretation:
+          type: string
+          nullable: true
+      additionalProperties: false
+    RiskReportStatusResponseModelIEnumerablePagesModelMetaApiResponse:
+      type: object
+      properties:
+        error:
+          $ref: '#/components/schemas/ApiError'
+        errorDescription:
+          type: object
+          additionalProperties:
+            type: array
+            items:
+              type: string
+            nullable: true
+          nullable: true
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/RiskReportStatusResponseModel'
+          nullable: true
+        meta:
+          $ref: '#/components/schemas/PagesModel'
+      additionalProperties: false
+    ActiveLoanMortgageDetail:
+      type: object
+      properties:
+        loanDetected:
+          type: boolean
+          nullable: true
+        loanTypeDetected:
+          type: string
+          nullable: true
+        monthlyEmiEstimated:
+          type: number
+          format: double
+        notApplicable:
+          type: boolean
+        insufficientData:
+          type: boolean
+          nullable: true
+        newLoanWithinTwoCycles:
+          type: boolean
+        observationWindowMonths:
+          type: integer
+          format: int32
+          nullable: true
+        score:
+          type: integer
+          format: int32
+          nullable: true
+        interpretation:
+          type: string
+          nullable: true
+      additionalProperties: false
+    AvgMonthlyOutflowDetail:
+      type: object
+      properties:
+        monthlyOutflowValues:
+          type: array
+          items:
+            type: number
+            format: double
+          nullable: true
+        avgMonthlyOutflow:
+          type: number
+          format: double
+        outflowVariabilityRatio:
+          type: number
+          format: double
+          nullable: true
+        expenseGrowthRate:
+          type: number
+          format: double
+          nullable: true
+        expenseBurdenRatio:
+          type: number
+          format: double
+          nullable: true
+        expenseBurdenScore:
+          type: integer
+          format: int32
+          nullable: true
+        stabilityScore:
+          type: integer
+          format: int32
+          nullable: true
+        observationWindowMonths:
+          type: integer
+          format: int32
+          nullable: true
+        score:
+          type: integer
+          format: int32
+          nullable: true
+        interpretation:
+          type: string
+          nullable: true
+      additionalProperties: false
+    Int32FeatureSignal:
+      type: object
+      properties:
+        value:
+          type: integer
+          format: int32
+        observationWindowMonths:
+          type: integer
+          format: int32
+          nullable: true
+        score:
+          type: integer
+          format: int32
+          nullable: true
+        interpretation:
+          type: string
+          nullable: true
+      additionalProperties: false
+    RecurringPaymentLoadDetail:
+      type: object
+      properties:
+        avgMonthlyInflow:
+          type: number
+          format: double
+        avgMonthlyRecurringPayment:
+          type: number
+          format: double
+        recurringPaymentLoad:
+          type: number
+          format: double
+        recurringPaymentLoadPercentage:
+          type: number
+          format: double
+        notApplicable:
+          type: boolean
+        observationWindowMonths:
+          type: integer
+          format: int32
+          nullable: true
+        score:
+          type: integer
+          format: int32
+          nullable: true
+        interpretation:
+          type: string
+          nullable: true
+      additionalProperties: false
+    PositiveEndOfMonthBalanceDetail:
+      type: object
+      properties:
+        positiveMonths:
+          type: integer
+          format: int32
+        negativeMonths:
+          type: integer
+          format: int32
+        positiveMonthPercentage:
+          type: number
+          format: double
+        usedNetCashFlowFallback:
+          type: boolean
+        notApplicable:
+          type: boolean
+        observationWindowMonths:
+          type: integer
+          format: int32
+          nullable: true
+        score:
+          type: integer
+          format: int32
+          nullable: true
+        interpretation:
+          type: string
+          nullable: true
+      additionalProperties: false
+    IncomeFrequencyDetail:
+      type: object
+      properties:
+        frequencyType:
+          type: string
+          nullable: true
+        medianGapDays:
+          type: number
+          format: double
+        gapStabilityRatio:
+          type: number
+          format: double
+        coverageRatio:
+          type: number
+          format: double
+        observationWindowMonths:
+          type: integer
+          format: int32
+          nullable: true
+        score:
+          type: integer
+          format: int32
+          nullable: true
+        interpretation:
+          type: string
+          nullable: true
+      additionalProperties: false
+    IncomeTrendDetail:
+      type: object
+      properties:
+        firstMonthIncome:
+          type: number
+          format: double
+        lastMonthIncome:
+          type: number
+          format: double
+        normalizedGrowthRate:
+          type: number
+          format: double
+        growthConsistencyRatio:
+          type: number
+          format: double
+        adjustedScore:
+          type: integer
+          format: int32
+        observationWindowMonths:
+          type: integer
+          format: int32
+          nullable: true
+        score:
+          type: integer
+          format: int32
+          nullable: true
+        interpretation:
+          type: string
+          nullable: true
+      additionalProperties: false
+    CashFlowRatioDetail:
+      type: object
+      properties:
+        avgMonthlyInflow:
+          type: number
+          format: double
+        avgMonthlyOutflow:
+          type: number
+          format: double
+        ratio:
+          type: number
+          format: double
+        netCashFlow:
+          type: number
+          format: double
+        marginRatio:
+          type: number
+          format: double
+          nullable: true
+        observationWindowMonths:
+          type: integer
+          format: int32
+          nullable: true
+        score:
+          type: integer
+          format: int32
+          nullable: true
+        interpretation:
+          type: string
+          nullable: true
+      additionalProperties: false
+    DebtServiceRatioDetail:
+      type: object
+      properties:
+        avgMonthlyInflow:
+          type: number
+          format: double
+        avgMonthlyDebtPayment:
+          type: number
+          format: double
+        dsrRatio:
+          type: number
+          format: double
+        dsrPercentage:
+          type: number
+          format: double
+        notApplicable:
+          type: boolean
+        insufficientData:
+          type: boolean
+          nullable: true
+        newLoanGuardrail:
+          type: boolean
+          nullable: true
+        incomeDecliningAdjustment:
+          type: boolean
+          nullable: true
+        observationWindowMonths:
+          type: integer
+          format: int32
+          nullable: true
+        score:
+          type: integer
+          format: int32
+          nullable: true
+        interpretation:
+          type: string
+          nullable: true
+      additionalProperties: false
+    SalaryRangeDetail:
+      type: object
+      properties:
+        minMonthlySalary:
+          type: number
+          format: double
+        maxMonthlySalary:
+          type: number
+          format: double
+        medianMonthlySalary:
+          type: number
+          format: double
+        salaryVariabilityRatio:
+          type: number
+          format: double
+        salaryCoverageRatio:
+          type: number
+          format: double
+        observationWindowMonths:
+          type: integer
+          format: int32
+          nullable: true
+        score:
+          type: integer
+          format: int32
+          nullable: true
+        interpretation:
+          type: string
+          nullable: true
+      additionalProperties: false
+    RiskReportStatusResponseModel:
+      type: object
+      properties:
+        customerId:
+          type: string
+          format: uuid
+          nullable: true
+        ReportId:
+          type: string
+          format: uuid
+        status:
+          type: string
+          nullable: true
+        reason:
+          type: string
+          nullable: true
+        createdAt:
+          type: string
+          format: date-time
+      additionalProperties: false
+    RepaymentRegularityDetail:
+      type: object
+      properties:
+        emiExpectedAmount:
+          type: number
+          format: double
+          nullable: true
+        totalExpectedPayments:
+          type: integer
+          format: int32
+        onTimePayments:
+          type: integer
+          format: int32
+        missedPayments:
+          type: integer
+          format: int32
+        fullPayments:
+          type: integer
+          format: int32
+        onTimeRatio:
+          type: number
+          format: double
+        fullPaymentRatio:
+          type: number
+          format: double
+        missedRatio:
+          type: number
+          format: double
+        compositeRawScore:
+          type: number
+          format: double
+        notApplicable:
+          type: boolean
+        insufficientEmiCycles:
+          type: boolean
+          nullable: true
+        newLoanGuardrail:
+          type: boolean
+          nullable: true
+        observationWindowMonths:
+          type: integer
+          format: int32
+          nullable: true
+        score:
+          type: integer
+          format: int32
+          nullable: true
+        interpretation:
+          type: string
+          nullable: true
+      additionalProperties: false
+    PagesModel:
+      type: object
+      properties:
+        currentPageNumber:
+          type: integer
+          format: int32
+        pageSize:
+          type: integer
+          format: int32
+        totalNumberOfPages:
+          type: integer
+          format: int32
+      additionalProperties: false
+    OverdraftFrequencyDetail:
+      type: object
+      properties:
+        observationWindowDays:
+          type: integer
+          format: int32
+        overdraftDays:
+          type: integer
+          format: int32
+        overdraftEpisodeCount:
+          type: integer
+          format: int32
+        overdraftFrequencyRatio:
+          type: number
+          format: double
+        insufficientBalanceHistory:
+          type: boolean
+        observationWindowMonths:
+          type: integer
+          format: int32
+          nullable: true
+        score:
+          type: integer
+          format: int32
+          nullable: true
+        interpretation:
+          type: string
+          nullable: true
+      additionalProperties: false
+    DoubleFeatureSignal:
+      type: object
+      properties:
+        value:
+          type: number
+          format: double
+        observationWindowMonths:
+          type: integer
+          format: int32
+          nullable: true
+        score:
+          type: integer
+          format: int32
+          nullable: true
+        interpretation:
+          type: string
+          nullable: true
+      additionalProperties: false
+    FeatureSet:
+      type: object
+      properties:
+        salaryCoefficientOfVariation:
+          $ref: '#/components/schemas/DoubleFeatureSignal'
+        salaryRangeDetail:
+          $ref: '#/components/schemas/SalaryRangeDetail'
+        incomeFrequencyDetail:
+          $ref: '#/components/schemas/IncomeFrequencyDetail'
+        employerConsistencyDetail:
+          $ref: '#/components/schemas/EmployerConsistencyDetail'
+        incomeTrendDetail:
+          $ref: '#/components/schemas/IncomeTrendDetail'
+        avgMonthlyInflowDetail:
+          $ref: '#/components/schemas/AvgMonthlyInflowDetail'
+        avgMonthlyOutflowDetail:
+          $ref: '#/components/schemas/AvgMonthlyOutflowDetail'
+        cashFlowRatioDetail:
+          $ref: '#/components/schemas/CashFlowRatioDetail'
+        volatilityIndexDetail:
+          $ref: '#/components/schemas/VolatilityIndexDetail'
+        overdraftFrequencyDetail:
+          $ref: '#/components/schemas/OverdraftFrequencyDetail'
+        fixedVsDiscretionarySpendDetail:
+          $ref: '#/components/schemas/FixedVsDiscretionarySpendDetail'
+        positiveEndOfMonthBalanceDetail:
+          $ref: '#/components/schemas/PositiveEndOfMonthBalanceDetail'
+        savingRatioDetail:
+          $ref: '#/components/schemas/SavingRatioDetail'
+        emergencyBufferDetail:
+          $ref: '#/components/schemas/EmergencyBufferDetail'
+        recurringPaymentLoadDetail:
+          $ref: '#/components/schemas/RecurringPaymentLoadDetail'
+        highRiskCategorySpendDetail:
+          $ref: '#/components/schemas/HighRiskCategorySpendDetail'
+        activeLoanMortgageDetail:
+          $ref: '#/components/schemas/ActiveLoanMortgageDetail'
+        repaymentRegularityDetail:
+          $ref: '#/components/schemas/RepaymentRegularityDetail'
+        debtServiceRatioDetail:
+          $ref: '#/components/schemas/DebtServiceRatioDetail'
+        repaymentScore:
+          $ref: '#/components/schemas/DecimalFeatureSignal'
+        fixedSpendRatio:
+          $ref: '#/components/schemas/DecimalFeatureSignal'
+        incomeTransactionCount:
+          $ref: '#/components/schemas/Int32FeatureSignal'
+        riskyTransactionCount:
+          $ref: '#/components/schemas/Int32FeatureSignal'
+        averageTransactionAmount:
+          $ref: '#/components/schemas/DecimalFeatureSignal'
+        incomeStabilityScore:
+          $ref: '#/components/schemas/DecimalFeatureSignal'
+        estimatedValueByYear:
+          $ref: '#/components/schemas/DecimalFeatureSignal'
+      additionalProperties: false
+    RiskScoreResponse:
+      type: object
+      properties:
+        riskLevel:
+          type: string
+          nullable: true
+        score:
+          type: integer
+          format: int32
+          nullable: true
+        currency:
+          type: string
+          nullable: true
+        reportId:
+          type: string
+          format: uuid
+        accountHolderName:
+          type: string
+          nullable: true
+        requestedBy:
+          type: string
+          nullable: true
+        createdAt:
+          type: string
+          format: date-time
+        features:
+          $ref: '#/components/schemas/FeatureSet'
+      additionalProperties: false
+  securitySchemes:
+    Bearer:
+      type: apiKey
+      description: Please enter into field the word 'Bearer' followed by a space and JWT
+      name: Authorization
+      in: header

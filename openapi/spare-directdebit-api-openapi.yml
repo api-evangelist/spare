@@ -1,0 +1,188 @@
+openapi: 3.0.1
+info:
+  title: Information Account DirectDebit API
+  description: Spare account information API documentation
+  termsOfService: https://terms.tryspare.com/en
+  contact:
+    name: Spare Technologies WLL.
+    email: hello@tryspare.com
+  license:
+    name: Spare Technologies WLL.
+  version: '1.0'
+security:
+- Bearer: []
+tags:
+- name: DirectDebit
+paths:
+  /api/v1.0/ais/DirectDebit/Get:
+    get:
+      tags:
+      - DirectDebit
+      summary: Get account direct debits
+      description: "**Unique resource name :** ais.v1.direct_debit.get\n            \n**Important!:**\n            \nThe permissions bellow are required on the consent:\n- `ReadDirectDebits`"
+      parameters:
+      - name: accountId
+        in: query
+        description: Account id
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectApiResponse'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectApiResponse'
+        '500':
+          description: Internal Server Error
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DirectDebitsResponseModelIEnumerableApiResponse'
+        '400':
+          description: '- If account id is not valid'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectApiResponse'
+        '404':
+          description: '- If account does not exist'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectApiResponse'
+components:
+  schemas:
+    DirectDebitsResponseModelIEnumerableApiResponse:
+      type: object
+      properties:
+        error:
+          $ref: '#/components/schemas/ApiError'
+        errorDescription:
+          type: object
+          additionalProperties:
+            type: array
+            items:
+              type: string
+            nullable: true
+          nullable: true
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/DirectDebitsResponseModel'
+          nullable: true
+      additionalProperties: false
+    ApiError:
+      enum:
+      - INVALID_DATA
+      - INVALID_SIGNATURE
+      - RESOURCE_LOCKED
+      - COUNTRY_NOT_FOUND
+      - CURRENCY_NOT_FOUND
+      - PROVIDER_NOT_FOUND
+      - CONNECTION_NOT_FOUND
+      - INSUFFICIENT_CONSENT_PERMISSIONS
+      - CONSENT_EXPIRED
+      - CONSENT_REVOKED
+      - CONSENT_UNAUTHORIZED
+      - CONSENT_NOT_FOUND
+      - RISK_REPORT_NOT_FOUND
+      - ACCOUNT_INFORMATION_REPORT_NOT_FOUND
+      - MULTIPLE_CURRENCY_NOT_ALLOWED
+      - MULTIPLE_CONSENT_DATE_NOT_ALLOWED
+      - PAYMENT_NOT_FOUND
+      - CONSENT_REJECTED
+      - PAYMENT_REQUEST_NOT_FOUND
+      - CUSTOMER_NOT_FOUND
+      - CUSTOMER_ALREADY_EXISTS
+      - BANK_ACCOUNT_NOT_FOUND
+      - SERVER_ERROR
+      - PROVIDER_CONNECTION_FAILURE
+      - TRANSACTION_NOT_FOUND
+      - ACCOUNT_INFORMATION_ACCESS_REQUEST_NOT_FOUND
+      - CONSENT_REVOCATION_FAILED
+      - CONSENT_REVOKED_OR_EXPIRED
+      - SUBSCRIPTION_EXPIRED
+      - NOT_SUBSCRIBED_TO_SERVICE
+      - BENEFICIARY_NOT_FOUND
+      - PARTIES_NOT_FOUND
+      - DIRECT_DEBIT_NOT_FOUND
+      - SCHEDULED_PAYMENT_NOT_FOUND
+      - DEBTOR_ACCOUNT_NOT_FOUND
+      - CREDITOR_ACCOUNT_NOT_FOUND
+      - UNAUTHORIZED_IP_ADDRESS
+      type: string
+    ObjectApiResponse:
+      type: object
+      properties:
+        error:
+          $ref: '#/components/schemas/ApiError'
+        errorDescription:
+          type: object
+          additionalProperties:
+            type: array
+            items:
+              type: string
+            nullable: true
+          nullable: true
+        data:
+          nullable: true
+      additionalProperties: false
+    DirectDebitsResponseModel:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          nullable: true
+        accountId:
+          type: string
+          format: uuid
+          nullable: true
+        createdAt:
+          type: string
+          format: date-time
+          nullable: true
+        updatedAt:
+          type: string
+          format: date-time
+          nullable: true
+        mandateIdentification:
+          type: string
+          nullable: true
+        directDebitStatusCode:
+          type: string
+          nullable: true
+        name:
+          type: string
+          nullable: true
+        frequency:
+          type: string
+          nullable: true
+        previousPaymentDateTime:
+          type: string
+          format: date-time
+          nullable: true
+        previousPaymentAmount:
+          type: string
+          nullable: true
+        previousPaymentCurrency:
+          type: string
+          nullable: true
+      additionalProperties: false
+  securitySchemes:
+    Bearer:
+      type: apiKey
+      description: Please enter into field the word 'Bearer' followed by a space and JWT
+      name: Authorization
+      in: header

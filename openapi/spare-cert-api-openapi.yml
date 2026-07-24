@@ -1,0 +1,137 @@
+openapi: 3.0.1
+info:
+  title: Information Account Cert API
+  description: Spare account information API documentation
+  termsOfService: https://terms.tryspare.com/en
+  contact:
+    name: Spare Technologies WLL.
+    email: hello@tryspare.com
+  license:
+    name: Spare Technologies WLL.
+  version: '1.0'
+security:
+- Bearer: []
+tags:
+- name: Cert
+paths:
+  /api/v1.0/authentication/Jwks:
+    get:
+      tags:
+      - Cert
+      summary: Retrieves the JSON Web Key Set (JWKS) used for token, payloads and webhook signature verification.
+      description: "**Unique resource name:** api_authentication.v1.cert.jwks\r\n            \r\nThis endpoint provides a set of JSON Web Keys (JWK) as defined in\r\n<a href=\"https://www.rfc-editor.org/rfc/rfc7517\" target=\"_blank\">RFC 7517</a>.\r\n            \r\n**Usage:**\r\n- Used to verify the signature of access tokens and refresh tokens.\r\n- Used to validate the `x-signature` header in the API responses or webhook events.\r\n- Ensures secure cryptographic verification of API interactions.\r\n            \r\nThe response includes RSA and ECC-based public keys required for token and data signature validation."
+      responses:
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '500':
+          description: Internal Server Error
+        '200':
+          description: '- Successfully returns the JSON Web Key Set.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SpJsonWebKeySet'
+components:
+  schemas:
+    ProblemDetails:
+      type: object
+      properties:
+        type:
+          type: string
+          nullable: true
+        title:
+          type: string
+          nullable: true
+        status:
+          type: integer
+          format: int32
+          nullable: true
+        detail:
+          type: string
+          nullable: true
+        instance:
+          type: string
+          nullable: true
+      additionalProperties: {}
+    SpJsonWebKey:
+      type: object
+      properties:
+        p:
+          type: string
+          nullable: true
+        kty:
+          type: string
+          nullable: true
+        q:
+          type: string
+          nullable: true
+        d:
+          type: string
+          nullable: true
+        e:
+          type: string
+          nullable: true
+        use:
+          type: string
+          nullable: true
+        kid:
+          type: string
+          nullable: true
+        qi:
+          type: string
+          nullable: true
+        dp:
+          type: string
+          nullable: true
+        alg:
+          type: string
+          nullable: true
+        dq:
+          type: string
+          nullable: true
+        n:
+          type: string
+          nullable: true
+        x:
+          type: string
+          nullable: true
+        y:
+          type: string
+          nullable: true
+        crv:
+          type: string
+          nullable: true
+        x5t:
+          type: string
+          nullable: true
+        x5c:
+          type: array
+          items:
+            type: string
+          nullable: true
+      additionalProperties: false
+    SpJsonWebKeySet:
+      type: object
+      properties:
+        keys:
+          type: array
+          items:
+            $ref: '#/components/schemas/SpJsonWebKey'
+          nullable: true
+      additionalProperties: false
+  securitySchemes:
+    Bearer:
+      type: apiKey
+      description: Please enter into field the word 'Bearer' followed by a space and JWT
+      name: Authorization
+      in: header

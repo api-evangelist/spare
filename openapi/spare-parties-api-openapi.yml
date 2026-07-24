@@ -1,0 +1,545 @@
+openapi: 3.0.1
+info:
+  title: Information Account Parties API
+  description: Spare account information API documentation
+  termsOfService: https://terms.tryspare.com/en
+  contact:
+    name: Spare Technologies WLL.
+    email: hello@tryspare.com
+  license:
+    name: Spare Technologies WLL.
+  version: '1.0'
+security:
+- Bearer: []
+tags:
+- name: Parties
+paths:
+  /api/v1.0/ais/Parties/Get:
+    get:
+      tags:
+      - Parties
+      summary: Get account parties
+      description: "**Unique resource name :** ais.v1.parties.get\n            \n**Important!:**\n            \nThe permissions bellow are required on the consent:\n- `ReadParty`"
+      parameters:
+      - name: accountId
+        in: query
+        description: Account id
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectApiResponse'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectApiResponse'
+        '500':
+          description: Internal Server Error
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PartiesResponseModelIEnumerableApiResponse'
+        '400':
+          description: '- If account id is not valid'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectApiResponse'
+        '404':
+          description: '- If account does not exists'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectApiResponse'
+components:
+  schemas:
+    PartiesResponseModel:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          nullable: true
+        accountId:
+          type: string
+          format: uuid
+          nullable: true
+        createdAt:
+          type: string
+          format: date-time
+          nullable: true
+        updatedAt:
+          type: string
+          format: date-time
+          nullable: true
+        partyNumber:
+          type: string
+          nullable: true
+        partyType:
+          type: string
+          nullable: true
+        accountRole:
+          type: string
+          nullable: true
+        verifiedClaims:
+          type: array
+          items:
+            $ref: '#/components/schemas/VerifiedClaimsResponseModel'
+          nullable: true
+      additionalProperties: false
+    VerifiedClaimsResponseModel:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          nullable: true
+        createdAt:
+          type: string
+          format: date-time
+          nullable: true
+        updatedAt:
+          type: string
+          format: date-time
+          nullable: true
+        verification:
+          $ref: '#/components/schemas/VerificationResponseModel'
+        claims:
+          $ref: '#/components/schemas/ClaimsResponseModel'
+      additionalProperties: false
+    PartiesResponseModelIEnumerableApiResponse:
+      type: object
+      properties:
+        error:
+          $ref: '#/components/schemas/ApiError'
+        errorDescription:
+          type: object
+          additionalProperties:
+            type: array
+            items:
+              type: string
+            nullable: true
+          nullable: true
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/PartiesResponseModel'
+          nullable: true
+      additionalProperties: false
+    EvidenceReferenceModel:
+      type: object
+      properties:
+        evidenceClassification:
+          type: string
+          nullable: true
+        txn:
+          type: string
+          nullable: true
+      additionalProperties: false
+    ObjectApiResponse:
+      type: object
+      properties:
+        error:
+          $ref: '#/components/schemas/ApiError'
+        errorDescription:
+          type: object
+          additionalProperties:
+            type: array
+            items:
+              type: string
+            nullable: true
+          nullable: true
+        data:
+          nullable: true
+      additionalProperties: false
+    AssuranceProcessResponseModel:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          nullable: true
+        createdAt:
+          type: string
+          format: date-time
+          nullable: true
+        updatedAt:
+          type: string
+          format: date-time
+          nullable: true
+        assuranceDetails:
+          type: array
+          items:
+            $ref: '#/components/schemas/AssuranceDetailResponseModel'
+          nullable: true
+        policy:
+          type: string
+          nullable: true
+        procedure:
+          type: string
+          nullable: true
+      additionalProperties: false
+    EvidenceResponseModel:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          nullable: true
+        createdAt:
+          type: string
+          format: date-time
+          nullable: true
+        updatedAt:
+          type: string
+          format: date-time
+          nullable: true
+        documentDetails:
+          $ref: '#/components/schemas/DocumentDetailsResponseModel'
+        type:
+          type: string
+          nullable: true
+        verifierOrganization:
+          type: string
+          nullable: true
+        verifierTxn:
+          type: string
+          nullable: true
+        time:
+          type: string
+          format: date-time
+          nullable: true
+      additionalProperties: false
+    DocumentDetailsResponseModel:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          nullable: true
+        createdAt:
+          type: string
+          format: date-time
+          nullable: true
+        updatedAt:
+          type: string
+          format: date-time
+          nullable: true
+        type:
+          type: string
+          nullable: true
+        documentNumber:
+          type: string
+          nullable: true
+        personalNumber:
+          type: string
+          nullable: true
+        serialNumber:
+          type: string
+          nullable: true
+        calendarType:
+          type: string
+          nullable: true
+        dateOfIssuance:
+          type: string
+          format: date-time
+          nullable: true
+        dateOfExpiry:
+          type: string
+          format: date-time
+          nullable: true
+        issuerName:
+          type: string
+          nullable: true
+        issuerAddress:
+          type: string
+          nullable: true
+        issuerStreetAddress:
+          type: string
+          nullable: true
+        issuerLocality:
+          type: string
+          nullable: true
+        issuerRegion:
+          type: string
+          nullable: true
+        issuerPostalCode:
+          type: string
+          nullable: true
+        issuerCountry:
+          type: string
+          nullable: true
+        issuerCountryCode:
+          type: string
+          nullable: true
+        issuerJurisdiction:
+          type: string
+          nullable: true
+      additionalProperties: false
+    AssuranceDetailResponseModel:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          nullable: true
+        createdAt:
+          type: string
+          format: date-time
+          nullable: true
+        updatedAt:
+          type: string
+          format: date-time
+          nullable: true
+        evidenceReference:
+          type: array
+          items:
+            $ref: '#/components/schemas/EvidenceReferenceResponseModel'
+          nullable: true
+        evidenceRef:
+          type: array
+          items:
+            $ref: '#/components/schemas/EvidenceReferenceModel'
+          nullable: true
+        assuranceClassification:
+          type: string
+          nullable: true
+        assuranceType:
+          type: string
+          nullable: true
+      additionalProperties: false
+    ClaimsResponseModel:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          nullable: true
+        createdAt:
+          type: string
+          format: date-time
+          nullable: true
+        updatedAt:
+          type: string
+          format: date-time
+          nullable: true
+        countryAddress:
+          type: string
+          nullable: true
+        formattedAddress:
+          type: string
+          nullable: true
+        localityAddress:
+          type: string
+          nullable: true
+        regionAddress:
+          type: string
+          nullable: true
+        streetAddress:
+          type: string
+          nullable: true
+        alsoKnownAs:
+          type: string
+          nullable: true
+        birthDate:
+          type: string
+          format: date-time
+          nullable: true
+        birthFamilyName:
+          type: string
+          nullable: true
+        birthGivenName:
+          type: string
+          nullable: true
+        birthMiddleName:
+          type: string
+          nullable: true
+        email:
+          type: string
+          nullable: true
+        emailVerified:
+          type: boolean
+          nullable: true
+        familyName:
+          type: string
+          nullable: true
+        gender:
+          type: string
+          nullable: true
+        givenName:
+          type: string
+          nullable: true
+        locale:
+          type: string
+          nullable: true
+        middleName:
+          type: string
+          nullable: true
+        msisdn:
+          type: string
+          nullable: true
+        name:
+          type: string
+          nullable: true
+        nationalities:
+          type: array
+          items:
+            type: string
+          nullable: true
+        nickname:
+          type: string
+          nullable: true
+        phoneNumber:
+          type: string
+          nullable: true
+        phoneNumberVerified:
+          type: boolean
+          nullable: true
+        picture:
+          type: string
+          nullable: true
+        countryPlaceOfBirth:
+          type: string
+          nullable: true
+        localityPlaceOfBirth:
+          type: string
+          nullable: true
+        regionPlaceOfBirth:
+          type: string
+          nullable: true
+        preferredUsername:
+          type: string
+          nullable: true
+        profile:
+          type: string
+          nullable: true
+        salutation:
+          type: string
+          nullable: true
+        subject:
+          type: string
+          nullable: true
+        title:
+          type: string
+          nullable: true
+        website:
+          type: string
+          nullable: true
+        zoneInfo:
+          type: string
+          nullable: true
+      additionalProperties: false
+    ApiError:
+      enum:
+      - INVALID_DATA
+      - INVALID_SIGNATURE
+      - RESOURCE_LOCKED
+      - COUNTRY_NOT_FOUND
+      - CURRENCY_NOT_FOUND
+      - PROVIDER_NOT_FOUND
+      - CONNECTION_NOT_FOUND
+      - INSUFFICIENT_CONSENT_PERMISSIONS
+      - CONSENT_EXPIRED
+      - CONSENT_REVOKED
+      - CONSENT_UNAUTHORIZED
+      - CONSENT_NOT_FOUND
+      - RISK_REPORT_NOT_FOUND
+      - ACCOUNT_INFORMATION_REPORT_NOT_FOUND
+      - MULTIPLE_CURRENCY_NOT_ALLOWED
+      - MULTIPLE_CONSENT_DATE_NOT_ALLOWED
+      - PAYMENT_NOT_FOUND
+      - CONSENT_REJECTED
+      - PAYMENT_REQUEST_NOT_FOUND
+      - CUSTOMER_NOT_FOUND
+      - CUSTOMER_ALREADY_EXISTS
+      - BANK_ACCOUNT_NOT_FOUND
+      - SERVER_ERROR
+      - PROVIDER_CONNECTION_FAILURE
+      - TRANSACTION_NOT_FOUND
+      - ACCOUNT_INFORMATION_ACCESS_REQUEST_NOT_FOUND
+      - CONSENT_REVOCATION_FAILED
+      - CONSENT_REVOKED_OR_EXPIRED
+      - SUBSCRIPTION_EXPIRED
+      - NOT_SUBSCRIBED_TO_SERVICE
+      - BENEFICIARY_NOT_FOUND
+      - PARTIES_NOT_FOUND
+      - DIRECT_DEBIT_NOT_FOUND
+      - SCHEDULED_PAYMENT_NOT_FOUND
+      - DEBTOR_ACCOUNT_NOT_FOUND
+      - CREDITOR_ACCOUNT_NOT_FOUND
+      - UNAUTHORIZED_IP_ADDRESS
+      type: string
+    VerificationResponseModel:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          nullable: true
+        createdAt:
+          type: string
+          format: date-time
+          nullable: true
+        updatedAt:
+          type: string
+          format: date-time
+          nullable: true
+        assuranceProcess:
+          $ref: '#/components/schemas/AssuranceProcessResponseModel'
+        evidence:
+          type: array
+          items:
+            $ref: '#/components/schemas/EvidenceResponseModel'
+          nullable: true
+        assuranceLevel:
+          type: string
+          nullable: true
+        time:
+          type: string
+          format: date-time
+          nullable: true
+        trustFramework:
+          type: string
+          nullable: true
+        verificationProcess:
+          type: string
+          nullable: true
+      additionalProperties: false
+    EvidenceReferenceResponseModel:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          nullable: true
+        createdAt:
+          type: string
+          format: date-time
+          nullable: true
+        updatedAt:
+          type: string
+          format: date-time
+          nullable: true
+        evidenceClassification:
+          type: string
+          nullable: true
+        txn:
+          type: string
+          nullable: true
+      additionalProperties: false
+  securitySchemes:
+    Bearer:
+      type: apiKey
+      description: Please enter into field the word 'Bearer' followed by a space and JWT
+      name: Authorization
+      in: header

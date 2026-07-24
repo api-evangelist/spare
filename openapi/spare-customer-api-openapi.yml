@@ -1,0 +1,560 @@
+openapi: 3.0.1
+info:
+  title: Information Account Customer API
+  description: Spare account information API documentation
+  termsOfService: https://terms.tryspare.com/en
+  contact:
+    name: Spare Technologies WLL.
+    email: hello@tryspare.com
+  license:
+    name: Spare Technologies WLL.
+  version: '1.0'
+security:
+- Bearer: []
+tags:
+- name: Customer
+paths:
+  /api/v1.0/ais/Customer/Create:
+    post:
+      tags:
+      - Customer
+      summary: Create customer
+      description: "**Unique resource name :** ais.v1.customer.create\n            \n**Important!:**\n            \n- `type` is required and need to be \"Retail\" or \"Business\".\n            \n- `nationalId` is required if `type` is \"Retail\"."
+      requestBody:
+        description: ''
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/CustomerRequestModel'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CustomerRequestModel'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/CustomerRequestModel'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/CustomerRequestModel'
+        required: true
+      responses:
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectApiResponse'
+        '402':
+          description: Payment Required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectApiResponse'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectApiResponse'
+        '500':
+          description: Internal Server Error
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomerDetailsResponseModelApiResponse'
+        '400':
+          description: If model is not valid
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectApiResponse'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectApiResponse'
+        '409':
+          description: If customer already exists
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectApiResponse'
+  /api/v1.0/ais/Customer/List:
+    get:
+      tags:
+      - Customer
+      summary: List customers
+      description: '**Unique resource name :** ais.v1.customer.list'
+      parameters:
+      - name: page
+        in: query
+        description: Page number
+        schema:
+          type: integer
+          format: int32
+          default: '1'
+      - name: perPage
+        in: query
+        description: Number of items per page maximum allow is 500 per page
+        schema:
+          type: integer
+          format: int32
+          default: '20'
+      responses:
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectApiResponse'
+        '402':
+          description: Payment Required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectApiResponse'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectApiResponse'
+        '500':
+          description: Internal Server Error
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomerResponseModelIEnumerablePagesModelMetaApiResponse'
+  /api/v1.0/ais/Customer/Get:
+    get:
+      tags:
+      - Customer
+      summary: Get customer by id
+      description: '**Unique resource name :** ais.v1.customer.get'
+      parameters:
+      - name: id
+        in: query
+        description: Customer id
+        schema:
+          type: string
+          format: uuid
+      - name: nationalIdentifier
+        in: query
+        description: It can be either national id or commercial registration
+        schema:
+          type: string
+      - name: externalId
+        in: query
+        description: Customer external id
+        schema:
+          maxLength: 50
+          type: string
+      responses:
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectApiResponse'
+        '402':
+          description: Payment Required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectApiResponse'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectApiResponse'
+        '500':
+          description: Internal Server Error
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomerDetailsResponseModelApiResponse'
+        '400':
+          description: '- If id is not valid'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectApiResponse'
+        '404':
+          description: '- If customer does not exist'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectApiResponse'
+  /api/v1.0/ais/Customer/Update:
+    patch:
+      tags:
+      - Customer
+      summary: Update customer
+      description: '**Unique resource name :** ais.v1.customer.update'
+      parameters:
+      - name: id
+        in: query
+        description: Customer id
+        required: true
+        schema:
+          type: string
+          format: uuid
+      requestBody:
+        description: Customer model
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/CustomerUpdateModel'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CustomerUpdateModel'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/CustomerUpdateModel'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/CustomerUpdateModel'
+        required: true
+      responses:
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectApiResponse'
+        '402':
+          description: Payment Required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectApiResponse'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectApiResponse'
+        '500':
+          description: Internal Server Error
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomerDetailsResponseModelApiResponse'
+        '400':
+          description: '- If id is not valid
+
+            - If model is not valid'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectApiResponse'
+        '404':
+          description: '- If customer does not exist'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectApiResponse'
+        '409':
+          description: If customer already exists
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectApiResponse'
+  /api/v1.0/ais/Customer/Delete:
+    delete:
+      tags:
+      - Customer
+      summary: Delete customer
+      description: '**Unique resource name :** ais.v1.customer.delete'
+      parameters:
+      - name: id
+        in: query
+        description: Customer id
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectApiResponse'
+        '402':
+          description: Payment Required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectApiResponse'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectApiResponse'
+        '500':
+          description: Internal Server Error
+        '204':
+          description: ''
+        '400':
+          description: '- If id is not valid'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectApiResponse'
+components:
+  schemas:
+    CustomerType:
+      enum:
+      - Retail
+      - Business
+      type: string
+    CustomerResponseModelIEnumerablePagesModelMetaApiResponse:
+      type: object
+      properties:
+        error:
+          $ref: '#/components/schemas/ApiError'
+        errorDescription:
+          type: object
+          additionalProperties:
+            type: array
+            items:
+              type: string
+            nullable: true
+          nullable: true
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/CustomerResponseModel'
+          nullable: true
+        meta:
+          $ref: '#/components/schemas/PagesModel'
+      additionalProperties: false
+    PagesModel:
+      type: object
+      properties:
+        currentPageNumber:
+          type: integer
+          format: int32
+        pageSize:
+          type: integer
+          format: int32
+        totalNumberOfPages:
+          type: integer
+          format: int32
+      additionalProperties: false
+    ObjectApiResponse:
+      type: object
+      properties:
+        error:
+          $ref: '#/components/schemas/ApiError'
+        errorDescription:
+          type: object
+          additionalProperties:
+            type: array
+            items:
+              type: string
+            nullable: true
+          nullable: true
+        data:
+          nullable: true
+      additionalProperties: false
+    CustomerResponseModel:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        fullName:
+          type: string
+          nullable: true
+        phone:
+          type: string
+          nullable: true
+        email:
+          type: string
+          nullable: true
+        nationalId:
+          type: string
+          nullable: true
+        registrationNumber:
+          type: string
+          nullable: true
+        type:
+          $ref: '#/components/schemas/CustomerType'
+        externalId:
+          type: string
+          nullable: true
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+        archived:
+          type: boolean
+          nullable: true
+      additionalProperties: false
+    CustomerUpdateModel:
+      required:
+      - email
+      type: object
+      properties:
+        email:
+          minLength: 1
+          type: string
+          format: email
+        phone:
+          maxLength: 16
+          minLength: 6
+          pattern: ^(\+|00)(\d{1,4})([0-9]+)$
+          type: string
+          nullable: true
+        fullName:
+          maxLength: 50
+          minLength: 2
+          type: string
+          nullable: true
+      additionalProperties: false
+    CustomerDetailsResponseModelApiResponse:
+      type: object
+      properties:
+        error:
+          $ref: '#/components/schemas/ApiError'
+        errorDescription:
+          type: object
+          additionalProperties:
+            type: array
+            items:
+              type: string
+            nullable: true
+          nullable: true
+        data:
+          $ref: '#/components/schemas/CustomerDetailsResponseModel'
+      additionalProperties: false
+    ApiError:
+      enum:
+      - INVALID_DATA
+      - INVALID_SIGNATURE
+      - RESOURCE_LOCKED
+      - COUNTRY_NOT_FOUND
+      - CURRENCY_NOT_FOUND
+      - PROVIDER_NOT_FOUND
+      - CONNECTION_NOT_FOUND
+      - INSUFFICIENT_CONSENT_PERMISSIONS
+      - CONSENT_EXPIRED
+      - CONSENT_REVOKED
+      - CONSENT_UNAUTHORIZED
+      - CONSENT_NOT_FOUND
+      - RISK_REPORT_NOT_FOUND
+      - ACCOUNT_INFORMATION_REPORT_NOT_FOUND
+      - MULTIPLE_CURRENCY_NOT_ALLOWED
+      - MULTIPLE_CONSENT_DATE_NOT_ALLOWED
+      - PAYMENT_NOT_FOUND
+      - CONSENT_REJECTED
+      - PAYMENT_REQUEST_NOT_FOUND
+      - CUSTOMER_NOT_FOUND
+      - CUSTOMER_ALREADY_EXISTS
+      - BANK_ACCOUNT_NOT_FOUND
+      - SERVER_ERROR
+      - PROVIDER_CONNECTION_FAILURE
+      - TRANSACTION_NOT_FOUND
+      - ACCOUNT_INFORMATION_ACCESS_REQUEST_NOT_FOUND
+      - CONSENT_REVOCATION_FAILED
+      - CONSENT_REVOKED_OR_EXPIRED
+      - SUBSCRIPTION_EXPIRED
+      - NOT_SUBSCRIBED_TO_SERVICE
+      - BENEFICIARY_NOT_FOUND
+      - PARTIES_NOT_FOUND
+      - DIRECT_DEBIT_NOT_FOUND
+      - SCHEDULED_PAYMENT_NOT_FOUND
+      - DEBTOR_ACCOUNT_NOT_FOUND
+      - CREDITOR_ACCOUNT_NOT_FOUND
+      - UNAUTHORIZED_IP_ADDRESS
+      type: string
+    CustomerDetailsResponseModel:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        fullName:
+          type: string
+          nullable: true
+        phone:
+          type: string
+          nullable: true
+        email:
+          type: string
+          nullable: true
+        nationalId:
+          type: string
+          nullable: true
+        registrationNumber:
+          type: string
+          nullable: true
+        type:
+          $ref: '#/components/schemas/CustomerType'
+        externalId:
+          type: string
+          nullable: true
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+        archived:
+          type: boolean
+          nullable: true
+      additionalProperties: false
+    CustomerRequestModel:
+      required:
+      - email
+      - type
+      type: object
+      properties:
+        email:
+          minLength: 1
+          type: string
+          format: email
+        fullName:
+          maxLength: 50
+          minLength: 2
+          type: string
+          nullable: true
+        phone:
+          maxLength: 16
+          minLength: 6
+          pattern: ^(\+|00)(\d{1,4})([0-9]+)$
+          type: string
+          nullable: true
+        nationalId:
+          type: string
+          nullable: true
+        type:
+          $ref: '#/components/schemas/CustomerType'
+        registrationNumber:
+          type: string
+          nullable: true
+        externalId:
+          maxLength: 50
+          type: string
+          nullable: true
+      additionalProperties: false
+  securitySchemes:
+    Bearer:
+      type: apiKey
+      description: Please enter into field the word 'Bearer' followed by a space and JWT
+      name: Authorization
+      in: header

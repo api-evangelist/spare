@@ -1,0 +1,378 @@
+openapi: 3.0.1
+info:
+  title: Information Account Provider API
+  description: Spare account information API documentation
+  termsOfService: https://terms.tryspare.com/en
+  contact:
+    name: Spare Technologies WLL.
+    email: hello@tryspare.com
+  license:
+    name: Spare Technologies WLL.
+  version: '1.0'
+security:
+- Bearer: []
+tags:
+- name: Provider
+paths:
+  /api/v1.0/ais/Provider/List:
+    get:
+      tags:
+      - Provider
+      summary: List open banking providers
+      description: '**Unique resource name :** ais.v1.provider.list'
+      parameters:
+      - name: countryCode
+        in: query
+        description: Country ISO 3166 alpha-2 code
+        required: true
+        schema:
+          pattern: ^[A-Za-z]{2}
+          type: string
+      responses:
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectApiResponse'
+        '402':
+          description: Payment Required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectApiResponse'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectApiResponse'
+        '500':
+          description: Internal Server Error
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccountInformationProviderModelIEnumerableApiResponse'
+        '400':
+          description: '- If country code is not a valid ISO 3166 alpha-2 code.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectApiResponse'
+  /api/v1.0/pis/Provider/List:
+    get:
+      tags:
+      - Provider
+      summary: List open banking providers
+      parameters:
+      - name: countryCode
+        in: query
+        description: Country ISO 3166 alpha-2 code
+        required: true
+        schema:
+          pattern: ^[A-Z]{2}
+          type: string
+      responses:
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectApiResponse'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectApiResponse'
+        '500':
+          description: Internal Server Error
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaymentInitiationProviderModelIEnumerableApiResponse'
+        '400':
+          description: '- If country code is not a valid ISO 3166 alpha-2 code.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaymentInitiationProviderModelIEnumerableApiResponse'
+components:
+  schemas:
+    PaymentInitiationProviderModelIEnumerableApiResponse:
+      type: object
+      properties:
+        error:
+          $ref: '#/components/schemas/ApiError'
+        errorDescription:
+          type: object
+          additionalProperties:
+            type: array
+            items:
+              type: string
+            nullable: true
+          nullable: true
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/PaymentInitiationProviderModel'
+          nullable: true
+      additionalProperties: false
+    AccountInformationPermission:
+      enum:
+      - ReadAccountsBasic
+      - ReadAccountsDetail
+      - ReadBalances
+      - ReadBeneficiariesBasic
+      - ReadBeneficiariesDetail
+      - ReadDirectDebits
+      - ReadTransactionsBasic
+      - ReadTransactionsDetail
+      - ReadTransactionsCredits
+      - ReadTransactionsDebits
+      - ReadStatementsBasic
+      - ReadStatementsDetail
+      - ReadSupplementaryAccountInfo
+      - ReadOffers
+      - ReadParty
+      - ReadPartyCustomer
+      - ReadFutureDatedPaymentsBasic
+      - ReadFutureDatedPaymentsDetail
+      - ReadPAN
+      - ReadPartyPSU
+      - ReadPartyPSUIdentity
+      - ReadScheduledPaymentsBasic
+      - ReadScheduledPaymentsDetail
+      - ReadStandingOrdersBasic
+      - ReadStandingOrdersDetail
+      type: string
+    AccountInformationProviderModel:
+      required:
+      - englishName
+      - isEnable
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        country:
+          $ref: '#/components/schemas/CountryResponseModel'
+        allowedPermissions:
+          type: array
+          items:
+            $ref: '#/components/schemas/AccountInformationPermission'
+          nullable: true
+        address:
+          type: string
+          nullable: true
+        phone:
+          type: string
+          nullable: true
+        useBenefit:
+          type: boolean
+          nullable: true
+        arabicName:
+          maxLength: 255
+          type: string
+          nullable: true
+        englishName:
+          maxLength: 255
+          minLength: 1
+          type: string
+        status:
+          $ref: '#/components/schemas/ProviderStatus'
+        isEnable:
+          type: boolean
+        logo:
+          maxLength: 255
+          type: string
+          format: uri
+          nullable: true
+      additionalProperties: false
+    CurrencyResponseModel:
+      required:
+      - englishName
+      - iso4117Code
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        englishName:
+          maxLength: 50
+          minLength: 1
+          type: string
+        arabicName:
+          maxLength: 50
+          type: string
+          nullable: true
+        iso4117Code:
+          maxLength: 3
+          minLength: 1
+          type: string
+        iso4117Number:
+          maxLength: 4
+          type: string
+          nullable: true
+      additionalProperties: false
+    ObjectApiResponse:
+      type: object
+      properties:
+        error:
+          $ref: '#/components/schemas/ApiError'
+        errorDescription:
+          type: object
+          additionalProperties:
+            type: array
+            items:
+              type: string
+            nullable: true
+          nullable: true
+        data:
+          nullable: true
+      additionalProperties: false
+    PaymentInitiationProviderModel:
+      required:
+      - englishName
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          nullable: true
+        country:
+          $ref: '#/components/schemas/CountryResponseModel'
+        address:
+          type: string
+          nullable: true
+        phone:
+          type: string
+          nullable: true
+        isEnable:
+          type: boolean
+        arabicName:
+          maxLength: 255
+          type: string
+          nullable: true
+        englishName:
+          maxLength: 255
+          minLength: 1
+          type: string
+        status:
+          $ref: '#/components/schemas/ProviderStatus'
+        logo:
+          maxLength: 255
+          type: string
+          format: uri
+          nullable: true
+      additionalProperties: false
+    ProviderStatus:
+      enum:
+      - Active
+      - Inactive
+      type: string
+    CountryResponseModel:
+      required:
+      - englishName
+      - iso3166Code
+      - timeZone
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+        currency:
+          $ref: '#/components/schemas/CurrencyResponseModel'
+        englishName:
+          maxLength: 50
+          minLength: 1
+          type: string
+        arabicName:
+          maxLength: 50
+          type: string
+          nullable: true
+        iso3166Code:
+          maxLength: 2
+          minLength: 1
+          pattern: ^[A-Z]{2}$
+          type: string
+        timeZone:
+          maxLength: 50
+          minLength: 1
+          type: string
+      additionalProperties: false
+    ApiError:
+      enum:
+      - INVALID_DATA
+      - INVALID_SIGNATURE
+      - RESOURCE_LOCKED
+      - COUNTRY_NOT_FOUND
+      - CURRENCY_NOT_FOUND
+      - PROVIDER_NOT_FOUND
+      - CONNECTION_NOT_FOUND
+      - INSUFFICIENT_CONSENT_PERMISSIONS
+      - CONSENT_EXPIRED
+      - CONSENT_REVOKED
+      - CONSENT_UNAUTHORIZED
+      - CONSENT_NOT_FOUND
+      - RISK_REPORT_NOT_FOUND
+      - ACCOUNT_INFORMATION_REPORT_NOT_FOUND
+      - MULTIPLE_CURRENCY_NOT_ALLOWED
+      - MULTIPLE_CONSENT_DATE_NOT_ALLOWED
+      - PAYMENT_NOT_FOUND
+      - CONSENT_REJECTED
+      - PAYMENT_REQUEST_NOT_FOUND
+      - CUSTOMER_NOT_FOUND
+      - CUSTOMER_ALREADY_EXISTS
+      - BANK_ACCOUNT_NOT_FOUND
+      - SERVER_ERROR
+      - PROVIDER_CONNECTION_FAILURE
+      - TRANSACTION_NOT_FOUND
+      - ACCOUNT_INFORMATION_ACCESS_REQUEST_NOT_FOUND
+      - CONSENT_REVOCATION_FAILED
+      - CONSENT_REVOKED_OR_EXPIRED
+      - SUBSCRIPTION_EXPIRED
+      - NOT_SUBSCRIBED_TO_SERVICE
+      - BENEFICIARY_NOT_FOUND
+      - PARTIES_NOT_FOUND
+      - DIRECT_DEBIT_NOT_FOUND
+      - SCHEDULED_PAYMENT_NOT_FOUND
+      - DEBTOR_ACCOUNT_NOT_FOUND
+      - CREDITOR_ACCOUNT_NOT_FOUND
+      - UNAUTHORIZED_IP_ADDRESS
+      type: string
+    AccountInformationProviderModelIEnumerableApiResponse:
+      type: object
+      properties:
+        error:
+          $ref: '#/components/schemas/ApiError'
+        errorDescription:
+          type: object
+          additionalProperties:
+            type: array
+            items:
+              type: string
+            nullable: true
+          nullable: true
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/AccountInformationProviderModel'
+          nullable: true
+      additionalProperties: false
+  securitySchemes:
+    Bearer:
+      type: apiKey
+      description: Please enter into field the word 'Bearer' followed by a space and JWT
+      name: Authorization
+      in: header
