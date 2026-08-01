@@ -1,0 +1,20 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for Spare Authentication API (bahrain-authentication)
+  version: 1.0.0
+extends: openapi/spare-bahrain-authentication-openapi-original.json
+actions:
+- target: $.info
+  update:
+    x-apievangelist-provider: spare
+    x-apievangelist-tenant: bahrain
+    x-apievangelist-service: authentication
+    x-apievangelist-rating-artifacts:
+    - authentication/spare-authentication.yml
+    - scopes/spare-scopes.yml
+    - errors/spare-error-codes.yml
+    - conventions/spare-conventions.yml
+- target: $.servers
+  update:
+  - url: https://ob.tryspare.com/api/v1.0
+    description: Production placeholder (Bahrain); confirm production host with Spare

@@ -1,0 +1,54 @@
+generated: '2026-07-21'
+method: searched
+source: https://docs.tryspare.com/docs/auth-flow, https://docs.tryspare.com/docs/api-keys-and-webhooks, https://docs.tryspare.com/reference/hosting-1, openapi/ specs
+note: >-
+  Cross-cutting request/response semantics for the Spare open-banking platform,
+  captured from the docs and the OpenAPI. Cross-links authentication/, scopes/,
+  errors/ and lifecycle/.
+authentication:
+  style: OAuth2 client-credentials -> signed JWT bearer token
+  header: "Authorization: Bearer <JWT>"
+  refresh: refresh token exchanged at /api/v1.0/authentication/Refresh
+  signature_verification: tenant JWKS at /api/v1.0/authentication/Jwks (RFC 7517)
+  message_signing: ECC secp256r1 (prime256v1) PKCS#8 key pair, provisioned in Dashboard, optional IP allow-list
+  ref: authentication/spare-authentication.yml
+idempotency:
+  supported: false
+  note: >-
+    Spare does not document an idempotency-key header. Write safety is instead
+    enforced by the consent lifecycle (a payment/data action is bound to a
+    single authorised consent and access request).
+pagination:
+  style: page-number
+  response_object: PagesModel
+  fields: [currentPageNumber, pageSize, totalNumberOfPages]
+  note: List endpoints return an IEnumerable ...PagesModelMetaApiResponse envelope carrying the PagesModel meta.
+response_envelope:
+  shape: ApiResponse
+  fields:
+    - data / result payload
+    - meta (PagesModel for list responses)
+    - error (ApiError code on failure)
+  error_model: errors/spare-error-codes.yml
+versioning:
+  scheme: uri-path
+  current: [v1.0, v2.0]
+  note: KSA Account Information API exposes both v1.0 (short-lived + long-lived consent) and v2.0 (long-lived consent). Path prefix is /api/v{major}.{minor}/.
+  ref: lifecycle/spare-lifecycle.yml
+tenancy:
+  model: per-country host (data residency)
+  hosts:
+    bahrain: { sandbox: https://sandbox.tryspare.com, production: https://ob.tryspare.com }
+    ksa: { sandbox: https://sandbox.sparefinancial.sa, production: https://ob.sparefinancial.sa }
+    uae: { sandbox: https://sandbox.sparefinancial.ae, production: https://ob.sparefinancial.ae }
+  note: Tokens and data are tenant-scoped; you must target the correct host per customer jurisdiction.
+consent_model:
+  flow: create Customer -> (optional Connection) -> create Consent with permissions -> end user authorises via bank app authorisation link -> access account/payment data
+  ref: scopes/spare-scopes.yml
+webhooks:
+  configured_in: Dashboard (Developer Tools)
+  signature_header: x-signature (verified against JWKS)
+  ref: asyncapi/spare-webhooks.yml
+rate_limiting:
+  signal: not documented publicly
+content_types: [application/json, application/pdf]

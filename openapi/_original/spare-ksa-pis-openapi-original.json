@@ -1,0 +1,1128 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Payment Initiation API",
+    "description": "Spare payment initiation API documentation",
+    "termsOfService": "https://terms.tryspare.com/en",
+    "contact": {
+      "name": "Spare Arabian Financial Co.",
+      "email": "hello@tryspare.com"
+    },
+    "license": {
+      "name": "Spare Arabian Financial Co."
+    },
+    "version": "1.0"
+  },
+  "paths": { },
+  "components": {
+    "schemas": {
+      "AccountRequestModel": {
+        "required": [
+          "identification",
+          "scheme"
+        ],
+        "type": "object",
+        "properties": {
+          "scheme": {
+            "$ref": "#/components/schemas/SchemeName"
+          },
+          "identification": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ApiError": {
+        "enum": [
+          "INVALID_DATA",
+          "INVALID_SIGNATURE",
+          "RESOURCE_LOCKED",
+          "COUNTRY_NOT_FOUND",
+          "CURRENCY_NOT_FOUND",
+          "PROVIDER_NOT_FOUND",
+          "CONNECTION_NOT_FOUND",
+          "INSUFFICIENT_CONSENT_PERMISSIONS",
+          "CONSENT_EXPIRED",
+          "CONSENT_REVOKED",
+          "CONSENT_UNAUTHORIZED",
+          "CONSENT_NOT_FOUND",
+          "ACCOUNT_INFORMATION_REPORT_NOT_FOUND",
+          "MULTIPLE_CURRENCY_NOT_ALLOWED",
+          "MULTIPLE_CONSENT_DATE_NOT_ALLOWED",
+          "PAYMENT_NOT_FOUND",
+          "CONSENT_REJECTED",
+          "PAYMENT_REQUEST_NOT_FOUND",
+          "CUSTOMER_NOT_FOUND",
+          "CUSTOMER_ALREADY_EXISTS",
+          "BANK_ACCOUNT_NOT_FOUND",
+          "SERVER_ERROR",
+          "PROVIDER_CONNECTION_FAILURE",
+          "TRANSACTION_NOT_FOUND",
+          "ACCOUNT_INFORMATION_ACCESS_REQUEST_NOT_FOUND",
+          "CONSENT_REVOCATION_FAILED",
+          "CONSENT_REVOKED_OR_EXPIRED",
+          "SUBSCRIPTION_EXPIRED",
+          "NOT_SUBSCRIBED_TO_SERVICE",
+          "BENEFICIARY_NOT_FOUND",
+          "PARTIES_NOT_FOUND",
+          "DIRECT_DEBIT_NOT_FOUND",
+          "SCHEDULED_PAYMENT_NOT_FOUND",
+          "DEBTOR_ACCOUNT_NOT_FOUND",
+          "CREDITOR_ACCOUNT_NOT_FOUND",
+          "UNAUTHORIZED_IP_ADDRESS"
+        ],
+        "type": "string"
+      },
+      "ConnectionStatus": {
+        "enum": [
+          "ACTIVE",
+          "INACTIVE"
+        ],
+        "type": "string"
+      },
+      "ConsentPaymentType": {
+        "enum": [
+          "SingleInstantPayment",
+          "SingleFutureDatedPayment"
+        ],
+        "type": "string"
+      },
+      "ConsentScope": {
+        "enum": [
+          "Accounts",
+          "Payments"
+        ],
+        "type": "string"
+      },
+      "CountryResponseModel": {
+        "required": [
+          "englishName",
+          "iso3166Code",
+          "timeZone"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "currency": {
+            "$ref": "#/components/schemas/CurrencyResponseModel"
+          },
+          "englishName": {
+            "maxLength": 50,
+            "minLength": 1,
+            "type": "string"
+          },
+          "arabicName": {
+            "maxLength": 50,
+            "type": "string",
+            "nullable": true
+          },
+          "iso3166Code": {
+            "maxLength": 2,
+            "minLength": 1,
+            "pattern": "^[A-Z]{2}$",
+            "type": "string"
+          },
+          "timeZone": {
+            "maxLength": 50,
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CurrencyResponseModel": {
+        "required": [
+          "englishName",
+          "iso4117Code"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "englishName": {
+            "maxLength": 50,
+            "minLength": 1,
+            "type": "string"
+          },
+          "arabicName": {
+            "maxLength": 50,
+            "type": "string",
+            "nullable": true
+          },
+          "iso4117Code": {
+            "maxLength": 3,
+            "minLength": 1,
+            "type": "string"
+          },
+          "iso4117Number": {
+            "maxLength": 4,
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DomesticPaymentConsentRequestModel": {
+        "required": [
+          "amount",
+          "creditorAccount",
+          "currency",
+          "paymentConsentType",
+          "providerId",
+          "purpose"
+        ],
+        "type": "object",
+        "properties": {
+          "connectionId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "providerId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "externalReference": {
+            "maxLength": 255,
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "maxLength": 500,
+            "type": "string",
+            "nullable": true
+          },
+          "amount": {
+            "minLength": 1,
+            "pattern": "^\\d{1,13}$|^\\d{1,13}\\.\\d{1,5}$",
+            "type": "string"
+          },
+          "currency": {
+            "minLength": 1,
+            "pattern": "^[A-Z]{3}",
+            "type": "string"
+          },
+          "successRedirectUrl": {
+            "maxLength": 255,
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "failureRedirectUrl": {
+            "maxLength": 255,
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "paymentConsentType": {
+            "$ref": "#/components/schemas/ConsentPaymentType"
+          },
+          "purpose": {
+            "$ref": "#/components/schemas/PaymentPurpose"
+          },
+          "note": {
+            "type": "string",
+            "nullable": true
+          },
+          "executionDateTime": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "autoRedirect": {
+            "type": "boolean"
+          },
+          "debtorAccount": {
+            "$ref": "#/components/schemas/AccountRequestModel"
+          },
+          "creditorAccount": {
+            "$ref": "#/components/schemas/AccountRequestModel"
+          }
+        },
+        "additionalProperties": false
+      },
+      "DomesticPaymentConsentResponseModel": {
+        "type": "object",
+        "properties": {
+          "paymentId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "consentId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "externalReference": {
+            "type": "string",
+            "nullable": true
+          },
+          "scope": {
+            "$ref": "#/components/schemas/ConsentScope"
+          },
+          "paymentConsentType": {
+            "$ref": "#/components/schemas/ConsentPaymentType"
+          },
+          "executionDateTime": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "authorizationLink": {
+            "type": "string",
+            "nullable": true
+          },
+          "amount": {
+            "$ref": "#/components/schemas/PaymentAmountResponseModel"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "status": {
+            "$ref": "#/components/schemas/ObConsentsStatus"
+          },
+          "creditorAccount": {
+            "$ref": "#/components/schemas/PaymentAccountModel"
+          },
+          "debtorAccount": {
+            "$ref": "#/components/schemas/PaymentAccountModel"
+          },
+          "connection": {
+            "$ref": "#/components/schemas/PaymentInitiationConnectionResponseModel"
+          },
+          "purpose": {
+            "type": "string",
+            "nullable": true
+          },
+          "note": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DomesticPaymentConsentResponseModelApiResponse": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "$ref": "#/components/schemas/ApiError"
+          },
+          "errorDescription": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "nullable": true
+            },
+            "nullable": true
+          },
+          "data": {
+            "$ref": "#/components/schemas/DomesticPaymentConsentResponseModel"
+          }
+        },
+        "additionalProperties": false
+      },
+      "DomesticPaymentConsentResponseModelIEnumerablePagesModelMetaApiResponse": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "$ref": "#/components/schemas/ApiError"
+          },
+          "errorDescription": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "nullable": true
+            },
+            "nullable": true
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DomesticPaymentConsentResponseModel"
+            },
+            "nullable": true
+          },
+          "meta": {
+            "$ref": "#/components/schemas/PagesModel"
+          }
+        },
+        "additionalProperties": false
+      },
+      "DomesticPaymentResponseModel": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "reference": {
+            "type": "string",
+            "nullable": true
+          },
+          "paymentRequestType": {
+            "type": "string",
+            "nullable": true
+          },
+          "externalReference": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "amount": {
+            "$ref": "#/components/schemas/PaymentAmountResponseModel"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "status": {
+            "$ref": "#/components/schemas/PaymentTransactionStatus"
+          },
+          "purpose": {
+            "type": "string",
+            "nullable": true
+          },
+          "note": {
+            "type": "string",
+            "nullable": true
+          },
+          "creditorAccount": {
+            "$ref": "#/components/schemas/PaymentAccountModel"
+          },
+          "debtorAccount": {
+            "$ref": "#/components/schemas/PaymentAccountModel"
+          },
+          "consent": {
+            "$ref": "#/components/schemas/PaymentInitiationConsentResponseModel"
+          }
+        },
+        "additionalProperties": false
+      },
+      "DomesticPaymentResponseModelApiResponse": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "$ref": "#/components/schemas/ApiError"
+          },
+          "errorDescription": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "nullable": true
+            },
+            "nullable": true
+          },
+          "data": {
+            "$ref": "#/components/schemas/DomesticPaymentResponseModel"
+          }
+        },
+        "additionalProperties": false
+      },
+      "DomesticPaymentResponseModelIEnumerablePagesModelMetaApiResponse": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "$ref": "#/components/schemas/ApiError"
+          },
+          "errorDescription": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "nullable": true
+            },
+            "nullable": true
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DomesticPaymentResponseModel"
+            },
+            "nullable": true
+          },
+          "meta": {
+            "$ref": "#/components/schemas/PagesModel"
+          }
+        },
+        "additionalProperties": false
+      },
+      "FilterOrder": {
+        "enum": [
+          "ASCENDING",
+          "DESCENDING"
+        ],
+        "type": "string"
+      },
+      "ObConsentsStatus": {
+        "enum": [
+          "AwaitingAuthorization",
+          "Authorized",
+          "Consumed",
+          "Finished",
+          "Rejected",
+          "Expired",
+          "Revoked"
+        ],
+        "type": "string"
+      },
+      "ObTransactionType": {
+        "enum": [
+          "CREDIT",
+          "DEBIT"
+        ],
+        "type": "string"
+      },
+      "ObjectApiResponse": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "$ref": "#/components/schemas/ApiError"
+          },
+          "errorDescription": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "nullable": true
+            },
+            "nullable": true
+          },
+          "data": {
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "PagesModel": {
+        "type": "object",
+        "properties": {
+          "currentPageNumber": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageSize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalNumberOfPages": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "PaymentAccessRequestResponseModel": {
+        "required": [
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "paymentRequestId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "status": {
+            "$ref": "#/components/schemas/RequestStatus"
+          },
+          "amount": {
+            "$ref": "#/components/schemas/PaymentAmountResponseModel"
+          },
+          "consent": {
+            "$ref": "#/components/schemas/PaymentInitiationConsentResponseModel"
+          },
+          "country": {
+            "$ref": "#/components/schemas/CountryResponseModel"
+          },
+          "debtorAccount": {
+            "$ref": "#/components/schemas/PaymentAccountResponseModel"
+          },
+          "creditorAccount": {
+            "$ref": "#/components/schemas/PaymentAccountResponseModel"
+          },
+          "hashId": {
+            "type": "string",
+            "nullable": true
+          },
+          "purpose": {
+            "type": "string",
+            "nullable": true
+          },
+          "note": {
+            "type": "string",
+            "nullable": true
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "requestLink": {
+            "type": "string",
+            "nullable": true
+          },
+          "paymentConsentType": {
+            "$ref": "#/components/schemas/ConsentPaymentType"
+          },
+          "executionDateTime": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "type": {
+            "$ref": "#/components/schemas/PaymentType"
+          },
+          "description": {
+            "maxLength": 500,
+            "type": "string",
+            "nullable": true
+          },
+          "externalReference": {
+            "maxLength": 255,
+            "type": "string",
+            "nullable": true
+          },
+          "redirectionFlow": {
+            "$ref": "#/components/schemas/RedirectionFlow"
+          },
+          "successRedirectUrl": {
+            "maxLength": 255,
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "failureRedirectUrl": {
+            "maxLength": 255,
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "autoRedirect": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "PaymentAccessRequestResponseModelApiResponse": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "$ref": "#/components/schemas/ApiError"
+          },
+          "errorDescription": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "nullable": true
+            },
+            "nullable": true
+          },
+          "data": {
+            "$ref": "#/components/schemas/PaymentAccessRequestResponseModel"
+          }
+        },
+        "additionalProperties": false
+      },
+      "PaymentAccessRequestResponseModelIEnumerablePagesModelMetaApiResponse": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "$ref": "#/components/schemas/ApiError"
+          },
+          "errorDescription": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "nullable": true
+            },
+            "nullable": true
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PaymentAccessRequestResponseModel"
+            },
+            "nullable": true
+          },
+          "meta": {
+            "$ref": "#/components/schemas/PagesModel"
+          }
+        },
+        "additionalProperties": false
+      },
+      "PaymentAccountModel": {
+        "required": [
+          "identification",
+          "scheme"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "scheme": {
+            "$ref": "#/components/schemas/SchemeName"
+          },
+          "identification": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "PaymentAccountResponseModel": {
+        "required": [
+          "identification",
+          "scheme"
+        ],
+        "type": "object",
+        "properties": {
+          "provider": {
+            "$ref": "#/components/schemas/PaymentInitiationProviderModel"
+          },
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "scheme": {
+            "$ref": "#/components/schemas/SchemeName"
+          },
+          "identification": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "PaymentAmountResponseModel": {
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "currency": {
+            "$ref": "#/components/schemas/CurrencyResponseModel"
+          }
+        },
+        "additionalProperties": false
+      },
+      "PaymentFilterModel": {
+        "type": "object",
+        "properties": {
+          "fromDateTime": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "toDateTime": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "status": {
+            "$ref": "#/components/schemas/PaymentTransactionStatus"
+          },
+          "amount": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "accountName": {
+            "type": "string",
+            "nullable": true
+          },
+          "paymentType": {
+            "$ref": "#/components/schemas/ObTransactionType"
+          },
+          "order": {
+            "$ref": "#/components/schemas/FilterOrder"
+          }
+        },
+        "additionalProperties": false
+      },
+      "PaymentInitiationConnectionResponseModel": {
+        "type": "object",
+        "properties": {
+          "provider": {
+            "$ref": "#/components/schemas/PaymentInitiationProviderModel"
+          },
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "status": {
+            "$ref": "#/components/schemas/ConnectionStatus"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false
+      },
+      "PaymentInitiationConsentResponseModel": {
+        "type": "object",
+        "properties": {
+          "connection": {
+            "$ref": "#/components/schemas/PaymentInitiationConnectionResponseModel"
+          },
+          "paymentConsentType": {
+            "$ref": "#/components/schemas/ConsentPaymentType"
+          },
+          "executionDateTime": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "purpose": {
+            "type": "string",
+            "nullable": true
+          },
+          "note": {
+            "type": "string",
+            "nullable": true
+          },
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "customerId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "scope": {
+            "$ref": "#/components/schemas/ConsentScope"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "status": {
+            "$ref": "#/components/schemas/ObConsentsStatus"
+          },
+          "authorizationLink": {
+            "type": "string",
+            "nullable": true
+          },
+          "successRedirectUrl": {
+            "type": "string",
+            "nullable": true
+          },
+          "failureRedirectUrl": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "PaymentInitiationProviderModel": {
+        "required": [
+          "englishName"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "country": {
+            "$ref": "#/components/schemas/CountryResponseModel"
+          },
+          "address": {
+            "type": "string",
+            "nullable": true
+          },
+          "phone": {
+            "type": "string",
+            "nullable": true
+          },
+          "isEnable": {
+            "type": "boolean"
+          },
+          "arabicName": {
+            "maxLength": 255,
+            "type": "string",
+            "nullable": true
+          },
+          "englishName": {
+            "maxLength": 255,
+            "minLength": 1,
+            "type": "string"
+          },
+          "status": {
+            "$ref": "#/components/schemas/ProviderStatus"
+          },
+          "logo": {
+            "maxLength": 255,
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "PaymentInitiationProviderModelIEnumerableApiResponse": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "$ref": "#/components/schemas/ApiError"
+          },
+          "errorDescription": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "nullable": true
+            },
+            "nullable": true
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PaymentInitiationProviderModel"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "PaymentPurpose": {
+        "enum": [
+          "SELF",
+          "ONLP",
+          "LORP",
+          "BIL",
+          "DONA",
+          "DUES",
+          "GOPT",
+          "PERS",
+          "PERL"
+        ],
+        "type": "string"
+      },
+      "PaymentRequestModel": {
+        "required": [
+          "amount",
+          "countryCode",
+          "creditorAccount",
+          "currency",
+          "paymentConsentType",
+          "purpose",
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/PaymentType"
+          },
+          "description": {
+            "maxLength": 500,
+            "type": "string",
+            "nullable": true
+          },
+          "externalReference": {
+            "maxLength": 255,
+            "type": "string",
+            "nullable": true
+          },
+          "redirectionFlow": {
+            "$ref": "#/components/schemas/RedirectionFlow"
+          },
+          "successRedirectUrl": {
+            "maxLength": 255,
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "failureRedirectUrl": {
+            "maxLength": 255,
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "autoRedirect": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "debtorAccount": {
+            "$ref": "#/components/schemas/AccountRequestModel"
+          },
+          "creditorAccount": {
+            "$ref": "#/components/schemas/AccountRequestModel"
+          },
+          "amount": {
+            "minLength": 1,
+            "pattern": "^\\d{1,13}$|^\\d{1,13}\\.\\d{1,5}$",
+            "type": "string"
+          },
+          "currency": {
+            "minLength": 1,
+            "pattern": "^[A-Z]{3}",
+            "type": "string"
+          },
+          "providerId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "countryCode": {
+            "minLength": 1,
+            "pattern": "^[A-Z]{2}",
+            "type": "string"
+          },
+          "paymentConsentType": {
+            "$ref": "#/components/schemas/ConsentPaymentType"
+          },
+          "executionDateTime": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "purpose": {
+            "$ref": "#/components/schemas/PaymentPurpose"
+          },
+          "note": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "PaymentTransactionStatus": {
+        "enum": [
+          "CREATED",
+          "ACCEPTED",
+          "CANCELLED",
+          "PENDING",
+          "RECEIVED",
+          "REJECTED",
+          "COMPLETED"
+        ],
+        "type": "string"
+      },
+      "PaymentType": {
+        "enum": [
+          "SINGLE_DOMESTIC",
+          "RECURRENT"
+        ],
+        "type": "string"
+      },
+      "ProviderStatus": {
+        "enum": [
+          "Active",
+          "Inactive"
+        ],
+        "type": "string"
+      },
+      "RedirectionFlow": {
+        "enum": [
+          "WEB",
+          "DECOUPLED"
+        ],
+        "type": "string"
+      },
+      "RequestStatus": {
+        "enum": [
+          "AwaitingApproval",
+          "Rejected",
+          "Approved",
+          "Expired"
+        ],
+        "type": "string"
+      },
+      "SchemeName": {
+        "enum": [
+          "IBAN",
+          "AccountNumber",
+          "CommercialRegistrationNumber",
+          "Email",
+          "MobileNumber",
+          "NationalID",
+          "IqamaNumber"
+        ],
+        "type": "string"
+      }
+    },
+    "securitySchemes": {
+      "Bearer": {
+        "type": "apiKey",
+        "description": "Please enter into field the word 'Bearer' followed by a space and JWT",
+        "name": "Authorization",
+        "in": "header"
+      }
+    }
+  },
+  "security": [
+    {
+      "Bearer": [ ]
+    }
+  ]
+}

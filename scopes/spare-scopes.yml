@@ -1,0 +1,52 @@
+generated: '2026-07-21'
+method: searched
+source: openapi AccountInformationPermission + ConsentScope enums (all AIS/PIS specs)
+docs: https://docs.tryspare.com/docs/consent-1
+note: >-
+  Spare authenticates with OAuth2 client-credentials (see authentication/), but
+  data access is governed by an open-banking CONSENT permission model rather than
+  token scopes. When creating a Consent the client requests a set of
+  AccountInformationPermission values; the end user authorises them in their bank
+  app, and each AIS operation requires specific permissions on the active consent
+  (the API reference lists the required permissions per endpoint). These consent
+  permissions are the effective scope surface and are enumerated verbatim below.
+consent_scopes:
+- scope: Accounts
+  description: Account Information Services consent scope.
+- scope: Payments
+  description: Payment Initiation Services consent scope.
+account_information_permissions:
+- ReadAccountsBasic
+- ReadAccountsDetail
+- ReadBalances
+- ReadBeneficiariesBasic
+- ReadBeneficiariesDetail
+- ReadDirectDebits
+- ReadTransactionsBasic
+- ReadTransactionsDetail
+- ReadTransactionsCredits
+- ReadTransactionsDebits
+- ReadStatementsBasic
+- ReadStatementsDetail
+- ReadSupplementaryAccountInfo
+- ReadOffers
+- ReadParty
+- ReadPartyCustomer
+- ReadFutureDatedPaymentsBasic
+- ReadFutureDatedPaymentsDetail
+- ReadPAN
+- ReadPartyPSU
+- ReadPartyPSUIdentity
+- ReadScheduledPaymentsBasic
+- ReadScheduledPaymentsDetail
+- ReadStandingOrdersBasic
+- ReadStandingOrdersDetail
+example_required_permissions:
+- operation: GET /api/v1.0/ais/Account/List
+  permissions: [ReadAccountsBasic, ReadAccountsDetail]
+- operation: GET /api/v1.0/ais/Balance/Get
+  permissions: [ReadAccountsBasic, ReadAccountsDetail, ReadBalances]
+- operation: GET /api/v1.0/ais/Balance/History
+  permissions: [ReadAccountsBasic, ReadAccountsDetail, ReadBalances, ReadTransactionsBasic, ReadTransactionsDetail, ReadTransactionsDebits, ReadTransactionsCredits]
+- operation: GET /api/v1.0/ais/Beneficiary/Get
+  permissions: [ReadBeneficiariesBasic, ReadBeneficiariesDetail]

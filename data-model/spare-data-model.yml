@@ -1,0 +1,76 @@
+generated: '2026-07-21'
+method: derived
+source: openapi/spare-bahrain-ais-openapi-original.json, openapi/spare-bahrain-pis-openapi-original.json, docs.tryspare.com object guides
+note: >-
+  Entity-relationship model derived from the Account Information (AIS) and Payment
+  Initiation (PIS) OpenAPI resource groups and the Spare integration-flow docs.
+  The core AIS graph is Customer -> Connection/Request -> Consent -> (Account ->
+  Balance/Transaction/Beneficiary/DirectDebit/Parties/Statement) with Provider as
+  the bank directory. PIS mirrors it with a payment Consent -> Payment.
+entities:
+- name: Customer
+  description: The end user (PSU) on whose behalf data is accessed or payments initiated.
+  relationships:
+  - { to: Connection, kind: has_many }
+  - { to: Consent, kind: has_many }
+- name: Provider
+  description: An open-banking bank/ASPSP available in the tenant (bank directory).
+  relationships:
+  - { to: Connection, kind: has_many, via: providerId }
+- name: Connection
+  description: A customer's link to a specific provider/bank.
+  relationships:
+  - { to: Customer, kind: belongs_to, via: customerId }
+  - { to: Provider, kind: belongs_to, via: providerId }
+  - { to: Consent, kind: has_many }
+- name: Request
+  description: An account-information (or payment) access request that yields an authorisation link.
+  relationships:
+  - { to: Consent, kind: has_one }
+- name: Consent
+  description: Customer authorisation with a permission set (AccountInformationPermission) and a lifetime; short-lived or long-lived (KSA).
+  relationships:
+  - { to: Customer, kind: belongs_to, via: customerId }
+  - { to: Connection, kind: belongs_to, via: connectionId }
+  - { to: Account, kind: has_many }
+- name: Account
+  description: A bank account exposed under an authorised consent.
+  relationships:
+  - { to: Consent, kind: belongs_to, via: consentId }
+  - { to: Balance, kind: has_many }
+  - { to: Transaction, kind: has_many }
+  - { to: Beneficiary, kind: has_many }
+  - { to: DirectDebit, kind: has_many }
+  - { to: Parties, kind: has_one }
+  - { to: Statement, kind: has_many }
+- name: Balance
+  relationships: [ { to: Account, kind: belongs_to, via: accountId } ]
+- name: Transaction
+  relationships: [ { to: Account, kind: belongs_to, via: accountId } ]
+- name: Beneficiary
+  relationships: [ { to: Account, kind: belongs_to, via: accountId } ]
+- name: DirectDebit
+  relationships: [ { to: Account, kind: belongs_to, via: accountId } ]
+- name: Parties
+  relationships: [ { to: Account, kind: belongs_to, via: accountId } ]
+- name: Statement
+  relationships: [ { to: Account, kind: belongs_to, via: accountId } ]
+- name: AccountInformationReport
+  description: Async job producing an account-information / affordability report over consented accounts.
+  relationships: [ { to: Consent, kind: belongs_to } ]
+- name: RiskReport
+  description: Async job producing a risk/affordability report (income, expenses, average balances).
+  relationships: [ { to: Consent, kind: belongs_to } ]
+- name: PaymentConsent
+  description: Payment Initiation consent (domestic payment) with scope Payments.
+  relationships:
+  - { to: Customer, kind: belongs_to }
+  - { to: Payment, kind: has_many }
+- name: Payment
+  description: A domestic payment initiated under an authorised payment consent.
+  relationships: [ { to: PaymentConsent, kind: belongs_to, via: consentId } ]
+enums:
+  payment_types: [SINGLE_DOMESTIC, RECURRENT]
+  payment_purposes: [SELF, ONLP, LORP, BIL, DONA, DUES, GOPT, PERS, PERL]
+  scheme_names: [IBAN, BBAN]
+  redirection_flows: [WEB, DECOUPLED]

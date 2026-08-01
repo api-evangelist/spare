@@ -1,0 +1,38 @@
+generated: '2026-07-21'
+method: derived
+source: openapi/ specs + https://docs.tryspare.com/docs/welcome + https://trust.tryspare.com/
+note: >-
+  Standards and regulatory posture. Conformance to cross-cutting standards is
+  derived from the OpenAPI and docs; the compliance program (SOC 2, ISO 27001)
+  is published on the Spare trust center and the AISP/PISP licensing is stated in
+  the docs.
+standards:
+- id: oauth2
+  conforms: true
+  evidence: Docs state OAuth2 client-credentials issuing JWT bearer + refresh tokens (auth-flow).
+- id: jwt-rfc7519
+  conforms: true
+  evidence: Access/refresh tokens are JWTs; JsonWebTokenResponseModel in Authentication API.
+- id: jwks-rfc7517
+  conforms: true
+  evidence: Authentication API publishes a JWKS (SpJsonWebKeySet) for token/payload/webhook signature verification.
+- id: rfc7807-problem-details
+  conforms: true
+  evidence: Authentication API returns ProblemDetails; AIS/PIS use an ApiError coded envelope.
+- id: open-banking-consent
+  conforms: true
+  evidence: UK-OB-style Customer/Connection/Consent/permission model (AccountInformationPermission).
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: Uses the older RFC 7807 ProblemDetails shape, not the RFC 9457 media type explicitly.
+regulatory:
+- authority: Central Bank of Bahrain (CBB)
+  status: Licensed AISP + PISP
+  evidence: https://docs.tryspare.com/docs/welcome
+- authority: Saudi Central Bank (SAMA)
+  status: Permitted to test under the Regulatory Sandbox
+  evidence: https://docs.tryspare.com/docs/welcome
+compliance:
+  trust_center: https://trust.tryspare.com/
+  certifications: [SOC 2, ISO 27001]
+  ref: security/spare-trust-center.yml

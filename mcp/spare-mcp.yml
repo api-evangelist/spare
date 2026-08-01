@@ -1,0 +1,187 @@
+generated: '2026-07-21'
+method: derived
+status: candidate
+source: openapi/ operations (no first-party MCP server found in docs, GitHub org, or registries as of 2026-07-21)
+server:
+  name: spare
+  transport: http
+  note: >-
+    No official hosted or remote Spare MCP server was found. Tools below are a
+    derived candidate surface, one per REST operation across the Bahrain and KSA
+    Authentication, Account Information and Payment Initiation APIs. Operation ids
+    are absent in the source Swagger, so each tool is keyed by HTTP method + path.
+tools:
+- name: get_authentication_jwks
+  description: "Retrieves the JSON Web Key Set (JWKS) used for token, payloads and webhook signature verification."
+  source_operation: openapi/spare-bahrain-authentication-openapi-original.json#GET /api/v1.0/authentication/Jwks
+- name: get_authentication_token
+  description: "Generates an API authentication token using the provided API credentials."
+  source_operation: openapi/spare-bahrain-authentication-openapi-original.json#GET /api/v1.0/authentication/Token
+- name: get_authentication_refresh
+  description: "Refreshes an API authentication token using a valid refresh token."
+  source_operation: openapi/spare-bahrain-authentication-openapi-original.json#GET /api/v1.0/authentication/Refresh
+- name: get_ais_account_get
+  description: "Get an account by id"
+  source_operation: openapi/spare-bahrain-ais-openapi-original.json#GET /api/v1.0/ais/Account/Get
+- name: get_ais_account_list
+  description: "List accounts"
+  source_operation: openapi/spare-bahrain-ais-openapi-original.json#GET /api/v1.0/ais/Account/List
+- name: post_ais_accountinformationreport_create
+  description: "Create account information job report."
+  source_operation: openapi/spare-bahrain-ais-openapi-original.json#POST /api/v1.0/ais/AccountInformationReport/Create
+- name: get_ais_accountinformationreport_get
+  description: "Get account information job report by id."
+  source_operation: openapi/spare-bahrain-ais-openapi-original.json#GET /api/v1.0/ais/AccountInformationReport/Get
+- name: get_ais_accountinformationreport_file
+  description: "Download account information job report."
+  source_operation: openapi/spare-bahrain-ais-openapi-original.json#GET /api/v1.0/ais/AccountInformationReport/File
+- name: post_ais_accountinformationreport_list
+  description: "List account information reports."
+  source_operation: openapi/spare-bahrain-ais-openapi-original.json#POST /api/v1.0/ais/AccountInformationReport/List
+- name: get_ais_accountinformationreport_status
+  description: "Get account information report job status."
+  source_operation: openapi/spare-bahrain-ais-openapi-original.json#GET /api/v1.0/ais/AccountInformationReport/Status
+- name: get_ais_balance_get
+  description: "Get account balance"
+  source_operation: openapi/spare-bahrain-ais-openapi-original.json#GET /api/v1.0/ais/Balance/Get
+- name: get_ais_balance_history
+  description: "Get account balance history"
+  source_operation: openapi/spare-bahrain-ais-openapi-original.json#GET /api/v1.0/ais/Balance/History
+- name: get_ais_beneficiary_get
+  description: "Get account beneficiary"
+  source_operation: openapi/spare-bahrain-ais-openapi-original.json#GET /api/v1.0/ais/Beneficiary/Get
+- name: post_ais_connection_create
+  description: "Create connection"
+  source_operation: openapi/spare-bahrain-ais-openapi-original.json#POST /api/v1.0/ais/Connection/Create
+- name: get_ais_connection_get
+  description: "Get connection by id"
+  source_operation: openapi/spare-bahrain-ais-openapi-original.json#GET /api/v1.0/ais/Connection/Get
+- name: get_ais_connection_list
+  description: "List connections"
+  source_operation: openapi/spare-bahrain-ais-openapi-original.json#GET /api/v1.0/ais/Connection/List
+- name: delete_ais_connection_delete
+  description: "Delete connection by id"
+  source_operation: openapi/spare-bahrain-ais-openapi-original.json#DELETE /api/v1.0/ais/Connection/Delete
+- name: post_ais_consent_create
+  description: "Create consent"
+  source_operation: openapi/spare-bahrain-ais-openapi-original.json#POST /api/v1.0/ais/Consent/Create
+- name: get_ais_consent_list
+  description: "List consent"
+  source_operation: openapi/spare-bahrain-ais-openapi-original.json#GET /api/v1.0/ais/Consent/List
+- name: get_ais_consent_get
+  description: "Get consent by id"
+  source_operation: openapi/spare-bahrain-ais-openapi-original.json#GET /api/v1.0/ais/Consent/Get
+- name: patch_ais_consent_revoke
+  description: "Revoke consent"
+  source_operation: openapi/spare-bahrain-ais-openapi-original.json#PATCH /api/v1.0/ais/Consent/Revoke
+- name: post_ais_customer_create
+  description: "Create customer"
+  source_operation: openapi/spare-bahrain-ais-openapi-original.json#POST /api/v1.0/ais/Customer/Create
+- name: get_ais_customer_list
+  description: "List customers"
+  source_operation: openapi/spare-bahrain-ais-openapi-original.json#GET /api/v1.0/ais/Customer/List
+- name: get_ais_customer_get
+  description: "Get customer by id"
+  source_operation: openapi/spare-bahrain-ais-openapi-original.json#GET /api/v1.0/ais/Customer/Get
+- name: patch_ais_customer_update
+  description: "Update customer"
+  source_operation: openapi/spare-bahrain-ais-openapi-original.json#PATCH /api/v1.0/ais/Customer/Update
+- name: delete_ais_customer_delete
+  description: "Delete customer"
+  source_operation: openapi/spare-bahrain-ais-openapi-original.json#DELETE /api/v1.0/ais/Customer/Delete
+- name: get_ais_directdebit_get
+  description: "Get account direct debits"
+  source_operation: openapi/spare-bahrain-ais-openapi-original.json#GET /api/v1.0/ais/DirectDebit/Get
+- name: get_ais_parties_get
+  description: "Get account parties"
+  source_operation: openapi/spare-bahrain-ais-openapi-original.json#GET /api/v1.0/ais/Parties/Get
+- name: get_ais_provider_list
+  description: "List open banking providers"
+  source_operation: openapi/spare-bahrain-ais-openapi-original.json#GET /api/v1.0/ais/Provider/List
+- name: post_ais_request_create
+  description: "Create account information access request"
+  source_operation: openapi/spare-bahrain-ais-openapi-original.json#POST /api/v1.0/ais/Request/Create
+- name: get_ais_request_list
+  description: "List account information access requests"
+  source_operation: openapi/spare-bahrain-ais-openapi-original.json#GET /api/v1.0/ais/Request/List
+- name: get_ais_request_get
+  description: "Get account information access request by id"
+  source_operation: openapi/spare-bahrain-ais-openapi-original.json#GET /api/v1.0/ais/Request/Get
+- name: put_ais_request_update
+  description: "Update account information access request"
+  source_operation: openapi/spare-bahrain-ais-openapi-original.json#PUT /api/v1.0/ais/Request/Update
+- name: delete_ais_request_delete
+  description: "Delete account information access request"
+  source_operation: openapi/spare-bahrain-ais-openapi-original.json#DELETE /api/v1.0/ais/Request/Delete
+- name: get_ais_riskreport_create
+  description: "Create account information risk report."
+  source_operation: openapi/spare-bahrain-ais-openapi-original.json#GET /api/v1.0/ais/RiskReport/Create
+- name: get_ais_riskreport_get
+  description: "Get account information risk report by id."
+  source_operation: openapi/spare-bahrain-ais-openapi-original.json#GET /api/v1.0/ais/RiskReport/Get
+- name: get_ais_riskreport_export
+  description: "Export account information risk report."
+  source_operation: openapi/spare-bahrain-ais-openapi-original.json#GET /api/v1.0/ais/RiskReport/Export
+- name: post_ais_riskreport_list
+  description: "List account information reports."
+  source_operation: openapi/spare-bahrain-ais-openapi-original.json#POST /api/v1.0/ais/RiskReport/List
+- name: get_ais_riskreport_status
+  description: "Get account information risk report status."
+  source_operation: openapi/spare-bahrain-ais-openapi-original.json#GET /api/v1.0/ais/RiskReport/Status
+- name: delete_ais_riskreport_delete
+  description: "Delete account information risk report"
+  source_operation: openapi/spare-bahrain-ais-openapi-original.json#DELETE /api/v1.0/ais/RiskReport/Delete
+- name: get_ais_statement_file
+  description: "Download account statement"
+  source_operation: openapi/spare-bahrain-ais-openapi-original.json#GET /api/v1.0/ais/Statement/File
+- name: get_ais_transaction_get
+  description: "Get transaction details"
+  source_operation: openapi/spare-bahrain-ais-openapi-original.json#GET /api/v1.0/ais/Transaction/Get
+- name: post_ais_transaction_list
+  description: "List transactions"
+  source_operation: openapi/spare-bahrain-ais-openapi-original.json#POST /api/v1.0/ais/Transaction/List
+- name: get_ais_transaction_salaries
+  description: "Get account salary"
+  source_operation: openapi/spare-bahrain-ais-openapi-original.json#GET /api/v1.0/ais/Transaction/Salaries
+- name: post_pis_consent_create
+  description: "Create domestic payment consent"
+  source_operation: openapi/spare-bahrain-pis-openapi-original.json#POST /api/v1.0/pis/Consent/Create
+- name: get_pis_consent_list
+  description: "List consent"
+  source_operation: openapi/spare-bahrain-pis-openapi-original.json#GET /api/v1.0/pis/Consent/List
+- name: get_pis_consent_get
+  description: "Get consent by id"
+  source_operation: openapi/spare-bahrain-pis-openapi-original.json#GET /api/v1.0/pis/Consent/Get
+- name: post_pis_payment_list
+  description: "List domestic payment"
+  source_operation: openapi/spare-bahrain-pis-openapi-original.json#POST /api/v1.0/pis/Payment/List
+- name: get_pis_payment_get
+  description: "Get domestic payment by id"
+  source_operation: openapi/spare-bahrain-pis-openapi-original.json#GET /api/v1.0/pis/Payment/Get
+- name: get_pis_provider_list
+  description: "List open banking providers"
+  source_operation: openapi/spare-bahrain-pis-openapi-original.json#GET /api/v1.0/pis/Provider/List
+- name: post_pis_request_create
+  description: "Create payment request"
+  source_operation: openapi/spare-bahrain-pis-openapi-original.json#POST /api/v1.0/pis/Request/Create
+- name: get_pis_request_list
+  description: "List payment requests"
+  source_operation: openapi/spare-bahrain-pis-openapi-original.json#GET /api/v1.0/pis/Request/List
+- name: get_pis_request_get
+  description: "Get payment request by id"
+  source_operation: openapi/spare-bahrain-pis-openapi-original.json#GET /api/v1.0/pis/Request/Get
+- name: get_pis_request_delete
+  description: "Delete payment request by id"
+  source_operation: openapi/spare-bahrain-pis-openapi-original.json#GET /api/v1.0/pis/Request/Delete
+- name: post_ais_consent_createshortlivedconsent
+  description: "Create short-lived consent"
+  source_operation: openapi/spare-ksa-ais-openapi-original.json#POST /api/v1.0/ais/Consent/CreateShortLivedConsent
+- name: post_ais_consent_createlonglivedconsent
+  description: "Create long-lived consent"
+  source_operation: openapi/spare-ksa-ais-openapi-original.json#POST /api/v1.0/ais/Consent/CreateLongLivedConsent
+- name: post_ais_request_createshortlivedrequest
+  description: "Create account information access request for short-lived consent"
+  source_operation: openapi/spare-ksa-ais-openapi-original.json#POST /api/v1.0/ais/Request/CreateShortLivedRequest
+- name: post_ais_request_createlonglivedrequest
+  description: "Create account information access request for long-lived consent"
+  source_operation: openapi/spare-ksa-ais-openapi-original.json#POST /api/v1.0/ais/Request/CreateLongLivedRequest

@@ -1,0 +1,27 @@
+generated: '2026-07-21'
+method: probed
+source: live probes 2026-07-21
+note: >-
+  No /.well-known discovery documents are published. Spare exposes its JWKS at the
+  non-standard application path /api/v1.0/authentication/Jwks (per tenant), not at
+  /.well-known/jwks.json. Recorded for auditability; no WellKnown pointer wired
+  because no catalog document is present.
+hosts:
+- host: https://sandbox.tryspare.com
+  documents:
+  - { path: /.well-known/security.txt, status: 403 }
+  - { path: /.well-known/openid-configuration, status: 403 }
+  - { path: /.well-known/oauth-authorization-server, status: 403 }
+  - { path: /.well-known/api-catalog, status: 403 }
+  - { path: /.well-known/ai-plugin.json, status: 403 }
+- host: https://sandbox.sparefinancial.sa
+  documents:
+  - { path: /.well-known/security.txt, status: 404 }
+  - { path: /.well-known/openid-configuration, status: 404 }
+  - { path: /.well-known/oauth-authorization-server, status: 404 }
+- host: https://tryspare.com
+  documents:
+  - { path: /.well-known/security.txt, status: 302 }
+jwks:
+  bahrain: https://sandbox.tryspare.com/authentication/api/v1.0/authentication/Jwks
+  ksa: https://sandbox.sparefinancial.sa/authentication/api/v1.0/authentication/Jwks

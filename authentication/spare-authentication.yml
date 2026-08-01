@@ -1,0 +1,48 @@
+generated: '2026-07-21'
+method: searched
+source: openapi/spare-bahrain-ais-openapi-original.json, openapi/spare-bahrain-pis-openapi-original.json,
+  openapi/spare-ksa-ais-openapi-original.json, openapi/spare-ksa-ais-v2-openapi-original.json,
+  openapi/spare-ksa-pis-openapi-original.json
+docs: https://docs.tryspare.com/docs/auth-flow
+summary:
+  types:
+  - oauth2
+  - apiKey
+  api_key_in:
+  - header
+  oauth2_flows:
+  - clientCredentials
+model: >-
+  Spare uses OAuth2 client-credentials. A client presents its API credentials
+  (client id + client secret) to the Authentication API Token endpoint and
+  receives a signed JWT access token plus a refresh token. The access token is a
+  short-lived bearer token supplied on every protected request in the
+  Authorization header as `Bearer <JWT>`; when it expires the refresh token is
+  exchanged for a new access token via the Refresh endpoint. Token, payload and
+  webhook (x-signature) signatures are verified against the tenant JWKS published
+  by the Authentication API. API keys are provisioned in the Dashboard as an
+  ECC secp256r1 (prime256v1) PKCS#8 key pair for request/message signing, with an
+  optional IP allow-list. Each tenant (Bahrain, KSA, UAE) is a separate host, so
+  tokens are tenant-scoped.
+schemes:
+- name: Bearer
+  type: apiKey
+  in: header
+  parameter: Authorization
+  scheme_semantics: OAuth2 JWT bearer token (obtained via client-credentials)
+  description: Please enter into field the word 'Bearer' followed by a space and JWT
+  sources:
+  - openapi/spare-bahrain-ais-openapi-original.json
+  - openapi/spare-bahrain-pis-openapi-original.json
+  - openapi/spare-ksa-ais-openapi-original.json
+  - openapi/spare-ksa-ais-v2-openapi-original.json
+  - openapi/spare-ksa-pis-openapi-original.json
+endpoints:
+  token: /api/v1.0/authentication/Token
+  refresh: /api/v1.0/authentication/Refresh
+  jwks: /api/v1.0/authentication/Jwks
+message_signing:
+  algorithm: ECDSA (secp256r1 / prime256v1)
+  key_format: PKCS#8
+  provisioning: Dashboard - Developer Tools - Generate API Key (maker/checker approval)
+consent_permissions: scopes/spare-scopes.yml

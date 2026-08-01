@@ -1,0 +1,72 @@
+# Spare API Documentation
+
+> Developer of an open banking platform designed to connect banks, customers, and third parties that require access to data. Check out Spare's API documentation.
+
+## Guides
+- [Welcome to Spare](https://docs.tryspare.com/docs/welcome.md): Building blocks for Open Banking and Open Finance
+- [Sandbox & Production](https://docs.tryspare.com/docs/sandbox-and-production.md): Configure everything through Spare's Dashboard
+- [API keys and Webhooks](https://docs.tryspare.com/docs/api-keys-and-webhooks.md): Before you start the integration you need to create API kets and setup Webhooks
+- [Integration flow](https://docs.tryspare.com/docs/auth-flow.md): What you need to do to use Spare API?
+- [Error Codes](https://docs.tryspare.com/docs/error-cores.md): Learn more about common error codes and how to resolve them.
+- [Connection](https://docs.tryspare.com/docs/connection-1.md): What does it mean and how should you use it?
+- [Consent](https://docs.tryspare.com/docs/consent-1.md): What does it mean, and how should you use it?
+- [Balance and Transaction](https://docs.tryspare.com/docs/balance-and-transaction.md)
+- [Provider](https://docs.tryspare.com/docs/provider-1.md)
+- [Account](https://docs.tryspare.com/docs/account-1.md)
+- [Beneficiary](https://docs.tryspare.com/docs/beneficiary.md)
+- [Kingdom of Saudi Arabia 🇸🇦](https://docs.tryspare.com/docs/ksa-coverage.md): Coverage of services in KSA
+- [Bahrain 🇧🇭](https://docs.tryspare.com/docs/bahrain.md): Coverage of services in Bahrain
+- [Kuwait 🇰🇼](https://docs.tryspare.com/docs/kuwait.md): Coverage of services in Kuwait
+- [Open Banking Basics](https://docs.tryspare.com/docs/data-api-basics.md): Single interface to access identity, accounts, transactions and balance data
+- [Payments - Bahrain](https://docs.tryspare.com/docs/payments-api-basics.md): The single interface to access all Spare payments products.
+- [Payments - UAE](https://docs.tryspare.com/docs/copy-of-payments-uae.md): Open finance payments in the UAE
+- [Account Verification Guide](https://docs.tryspare.com/docs/account-verification-basics.md): Verify KSA IBAN Against National ID or Company Registration — Instantly.
+- [Beneficiary Verification Guide](https://docs.tryspare.com/docs/beneficiary-verification-guide.md): Verify Beneficiary Name as per bank — Instantly.
+- [Account Verification Pro Guide](https://docs.tryspare.com/docs/account-verification-guide-copy.md): Verify KSA IBAN details and retrieve beneficiary information using National ID or Company Registration— instantly.
+- [Dev Requirements and Guidelines](https://docs.tryspare.com/docs/dev-guidelines.md): Effective Date: 1st September, 2023
+
+## API Reference
+- [Hosting](https://docs.tryspare.com/reference/hosting-1.md): Spare has a sandbox and production environment, and it is important for you to set the host for API calls right.
+- [Json web key set](https://docs.tryspare.com/reference/get_api-v1-0-authentication-jwks.md): **Unique resource name :** api_authentication.v1.cert.jwks              A set of Json Web Keys (JWK) based on <a href="https://www.rfc-editor.org/rfc/rfc7517" target="_blank">rfc7517</a>. - To verify the tokens (access_token or refresh token) signature. - To verify webhooks x-signature header.
+- [Create an API token](https://docs.tryspare.com/reference/get_api-v1-0-authentication-token.md): **Unique resource name :** api_authentication.v1.token
+- [Refresh API token](https://docs.tryspare.com/reference/get_api-v1-0-authentication-refresh.md): **Unique resource name :** api_authentication.v1.refresh
+- [Get an account by id](https://docs.tryspare.com/reference/get_api-v1-0-ais-account-get-1.md): **Unique resource name :** ais.v1.account.get              **Important!:**              The permissions bellow are required on the consent: - `ReadAccountsBasic` - `ReadAccountsDetail`
+- [List accounts](https://docs.tryspare.com/reference/get_api-v1-0-ais-account-list-1.md): **Unique resource name :** ais.v1.account.list              **Important!:**              The permissions bellow are required on the consent: - `ReadAccountsBasic` - `ReadAccountsDetail`
+- [Get account balance](https://docs.tryspare.com/reference/get_api-v1-0-ais-balance-get-1.md): **Unique resource name :** ais.v1.balance.get              **Important!:**              The permissions bellow are required on the consent: - `ReadAccountsBasic` - `ReadAccountsDetail` - `ReadBalances`
+- [Get account balance history](https://docs.tryspare.com/reference/get_api-v1-0-ais-balance-history-1.md): **Unique resource name :** ais.v1.balance.history              **Important!:**              - The maximum allowed date range period is one year. - `toDate` need to be greater than `fromDate`              The permissions bellow are required on the consent: - `ReadAccountsBasic` - `ReadAccountsDetail` - `ReadBalances` - `ReadTransactionsBasic` - `ReadTransactionsDetail` - `ReadTransactionsDebits` - `ReadTransactionsCredits`
+- [Get account beneficiary](https://docs.tryspare.com/reference/get_api-v1-0-ais-beneficiary-get-1.md): **Unique resource name :** ais.v1.beneficiary.get              **Important!:**              The permissions bellow are required on the consent: - `ReadBeneficiariesBasic` - `ReadBeneficiariesDetail`
+- [Create connection](https://docs.tryspare.com/reference/post_api-v1-0-ais-connection-create-1.md): **Unique resource name :** ais.v1.connection.create
+- [Get connection by id](https://docs.tryspare.com/reference/get_api-v1-0-ais-connection-get-1.md): **Unique resource name :** ais.v1.connection.get
+- [List connections](https://docs.tryspare.com/reference/get_api-v1-0-ais-connection-list-1.md): **Unique resource name :** ais.v1.connection.list
+- [Delete connection by id](https://docs.tryspare.com/reference/delete_api-v1-0-ais-connection-delete-1.md): **Unique resource name :** ais.v1.connection.delete
+- [Create consent](https://docs.tryspare.com/reference/post_api-v1-0-ais-consent-create-1.md): **Unique resource name :** ais.v1.consent.create
+- [List consent](https://docs.tryspare.com/reference/get_api-v1-0-ais-consent-list-1.md): **Unique resource name :** ais.v1.consent.list
+- [Get consent by id](https://docs.tryspare.com/reference/get_api-v1-0-ais-consent-get-1.md): **Unique resource name :** ais.v1.consent.get
+- [Revoke consent](https://docs.tryspare.com/reference/patch_api-v1-0-ais-consent-revoke-1.md): **Unique resource name :** ais.v1.consent.revoke
+- [Create customer](https://docs.tryspare.com/reference/post_api-v1-0-ais-customer-create-1.md): **Unique resource name :** ais.v1.customer.create              **Important!:**              - `type` is required and need to be "Retail" or "Business".              - `nationalId` is required if `type` is "Retail".
+- [List customers](https://docs.tryspare.com/reference/get_api-v1-0-ais-customer-list-1.md): **Unique resource name :** ais.v1.customer.list
+- [Get customer by id](https://docs.tryspare.com/reference/get_api-v1-0-ais-customer-get-1.md): **Unique resource name :** ais.v1.customer.get
+- [Update customer](https://docs.tryspare.com/reference/patch_api-v1-0-ais-customer-update-1.md): **Unique resource name :** ais.v1.customer.update
+- [Delete customer](https://docs.tryspare.com/reference/delete_api-v1-0-ais-customer-delete-1.md): **Unique resource name :** ais.v1.customer.delete
+- [Get account direct debits](https://docs.tryspare.com/reference/get_api-v1-0-ais-directdebit-get.md): **Unique resource name :** ais.v1.direct_debit.get              **Important!:**              The permissions bellow are required on the consent: - `ReadDirectDebits`
+- [Get account parties](https://docs.tryspare.com/reference/get_api-v1-0-ais-parties-get.md): **Unique resource name :** ais.v1.parties.get              **Important!:**              The permissions bellow are required on the consent: - `ReadParty`
+- [List open banking providers](https://docs.tryspare.com/reference/get_api-v1-0-ais-provider-list-1.md): **Unique resource name :** ais.v1.provider.list
+- [Create account information access request](https://docs.tryspare.com/reference/post_api-v1-0-ais-request-create-1.md): **Unique resource name :** ais.v1.request.create
+- [List account information access requests](https://docs.tryspare.com/reference/get_api-v1-0-ais-request-list-1.md): **Unique resource name :** ais.v1.request.list
+- [Get account information access request by id](https://docs.tryspare.com/reference/get_api-v1-0-ais-request-get-1.md): **Unique resource name :** ais.v1.request.get
+- [Update account information access request](https://docs.tryspare.com/reference/put_api-v1-0-ais-request-update-1.md): **Unique resource name :** ais.v1.request.update
+- [Delete account information access request](https://docs.tryspare.com/reference/delete_api-v1-0-ais-request-delete-1.md): **Unique resource name :** ais.v1.request.delete
+- [Download account statement](https://docs.tryspare.com/reference/get_api-v1-0-ais-statement-file-1.md): **Unique resource name :** ais.v1.statement.file              **Important!:**              - The permissions bellow are required on the consent: - `ReadBalances` - `ReadTransactionsBasic` - `ReadTransactionsDetail` - `ReadTransactionsDebits` - `ReadTransactionsCredits`
+- [Get transaction details](https://docs.tryspare.com/reference/get_api-v1-0-ais-transaction-get-1.md): **Unique resource name :** ais.v1.transaction.get              **Important!:**              The permissions bellow are required on the consent: - `ReadTransactionsBasic` - `ReadTransactionsDetail` - `ReadTransactionsDebits` - `ReadTransactionsCredits`
+- [List transactions](https://docs.tryspare.com/reference/post_api-v1-0-ais-transaction-list-1.md): **Unique resource name :** ais.v1.transaction.list              **Important!:**              The permissions bellow are required on the consent: - ReadTransactionsBasic - ReadTransactionsDetail - ReadTransactionsDebits - ReadTransactionsCredits
+- [Get account salary](https://docs.tryspare.com/reference/get_api-v1-0-ais-transaction-salaries-1.md): **Unique resource name :** ais.v1.transaction.salaries
+- [Verifies if the provided IBAN and ID match and retrieves the beneficiary name associated with the IBAN.](https://docs.tryspare.com/reference/post_api-v2-1-av-accountverificationpro-match.md): **Unique resource name :** av.v2.1.account_verification_pro.match            **Important!:**- The IBAN must be a valid KSA IBAN.- The `idValue` must be valid according to the required format (e.g., National ID, Iqama number, or Registration number).- The request validates the IBAN and ID match and also fetches the associated beneficiary name.
+- [Verifies a corporate account by matching the IBAN with the provided Company Registration (CR) or Unified National Number (UNN)
+and combines it with Beneficiary Verification.](https://docs.tryspare.com/reference/post_api-v2-1-av-accountverificationpro-corporate.md): **Unique resource name :** av.v2.1.account_verification_pro.corporate              **Important!:** - The IBAN must be a valid KSA IBAN. - The CR or UNN must be valid 10-digit numbers. - The beneficiaryName will be verified against the account holder name.
+- [Verifies if the account ID matches the provided identification details.](https://docs.tryspare.com/reference/post_api-v2-0-av-accountverification-idmatch.md): **Unique resource name :** av.v2.account_verification.id_match              **Important!:** - The provided IBAN must be a valid KSA IBAN. - The `idValue` must be a valid KSA national ID, Iqama number, or registration number. - Ensure the request model adheres to the required format for successful validation.
+- [Verifies a corporate account by matching the IBAN with the provided Company Registration (CR) or Unified National Number (UNN).](https://docs.tryspare.com/reference/post_api-v2-0-av-accountverification-corporate.md): **Unique resource name :** av.v2.account_verification.corporate              **Important!:** - This endpoint is designed for clients who may not know which ID type to use and want to send all information for comprehensive validation. - The IBAN must be a valid KSA IBAN.
+- [Retrieves the name of the beneficiary associated with the specified IBAN.](https://docs.tryspare.com/reference/post_api-v2-0-av-beneficiaryverification-match.md): **Unique resource name :** av.v2.beneficiary_verification.match              **Important!:** - The IBAN must be a valid KSA IBAN. - The request model must include all required details for successful beneficiary retrieval.
+- [Verifies if the provided IBAN and ID match and retrieves the beneficiary name associated with the IBAN.](https://docs.tryspare.com/reference/post_api-v2-0-av-commonverification-match.md): **Unique resource name :** av.v2.common_verification.match              **Important!:** - The IBAN must be a valid KSA IBAN. - The `idValue` must be valid according to the required format (e.g., National ID, Iqama number, or Registration number). - The request validates the IBAN and ID match and also fetches the associated beneficiary name.
+
+## Pages
+- [UAE Custom page](https://docs.tryspare.com/uae-custom-page.md)

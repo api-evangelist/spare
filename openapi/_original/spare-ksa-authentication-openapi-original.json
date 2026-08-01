@@ -1,0 +1,329 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Authentication API",
+    "description": "Spare api authentication API documentation",
+    "termsOfService": "https://terms.tryspare.com/en",
+    "contact": {
+      "name": "Spare Arabian Financial Co.",
+      "email": "hello@tryspare.com"
+    },
+    "license": {
+      "name": "Spare Arabian Financial Co."
+    },
+    "version": "1.0"
+  },
+  "paths": {
+    "/api/v1.0/authentication/Jwks": {
+      "get": {
+        "tags": [
+          "Cert"
+        ],
+        "summary": "Retrieves the JSON Web Key Set (JWKS) used for token, payloads and webhook signature verification.",
+        "description": "**Unique resource name:** api_authentication.v1.cert.jwks\r\n            \r\nThis endpoint provides a set of JSON Web Keys (JWK) as defined in\r\n<a href=\"https://www.rfc-editor.org/rfc/rfc7517\" target=\"_blank\">RFC 7517</a>.\r\n            \r\n**Usage:**\r\n- Used to verify the signature of access tokens and refresh tokens.\r\n- Used to validate the `x-signature` header in the API responses or webhook events.\r\n- Ensures secure cryptographic verification of API interactions.\r\n            \r\nThe response includes RSA and ECC-based public keys required for token and data signature validation.",
+        "responses": {
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          },
+          "200": {
+            "description": "- Successfully returns the JSON Web Key Set.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SpJsonWebKeySet"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1.0/authentication/Token": {
+      "get": {
+        "tags": [
+          "Token"
+        ],
+        "summary": "Generates an API authentication token using the provided API credentials.",
+        "description": "**Unique resource name:** api_authentication.v1.token\r\n            \r\nThis endpoint authenticates an API keys by validating the provided API credentials.\r\nUpon successful authentication, an access token is generated and returned.\r\n            \r\n**Authentication Process:**\r\n- The `app-id` and `x-api-key` headers must contain valid credentials.\r\n- If authentication is successful, a signed JSON Web Token (JWT) is issued.\r\n- If authentication fails due to invalid credentials, a `401 Unauthorized` response is returned.\r\n            \r\n**Security Considerations:**\r\n- The API key (`x-api-key`) should be kept confidential.\r\n- The generated JWT should be used for subsequent authenticated requests.",
+        "parameters": [
+          {
+            "name": "app-id",
+            "in": "header",
+            "description": "The unique identifier of the API keys.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "description": "The API key associated with the API keys.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "Returned if the API credentials (`app-id` and `x-api-key`) are incorrect or unauthorized.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          },
+          "200": {
+            "description": "Successfully generated an API authentication token.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/JsonWebTokenResponseModel"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1.0/authentication/Refresh": {
+      "get": {
+        "tags": [
+          "Token"
+        ],
+        "summary": "Refreshes an API authentication token using a valid refresh token.",
+        "description": "**Unique resource name:** api_authentication.v1.refresh\r\n            \r\nThis endpoint allows clients to obtain a new access token by providing a valid refresh token.\r\nThe refresh token must be issued by the authentication service and must not be expired.\r\n            \r\n**Authentication Process:**\r\n- The `refresh-token` header must contain a valid refresh token.\r\n- If the refresh token is valid, a new access token is issued.\r\n- If the refresh token is invalid or expired, a `401 Unauthorized` response is returned.\r\n            \r\n**Security Considerations:**\r\n- Refresh tokens should be stored securely and not shared.",
+        "parameters": [
+          {
+            "name": "refresh-token",
+            "in": "header",
+            "description": "The refresh token used to obtain a new access token.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "Returned if the refresh token is incorrect, expired, or unauthorized.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          },
+          "200": {
+            "description": "Successfully generated a new API authentication token.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/JsonWebTokenResponseModel"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "JsonWebTokenResponseModel": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          },
+          "access_token": {
+            "type": "string",
+            "nullable": true
+          },
+          "expires_in": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "refresh_token": {
+            "type": "string",
+            "nullable": true
+          },
+          "refresh_expires_in": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ProblemDetails": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "nullable": true
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "status": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "detail": {
+            "type": "string",
+            "nullable": true
+          },
+          "instance": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": { }
+      },
+      "SpJsonWebKey": {
+        "type": "object",
+        "properties": {
+          "p": {
+            "type": "string",
+            "nullable": true
+          },
+          "kty": {
+            "type": "string",
+            "nullable": true
+          },
+          "q": {
+            "type": "string",
+            "nullable": true
+          },
+          "d": {
+            "type": "string",
+            "nullable": true
+          },
+          "e": {
+            "type": "string",
+            "nullable": true
+          },
+          "use": {
+            "type": "string",
+            "nullable": true
+          },
+          "kid": {
+            "type": "string",
+            "nullable": true
+          },
+          "qi": {
+            "type": "string",
+            "nullable": true
+          },
+          "dp": {
+            "type": "string",
+            "nullable": true
+          },
+          "alg": {
+            "type": "string",
+            "nullable": true
+          },
+          "dq": {
+            "type": "string",
+            "nullable": true
+          },
+          "n": {
+            "type": "string",
+            "nullable": true
+          },
+          "x": {
+            "type": "string",
+            "nullable": true
+          },
+          "y": {
+            "type": "string",
+            "nullable": true
+          },
+          "crv": {
+            "type": "string",
+            "nullable": true
+          },
+          "x5t": {
+            "type": "string",
+            "nullable": true
+          },
+          "x5c": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SpJsonWebKeySet": {
+        "type": "object",
+        "properties": {
+          "keys": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SpJsonWebKey"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  }
+}

@@ -1,0 +1,23 @@
+generated: '2026-07-21'
+method: searched
+source: https://docs.tryspare.com/docs/api-keys-and-webhooks
+spec_type: Webhooks
+note: >-
+  Spare documents an outbound webhook surface but does not publish an AsyncAPI
+  document or a fully enumerated public event catalog. Webhooks are configured in
+  the Dashboard (Developer Tools). Only the documented facts are captured here;
+  event-type names are not fabricated.
+delivery:
+  configuration: Dashboard -> Developer Tools -> Webhooks
+  operations:
+  - Create a new webhook (set receiver URL)
+  - Activate / deactivate a webhook
+  - Edit permissions on a webhook
+  - Remove a webhook
+security:
+  signature_header: x-signature
+  verification: verify against the tenant JWKS at /api/v1.0/authentication/Jwks (RFC 7517)
+  note: The JWKS is used both for token signatures and for webhook x-signature verification.
+scope:
+  purpose: Receive asynchronous updates from Spare (e.g. consent authorisation, report/job completion, payment status changes) for the events permitted on the webhook.
+  event_catalog: not publicly enumerated (configured per webhook permissions)

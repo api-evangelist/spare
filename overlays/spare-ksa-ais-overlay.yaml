@@ -1,0 +1,20 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for Spare Account Information API (ksa-ais)
+  version: 1.0.0
+extends: openapi/spare-ksa-ais-openapi-original.json
+actions:
+- target: $.info
+  update:
+    x-apievangelist-provider: spare
+    x-apievangelist-tenant: ksa
+    x-apievangelist-service: ais
+    x-apievangelist-rating-artifacts:
+    - authentication/spare-authentication.yml
+    - scopes/spare-scopes.yml
+    - errors/spare-error-codes.yml
+    - conventions/spare-conventions.yml
+- target: $.servers
+  update:
+  - url: https://ob.tryspare.com/api/v1.0
+    description: Production placeholder (Bahrain); confirm production host with Spare

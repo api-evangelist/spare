@@ -1,0 +1,28 @@
+generated: '2026-07-21'
+method: probed
+source: live DNS/TLS/HTTP probes of apis.yml + OpenAPI hosts
+hosts:
+- host: tryspare.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Nov 27 23:59:59 2026 GMT
+  hsts: true
+  hsts_max_age: 31536000
+- host: docs.tryspare.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Oct  2 15:09:40 2026 GMT
+  hsts: true
+  hsts_max_age: 31536000
+- host: ob.tryspare.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Nov 27 23:59:59 2026 GMT
+  hsts: null
+domains:
+- domain: tryspare.com
+  dnssec: true
+  caa: []
+  spf: true
+  dmarc: true
+  dmarc_policy: quarantine

@@ -1,0 +1,45 @@
+generated: '2026-07-21'
+method: searched
+source: https://docs.tryspare.com/docs/sdk + https://github.com/spare-technologies + package registries
+note: >-
+  Four official first-party Spare SDKs, one per language, published under the
+  spare-technologies GitHub organization and mirrored to each language's registry.
+  Versions reflect the docs/registry listings observed 2026-07-21.
+packages:
+- language: javascript
+  registry: npm
+  name: "@spare-technologies/spare-typescript-sdk"
+  url: https://www.npmjs.com/package/@spare-technologies/spare-typescript-sdk
+  install: npm i --save @spare-technologies/spare-typescript-sdk
+  source: https://github.com/spare-technologies/typescript-sdk
+  requirements: Node.js 8 or above
+  official: true
+- language: java
+  registry: maven
+  name: com.tryspare:java.sdk
+  url: https://search.maven.org/artifact/com.tryspare/java.sdk
+  install: |
+    <dependency>
+      <groupId>com.tryspare</groupId>
+      <artifactId>java.sdk</artifactId>
+      <version>1.1.1</version>
+    </dependency>
+  source: https://github.com/spare-technologies/java-sdk
+  requirements: JRE 1.8 or above (Apache Maven)
+  official: true
+- language: csharp
+  registry: nuget
+  name: Spare.NET.Sdk
+  url: https://www.nuget.org/packages/Spare.NET.Sdk/
+  install: dotnet add package Spare.NET.Sdk
+  source: https://github.com/spare-technologies/sdk-csharp
+  requirements: .NET Standard 2.0 or higher
+  official: true
+- language: php
+  registry: packagist
+  name: spare-technologies/php-sdk
+  url: https://packagist.org/packages/spare-technologies/php-sdk
+  install: composer require spare-technologies/php-sdk "^1.1"
+  source: https://github.com/spare-technologies/php-sdk
+  requirements: Composer 2.0
+  official: true

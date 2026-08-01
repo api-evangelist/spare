@@ -1,0 +1,36 @@
+generated: '2026-07-21'
+method: searched
+source: https://docs.tryspare.com/docs/sandbox-and-production, https://docs.tryspare.com/docs/api-keys-and-webhooks
+note: >-
+  Spare operates a Dashboard-driven sandbox with dummy data, separate per tenant.
+  No published magic test IBANs / test cards were found in the public docs; test
+  data is provisioned through the sandbox Dashboard account, so only the published
+  environment facts are captured here (no invented test values).
+environments:
+  sandbox:
+    dashboard: https://dashboard.sandbox.tryspare.com/
+    hosts:
+      bahrain: https://sandbox.tryspare.com
+      ksa: https://sandbox.sparefinancial.sa
+      uae: https://sandbox.sparefinancial.ae
+    data: dummy / simulated; mirrors production behavior without real transactions
+  production:
+    dashboard: https://dashboard.tryspare.com/
+    access: provisioned by Spare engineering on request
+onboarding:
+  steps:
+  - Sign up at the sandbox Dashboard.
+  - In Developer Tools, generate an ECC secp256r1 (prime256v1) PKCS#8 key pair; submit the public key to create/regenerate an API key (App-Id + API key returned via email, maker/checker approval).
+  - Optionally add IP addresses to the API-key allow-list.
+  - Configure Webhook URL(s) in Developer Tools.
+  - Obtain an OAuth2 token from the Authentication API and target the correct tenant host.
+key_generation:
+  algorithm: ECC secp256r1 (prime256v1)
+  format: PKCS#8
+  example_commands:
+  - openssl ecparam -name prime256v1 -genkey -out key.pem
+  - openssl ec -in key.pem -pubout -out public.pem
+  - openssl pkcs8 -topk8 -inform PEM -outform PEM -nocrypt -in key.pem -out private.pem
+postman:
+  bahrain: https://documenter.getpostman.com/view/27626690/2s9YC32Ea4
+  ksa: https://documenter.getpostman.com/view/39844099/2sB2ixku9E

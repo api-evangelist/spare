@@ -1,7 +1,19 @@
 aid: spare
 name: Spare
-description: Spare is a company surfaced as a portfolio company of 500-global and added to the API Evangelist
-  network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+description: >-
+  Spare is a MENA-region open banking and open finance platform, licensed by the
+  Central Bank of Bahrain as an Account Information Service Provider and Payment
+  Initiation Service Provider (AISP/PISP) and permitted to test under the Saudi
+  Central Bank (SAMA) regulatory sandbox. Spare exposes RESTful Account
+  Information Services (AIS) — account details, balances, transactions,
+  statements, beneficiaries, parties, direct debits, plus risk and affordability
+  reports — and Payment Initiation Services (PIS) for domestic single,
+  future-dated and standing-order payments, across separate Bahrain, KSA and UAE
+  tenants hosted in-region for data-residency compliance. Developers authenticate
+  with OAuth2 client credentials to obtain signed JWT bearer tokens, drive a
+  customer to connection to consent to data flow, verify token and webhook
+  signatures against a published JWKS, and integrate via official TypeScript,
+  Java, .NET and PHP SDKs plus Postman collections.
 url: https://raw.githubusercontent.com/api-evangelist/spare/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -9,17 +21,519 @@ x-backed-by:
 - 500-global
 x-tier: stub
 x-tier-reason: portfolio-lead
+x-enrichment:
+  date: '2026-07-21'
+  status: enriched
+  artifacts_added: 36
+  pass: local-v1
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://files.readme.io/91c2031-small-Spare-logo-white3x.png
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-21'
 tags:
-- Company
-apis: []
+- Open Banking
+- Open Finance
+- Account Information
+- Payment Initiation
+- AISP
+- PISP
+- Consent
+- Bank Data
+- Transactions
+- Balances
+- Payments
+- Fintech
+- MENA
+- Saudi Arabia
+- Bahrain
+- UAE
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+apis:
+- aid: spare:spare-account-api
+  name: Spare Account API
+  description: The Account API from Spare — 4 operation(s) for account.
+  humanURL: https://docs.tryspare.com/reference/get_api-v1-0-authentication-token
+  baseURL: https://ob.tryspare.com/api/v1.0/authentication
+  tags:
+  - Account
+  properties:
+  - type: OpenAPI
+    url: openapi/spare-account-api-openapi.yml
+  - type: Documentation
+    url: https://docs.tryspare.com/docs/auth-flow
+  - type: APIReference
+    url: https://docs.tryspare.com/reference/get_api-v1-0-authentication-token
+  - type: Documentation
+    url: https://docs.tryspare.com/docs/data-api-basics
+  - type: APIReference
+    url: https://docs.tryspare.com/reference/get_api-v1-0-ais-account-list-1
+  - type: Documentation
+    url: https://docs.tryspare.com/docs/payments-api-basics
+  - type: APIReference
+    url: https://docs.tryspare.com/reference/create-business-domestic-payment
+  - type: Documentation
+    url: https://docs.tryspare.com/docs/ksa-coverage
+- aid: spare:spare-accountinformationreport-api
+  name: Spare AccountInformationReport API
+  description: >-
+    The AccountInformationReport API from Spare — 5 operation(s) for accountinformationreport.
+  humanURL: https://docs.tryspare.com/reference/get_api-v1-0-authentication-token
+  baseURL: https://ob.tryspare.com/api/v1.0/authentication
+  tags:
+  - AccountInformationReport
+  properties:
+  - type: OpenAPI
+    url: openapi/spare-accountinformationreport-api-openapi.yml
+  - type: Documentation
+    url: https://docs.tryspare.com/docs/auth-flow
+  - type: APIReference
+    url: https://docs.tryspare.com/reference/get_api-v1-0-authentication-token
+  - type: Documentation
+    url: https://docs.tryspare.com/docs/data-api-basics
+  - type: APIReference
+    url: https://docs.tryspare.com/reference/get_api-v1-0-ais-account-list-1
+  - type: Documentation
+    url: https://docs.tryspare.com/docs/payments-api-basics
+  - type: APIReference
+    url: https://docs.tryspare.com/reference/create-business-domestic-payment
+  - type: Documentation
+    url: https://docs.tryspare.com/docs/ksa-coverage
+- aid: spare:spare-balance-api
+  name: Spare Balance API
+  description: The Balance API from Spare — 3 operation(s) for balance.
+  humanURL: https://docs.tryspare.com/reference/get_api-v1-0-authentication-token
+  baseURL: https://ob.tryspare.com/api/v1.0/authentication
+  tags:
+  - Balance
+  properties:
+  - type: OpenAPI
+    url: openapi/spare-balance-api-openapi.yml
+  - type: Documentation
+    url: https://docs.tryspare.com/docs/auth-flow
+  - type: APIReference
+    url: https://docs.tryspare.com/reference/get_api-v1-0-authentication-token
+  - type: Documentation
+    url: https://docs.tryspare.com/docs/data-api-basics
+  - type: APIReference
+    url: https://docs.tryspare.com/reference/get_api-v1-0-ais-account-list-1
+  - type: Documentation
+    url: https://docs.tryspare.com/docs/payments-api-basics
+  - type: APIReference
+    url: https://docs.tryspare.com/reference/create-business-domestic-payment
+  - type: Documentation
+    url: https://docs.tryspare.com/docs/ksa-coverage
+- aid: spare:spare-beneficiary-api
+  name: Spare Beneficiary API
+  description: The Beneficiary API from Spare — 1 operation(s) for beneficiary.
+  humanURL: https://docs.tryspare.com/reference/get_api-v1-0-authentication-token
+  baseURL: https://ob.tryspare.com/api/v1.0/authentication
+  tags:
+  - Beneficiary
+  properties:
+  - type: OpenAPI
+    url: openapi/spare-beneficiary-api-openapi.yml
+  - type: Documentation
+    url: https://docs.tryspare.com/docs/auth-flow
+  - type: APIReference
+    url: https://docs.tryspare.com/reference/get_api-v1-0-authentication-token
+  - type: Documentation
+    url: https://docs.tryspare.com/docs/data-api-basics
+  - type: APIReference
+    url: https://docs.tryspare.com/reference/get_api-v1-0-ais-account-list-1
+  - type: Documentation
+    url: https://docs.tryspare.com/docs/payments-api-basics
+  - type: APIReference
+    url: https://docs.tryspare.com/reference/create-business-domestic-payment
+  - type: Documentation
+    url: https://docs.tryspare.com/docs/ksa-coverage
+- aid: spare:spare-cert-api
+  name: Spare Cert API
+  description: The Cert API from Spare — 1 operation(s) for cert.
+  humanURL: https://docs.tryspare.com/reference/get_api-v1-0-authentication-token
+  baseURL: https://ob.tryspare.com/api/v1.0/authentication
+  tags:
+  - Cert
+  properties:
+  - type: OpenAPI
+    url: openapi/spare-cert-api-openapi.yml
+  - type: Documentation
+    url: https://docs.tryspare.com/docs/auth-flow
+  - type: APIReference
+    url: https://docs.tryspare.com/reference/get_api-v1-0-authentication-token
+  - type: Documentation
+    url: https://docs.tryspare.com/docs/data-api-basics
+  - type: APIReference
+    url: https://docs.tryspare.com/reference/get_api-v1-0-ais-account-list-1
+  - type: Documentation
+    url: https://docs.tryspare.com/docs/payments-api-basics
+  - type: APIReference
+    url: https://docs.tryspare.com/reference/create-business-domestic-payment
+  - type: Documentation
+    url: https://docs.tryspare.com/docs/ksa-coverage
+- aid: spare:spare-connection-api
+  name: Spare Connection API
+  description: The Connection API from Spare — 4 operation(s) for connection.
+  humanURL: https://docs.tryspare.com/reference/get_api-v1-0-authentication-token
+  baseURL: https://ob.tryspare.com/api/v1.0/authentication
+  tags:
+  - Connection
+  properties:
+  - type: OpenAPI
+    url: openapi/spare-connection-api-openapi.yml
+  - type: Documentation
+    url: https://docs.tryspare.com/docs/auth-flow
+  - type: APIReference
+    url: https://docs.tryspare.com/reference/get_api-v1-0-authentication-token
+  - type: Documentation
+    url: https://docs.tryspare.com/docs/data-api-basics
+  - type: APIReference
+    url: https://docs.tryspare.com/reference/get_api-v1-0-ais-account-list-1
+  - type: Documentation
+    url: https://docs.tryspare.com/docs/payments-api-basics
+  - type: APIReference
+    url: https://docs.tryspare.com/reference/create-business-domestic-payment
+  - type: Documentation
+    url: https://docs.tryspare.com/docs/ksa-coverage
+- aid: spare:spare-consent-api
+  name: Spare Consent API
+  description: The Consent API from Spare — 9 operation(s) for consent.
+  humanURL: https://docs.tryspare.com/reference/get_api-v1-0-authentication-token
+  baseURL: https://ob.tryspare.com/api/v1.0/authentication
+  tags:
+  - Consent
+  properties:
+  - type: OpenAPI
+    url: openapi/spare-consent-api-openapi.yml
+  - type: Documentation
+    url: https://docs.tryspare.com/docs/auth-flow
+  - type: APIReference
+    url: https://docs.tryspare.com/reference/get_api-v1-0-authentication-token
+  - type: Documentation
+    url: https://docs.tryspare.com/docs/data-api-basics
+  - type: APIReference
+    url: https://docs.tryspare.com/reference/get_api-v1-0-ais-account-list-1
+  - type: Documentation
+    url: https://docs.tryspare.com/docs/payments-api-basics
+  - type: APIReference
+    url: https://docs.tryspare.com/reference/create-business-domestic-payment
+  - type: Documentation
+    url: https://docs.tryspare.com/docs/ksa-coverage
+- aid: spare:spare-customer-api
+  name: Spare Customer API
+  description: The Customer API from Spare — 5 operation(s) for customer.
+  humanURL: https://docs.tryspare.com/reference/get_api-v1-0-authentication-token
+  baseURL: https://ob.tryspare.com/api/v1.0/authentication
+  tags:
+  - Customer
+  properties:
+  - type: OpenAPI
+    url: openapi/spare-customer-api-openapi.yml
+  - type: Documentation
+    url: https://docs.tryspare.com/docs/auth-flow
+  - type: APIReference
+    url: https://docs.tryspare.com/reference/get_api-v1-0-authentication-token
+  - type: Documentation
+    url: https://docs.tryspare.com/docs/data-api-basics
+  - type: APIReference
+    url: https://docs.tryspare.com/reference/get_api-v1-0-ais-account-list-1
+  - type: Documentation
+    url: https://docs.tryspare.com/docs/payments-api-basics
+  - type: APIReference
+    url: https://docs.tryspare.com/reference/create-business-domestic-payment
+  - type: Documentation
+    url: https://docs.tryspare.com/docs/ksa-coverage
+- aid: spare:spare-directdebit-api
+  name: Spare DirectDebit API
+  description: The DirectDebit API from Spare — 1 operation(s) for directdebit.
+  humanURL: https://docs.tryspare.com/reference/get_api-v1-0-authentication-token
+  baseURL: https://ob.tryspare.com/api/v1.0/authentication
+  tags:
+  - DirectDebit
+  properties:
+  - type: OpenAPI
+    url: openapi/spare-directdebit-api-openapi.yml
+  - type: Documentation
+    url: https://docs.tryspare.com/docs/auth-flow
+  - type: APIReference
+    url: https://docs.tryspare.com/reference/get_api-v1-0-authentication-token
+  - type: Documentation
+    url: https://docs.tryspare.com/docs/data-api-basics
+  - type: APIReference
+    url: https://docs.tryspare.com/reference/get_api-v1-0-ais-account-list-1
+  - type: Documentation
+    url: https://docs.tryspare.com/docs/payments-api-basics
+  - type: APIReference
+    url: https://docs.tryspare.com/reference/create-business-domestic-payment
+  - type: Documentation
+    url: https://docs.tryspare.com/docs/ksa-coverage
+- aid: spare:spare-parties-api
+  name: Spare Parties API
+  description: The Parties API from Spare — 1 operation(s) for parties.
+  humanURL: https://docs.tryspare.com/reference/get_api-v1-0-authentication-token
+  baseURL: https://ob.tryspare.com/api/v1.0/authentication
+  tags:
+  - Parties
+  properties:
+  - type: OpenAPI
+    url: openapi/spare-parties-api-openapi.yml
+  - type: Documentation
+    url: https://docs.tryspare.com/docs/auth-flow
+  - type: APIReference
+    url: https://docs.tryspare.com/reference/get_api-v1-0-authentication-token
+  - type: Documentation
+    url: https://docs.tryspare.com/docs/data-api-basics
+  - type: APIReference
+    url: https://docs.tryspare.com/reference/get_api-v1-0-ais-account-list-1
+  - type: Documentation
+    url: https://docs.tryspare.com/docs/payments-api-basics
+  - type: APIReference
+    url: https://docs.tryspare.com/reference/create-business-domestic-payment
+  - type: Documentation
+    url: https://docs.tryspare.com/docs/ksa-coverage
+- aid: spare:spare-payment-api
+  name: Spare Payment API
+  description: The Payment API from Spare — 2 operation(s) for payment.
+  humanURL: https://docs.tryspare.com/reference/get_api-v1-0-authentication-token
+  baseURL: https://ob.tryspare.com/api/v1.0/authentication
+  tags:
+  - Payment
+  properties:
+  - type: OpenAPI
+    url: openapi/spare-payment-api-openapi.yml
+  - type: Documentation
+    url: https://docs.tryspare.com/docs/auth-flow
+  - type: APIReference
+    url: https://docs.tryspare.com/reference/get_api-v1-0-authentication-token
+  - type: Documentation
+    url: https://docs.tryspare.com/docs/data-api-basics
+  - type: APIReference
+    url: https://docs.tryspare.com/reference/get_api-v1-0-ais-account-list-1
+  - type: Documentation
+    url: https://docs.tryspare.com/docs/payments-api-basics
+  - type: APIReference
+    url: https://docs.tryspare.com/reference/create-business-domestic-payment
+  - type: Documentation
+    url: https://docs.tryspare.com/docs/ksa-coverage
+- aid: spare:spare-provider-api
+  name: Spare Provider API
+  description: The Provider API from Spare — 2 operation(s) for provider.
+  humanURL: https://docs.tryspare.com/reference/get_api-v1-0-authentication-token
+  baseURL: https://ob.tryspare.com/api/v1.0/authentication
+  tags:
+  - Provider
+  properties:
+  - type: OpenAPI
+    url: openapi/spare-provider-api-openapi.yml
+  - type: Documentation
+    url: https://docs.tryspare.com/docs/auth-flow
+  - type: APIReference
+    url: https://docs.tryspare.com/reference/get_api-v1-0-authentication-token
+  - type: Documentation
+    url: https://docs.tryspare.com/docs/data-api-basics
+  - type: APIReference
+    url: https://docs.tryspare.com/reference/get_api-v1-0-ais-account-list-1
+  - type: Documentation
+    url: https://docs.tryspare.com/docs/payments-api-basics
+  - type: APIReference
+    url: https://docs.tryspare.com/reference/create-business-domestic-payment
+  - type: Documentation
+    url: https://docs.tryspare.com/docs/ksa-coverage
+- aid: spare:spare-request-api
+  name: Spare Request API
+  description: The Request API from Spare — 11 operation(s) for request.
+  humanURL: https://docs.tryspare.com/reference/get_api-v1-0-authentication-token
+  baseURL: https://ob.tryspare.com/api/v1.0/authentication
+  tags:
+  - Request
+  properties:
+  - type: OpenAPI
+    url: openapi/spare-request-api-openapi.yml
+  - type: Documentation
+    url: https://docs.tryspare.com/docs/auth-flow
+  - type: APIReference
+    url: https://docs.tryspare.com/reference/get_api-v1-0-authentication-token
+  - type: Documentation
+    url: https://docs.tryspare.com/docs/data-api-basics
+  - type: APIReference
+    url: https://docs.tryspare.com/reference/get_api-v1-0-ais-account-list-1
+  - type: Documentation
+    url: https://docs.tryspare.com/docs/payments-api-basics
+  - type: APIReference
+    url: https://docs.tryspare.com/reference/create-business-domestic-payment
+  - type: Documentation
+    url: https://docs.tryspare.com/docs/ksa-coverage
+- aid: spare:spare-riskreport-api
+  name: Spare RiskReport API
+  description: The RiskReport API from Spare — 6 operation(s) for riskreport.
+  humanURL: https://docs.tryspare.com/reference/get_api-v1-0-authentication-token
+  baseURL: https://ob.tryspare.com/api/v1.0/authentication
+  tags:
+  - RiskReport
+  properties:
+  - type: OpenAPI
+    url: openapi/spare-riskreport-api-openapi.yml
+  - type: Documentation
+    url: https://docs.tryspare.com/docs/auth-flow
+  - type: APIReference
+    url: https://docs.tryspare.com/reference/get_api-v1-0-authentication-token
+  - type: Documentation
+    url: https://docs.tryspare.com/docs/data-api-basics
+  - type: APIReference
+    url: https://docs.tryspare.com/reference/get_api-v1-0-ais-account-list-1
+  - type: Documentation
+    url: https://docs.tryspare.com/docs/payments-api-basics
+  - type: APIReference
+    url: https://docs.tryspare.com/reference/create-business-domestic-payment
+  - type: Documentation
+    url: https://docs.tryspare.com/docs/ksa-coverage
+- aid: spare:spare-statement-api
+  name: Spare Statement API
+  description: The Statement API from Spare — 1 operation(s) for statement.
+  humanURL: https://docs.tryspare.com/reference/get_api-v1-0-authentication-token
+  baseURL: https://ob.tryspare.com/api/v1.0/authentication
+  tags:
+  - Statement
+  properties:
+  - type: OpenAPI
+    url: openapi/spare-statement-api-openapi.yml
+  - type: Documentation
+    url: https://docs.tryspare.com/docs/auth-flow
+  - type: APIReference
+    url: https://docs.tryspare.com/reference/get_api-v1-0-authentication-token
+  - type: Documentation
+    url: https://docs.tryspare.com/docs/data-api-basics
+  - type: APIReference
+    url: https://docs.tryspare.com/reference/get_api-v1-0-ais-account-list-1
+  - type: Documentation
+    url: https://docs.tryspare.com/docs/payments-api-basics
+  - type: APIReference
+    url: https://docs.tryspare.com/reference/create-business-domestic-payment
+  - type: Documentation
+    url: https://docs.tryspare.com/docs/ksa-coverage
+- aid: spare:spare-token-api
+  name: Spare Token API
+  description: The Token API from Spare — 2 operation(s) for token.
+  humanURL: https://docs.tryspare.com/reference/get_api-v1-0-authentication-token
+  baseURL: https://ob.tryspare.com/api/v1.0/authentication
+  tags:
+  - Token
+  properties:
+  - type: OpenAPI
+    url: openapi/spare-token-api-openapi.yml
+  - type: Documentation
+    url: https://docs.tryspare.com/docs/auth-flow
+  - type: APIReference
+    url: https://docs.tryspare.com/reference/get_api-v1-0-authentication-token
+  - type: Documentation
+    url: https://docs.tryspare.com/docs/data-api-basics
+  - type: APIReference
+    url: https://docs.tryspare.com/reference/get_api-v1-0-ais-account-list-1
+  - type: Documentation
+    url: https://docs.tryspare.com/docs/payments-api-basics
+  - type: APIReference
+    url: https://docs.tryspare.com/reference/create-business-domestic-payment
+  - type: Documentation
+    url: https://docs.tryspare.com/docs/ksa-coverage
+- aid: spare:spare-transaction-api
+  name: Spare Transaction API
+  description: The Transaction API from Spare — 5 operation(s) for transaction.
+  humanURL: https://docs.tryspare.com/reference/get_api-v1-0-authentication-token
+  baseURL: https://ob.tryspare.com/api/v1.0/authentication
+  tags:
+  - Transaction
+  properties:
+  - type: OpenAPI
+    url: openapi/spare-transaction-api-openapi.yml
+  - type: Documentation
+    url: https://docs.tryspare.com/docs/auth-flow
+  - type: APIReference
+    url: https://docs.tryspare.com/reference/get_api-v1-0-authentication-token
+  - type: Documentation
+    url: https://docs.tryspare.com/docs/data-api-basics
+  - type: APIReference
+    url: https://docs.tryspare.com/reference/get_api-v1-0-ais-account-list-1
+  - type: Documentation
+    url: https://docs.tryspare.com/docs/payments-api-basics
+  - type: APIReference
+    url: https://docs.tryspare.com/reference/create-business-domestic-payment
+  - type: Documentation
+    url: https://docs.tryspare.com/docs/ksa-coverage
 common:
+- type: TrustCenter
+  url: security/spare-trust-center.yml
+- type: DomainSecurity
+  url: security/spare-domain-security.yml
+- type: AgenticAccess
+  url: agentic-access/spare-agentic-access.yml
+- type: Authentication
+  url: authentication/spare-authentication.yml
 - type: Website
   url: https://tryspare.com
+- type: DeveloperPortal
+  url: https://docs.tryspare.com/docs/welcome
+- type: Documentation
+  url: https://docs.tryspare.com/docs/welcome
+- type: APIReference
+  url: https://docs.tryspare.com/reference
+- type: GettingStarted
+  url: https://docs.tryspare.com/docs/auth-flow
+- type: Support
+  url: https://docs.tryspare.com/docs/support
+- type: Blog
+  url: https://tryspare.com/blog
+- type: GitHubOrganization
+  url: https://github.com/spare-technologies
+- type: SignUp
+  url: https://dashboard.sandbox.tryspare.com/
+- type: Login
+  url: https://dashboard.tryspare.com/
+- type: Postman
+  url: https://documenter.getpostman.com/view/39844099/2sB2ixku9E
+- type: TermsOfService
+  url: https://terms.tryspare.com/sa/en
+- type: PrivacyPolicy
+  url: https://terms.tryspare.com/sa/privacy/en
+- type: LLMsTxt
+  url: llms/spare-llms.txt
+- type: Packages
+  url: packages/spare-packages.yml
+- type: SDKs
+  url: packages/spare-packages.yml
+- type: OAuthScopes
+  url: scopes/spare-scopes.yml
+- type: Conventions
+  url: conventions/spare-conventions.yml
+- type: ErrorCatalog
+  url: errors/spare-error-codes.yml
+- type: Lifecycle
+  url: lifecycle/spare-lifecycle.yml
+- type: Conformance
+  url: conformance/spare-conformance.yml
+- type: Compliance
+  url: https://trust.tryspare.com/
+- type: Sandbox
+  url: sandbox/spare-sandbox.yml
+- type: DataModel
+  url: data-model/spare-data-model.yml
+- type: MCPServer
+  url: mcp/spare-mcp.yml
+- type: Webhooks
+  url: asyncapi/spare-webhooks.yml
+- type: AgentSkill
+  url: skills/_index.yml

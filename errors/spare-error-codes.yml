@@ -1,0 +1,97 @@
+generated: '2026-07-21'
+method: searched
+source: openapi ApiError enum (all specs) + https://docs.tryspare.com/docs/error-cores
+format: application-code
+envelope: >-
+  Errors are returned with a standard HTTP status code and a JSON body whose
+  machine-readable code comes from the ApiError enumeration below. The
+  Authentication API returns RFC 7807 ProblemDetails on failures.
+http_status:
+- status: 200
+  title: Ok
+  description: Everything worked as expected.
+- status: 400
+  title: Bad Request
+  description: The request was unacceptable, often due to a missing required parameter; the body carries a machine-readable ApiError code.
+- status: 401
+  title: Unauthorized
+  description: Missing or invalid bearer token.
+- status: 402
+  title: Subscription Expired
+  description: The subscription has expired and the request was rejected.
+- status: 403
+  title: Forbidden
+  description: Authenticated but not permitted (e.g. unauthorized IP, insufficient consent).
+- status: 404
+  title: Not Found
+  description: The requested resource does not exist.
+- status: 409
+  title: Conflict
+  description: The resource already exists (e.g. creating a Customer that already exists).
+- status: 500
+  title: Server Error
+  description: Something went wrong on the Spare platform (rare).
+codes:
+- code: INVALID_DATA
+  description: Input does not meet the expected format or criteria.
+- code: INVALID_SIGNATURE
+  description: Request/message signature verification failed.
+- code: RESOURCE_LOCKED
+  description: The target resource is locked.
+- code: COUNTRY_NOT_FOUND
+  description: Specified country is not recognized or supported.
+- code: CURRENCY_NOT_FOUND
+  description: Specified currency is not recognized or supported.
+- code: PROVIDER_NOT_FOUND
+  description: Specified bank/provider is not recognized.
+- code: CONNECTION_NOT_FOUND
+  description: A required connection is missing.
+- code: INSUFFICIENT_CONSENT_PERMISSIONS
+  description: Consent does not grant the permissions required for this action.
+- code: CONSENT_EXPIRED
+  description: The consent has expired.
+- code: CONSENT_REVOKED
+  description: The consent was revoked.
+- code: CONSENT_UNAUTHORIZED
+  description: The consent has not been authorised by the end user yet.
+- code: CONSENT_NOT_FOUND
+  description: No consent record found.
+- code: RISK_REPORT_NOT_FOUND
+- code: ACCOUNT_INFORMATION_REPORT_NOT_FOUND
+- code: MULTIPLE_CURRENCY_NOT_ALLOWED
+- code: MULTIPLE_CONSENT_DATE_NOT_ALLOWED
+- code: PAYMENT_NOT_FOUND
+  description: The specified payment cannot be located.
+- code: CONSENT_REJECTED
+  description: The end user rejected the consent.
+- code: PAYMENT_REQUEST_NOT_FOUND
+  description: The specified payment request cannot be located.
+- code: CUSTOMER_NOT_FOUND
+  description: No customer record matches the query.
+- code: CUSTOMER_ALREADY_EXISTS
+  description: A customer with these details already exists.
+- code: BANK_ACCOUNT_NOT_FOUND
+  description: The specified bank account cannot be found.
+- code: SERVER_ERROR
+  description: Generic server-side failure.
+- code: PROVIDER_CONNECTION_FAILURE
+  description: Failed to connect to the external provider/bank.
+- code: TRANSACTION_NOT_FOUND
+  description: The specified transaction cannot be located.
+- code: ACCOUNT_INFORMATION_ACCESS_REQUEST_NOT_FOUND
+- code: CONSENT_REVOCATION_FAILED
+  description: Revoking the consent failed.
+- code: CONSENT_REVOKED_OR_EXPIRED
+  description: The consent is revoked or expired.
+- code: SUBSCRIPTION_EXPIRED
+  description: The subscription has expired.
+- code: NOT_SUBSCRIBED_TO_SERVICE
+  description: The account is not subscribed to the requested service.
+- code: BENEFICIARY_NOT_FOUND
+- code: PARTIES_NOT_FOUND
+- code: DIRECT_DEBIT_NOT_FOUND
+- code: SCHEDULED_PAYMENT_NOT_FOUND
+- code: DEBTOR_ACCOUNT_NOT_FOUND
+- code: CREDITOR_ACCOUNT_NOT_FOUND
+- code: UNAUTHORIZED_IP_ADDRESS
+  description: Request came from an IP not on the API key allow-list.

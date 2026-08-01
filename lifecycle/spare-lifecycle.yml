@@ -1,0 +1,40 @@
+generated: '2026-07-21'
+method: searched
+source: https://docs.tryspare.com/reference/hosting-1, https://docs.tryspare.com/docs/sandbox-and-production, openapi/ specs
+note: >-
+  Versioning and environment lifecycle for the Spare platform. No public status
+  page, SLA page, or formal deprecation policy was found (2026-07-21), so no
+  StatusPage or Deprecation pointer is wired. The presence of AIS v1.0 and v2.0
+  side by side indicates additive path-versioning.
+versioning:
+  scheme: uri-path
+  path_prefix: /api/v{major}.{minor}/
+  versions:
+  - version: v1.0
+    services: [authentication, ais, pis]
+    status: current
+  - version: v2.0
+    services: [ais]
+    status: current
+    note: KSA Account Information API v2 for long-lived consent flows; coexists with v1.
+environments:
+  sandbox:
+    bahrain: https://sandbox.tryspare.com
+    ksa: https://sandbox.sparefinancial.sa
+    uae: https://sandbox.sparefinancial.ae
+    dashboard: https://dashboard.sandbox.tryspare.com/
+    data: dummy / simulated
+  production:
+    bahrain: https://ob.tryspare.com
+    ksa: https://ob.sparefinancial.sa
+    uae: https://ob.sparefinancial.ae
+    dashboard: https://dashboard.tryspare.com/
+    access: production host provisioned by Spare engineering on request
+deprecation:
+  policy_url: null
+  sunset_header: unknown
+status_page: null
+sla: null
+legacy:
+  note: Docs mark "Payments API V1" and "Payments SDK V1" under a Legacy APIs section.
+  items: [Payments API V1, Payments SDK V1]

@@ -1,0 +1,34 @@
+generated: '2026-07-21'
+method: generated
+note: >-
+  Packaged Agent Skills for Spare's marquee open-banking flows. The source Swagger
+  files carry no operationId, so each step is grounded in the real HTTP method +
+  path (verified present in openapi/) and the documented resource name.
+skills:
+- file: spare-account-information-access.md
+  name: Access a customer's bank account data (AIS)
+  api: openapi/spare-bahrain-ais-openapi-original.json
+  operations:
+  - GET /api/v1.0/authentication/Token
+  - GET /api/v1.0/ais/Provider/List
+  - POST /api/v1.0/ais/Customer/Create
+  - POST /api/v1.0/ais/Consent/Create
+  - GET /api/v1.0/ais/Account/List
+  - GET /api/v1.0/ais/Balance/Get
+  - POST /api/v1.0/ais/Transaction/List
+- file: spare-initiate-domestic-payment.md
+  name: Initiate a domestic payment (PIS)
+  api: openapi/spare-bahrain-pis-openapi-original.json
+  operations:
+  - GET /api/v1.0/authentication/Token
+  - GET /api/v1.0/pis/Provider/List
+  - POST /api/v1.0/pis/Consent/Create
+  - GET /api/v1.0/pis/Payment/Get
+- file: spare-ksa-account-verification.md
+  name: Verify a KSA bank account (Account Verification)
+  api: openapi/spare-ksa-ais-openapi-original.json
+  operations:
+  - GET /api/v1.0/authentication/Token
+  - POST /api/v1.0/ais/Customer/Create
+  - POST /api/v1.0/ais/Consent/CreateShortLivedConsent
+  - GET /api/v1.0/ais/Beneficiary/Get
