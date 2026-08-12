@@ -475,6 +475,8 @@ apis:
   - type: Documentation
     url: https://docs.tryspare.com/docs/ksa-coverage
 common:
+- type: Overlay
+  url: overlays/spare-bahrain-ais-overlay.yaml
 - type: TrustCenter
   url: security/spare-trust-center.yml
 - type: DomainSecurity
