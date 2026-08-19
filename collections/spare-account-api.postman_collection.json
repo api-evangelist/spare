@@ -1,0 +1,1805 @@
+{
+  "item": [
+    {
+      "id": "434e7936-8d62-4843-98ed-0f4618478e6e",
+      "name": "Account",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b6aaf47e-9246-45de-b358-8bb3535af9e0",
+          "name": "Get an account by id",
+          "request": {
+            "name": "Get an account by id",
+            "description": {
+              "content": "**Unique resource name :** ais.v1.account.get\n            \n**Important!:**\n            \nThe permissions bellow are required on the consent:\n- `ReadAccountsBasic`\n- `ReadAccountsDetail`",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1.0",
+                "ais",
+                "Account",
+                "Get"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "id",
+                  "value": "<uuid>",
+                  "description": "(Required) Account id"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7407af99-aa87-425e-9a77-1c8898abe5a3",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1.0",
+                    "ais",
+                    "Account",
+                    "Get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "id",
+                      "value": "<uuid>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"CREDITOR_ACCOUNT_NOT_FOUND\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key_1\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {\n    \"id\": \"9f807048-4166-8b37-0e5c-b58ee4bee9fb\",\n    \"currency\": {\n      \"englishName\": \"string\",\n      \"iso4117Code\": \"s\",\n      \"id\": \"450ffc5a-9ca9-2f70-c593-e538c3e2fca6\",\n      \"arabicName\": \"string\",\n      \"iso4117Number\": \"stri\"\n    },\n    \"servicer\": {\n      \"id\": \"0ebf6211-cfb8-9823-91b4-3befcc78f07b\",\n      \"address\": {\n        \"addressType\": \"string\",\n        \"department\": \"string\",\n        \"subDepartment\": \"string\",\n        \"addressLine\": \"string\",\n        \"streetName\": \"string\",\n        \"buildingNumber\": \"string\",\n        \"postalCode\": \"string\",\n        \"townName\": \"string\",\n        \"countrySubDivision\": \"string\",\n        \"country\": \"string\",\n        \"shortAddress\": \"string\",\n        \"unitNumber\": 4231.0808009002785,\n        \"secondaryNumber\": \"string\",\n        \"district\": \"string\",\n        \"city\": \"string\"\n      },\n      \"scheme\": \"string\",\n      \"identification\": \"string\"\n    },\n    \"accounts\": [\n      {\n        \"id\": \"d08d269f-2627-4df4-f043-922caae02332\",\n        \"scheme\": \"string\",\n        \"identification\": \"string\",\n        \"name\": \"string\"\n      },\n      {\n        \"id\": \"6a0b950e-9dc5-dabd-7422-c5504b00b1aa\",\n        \"scheme\": \"string\",\n        \"identification\": \"string\",\n        \"name\": \"string\"\n      }\n    ],\n    \"status\": \"string\",\n    \"statusUpdatedDateTime\": \"2018-09-30T19:14:12.639Z\",\n    \"type\": \"string\",\n    \"subType\": \"string\",\n    \"description\": \"string\",\n    \"openingDate\": \"1951-04-06T03:07:43.096Z\",\n    \"maturityDate\": \"1953-08-14T10:07:39.369Z\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c387958c-8525-4457-8856-1ad8d6476ada",
+              "name": "- If account id is not valid",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1.0",
+                    "ais",
+                    "Account",
+                    "Get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "id",
+                      "value": "<uuid>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"INSUFFICIENT_CONSENT_PERMISSIONS\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f3de3bdc-b5c6-4e52-be5b-5573a43b5abd",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1.0",
+                    "ais",
+                    "Account",
+                    "Get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "id",
+                      "value": "<uuid>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"CONSENT_REVOKED_OR_EXPIRED\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2bd8d1d3-cd3c-433c-8f8f-4bd68a816a90",
+              "name": "Payment Required",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1.0",
+                    "ais",
+                    "Account",
+                    "Get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "id",
+                      "value": "<uuid>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"CONSENT_REVOKED_OR_EXPIRED\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "213d6f1f-c9ea-4947-990c-5adac02c72a1",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1.0",
+                    "ais",
+                    "Account",
+                    "Get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "id",
+                      "value": "<uuid>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"CONSENT_REVOKED_OR_EXPIRED\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d4899180-0213-437a-a816-16c76c8628ed",
+              "name": "- If an account does not exist",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1.0",
+                    "ais",
+                    "Account",
+                    "Get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "id",
+                      "value": "<uuid>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"CONSENT_REVOKED_OR_EXPIRED\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e65a758c-a823-4a3b-9294-6998c50ab9a2",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1.0",
+                    "ais",
+                    "Account",
+                    "Get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "id",
+                      "value": "<uuid>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "07f1c3cd-4023-4b4a-b9dd-5014fd58dd2f",
+          "name": "List accounts",
+          "request": {
+            "name": "List accounts",
+            "description": {
+              "content": "**Unique resource name :** ais.v1.account.list\n            \n**Important!:**\n            \nThe permissions bellow are required on the consent:\n- `ReadAccountsBasic`\n- `ReadAccountsDetail`",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1.0",
+                "ais",
+                "Account",
+                "List"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "consentId",
+                  "value": "<uuid>",
+                  "description": "(Required) Consent id"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "Page number"
+                },
+                {
+                  "disabled": false,
+                  "key": "perPage",
+                  "value": "20",
+                  "description": "Number of items per page maximum allow is 200 per page"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "110a0a0a-e403-476d-94e8-7f38b2d320df",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1.0",
+                    "ais",
+                    "Account",
+                    "List"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "consentId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "perPage",
+                      "value": "20"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"CONSENT_REJECTED\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": [\n    {\n      \"id\": \"c5e6c979-0224-ee23-6606-01b8607afec2\",\n      \"currency\": {\n        \"englishName\": \"string\",\n        \"iso4117Code\": \"s\",\n        \"id\": \"8695f5b2-e563-8bcb-2dae-41882f977a5e\",\n        \"arabicName\": \"string\",\n        \"iso4117Number\": \"stri\"\n      },\n      \"servicer\": {\n        \"id\": \"b468694f-ffd8-7142-b588-fc801d97c078\",\n        \"address\": {\n          \"addressType\": \"string\",\n          \"department\": \"string\",\n          \"subDepartment\": \"string\",\n          \"addressLine\": \"string\",\n          \"streetName\": \"string\",\n          \"buildingNumber\": \"string\",\n          \"postalCode\": \"string\",\n          \"townName\": \"string\",\n          \"countrySubDivision\": \"string\",\n          \"country\": \"string\",\n          \"shortAddress\": \"string\",\n          \"unitNumber\": 8121.895207423565,\n          \"secondaryNumber\": \"string\",\n          \"district\": \"string\",\n          \"city\": \"string\"\n        },\n        \"scheme\": \"string\",\n        \"identification\": \"string\"\n      },\n      \"accounts\": [\n        {\n          \"id\": \"61a76a65-90dd-482a-a8b7-260712d21bd6\",\n          \"scheme\": \"string\",\n          \"identification\": \"string\",\n          \"name\": \"string\"\n        },\n        {\n          \"id\": \"13580421-9428-a8ff-1768-d928ae9bcb9b\",\n          \"scheme\": \"string\",\n          \"identification\": \"string\",\n          \"name\": \"string\"\n        }\n      ],\n      \"status\": \"string\",\n      \"statusUpdatedDateTime\": \"2022-12-14T17:05:48.175Z\",\n      \"type\": \"string\",\n      \"subType\": \"string\",\n      \"description\": \"string\",\n      \"openingDate\": \"2003-02-10T04:46:02.320Z\",\n      \"maturityDate\": \"2026-01-06T01:49:32.007Z\"\n    },\n    {\n      \"id\": \"796617cf-af22-0b60-2054-2a6ac08d48f4\",\n      \"currency\": {\n        \"englishName\": \"string\",\n        \"iso4117Code\": \"st\",\n        \"id\": \"425c276c-25dc-bb3f-6f08-1dbc7ae5b1b2\",\n        \"arabicName\": \"string\",\n        \"iso4117Number\": \"stri\"\n      },\n      \"servicer\": {\n        \"id\": \"a65323a4-d1de-2d9e-440f-8792b7192070\",\n        \"address\": {\n          \"addressType\": \"string\",\n          \"department\": \"string\",\n          \"subDepartment\": \"string\",\n          \"addressLine\": \"string\",\n          \"streetName\": \"string\",\n          \"buildingNumber\": \"string\",\n          \"postalCode\": \"string\",\n          \"townName\": \"string\",\n          \"countrySubDivision\": \"string\",\n          \"country\": \"string\",\n          \"shortAddress\": \"string\",\n          \"unitNumber\": 4642.753708682392,\n          \"secondaryNumber\": \"string\",\n          \"district\": \"string\",\n          \"city\": \"string\"\n        },\n        \"scheme\": \"string\",\n        \"identification\": \"string\"\n      },\n      \"accounts\": [\n        {\n          \"id\": \"b90d075e-3148-bd50-0167-3f33ab726fce\",\n          \"scheme\": \"string\",\n          \"identification\": \"string\",\n          \"name\": \"string\"\n        },\n        {\n          \"id\": \"cd635233-6bf6-d740-c49c-bec4c8dc33b6\",\n          \"scheme\": \"string\",\n          \"identification\": \"string\",\n          \"name\": \"string\"\n        }\n      ],\n      \"status\": \"string\",\n      \"statusUpdatedDateTime\": \"2019-12-23T13:22:25.969Z\",\n      \"type\": \"string\",\n      \"subType\": \"string\",\n      \"description\": \"string\",\n      \"openingDate\": \"1961-10-10T20:22:39.599Z\",\n      \"maturityDate\": \"1973-05-28T00:07:06.257Z\"\n    }\n  ],\n  \"meta\": {\n    \"currentPageNumber\": 3989,\n    \"pageSize\": 9796,\n    \"totalNumberOfPages\": 609\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f4ff2446-8e51-41eb-9b4f-c23c0c20d152",
+              "name": "- If consent id is not valid",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1.0",
+                    "ais",
+                    "Account",
+                    "List"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "consentId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "perPage",
+                      "value": "20"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"CONSENT_REVOKED_OR_EXPIRED\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d421c758-9158-4556-9615-c5d7d7cd248f",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1.0",
+                    "ais",
+                    "Account",
+                    "List"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "consentId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "perPage",
+                      "value": "20"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"CONSENT_REVOKED_OR_EXPIRED\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b7ac2e1f-a94b-41c1-9996-4d3e3b5be479",
+              "name": "Payment Required",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1.0",
+                    "ais",
+                    "Account",
+                    "List"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "consentId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "perPage",
+                      "value": "20"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"CONSENT_REVOKED_OR_EXPIRED\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ed4ec73a-c4df-438e-abcb-5d62014e7096",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1.0",
+                    "ais",
+                    "Account",
+                    "List"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "consentId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "perPage",
+                      "value": "20"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"CONSENT_REVOKED_OR_EXPIRED\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4be631b8-7ee9-47e4-b619-b528dc77bb08",
+              "name": "- If consent does not exists",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1.0",
+                    "ais",
+                    "Account",
+                    "List"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "consentId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "perPage",
+                      "value": "20"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"CONSENT_REVOKED_OR_EXPIRED\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "798e0b18-5dc0-49a4-8e81-38beb801b5ed",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1.0",
+                    "ais",
+                    "Account",
+                    "List"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "consentId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "perPage",
+                      "value": "20"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "02f45987-b492-4602-8e24-db7d274d662c",
+          "name": "Get an account by id for long-lived consent",
+          "request": {
+            "name": "Get an account by id for long-lived consent",
+            "description": {
+              "content": "**Unique resource name :** ais.v2.account.get\r\n            \r\n**Important!:**\r\n            \r\nThe permissions below are required on the consent:\r\n- `ReadAccountsBasic`\r\n- `ReadAccountsDetail`",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v2.0",
+                "ais",
+                "Account",
+                "Get"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "id",
+                  "value": "<uuid>",
+                  "description": "(Required) Account id"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7b76abe3-c1d1-440f-9996-d2b9e229982d",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2.0",
+                    "ais",
+                    "Account",
+                    "Get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "id",
+                      "value": "<uuid>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"BANK_ACCOUNT_NOT_FOUND\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {\n    \"id\": \"a3524010-b2ee-b8f0-1412-8fcba0e697cf\",\n    \"currency\": {\n      \"englishName\": \"string\",\n      \"iso4117Code\": \"str\",\n      \"id\": \"be9501be-7fe7-26a0-fa9d-3c68af2bf224\",\n      \"arabicName\": \"string\",\n      \"iso4117Number\": \"stri\"\n    },\n    \"servicer\": {\n      \"id\": \"72719ef4-f67f-3e9e-87f7-3280dbb061a5\",\n      \"address\": {\n        \"addressType\": \"string\",\n        \"department\": \"string\",\n        \"subDepartment\": \"string\",\n        \"addressLine\": \"string\",\n        \"streetName\": \"string\",\n        \"buildingNumber\": \"string\",\n        \"postalCode\": \"string\",\n        \"townName\": \"string\",\n        \"countrySubDivision\": \"string\",\n        \"country\": \"string\",\n        \"shortAddress\": \"string\",\n        \"unitNumber\": 1335.0095838373134,\n        \"secondaryNumber\": \"string\",\n        \"district\": \"string\",\n        \"city\": \"string\"\n      },\n      \"scheme\": \"string\",\n      \"identification\": \"string\"\n    },\n    \"accounts\": [\n      {\n        \"id\": \"e039b6eb-57ed-770a-0bda-c27f3fefd4b6\",\n        \"scheme\": \"string\",\n        \"identification\": \"string\",\n        \"name\": \"string\"\n      },\n      {\n        \"id\": \"507a92b2-685d-b379-a2f1-0efe0a34f232\",\n        \"scheme\": \"string\",\n        \"identification\": \"string\",\n        \"name\": \"string\"\n      }\n    ],\n    \"status\": \"string\",\n    \"statusUpdatedDateTime\": \"1958-03-15T05:19:03.322Z\",\n    \"type\": \"string\",\n    \"subType\": \"string\",\n    \"description\": \"string\",\n    \"openingDate\": \"2014-03-31T21:29:50.096Z\",\n    \"maturityDate\": \"1973-11-24T23:31:58.378Z\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b87b343b-d1ad-4649-b8c0-7e3793365834",
+              "name": "- If account id is not valid",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2.0",
+                    "ais",
+                    "Account",
+                    "Get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "id",
+                      "value": "<uuid>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"CONSENT_REVOKED_OR_EXPIRED\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "cfc9d951-401f-480b-afdd-5a460d37e1ac",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2.0",
+                    "ais",
+                    "Account",
+                    "Get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "id",
+                      "value": "<uuid>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"CONSENT_REVOKED_OR_EXPIRED\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e94126f6-c10d-47aa-94e9-7bb91aeb1ec5",
+              "name": "Payment Required",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2.0",
+                    "ais",
+                    "Account",
+                    "Get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "id",
+                      "value": "<uuid>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"CONSENT_REVOKED_OR_EXPIRED\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8a04754c-6838-4e65-843c-f0088ab9563c",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2.0",
+                    "ais",
+                    "Account",
+                    "Get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "id",
+                      "value": "<uuid>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"CONSENT_REVOKED_OR_EXPIRED\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7c45ef2c-426d-4c24-bef0-888951cbe590",
+              "name": "- If an account does not exist",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2.0",
+                    "ais",
+                    "Account",
+                    "Get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "id",
+                      "value": "<uuid>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"CONSENT_REVOKED_OR_EXPIRED\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e8fc94fc-67e0-45ff-99df-b919b795b36f",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2.0",
+                    "ais",
+                    "Account",
+                    "Get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "id",
+                      "value": "<uuid>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4c26845a-adea-460c-bbe2-c142dc320af7",
+          "name": "List accounts for long-lived consent",
+          "request": {
+            "name": "List accounts for long-lived consent",
+            "description": {
+              "content": "**Unique resource name :** ais.v2.account.list\r\n            \r\n**Important!:**\r\n            \r\nThe permissions below are required on the consent:\r\n- `ReadAccountsBasic`\r\n- `ReadAccountsDetail`",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v2.0",
+                "ais",
+                "Account",
+                "List"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "consentId",
+                  "value": "<uuid>",
+                  "description": "(Required) Consent id"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "Page number"
+                },
+                {
+                  "disabled": false,
+                  "key": "perPage",
+                  "value": "20",
+                  "description": "Number of items per page maximum allow is 200 per page"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2bdaf5df-d4ad-40da-b633-bc4e0b44cda3",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2.0",
+                    "ais",
+                    "Account",
+                    "List"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "consentId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "perPage",
+                      "value": "20"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"CONSENT_NOT_FOUND\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key_1\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": [\n    {\n      \"id\": \"bcc3b3c7-3304-e4eb-b512-b624483dc220\",\n      \"currency\": {\n        \"englishName\": \"string\",\n        \"iso4117Code\": \"s\",\n        \"id\": \"5bd82c57-22f4-6d8a-e13a-1b644c8c959f\",\n        \"arabicName\": \"string\",\n        \"iso4117Number\": \"stri\"\n      },\n      \"servicer\": {\n        \"id\": \"f1ee2420-8f22-56a5-c077-0320df46a1cd\",\n        \"address\": {\n          \"addressType\": \"string\",\n          \"department\": \"string\",\n          \"subDepartment\": \"string\",\n          \"addressLine\": \"string\",\n          \"streetName\": \"string\",\n          \"buildingNumber\": \"string\",\n          \"postalCode\": \"string\",\n          \"townName\": \"string\",\n          \"countrySubDivision\": \"string\",\n          \"country\": \"string\",\n          \"shortAddress\": \"string\",\n          \"unitNumber\": 4585.69650264274,\n          \"secondaryNumber\": \"string\",\n          \"district\": \"string\",\n          \"city\": \"string\"\n        },\n        \"scheme\": \"string\",\n        \"identification\": \"string\"\n      },\n      \"accounts\": [\n        {\n          \"id\": \"2ae1ac01-9c55-a997-41d2-b60cf1e36e3f\",\n          \"scheme\": \"string\",\n          \"identification\": \"string\",\n          \"name\": \"string\"\n        },\n        {\n          \"id\": \"51ddb314-b49e-7673-8757-398efc3b518e\",\n          \"scheme\": \"string\",\n          \"identification\": \"string\",\n          \"name\": \"string\"\n        }\n      ],\n      \"status\": \"string\",\n      \"statusUpdatedDateTime\": \"2018-03-05T19:54:50.845Z\",\n      \"type\": \"string\",\n      \"subType\": \"string\",\n      \"description\": \"string\",\n      \"openingDate\": \"1990-03-31T00:25:10.327Z\",\n      \"maturityDate\": \"1985-05-13T06:00:47.572Z\"\n    },\n    {\n      \"id\": \"779871e8-0943-f4eb-9167-28a7c63df5e2\",\n      \"currency\": {\n        \"englishName\": \"strin\",\n        \"iso4117Code\": \"st\",\n        \"id\": \"e8139506-bfaf-67af-5ddf-9c8df9629a34\",\n        \"arabicName\": \"string\",\n        \"iso4117Number\": \"stri\"\n      },\n      \"servicer\": {\n        \"id\": \"7232008a-7db0-0dde-36a7-fa0000c7d7d3\",\n        \"address\": {\n          \"addressType\": \"string\",\n          \"department\": \"string\",\n          \"subDepartment\": \"string\",\n          \"addressLine\": \"string\",\n          \"streetName\": \"string\",\n          \"buildingNumber\": \"string\",\n          \"postalCode\": \"string\",\n          \"townName\": \"string\",\n          \"countrySubDivision\": \"string\",\n          \"country\": \"string\",\n          \"shortAddress\": \"string\",\n          \"unitNumber\": 915.3349435643277,\n          \"secondaryNumber\": \"string\",\n          \"district\": \"string\",\n          \"city\": \"string\"\n        },\n        \"scheme\": \"string\",\n        \"identification\": \"string\"\n      },\n      \"accounts\": [\n        {\n          \"id\": \"d3874b41-bddb-f335-f858-f58dc078ac33\",\n          \"scheme\": \"string\",\n          \"identification\": \"string\",\n          \"name\": \"string\"\n        },\n        {\n          \"id\": \"a921a3fe-2050-56ea-fa86-905ecded7131\",\n          \"scheme\": \"string\",\n          \"identification\": \"string\",\n          \"name\": \"string\"\n        }\n      ],\n      \"status\": \"string\",\n      \"statusUpdatedDateTime\": \"1964-03-07T21:04:14.583Z\",\n      \"type\": \"string\",\n      \"subType\": \"string\",\n      \"description\": \"string\",\n      \"openingDate\": \"1973-09-04T07:15:23.456Z\",\n      \"maturityDate\": \"1979-08-27T08:15:17.692Z\"\n    }\n  ],\n  \"meta\": {\n    \"currentPageNumber\": 4490,\n    \"pageSize\": 110,\n    \"totalNumberOfPages\": 7117\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "39526818-f2be-46c9-abd7-1b66fefd9b0a",
+              "name": "- If consent id is not valid",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2.0",
+                    "ais",
+                    "Account",
+                    "List"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "consentId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "perPage",
+                      "value": "20"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"CONSENT_REVOKED_OR_EXPIRED\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "527eba32-44c0-4d9b-9b1e-8b2c8986fd33",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2.0",
+                    "ais",
+                    "Account",
+                    "List"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "consentId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "perPage",
+                      "value": "20"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"CONSENT_REVOKED_OR_EXPIRED\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e650b34b-ad6f-4ed7-8f49-e5661b8a4ac6",
+              "name": "Payment Required",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2.0",
+                    "ais",
+                    "Account",
+                    "List"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "consentId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "perPage",
+                      "value": "20"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"CONSENT_REVOKED_OR_EXPIRED\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "eb98f056-e2bb-40d7-aa92-f1a5e00b7c62",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2.0",
+                    "ais",
+                    "Account",
+                    "List"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "consentId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "perPage",
+                      "value": "20"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"CONSENT_REVOKED_OR_EXPIRED\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "809a43f6-3497-4f33-9601-eaf38c8c669a",
+              "name": "- If consent does not exist",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2.0",
+                    "ais",
+                    "Account",
+                    "List"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "consentId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "perPage",
+                      "value": "20"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"CONSENT_REVOKED_OR_EXPIRED\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c2d6699b-ee03-402c-b927-0fe9bfa001a3",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2.0",
+                    "ais",
+                    "Account",
+                    "List"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "consentId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "perPage",
+                      "value": "20"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "8ba35248-5dba-441d-881c-1a22b6777231",
+    "name": "Information Account API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Spare account information API documentation\n\nContact Support:\n Name: Spare Technologies WLL.\n Email: hello@tryspare.com",
+      "type": "text/plain"
+    }
+  }
+}

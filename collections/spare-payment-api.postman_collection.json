@@ -1,0 +1,828 @@
+{
+  "item": [
+    {
+      "id": "860bb6a3-f782-486a-a0fe-4eca2dff86cc",
+      "name": "Payment",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "4c6d1bea-6b27-4295-bb09-84e500a69842",
+          "name": "List domestic payment",
+          "request": {
+            "name": "List domestic payment",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1.0",
+                "pis",
+                "Payment",
+                "List"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "Page number"
+                },
+                {
+                  "disabled": false,
+                  "key": "perPage",
+                  "value": "20",
+                  "description": "Number of items per page maximum allow is 100 per page"
+                },
+                {
+                  "disabled": false,
+                  "key": "providerId",
+                  "value": "<uuid>",
+                  "description": "Provider id (Optional)"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"fromDateTime\": \"<dateTime>\",\n  \"toDateTime\": \"<dateTime>\",\n  \"status\": \"<string>\",\n  \"amount\": \"<double>\",\n  \"accountName\": \"<string>\",\n  \"paymentType\": \"<string>\",\n  \"order\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "908c0379-34c8-4e36-a341-f2ffbb8d7ac9",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1.0",
+                    "pis",
+                    "Payment",
+                    "List"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "perPage",
+                      "value": "20"
+                    },
+                    {
+                      "key": "providerId",
+                      "value": "<uuid>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"fromDateTime\": \"<dateTime>\",\n  \"toDateTime\": \"<dateTime>\",\n  \"status\": \"<string>\",\n  \"amount\": \"<double>\",\n  \"accountName\": \"<string>\",\n  \"paymentType\": \"<string>\",\n  \"order\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"INSUFFICIENT_CONSENT_PERMISSIONS\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": [\n    {\n      \"paymentId\": \"0f5764ff-236b-444c-6134-479e74f0a665\",\n      \"reference\": \"string\",\n      \"paymentRequestType\": \"string\",\n      \"externalReference\": \"string\",\n      \"description\": \"string\",\n      \"amount\": {\n        \"value\": 4848.131868293262,\n        \"currency\": {\n          \"englishName\": \"string\",\n          \"iso4117Code\": \"str\",\n          \"id\": \"9dd07ac5-2499-248c-5451-e92a9fd2d119\",\n          \"arabicName\": \"string\",\n          \"iso4117Number\": \"stri\"\n        }\n      },\n      \"createdAt\": \"1986-09-28T02:14:48.640Z\",\n      \"updatedAt\": \"1962-10-06T18:38:23.019Z\",\n      \"status\": \"<string>\",\n      \"purpose\": \"string\",\n      \"note\": \"string\",\n      \"creditorAccount\": {\n        \"identification\": \"string\",\n        \"scheme\": \"BBAN\",\n        \"id\": \"9d90b9e2-4d3c-c6a9-d424-58f25c6095a8\",\n        \"name\": \"string\"\n      },\n      \"debtorAccount\": {\n        \"identification\": \"string\",\n        \"scheme\": \"IBAN\",\n        \"id\": \"232487bf-d20e-285e-487c-8cb90a69e2c4\",\n        \"name\": \"string\"\n      },\n      \"consent\": {\n        \"connection\": {\n          \"provider\": {\n            \"englishName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"country\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"address\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"phone\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"isEnable\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"arabicName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"status\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"logo\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"id\": \"931107b7-fa20-6b3e-40bc-30536439066f\",\n          \"status\": \"INACTIVE\",\n          \"createdAt\": \"1958-12-27T04:11:42.023Z\",\n          \"updatedAt\": \"1991-03-15T14:34:08.581Z\"\n        },\n        \"paymentConsentType\": \"SingleInstantPayment\",\n        \"executionDateTime\": \"2010-06-08T18:40:33.637Z\",\n        \"purpose\": \"string\",\n        \"note\": \"string\",\n        \"id\": \"a0bc7275-cf26-f761-d0de-12787128d45f\",\n        \"customerId\": \"9930227b-0feb-4d1f-bd4b-13d5713cbe71\",\n        \"scope\": \"Accounts\",\n        \"createdAt\": \"1965-02-15T02:39:14.999Z\",\n        \"status\": \"Consumed\",\n        \"authorizationLink\": \"string\",\n        \"successRedirectUrl\": \"string\",\n        \"failureRedirectUrl\": \"string\"\n      }\n    },\n    {\n      \"paymentId\": \"f011cee5-b508-55c9-dac8-114fc46c92f4\",\n      \"reference\": \"string\",\n      \"paymentRequestType\": \"string\",\n      \"externalReference\": \"string\",\n      \"description\": \"string\",\n      \"amount\": {\n        \"value\": 3968.32422467284,\n        \"currency\": {\n          \"englishName\": \"str\",\n          \"iso4117Code\": \"s\",\n          \"id\": \"6506cb8a-0471-3e31-b07b-516e0af9fc8a\",\n          \"arabicName\": \"string\",\n          \"iso4117Number\": \"stri\"\n        }\n      },\n      \"createdAt\": \"1970-06-15T08:02:32.122Z\",\n      \"updatedAt\": \"2004-02-27T12:40:19.893Z\",\n      \"status\": \"<string>\",\n      \"purpose\": \"string\",\n      \"note\": \"string\",\n      \"creditorAccount\": {\n        \"identification\": \"string\",\n        \"scheme\": \"BBAN\",\n        \"id\": \"c485f9ee-062a-7b9c-45e0-598d027fb333\",\n        \"name\": \"string\"\n      },\n      \"debtorAccount\": {\n        \"identification\": \"string\",\n        \"scheme\": \"BBAN\",\n        \"id\": \"6ebd67d3-ee9a-20b6-6bef-f51547268cf7\",\n        \"name\": \"string\"\n      },\n      \"consent\": {\n        \"connection\": {\n          \"provider\": {\n            \"englishName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"country\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"address\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"phone\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"isEnable\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"arabicName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"status\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"logo\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"id\": \"e6b7f745-7cdd-0ddf-113c-ed772426483f\",\n          \"status\": \"INACTIVE\",\n          \"createdAt\": \"1986-01-18T09:01:37.600Z\",\n          \"updatedAt\": \"2017-06-11T05:34:09.249Z\"\n        },\n        \"paymentConsentType\": \"SingleInstantPayment\",\n        \"executionDateTime\": \"2015-12-07T17:10:18.425Z\",\n        \"purpose\": \"string\",\n        \"note\": \"string\",\n        \"id\": \"36e5c99c-eccb-44ea-e512-6488e0a4d57d\",\n        \"customerId\": \"d2a8a1f2-0474-7c88-7f5b-a44d55ad2e61\",\n        \"scope\": \"Payments\",\n        \"createdAt\": \"2014-03-20T23:52:27.754Z\",\n        \"status\": \"Rejected\",\n        \"authorizationLink\": \"string\",\n        \"successRedirectUrl\": \"string\",\n        \"failureRedirectUrl\": \"string\"\n      }\n    }\n  ],\n  \"meta\": {\n    \"currentPageNumber\": 3304,\n    \"pageSize\": 6364,\n    \"totalNumberOfPages\": 5674\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "59ae81e4-5e60-4f12-82d0-76f808fbed0a",
+              "name": "- If connection id is not valid\n- If provider id is not valid",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1.0",
+                    "pis",
+                    "Payment",
+                    "List"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "perPage",
+                      "value": "20"
+                    },
+                    {
+                      "key": "providerId",
+                      "value": "<uuid>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"fromDateTime\": \"<dateTime>\",\n  \"toDateTime\": \"<dateTime>\",\n  \"status\": \"<string>\",\n  \"amount\": \"<double>\",\n  \"accountName\": \"<string>\",\n  \"paymentType\": \"<string>\",\n  \"order\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "bed2d877-e88e-45d9-9f13-dd98fe7b6b9c",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1.0",
+                    "pis",
+                    "Payment",
+                    "List"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "perPage",
+                      "value": "20"
+                    },
+                    {
+                      "key": "providerId",
+                      "value": "<uuid>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"fromDateTime\": \"<dateTime>\",\n  \"toDateTime\": \"<dateTime>\",\n  \"status\": \"<string>\",\n  \"amount\": \"<double>\",\n  \"accountName\": \"<string>\",\n  \"paymentType\": \"<string>\",\n  \"order\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"ACCOUNT_INFORMATION_ACCESS_REQUEST_NOT_FOUND\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0a6bf79d-2040-47f2-877f-48a52cb94960",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1.0",
+                    "pis",
+                    "Payment",
+                    "List"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "perPage",
+                      "value": "20"
+                    },
+                    {
+                      "key": "providerId",
+                      "value": "<uuid>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"fromDateTime\": \"<dateTime>\",\n  \"toDateTime\": \"<dateTime>\",\n  \"status\": \"<string>\",\n  \"amount\": \"<double>\",\n  \"accountName\": \"<string>\",\n  \"paymentType\": \"<string>\",\n  \"order\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"CONSENT_EXPIRED\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key_1\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "52cc4d20-97ed-44d7-95e5-8e72b8ee2331",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1.0",
+                    "pis",
+                    "Payment",
+                    "List"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "perPage",
+                      "value": "20"
+                    },
+                    {
+                      "key": "providerId",
+                      "value": "<uuid>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"fromDateTime\": \"<dateTime>\",\n  \"toDateTime\": \"<dateTime>\",\n  \"status\": \"<string>\",\n  \"amount\": \"<double>\",\n  \"accountName\": \"<string>\",\n  \"paymentType\": \"<string>\",\n  \"order\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6d2474fb-b1ec-4032-ac4e-73365b804c92",
+          "name": "Get domestic payment by id",
+          "request": {
+            "name": "Get domestic payment by id",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1.0",
+                "pis",
+                "Payment",
+                "Get"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "paymentId",
+                  "value": "<uuid>",
+                  "description": "Payment Id"
+                },
+                {
+                  "disabled": false,
+                  "key": "consentId",
+                  "value": "<uuid>",
+                  "description": "Consent Id"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6924292f-6975-41cb-aed4-35d893012e82",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1.0",
+                    "pis",
+                    "Payment",
+                    "Get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "paymentId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "consentId",
+                      "value": "<uuid>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"CUSTOMER_NOT_FOUND\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key_1\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key_2\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key_3\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {\n    \"paymentId\": \"1a742ff5-9ea2-82d0-7899-f52e7149de80\",\n    \"reference\": \"string\",\n    \"paymentRequestType\": \"string\",\n    \"externalReference\": \"string\",\n    \"description\": \"string\",\n    \"amount\": {\n      \"value\": 6804.183903826153,\n      \"currency\": {\n        \"englishName\": \"string\",\n        \"iso4117Code\": \"st\",\n        \"id\": \"54a5bf39-5f7a-5f6d-caa5-1b0f5defb857\",\n        \"arabicName\": \"string\",\n        \"iso4117Number\": \"stri\"\n      }\n    },\n    \"createdAt\": \"1948-08-05T22:14:39.856Z\",\n    \"updatedAt\": \"1981-05-01T16:14:59.035Z\",\n    \"status\": \"<string>\",\n    \"purpose\": \"string\",\n    \"note\": \"string\",\n    \"creditorAccount\": {\n      \"identification\": \"string\",\n      \"scheme\": \"IBAN\",\n      \"id\": \"2bb2605d-d731-4e75-89f5-47f56569e061\",\n      \"name\": \"string\"\n    },\n    \"debtorAccount\": {\n      \"identification\": \"string\",\n      \"scheme\": \"IBAN\",\n      \"id\": \"3b8132c8-0bdc-86be-3902-b0bc29a9d635\",\n      \"name\": \"string\"\n    },\n    \"consent\": {\n      \"connection\": {\n        \"provider\": {\n          \"englishName\": \"string\",\n          \"id\": \"5cefe1b8-8a8f-705e-aee5-9ed152a575d3\",\n          \"country\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"address\": \"string\",\n          \"phone\": \"string\",\n          \"isEnable\": false,\n          \"arabicName\": \"string\",\n          \"status\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"logo\": \"https://wEWIhe.awlvoKaAHWlK6Uo4fBuA2T0u4kCtxNiig2L9LU+0teFaHBGUVauLJ8ztgbO\"\n        },\n        \"id\": \"0202b18d-85da-05ce-450f-95470e8a8e36\",\n        \"status\": \"ACTIVE\",\n        \"createdAt\": \"1982-08-11T14:44:43.197Z\",\n        \"updatedAt\": \"2015-12-26T19:37:23.600Z\"\n      },\n      \"paymentConsentType\": \"SingleInstantPayment\",\n      \"executionDateTime\": \"2009-04-20T23:25:13.370Z\",\n      \"purpose\": \"string\",\n      \"note\": \"string\",\n      \"id\": \"b8dc2a45-80b1-ac5b-d1e0-0d81b0b651f8\",\n      \"customerId\": \"b52de3ff-18e7-5759-52e6-94dd41ea1f30\",\n      \"scope\": \"Accounts\",\n      \"createdAt\": \"1998-12-19T04:01:54.206Z\",\n      \"status\": \"Rejected\",\n      \"authorizationLink\": \"string\",\n      \"successRedirectUrl\": \"string\",\n      \"failureRedirectUrl\": \"string\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9149c227-c082-4724-a970-e0ff507c372c",
+              "name": "- If payment id is not valid UUID\n- If consent id is not valid UUID\n- If currency does not exist",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1.0",
+                    "pis",
+                    "Payment",
+                    "Get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "paymentId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "consentId",
+                      "value": "<uuid>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"PARTIES_NOT_FOUND\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key_1\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {\n    \"paymentId\": \"02a76677-4e09-79f9-6d41-37921b640631\",\n    \"reference\": \"string\",\n    \"paymentRequestType\": \"string\",\n    \"externalReference\": \"string\",\n    \"description\": \"string\",\n    \"amount\": {\n      \"value\": 3517.308591139937,\n      \"currency\": {\n        \"englishName\": \"string\",\n        \"iso4117Code\": \"st\",\n        \"id\": \"e1d3114c-ce2e-9ec0-38d0-140fa72bb1ac\",\n        \"arabicName\": \"string\",\n        \"iso4117Number\": \"stri\"\n      }\n    },\n    \"createdAt\": \"1989-03-22T11:19:37.410Z\",\n    \"updatedAt\": \"1979-03-18T05:45:01.345Z\",\n    \"status\": \"<string>\",\n    \"purpose\": \"string\",\n    \"note\": \"string\",\n    \"creditorAccount\": {\n      \"identification\": \"string\",\n      \"scheme\": \"BBAN\",\n      \"id\": \"ed2a65b6-f7ea-579c-81d5-b8f063719d13\",\n      \"name\": \"string\"\n    },\n    \"debtorAccount\": {\n      \"identification\": \"string\",\n      \"scheme\": \"BBAN\",\n      \"id\": \"cae3f619-de50-d4e2-ecdc-68715900d891\",\n      \"name\": \"string\"\n    },\n    \"consent\": {\n      \"connection\": {\n        \"provider\": {\n          \"englishName\": \"string\",\n          \"id\": \"4ef333c7-bd15-7fc3-0fd7-264dd4815c03\",\n          \"country\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"address\": \"string\",\n          \"phone\": \"string\",\n          \"isEnable\": true,\n          \"arabicName\": \"string\",\n          \"status\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"logo\": \"https://kMFvgBMcNNgsZuwBjYIyrpdB.wtubeJMEOhopCwtaZU1nvedRvT.J61j5oe57,Z1onuOaGBIY,\"\n        },\n        \"id\": \"594349b2-bc97-47d4-8438-0814adff9027\",\n        \"status\": \"INACTIVE\",\n        \"createdAt\": \"2003-07-29T16:45:30.643Z\",\n        \"updatedAt\": \"1998-11-07T08:09:21.825Z\"\n      },\n      \"paymentConsentType\": \"SingleInstantPayment\",\n      \"executionDateTime\": \"1987-02-11T04:11:15.518Z\",\n      \"purpose\": \"string\",\n      \"note\": \"string\",\n      \"id\": \"af7b217a-eafa-c640-e58e-c68312b35843\",\n      \"customerId\": \"cabb16b8-d90b-7fba-6aa4-059de5d7beca\",\n      \"scope\": \"Payments\",\n      \"createdAt\": \"2015-06-22T04:09:46.397Z\",\n      \"status\": \"AwaitingAuthorization\",\n      \"authorizationLink\": \"string\",\n      \"successRedirectUrl\": \"string\",\n      \"failureRedirectUrl\": \"string\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "64407205-66a4-40fb-8221-e6b7181ef33d",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1.0",
+                    "pis",
+                    "Payment",
+                    "Get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "paymentId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "consentId",
+                      "value": "<uuid>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"CONSENT_EXPIRED\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key_1\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "623b0cca-54dc-4023-a022-6f8ba55f93c7",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1.0",
+                    "pis",
+                    "Payment",
+                    "Get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "paymentId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "consentId",
+                      "value": "<uuid>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"CONSENT_EXPIRED\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key_1\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2f0e26e6-8c50-4156-a8f0-124434c45828",
+              "name": "- If payment does not exist",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1.0",
+                    "pis",
+                    "Payment",
+                    "Get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "paymentId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "consentId",
+                      "value": "<uuid>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"PARTIES_NOT_FOUND\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key_1\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {\n    \"paymentId\": \"02a76677-4e09-79f9-6d41-37921b640631\",\n    \"reference\": \"string\",\n    \"paymentRequestType\": \"string\",\n    \"externalReference\": \"string\",\n    \"description\": \"string\",\n    \"amount\": {\n      \"value\": 3517.308591139937,\n      \"currency\": {\n        \"englishName\": \"string\",\n        \"iso4117Code\": \"st\",\n        \"id\": \"e1d3114c-ce2e-9ec0-38d0-140fa72bb1ac\",\n        \"arabicName\": \"string\",\n        \"iso4117Number\": \"stri\"\n      }\n    },\n    \"createdAt\": \"1989-03-22T11:19:37.410Z\",\n    \"updatedAt\": \"1979-03-18T05:45:01.345Z\",\n    \"status\": \"<string>\",\n    \"purpose\": \"string\",\n    \"note\": \"string\",\n    \"creditorAccount\": {\n      \"identification\": \"string\",\n      \"scheme\": \"BBAN\",\n      \"id\": \"ed2a65b6-f7ea-579c-81d5-b8f063719d13\",\n      \"name\": \"string\"\n    },\n    \"debtorAccount\": {\n      \"identification\": \"string\",\n      \"scheme\": \"BBAN\",\n      \"id\": \"cae3f619-de50-d4e2-ecdc-68715900d891\",\n      \"name\": \"string\"\n    },\n    \"consent\": {\n      \"connection\": {\n        \"provider\": {\n          \"englishName\": \"string\",\n          \"id\": \"4ef333c7-bd15-7fc3-0fd7-264dd4815c03\",\n          \"country\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"address\": \"string\",\n          \"phone\": \"string\",\n          \"isEnable\": true,\n          \"arabicName\": \"string\",\n          \"status\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"logo\": \"https://kMFvgBMcNNgsZuwBjYIyrpdB.wtubeJMEOhopCwtaZU1nvedRvT.J61j5oe57,Z1onuOaGBIY,\"\n        },\n        \"id\": \"594349b2-bc97-47d4-8438-0814adff9027\",\n        \"status\": \"INACTIVE\",\n        \"createdAt\": \"2003-07-29T16:45:30.643Z\",\n        \"updatedAt\": \"1998-11-07T08:09:21.825Z\"\n      },\n      \"paymentConsentType\": \"SingleInstantPayment\",\n      \"executionDateTime\": \"1987-02-11T04:11:15.518Z\",\n      \"purpose\": \"string\",\n      \"note\": \"string\",\n      \"id\": \"af7b217a-eafa-c640-e58e-c68312b35843\",\n      \"customerId\": \"cabb16b8-d90b-7fba-6aa4-059de5d7beca\",\n      \"scope\": \"Payments\",\n      \"createdAt\": \"2015-06-22T04:09:46.397Z\",\n      \"status\": \"AwaitingAuthorization\",\n      \"authorizationLink\": \"string\",\n      \"successRedirectUrl\": \"string\",\n      \"failureRedirectUrl\": \"string\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "588d8a6b-0a7f-40cc-a3da-66e52ba9ce73",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1.0",
+                    "pis",
+                    "Payment",
+                    "Get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "paymentId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "consentId",
+                      "value": "<uuid>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "e593f591-443a-44ba-9d2e-1c601a6ed128",
+    "name": "Information Account Payment API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Spare account information API documentation\n\nContact Support:\n Name: Spare Technologies WLL.\n Email: hello@tryspare.com",
+      "type": "text/plain"
+    }
+  }
+}

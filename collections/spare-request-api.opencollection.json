@@ -1,0 +1,245 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Information Account Request API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Request",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create account information access request",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v1.0/ais/Request/Create",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "**Unique resource name :** ais.v1.request.create"
+        },
+        {
+          "info": {
+            "name": "List account information access requests",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1.0/ais/Request/List",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number"
+              },
+              {
+                "name": "perPage",
+                "value": "",
+                "type": "query",
+                "description": "Number of items per page maximum allow is 500 per page"
+              }
+            ]
+          },
+          "docs": "**Unique resource name :** ais.v1.request.list"
+        },
+        {
+          "info": {
+            "name": "Get account information access request by id",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1.0/ais/Request/Get",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "query",
+                "description": "Account information access request id"
+              }
+            ]
+          },
+          "docs": "**Unique resource name :** ais.v1.request.get"
+        },
+        {
+          "info": {
+            "name": "Update account information access request",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/api/v1.0/ais/Request/Update",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "query",
+                "description": "Account information access request id"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "**Unique resource name :** ais.v1.request.update"
+        },
+        {
+          "info": {
+            "name": "Delete account information access request",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/api/v1.0/ais/Request/Delete",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "query",
+                "description": "Account information access request id"
+              }
+            ]
+          },
+          "docs": "**Unique resource name :** ais.v1.request.delete"
+        },
+        {
+          "info": {
+            "name": "Create payment request",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v1.0/pis/Request/Create",
+            "headers": [
+              {
+                "name": "x-signature",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create payment request"
+        },
+        {
+          "info": {
+            "name": "List payment requests",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1.0/pis/Request/List",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number"
+              },
+              {
+                "name": "perPage",
+                "value": "",
+                "type": "query",
+                "description": "Number of items per page maximum allow is 100 per page"
+              },
+              {
+                "name": "externalReference",
+                "value": "",
+                "type": "query",
+                "description": "External reference (Optional)"
+              }
+            ]
+          },
+          "docs": "List payment requests"
+        },
+        {
+          "info": {
+            "name": "Get payment request by id",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1.0/pis/Request/Get",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get payment request by id"
+        },
+        {
+          "info": {
+            "name": "Delete payment request by id",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1.0/pis/Request/Delete",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Delete payment request by id"
+        },
+        {
+          "info": {
+            "name": "Create account information access request for short-lived consent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v1.0/ais/Request/CreateShortLivedRequest",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "**Unique resource name :** ais.v1.request.create_short_lived_request\r\n            \r\n**Consent lifetime :** 1 Day"
+        },
+        {
+          "info": {
+            "name": "Create account information access request for long-lived consent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v1.0/ais/Request/CreateLongLivedRequest",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "**Unique resource name :** ais.v1.request.create_long_lived_request\r\n            \r\n**Consent lifetime :** consent expiry date input"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

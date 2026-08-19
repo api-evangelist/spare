@@ -1,0 +1,126 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Information Account API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Account",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get an account by id",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1.0/ais/Account/Get",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "query",
+                "description": "Account id"
+              }
+            ]
+          },
+          "docs": "**Unique resource name :** ais.v1.account.get\n            \n**Important!:**\n            \nThe permissions bellow are required on the consent:\n- `ReadAccountsBasic`\n- `ReadAccountsDetail`"
+        },
+        {
+          "info": {
+            "name": "List accounts",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1.0/ais/Account/List",
+            "params": [
+              {
+                "name": "consentId",
+                "value": "",
+                "type": "query",
+                "description": "Consent id"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number"
+              },
+              {
+                "name": "perPage",
+                "value": "",
+                "type": "query",
+                "description": "Number of items per page maximum allow is 200 per page"
+              }
+            ]
+          },
+          "docs": "**Unique resource name :** ais.v1.account.list\n            \n**Important!:**\n            \nThe permissions bellow are required on the consent:\n- `ReadAccountsBasic`\n- `ReadAccountsDetail`"
+        },
+        {
+          "info": {
+            "name": "Get an account by id for long-lived consent",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v2.0/ais/Account/Get",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "query",
+                "description": "Account id"
+              }
+            ]
+          },
+          "docs": "**Unique resource name :** ais.v2.account.get\r\n            \r\n**Important!:**\r\n            \r\nThe permissions below are required on the consent:\r\n- `ReadAccountsBasic`\r\n- `ReadAccountsDetail`"
+        },
+        {
+          "info": {
+            "name": "List accounts for long-lived consent",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v2.0/ais/Account/List",
+            "params": [
+              {
+                "name": "consentId",
+                "value": "",
+                "type": "query",
+                "description": "Consent id"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number"
+              },
+              {
+                "name": "perPage",
+                "value": "",
+                "type": "query",
+                "description": "Number of items per page maximum allow is 200 per page"
+              }
+            ]
+          },
+          "docs": "**Unique resource name :** ais.v2.account.list\r\n            \r\n**Important!:**\r\n            \r\nThe permissions below are required on the consent:\r\n- `ReadAccountsBasic`\r\n- `ReadAccountsDetail`"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

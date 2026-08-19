@@ -1,0 +1,234 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Information Account Consent API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Consent",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create consent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v1.0/ais/Consent/Create",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "**Unique resource name :** ais.v1.consent.create"
+        },
+        {
+          "info": {
+            "name": "List consent",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1.0/ais/Consent/List",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number"
+              },
+              {
+                "name": "perPage",
+                "value": "",
+                "type": "query",
+                "description": "Number of items per page maximum allow is 500 per page"
+              },
+              {
+                "name": "providerId",
+                "value": "",
+                "type": "query",
+                "description": "Provider id (Optional)"
+              },
+              {
+                "name": "connectionId",
+                "value": "",
+                "type": "query",
+                "description": "Connection id (Optional)"
+              },
+              {
+                "name": "customerId",
+                "value": "",
+                "type": "query",
+                "description": "Customer id (Optional)"
+              }
+            ]
+          },
+          "docs": "**Unique resource name :** ais.v1.consent.list"
+        },
+        {
+          "info": {
+            "name": "Get consent by id",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1.0/ais/Consent/Get",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "query",
+                "description": "Consent id"
+              }
+            ]
+          },
+          "docs": "**Unique resource name :** ais.v1.consent.get"
+        },
+        {
+          "info": {
+            "name": "Revoke consent",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/api/v1.0/ais/Consent/Revoke",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "query",
+                "description": "Consent id"
+              }
+            ]
+          },
+          "docs": "**Unique resource name :** ais.v1.consent.revoke"
+        },
+        {
+          "info": {
+            "name": "Create domestic payment consent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v1.0/pis/Consent/Create",
+            "headers": [
+              {
+                "name": "x-signature",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create domestic payment consent"
+        },
+        {
+          "info": {
+            "name": "List consent",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1.0/pis/Consent/List",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number"
+              },
+              {
+                "name": "perPage",
+                "value": "",
+                "type": "query",
+                "description": "Number of items per page maximum allow is 100 per page"
+              },
+              {
+                "name": "providerId",
+                "value": "",
+                "type": "query",
+                "description": "Provider id (Optional)"
+              },
+              {
+                "name": "connectionId",
+                "value": "",
+                "type": "query",
+                "description": "Connection id (Optional)"
+              },
+              {
+                "name": "externalReference",
+                "value": "",
+                "type": "query",
+                "description": "External reference (Optional)"
+              }
+            ]
+          },
+          "docs": "List consent"
+        },
+        {
+          "info": {
+            "name": "Get consent by id",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1.0/pis/Consent/Get",
+            "params": [
+              {
+                "name": "consentId",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get consent by id"
+        },
+        {
+          "info": {
+            "name": "Create short-lived consent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v1.0/ais/Consent/CreateShortLivedConsent",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "**Unique resource name :** ais.v1.consent.create_short_lived_consent\r\n            \r\n**Consent lifetime :** 1 Day"
+        },
+        {
+          "info": {
+            "name": "Create long-lived consent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v1.0/ais/Consent/CreateLongLivedConsent",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "**Unique resource name :** ais.v1.consent.create_long_lived_consent\r\n            \r\n**Consent lifetime :** expiry date input"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

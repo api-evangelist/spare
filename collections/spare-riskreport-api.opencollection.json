@@ -1,0 +1,152 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Information Account RiskReport API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "RiskReport",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create account information risk report.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1.0/ais/RiskReport/Create",
+            "params": [
+              {
+                "name": "customerId",
+                "value": "",
+                "type": "query",
+                "description": "Customer ID"
+              }
+            ]
+          },
+          "docs": "**Unique resource name :** ais.v1.risk_report.create"
+        },
+        {
+          "info": {
+            "name": "Get account information risk report by id.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1.0/ais/RiskReport/Get",
+            "params": [
+              {
+                "name": "reportId",
+                "value": "",
+                "type": "query",
+                "description": "Report ID"
+              }
+            ]
+          },
+          "docs": "**Unique resource name :** ais.v1.risk_report.get"
+        },
+        {
+          "info": {
+            "name": "Export account information risk report.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1.0/ais/RiskReport/Export",
+            "params": [
+              {
+                "name": "reportId",
+                "value": "",
+                "type": "query",
+                "description": "Report ID"
+              }
+            ]
+          },
+          "docs": "**Unique resource name :** ais.v1.risk_report.export"
+        },
+        {
+          "info": {
+            "name": "List account information reports.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v1.0/ais/RiskReport/List",
+            "params": [
+              {
+                "name": "customerId",
+                "value": "",
+                "type": "query",
+                "description": "Customer id"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number"
+              },
+              {
+                "name": "perPage",
+                "value": "",
+                "type": "query",
+                "description": "Number of items per page maximum allow is 10 per page"
+              }
+            ]
+          },
+          "docs": "**Unique resource name :** ais.v1.account_information_report.list"
+        },
+        {
+          "info": {
+            "name": "Get account information risk report status.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1.0/ais/RiskReport/Status",
+            "params": [
+              {
+                "name": "reportId",
+                "value": "",
+                "type": "query",
+                "description": "Report ID"
+              }
+            ]
+          },
+          "docs": "**Unique resource name :** ais.v1.risk_report.status"
+        },
+        {
+          "info": {
+            "name": "Delete account information risk report",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/api/v1.0/ais/RiskReport/Delete",
+            "params": [
+              {
+                "name": "reportId",
+                "value": "",
+                "type": "query",
+                "description": "Risk report ID"
+              }
+            ]
+          },
+          "docs": "**Unique resource name :** ais.v1.risk_report.delete"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

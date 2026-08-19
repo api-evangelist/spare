@@ -1,0 +1,86 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Information Account Payment API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Payment",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List domestic payment",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v1.0/pis/Payment/List",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number"
+              },
+              {
+                "name": "perPage",
+                "value": "",
+                "type": "query",
+                "description": "Number of items per page maximum allow is 100 per page"
+              },
+              {
+                "name": "providerId",
+                "value": "",
+                "type": "query",
+                "description": "Provider id (Optional)"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "List domestic payment"
+        },
+        {
+          "info": {
+            "name": "Get domestic payment by id",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1.0/pis/Payment/Get",
+            "params": [
+              {
+                "name": "paymentId",
+                "value": "",
+                "type": "query",
+                "description": "Payment Id"
+              },
+              {
+                "name": "consentId",
+                "value": "",
+                "type": "query",
+                "description": "Consent Id"
+              }
+            ]
+          },
+          "docs": "Get domestic payment by id"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

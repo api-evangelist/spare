@@ -1,0 +1,402 @@
+{
+  "item": [
+    {
+      "id": "10cc1ec0-c380-46c7-9d66-5cd82b168b67",
+      "name": "Parties",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "20404b93-58df-40d0-97c1-eb091bc060f6",
+          "name": "Get account parties",
+          "request": {
+            "name": "Get account parties",
+            "description": {
+              "content": "**Unique resource name :** ais.v1.parties.get\n            \n**Important!:**\n            \nThe permissions bellow are required on the consent:\n- `ReadParty`",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1.0",
+                "ais",
+                "Parties",
+                "Get"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "accountId",
+                  "value": "<uuid>",
+                  "description": "(Required) Account id"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "64e47f88-f603-43d6-b043-b94354baa49b",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1.0",
+                    "ais",
+                    "Parties",
+                    "Get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "accountId",
+                      "value": "<uuid>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"CONSENT_NOT_FOUND\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key_1\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key_2\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": [\n    {\n      \"id\": \"a579a9de-9fd0-e6de-29d4-092196a30a49\",\n      \"accountId\": \"42acab7b-3c96-0e70-30b7-a3331d317ec5\",\n      \"createdAt\": \"1958-06-02T18:21:21.439Z\",\n      \"updatedAt\": \"1973-07-28T08:16:34.875Z\",\n      \"partyNumber\": \"string\",\n      \"partyType\": \"string\",\n      \"accountRole\": \"string\",\n      \"verifiedClaims\": [\n        {\n          \"id\": \"f3058644-e0d8-a21e-ddeb-8e68431a9388\",\n          \"createdAt\": \"1996-07-03T09:28:16.737Z\",\n          \"updatedAt\": \"1956-01-09T01:54:12.758Z\",\n          \"verification\": {\n            \"id\": \"bba92ffe-a1d6-9ab2-8d87-714e74ede974\",\n            \"createdAt\": \"1987-10-22T06:39:48.556Z\",\n            \"updatedAt\": \"2015-06-23T01:27:35.121Z\",\n            \"assuranceProcess\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"evidence\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"assuranceLevel\": \"string\",\n            \"time\": \"1993-10-23T12:09:24.310Z\",\n            \"trustFramework\": \"string\",\n            \"verificationProcess\": \"string\"\n          },\n          \"claims\": {\n            \"id\": \"ca537f99-897d-88a2-786b-d9e2e9e3d37c\",\n            \"createdAt\": \"1996-01-08T18:04:08.939Z\",\n            \"updatedAt\": \"1961-02-02T05:12:42.559Z\",\n            \"countryAddress\": \"string\",\n            \"formattedAddress\": \"string\",\n            \"localityAddress\": \"string\",\n            \"regionAddress\": \"string\",\n            \"streetAddress\": \"string\",\n            \"alsoKnownAs\": \"string\",\n            \"birthDate\": \"1950-04-01T06:09:28.353Z\",\n            \"birthFamilyName\": \"string\",\n            \"birthGivenName\": \"string\",\n            \"birthMiddleName\": \"string\",\n            \"email\": \"string\",\n            \"emailVerified\": false,\n            \"familyName\": \"string\",\n            \"gender\": \"string\",\n            \"givenName\": \"string\",\n            \"locale\": \"string\",\n            \"middleName\": \"string\",\n            \"msisdn\": \"string\",\n            \"name\": \"string\",\n            \"nationalities\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"nickname\": \"string\",\n            \"phoneNumber\": \"string\",\n            \"phoneNumberVerified\": false,\n            \"picture\": \"string\",\n            \"countryPlaceOfBirth\": \"string\",\n            \"localityPlaceOfBirth\": \"string\",\n            \"regionPlaceOfBirth\": \"string\",\n            \"preferredUsername\": \"string\",\n            \"profile\": \"string\",\n            \"salutation\": \"string\",\n            \"subject\": \"string\",\n            \"title\": \"string\",\n            \"website\": \"string\",\n            \"zoneInfo\": \"string\"\n          }\n        },\n        {\n          \"id\": \"8d34b940-358f-504e-d8da-fb511d967a3e\",\n          \"createdAt\": \"1987-12-18T02:26:59.007Z\",\n          \"updatedAt\": \"2021-11-22T00:19:12.114Z\",\n          \"verification\": {\n            \"id\": \"c65e50a5-0131-8788-611d-809ee8e2cc1d\",\n            \"createdAt\": \"1963-11-20T13:22:28.678Z\",\n            \"updatedAt\": \"1983-07-18T15:26:20.601Z\",\n            \"assuranceProcess\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"evidence\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"assuranceLevel\": \"string\",\n            \"time\": \"2024-11-25T06:42:00.916Z\",\n            \"trustFramework\": \"string\",\n            \"verificationProcess\": \"string\"\n          },\n          \"claims\": {\n            \"id\": \"99c45ee5-be18-81b9-528a-8a845959f31a\",\n            \"createdAt\": \"1954-02-28T19:46:22.990Z\",\n            \"updatedAt\": \"1966-03-24T20:11:04.470Z\",\n            \"countryAddress\": \"string\",\n            \"formattedAddress\": \"string\",\n            \"localityAddress\": \"string\",\n            \"regionAddress\": \"string\",\n            \"streetAddress\": \"string\",\n            \"alsoKnownAs\": \"string\",\n            \"birthDate\": \"2013-01-21T14:19:55.768Z\",\n            \"birthFamilyName\": \"string\",\n            \"birthGivenName\": \"string\",\n            \"birthMiddleName\": \"string\",\n            \"email\": \"string\",\n            \"emailVerified\": true,\n            \"familyName\": \"string\",\n            \"gender\": \"string\",\n            \"givenName\": \"string\",\n            \"locale\": \"string\",\n            \"middleName\": \"string\",\n            \"msisdn\": \"string\",\n            \"name\": \"string\",\n            \"nationalities\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"nickname\": \"string\",\n            \"phoneNumber\": \"string\",\n            \"phoneNumberVerified\": false,\n            \"picture\": \"string\",\n            \"countryPlaceOfBirth\": \"string\",\n            \"localityPlaceOfBirth\": \"string\",\n            \"regionPlaceOfBirth\": \"string\",\n            \"preferredUsername\": \"string\",\n            \"profile\": \"string\",\n            \"salutation\": \"string\",\n            \"subject\": \"string\",\n            \"title\": \"string\",\n            \"website\": \"string\",\n            \"zoneInfo\": \"string\"\n          }\n        }\n      ]\n    },\n    {\n      \"id\": \"dd26c91e-0a6e-e1c1-00a6-b7553fbffafd\",\n      \"accountId\": \"7193105f-91c2-06cd-8af0-45305d769e3d\",\n      \"createdAt\": \"2018-10-22T07:54:53.358Z\",\n      \"updatedAt\": \"2008-05-29T03:15:38.101Z\",\n      \"partyNumber\": \"string\",\n      \"partyType\": \"string\",\n      \"accountRole\": \"string\",\n      \"verifiedClaims\": [\n        {\n          \"id\": \"d94628cd-96a7-4143-8d8b-cfb54008c215\",\n          \"createdAt\": \"1986-04-13T04:03:44.285Z\",\n          \"updatedAt\": \"1962-06-20T06:24:18.164Z\",\n          \"verification\": {\n            \"id\": \"97e79fd6-465a-2297-28e8-9819b82a7c2c\",\n            \"createdAt\": \"1948-12-05T22:00:37.511Z\",\n            \"updatedAt\": \"2009-03-03T22:23:48.865Z\",\n            \"assuranceProcess\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"evidence\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"assuranceLevel\": \"string\",\n            \"time\": \"1997-10-12T05:54:33.088Z\",\n            \"trustFramework\": \"string\",\n            \"verificationProcess\": \"string\"\n          },\n          \"claims\": {\n            \"id\": \"cf11c0bf-4334-6c72-09c6-d82035346c70\",\n            \"createdAt\": \"2012-04-16T13:22:25.797Z\",\n            \"updatedAt\": \"1951-02-22T22:39:33.492Z\",\n            \"countryAddress\": \"string\",\n            \"formattedAddress\": \"string\",\n            \"localityAddress\": \"string\",\n            \"regionAddress\": \"string\",\n            \"streetAddress\": \"string\",\n            \"alsoKnownAs\": \"string\",\n            \"birthDate\": \"1964-10-12T22:34:16.131Z\",\n            \"birthFamilyName\": \"string\",\n            \"birthGivenName\": \"string\",\n            \"birthMiddleName\": \"string\",\n            \"email\": \"string\",\n            \"emailVerified\": true,\n            \"familyName\": \"string\",\n            \"gender\": \"string\",\n            \"givenName\": \"string\",\n            \"locale\": \"string\",\n            \"middleName\": \"string\",\n            \"msisdn\": \"string\",\n            \"name\": \"string\",\n            \"nationalities\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"nickname\": \"string\",\n            \"phoneNumber\": \"string\",\n            \"phoneNumberVerified\": false,\n            \"picture\": \"string\",\n            \"countryPlaceOfBirth\": \"string\",\n            \"localityPlaceOfBirth\": \"string\",\n            \"regionPlaceOfBirth\": \"string\",\n            \"preferredUsername\": \"string\",\n            \"profile\": \"string\",\n            \"salutation\": \"string\",\n            \"subject\": \"string\",\n            \"title\": \"string\",\n            \"website\": \"string\",\n            \"zoneInfo\": \"string\"\n          }\n        },\n        {\n          \"id\": \"c50a04be-b87f-c05b-b50e-4aaec1aeed5d\",\n          \"createdAt\": \"1962-05-01T07:15:04.198Z\",\n          \"updatedAt\": \"1956-04-13T11:29:55.636Z\",\n          \"verification\": {\n            \"id\": \"ea7cdb0c-a36a-1564-e43f-36068d9d1e33\",\n            \"createdAt\": \"1962-05-14T15:48:14.415Z\",\n            \"updatedAt\": \"1991-12-27T21:29:00.471Z\",\n            \"assuranceProcess\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"evidence\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"assuranceLevel\": \"string\",\n            \"time\": \"2010-01-27T12:34:21.123Z\",\n            \"trustFramework\": \"string\",\n            \"verificationProcess\": \"string\"\n          },\n          \"claims\": {\n            \"id\": \"2d2814f8-b06a-2f84-ee46-a8c700097108\",\n            \"createdAt\": \"2022-08-07T20:46:49.428Z\",\n            \"updatedAt\": \"1962-12-28T11:34:23.331Z\",\n            \"countryAddress\": \"string\",\n            \"formattedAddress\": \"string\",\n            \"localityAddress\": \"string\",\n            \"regionAddress\": \"string\",\n            \"streetAddress\": \"string\",\n            \"alsoKnownAs\": \"string\",\n            \"birthDate\": \"2013-11-05T01:57:59.970Z\",\n            \"birthFamilyName\": \"string\",\n            \"birthGivenName\": \"string\",\n            \"birthMiddleName\": \"string\",\n            \"email\": \"string\",\n            \"emailVerified\": false,\n            \"familyName\": \"string\",\n            \"gender\": \"string\",\n            \"givenName\": \"string\",\n            \"locale\": \"string\",\n            \"middleName\": \"string\",\n            \"msisdn\": \"string\",\n            \"name\": \"string\",\n            \"nationalities\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"nickname\": \"string\",\n            \"phoneNumber\": \"string\",\n            \"phoneNumberVerified\": true,\n            \"picture\": \"string\",\n            \"countryPlaceOfBirth\": \"string\",\n            \"localityPlaceOfBirth\": \"string\",\n            \"regionPlaceOfBirth\": \"string\",\n            \"preferredUsername\": \"string\",\n            \"profile\": \"string\",\n            \"salutation\": \"string\",\n            \"subject\": \"string\",\n            \"title\": \"string\",\n            \"website\": \"string\",\n            \"zoneInfo\": \"string\"\n          }\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f89dc78a-950a-494c-ba32-b8813f3b22e1",
+              "name": "- If account id is not valid",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1.0",
+                    "ais",
+                    "Parties",
+                    "Get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "accountId",
+                      "value": "<uuid>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"INVALID_SIGNATURE\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key_1\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key_2\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key_3\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "943aad1a-030b-4646-b14e-ce522a1fd8e5",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1.0",
+                    "ais",
+                    "Parties",
+                    "Get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "accountId",
+                      "value": "<uuid>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"CONSENT_REVOKED\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key_1\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2cb89926-fbba-43fa-80fb-9de4157c3b86",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1.0",
+                    "ais",
+                    "Parties",
+                    "Get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "accountId",
+                      "value": "<uuid>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"CONSENT_REVOKED\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key_1\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "06e618c0-7858-43be-adaf-f2eff2f43b1b",
+              "name": "- If account does not exists",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1.0",
+                    "ais",
+                    "Parties",
+                    "Get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "accountId",
+                      "value": "<uuid>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"CONSENT_REVOKED\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key_1\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "882717e9-ec76-4b07-bf26-f83708ed32d7",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1.0",
+                    "ais",
+                    "Parties",
+                    "Get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "accountId",
+                      "value": "<uuid>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "13a1b233-2175-4277-9b5f-049fbc19151d",
+    "name": "Information Account Parties API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Spare account information API documentation\n\nContact Support:\n Name: Spare Technologies WLL.\n Email: hello@tryspare.com",
+      "type": "text/plain"
+    }
+  }
+}

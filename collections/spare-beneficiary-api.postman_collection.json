@@ -1,0 +1,402 @@
+{
+  "item": [
+    {
+      "id": "3b4172e1-d682-4750-b222-27173d7bc7a4",
+      "name": "Beneficiary",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "0fd347cf-c8de-4338-84b4-a9f8cd6441c1",
+          "name": "Get account beneficiary",
+          "request": {
+            "name": "Get account beneficiary",
+            "description": {
+              "content": "**Unique resource name :** ais.v1.beneficiary.get\n            \n**Important!:**\n            \nThe permissions bellow are required on the consent:\n- `ReadBeneficiariesBasic`\n- `ReadBeneficiariesDetail`",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1.0",
+                "ais",
+                "Beneficiary",
+                "Get"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "accountId",
+                  "value": "<uuid>",
+                  "description": "(Required) Account id"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "79531caa-a2e8-4f9d-b358-b84971fbfa76",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1.0",
+                    "ais",
+                    "Beneficiary",
+                    "Get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "accountId",
+                      "value": "<uuid>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"CONSENT_REVOKED_OR_EXPIRED\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key_1\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key_2\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key_3\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": [\n    {\n      \"id\": \"e27ef00a-dfff-27e4-6beb-783da623c726\",\n      \"accountId\": \"c29264be-2198-6cc3-594b-ac0c75d03018\",\n      \"createdAt\": \"1999-12-23T05:22:34.231Z\",\n      \"updatedAt\": \"1987-04-27T15:02:34.964Z\",\n      \"accountHolderName\": \"string\",\n      \"accountHolderShortName\": \"string\",\n      \"beneficiaryType\": \"string\",\n      \"reference\": \"string\",\n      \"creditorAccount\": [\n        {\n          \"id\": \"6ac79be7-9bd5-2c94-3b36-5e0e72e65114\",\n          \"scheme\": \"string\",\n          \"identification\": \"string\",\n          \"name\": \"string\"\n        },\n        {\n          \"id\": \"a19996a9-6bb4-2497-7b09-ffc7da60df8e\",\n          \"scheme\": \"string\",\n          \"identification\": \"string\",\n          \"name\": \"string\"\n        }\n      ],\n      \"creditorAgent\": {\n        \"name\": \"string\",\n        \"id\": \"42a6a706-e4b1-7f7b-a530-a624188a1316\",\n        \"address\": {\n          \"addressType\": \"string\",\n          \"department\": \"string\",\n          \"subDepartment\": \"string\",\n          \"addressLine\": \"string\",\n          \"streetName\": \"string\",\n          \"buildingNumber\": \"string\",\n          \"postalCode\": \"string\",\n          \"townName\": \"string\",\n          \"countrySubDivision\": \"string\",\n          \"country\": \"string\",\n          \"shortAddress\": \"string\",\n          \"unitNumber\": 6407.911272917422,\n          \"secondaryNumber\": \"string\",\n          \"district\": \"string\",\n          \"city\": \"string\"\n        },\n        \"scheme\": \"string\",\n        \"identification\": \"string\"\n      }\n    },\n    {\n      \"id\": \"3d3ca25f-7188-d8b5-4db1-8f6bf86d4359\",\n      \"accountId\": \"37838338-2c9a-960c-0959-9c7e3edf5c50\",\n      \"createdAt\": \"1990-01-13T01:19:29.371Z\",\n      \"updatedAt\": \"2018-10-14T02:47:26.536Z\",\n      \"accountHolderName\": \"string\",\n      \"accountHolderShortName\": \"string\",\n      \"beneficiaryType\": \"string\",\n      \"reference\": \"string\",\n      \"creditorAccount\": [\n        {\n          \"id\": \"48679a94-58af-1634-5631-3bc9d62000ee\",\n          \"scheme\": \"string\",\n          \"identification\": \"string\",\n          \"name\": \"string\"\n        },\n        {\n          \"id\": \"c8523193-1833-67c6-d85c-8475f8420090\",\n          \"scheme\": \"string\",\n          \"identification\": \"string\",\n          \"name\": \"string\"\n        }\n      ],\n      \"creditorAgent\": {\n        \"name\": \"string\",\n        \"id\": \"5220dacb-e7c1-a8cc-e6e6-9b4ee1376f0f\",\n        \"address\": {\n          \"addressType\": \"string\",\n          \"department\": \"string\",\n          \"subDepartment\": \"string\",\n          \"addressLine\": \"string\",\n          \"streetName\": \"string\",\n          \"buildingNumber\": \"string\",\n          \"postalCode\": \"string\",\n          \"townName\": \"string\",\n          \"countrySubDivision\": \"string\",\n          \"country\": \"string\",\n          \"shortAddress\": \"string\",\n          \"unitNumber\": 7599.493496852675,\n          \"secondaryNumber\": \"string\",\n          \"district\": \"string\",\n          \"city\": \"string\"\n        },\n        \"scheme\": \"string\",\n        \"identification\": \"string\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7abd8e7d-d882-4ada-b245-a9705126418d",
+              "name": "- If account id is not valid",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1.0",
+                    "ais",
+                    "Beneficiary",
+                    "Get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "accountId",
+                      "value": "<uuid>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"CONSENT_NOT_FOUND\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key_1\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "04f993ae-2a7d-4e73-af00-6719c1251111",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1.0",
+                    "ais",
+                    "Beneficiary",
+                    "Get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "accountId",
+                      "value": "<uuid>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"RISK_REPORT_NOT_FOUND\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a66fc9f1-8108-4b1a-987f-56fc600d2ccc",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1.0",
+                    "ais",
+                    "Beneficiary",
+                    "Get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "accountId",
+                      "value": "<uuid>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"RISK_REPORT_NOT_FOUND\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d2b69a44-355b-426b-87c9-823b3958abd2",
+              "name": "- If account does not exists",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1.0",
+                    "ais",
+                    "Beneficiary",
+                    "Get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "accountId",
+                      "value": "<uuid>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"RISK_REPORT_NOT_FOUND\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "26320c62-7950-4b25-8898-a4029bec4fb4",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1.0",
+                    "ais",
+                    "Beneficiary",
+                    "Get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "accountId",
+                      "value": "<uuid>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "9c182dd0-a0f9-46a6-8f0c-867ac544b4cf",
+    "name": "Information Account Beneficiary API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Spare account information API documentation\n\nContact Support:\n Name: Spare Technologies WLL.\n Email: hello@tryspare.com",
+      "type": "text/plain"
+    }
+  }
+}

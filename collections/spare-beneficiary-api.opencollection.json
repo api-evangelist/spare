@@ -1,0 +1,45 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Information Account Beneficiary API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Beneficiary",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get account beneficiary",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1.0/ais/Beneficiary/Get",
+            "params": [
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "query",
+                "description": "Account id"
+              }
+            ]
+          },
+          "docs": "**Unique resource name :** ais.v1.beneficiary.get\n            \n**Important!:**\n            \nThe permissions bellow are required on the consent:\n- `ReadBeneficiariesBasic`\n- `ReadBeneficiariesDetail`"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,177 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Information Account Transaction API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Transaction",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get transaction details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1.0/ais/Transaction/Get",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "query",
+                "description": "Transaction id"
+              }
+            ]
+          },
+          "docs": "**Unique resource name :** ais.v1.transaction.get\n            \n**Important!:**\n            \nThe permissions bellow are required on the consent:\n- `ReadTransactionsBasic`\n- `ReadTransactionsDetail`\n- `ReadTransactionsDebits`\n- `ReadTransactionsCredits`"
+        },
+        {
+          "info": {
+            "name": "List transactions",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v1.0/ais/Transaction/List",
+            "params": [
+              {
+                "name": "consentId",
+                "value": "",
+                "type": "query",
+                "description": "Consent id"
+              },
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "query",
+                "description": "Bank account id"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number"
+              },
+              {
+                "name": "perPage",
+                "value": "",
+                "type": "query",
+                "description": "Number of items per page maximum allow is 200 per page"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "**Unique resource name :** ais.v1.transaction.list\n            \n**Important!:**\n            \nThe permissions bellow are required on the consent:\n- ReadTransactionsBasic\n- ReadTransactionsDetail\n- ReadTransactionsDebits\n- ReadTransactionsCredits"
+        },
+        {
+          "info": {
+            "name": "Get account salary",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1.0/ais/Transaction/Salaries",
+            "params": [
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "query",
+                "description": "Account id"
+              },
+              {
+                "name": "fromBookingDateTime",
+                "value": "",
+                "type": "query",
+                "description": "From booking date time"
+              },
+              {
+                "name": "toBookingDateTime",
+                "value": "",
+                "type": "query",
+                "description": "To booking date time"
+              }
+            ]
+          },
+          "docs": "**Unique resource name :** ais.v1.transaction.salaries"
+        },
+        {
+          "info": {
+            "name": "Get transaction details for long-lived consent",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v2.0/ais/Transaction/Get",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "query",
+                "description": "Transaction id"
+              }
+            ]
+          },
+          "docs": "**Unique resource name :** ais.v2.transaction.get\r\n            \r\n**Important!:**\r\n            \r\nThe permissions below are required on the consent:\r\n- `ReadTransactionsBasic`\r\n- `ReadTransactionsDetail`\r\n- `ReadTransactionsDebits`\r\n- `ReadTransactionsCredits`"
+        },
+        {
+          "info": {
+            "name": "List transactions for long-lived consent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v2.0/ais/Transaction/List",
+            "params": [
+              {
+                "name": "consentId",
+                "value": "",
+                "type": "query",
+                "description": "Consent id"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number"
+              },
+              {
+                "name": "perPage",
+                "value": "",
+                "type": "query",
+                "description": "Number of items per page maximum allow is 200 per page"
+              },
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "query",
+                "description": "Bank account id"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "**Unique resource name :** ais.v2.transaction.list\r\n            \r\n**Important!:**\r\n            \r\nThe permissions below are required on the consent:\r\n- ReadTransactionsBasic\r\n- ReadTransactionsDetail\r\n- ReadTransactionsDebits\r\n- ReadTransactionsCredits"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

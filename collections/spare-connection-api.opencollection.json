@@ -1,0 +1,113 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Information Account Connection API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Connection",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create connection",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v1.0/ais/Connection/Create",
+            "params": [
+              {
+                "name": "providerId",
+                "value": "",
+                "type": "query",
+                "description": "Provider id"
+              }
+            ]
+          },
+          "docs": "**Unique resource name :** ais.v1.connection.create"
+        },
+        {
+          "info": {
+            "name": "Get connection by id",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1.0/ais/Connection/Get",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "query",
+                "description": "Connection id"
+              }
+            ]
+          },
+          "docs": "**Unique resource name :** ais.v1.connection.get"
+        },
+        {
+          "info": {
+            "name": "List connections",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1.0/ais/Connection/List",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number"
+              },
+              {
+                "name": "perPage",
+                "value": "",
+                "type": "query",
+                "description": "Number of items per page maximum allow is 500 per page"
+              },
+              {
+                "name": "providerId",
+                "value": "",
+                "type": "query",
+                "description": "Provider id (optional)"
+              }
+            ]
+          },
+          "docs": "**Unique resource name :** ais.v1.connection.list"
+        },
+        {
+          "info": {
+            "name": "Delete connection by id",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/api/v1.0/ais/Connection/Delete",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "**Unique resource name :** ais.v1.connection.delete"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

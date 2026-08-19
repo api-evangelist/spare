@@ -1,0 +1,2484 @@
+{
+  "item": [
+    {
+      "id": "eebd9ccb-f828-420f-9bb4-8c5cbbf1b7d5",
+      "name": "Transaction",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "820a0df6-6673-46e0-892e-896a428fef73",
+          "name": "Get transaction details",
+          "request": {
+            "name": "Get transaction details",
+            "description": {
+              "content": "**Unique resource name :** ais.v1.transaction.get\n            \n**Important!:**\n            \nThe permissions bellow are required on the consent:\n- `ReadTransactionsBasic`\n- `ReadTransactionsDetail`\n- `ReadTransactionsDebits`\n- `ReadTransactionsCredits`",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1.0",
+                "ais",
+                "Transaction",
+                "Get"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "id",
+                  "value": "<uuid>",
+                  "description": "(Required) Transaction id"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d0bc2852-9567-435b-bb58-7324292cb76b",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1.0",
+                    "ais",
+                    "Transaction",
+                    "Get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "id",
+                      "value": "<uuid>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"PAYMENT_NOT_FOUND\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key_1\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key_2\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {\n    \"account\": {\n      \"id\": \"eb856237-50e7-35dc-d5b3-51b164daf0fd\",\n      \"currency\": {\n        \"englishName\": \"string\",\n        \"iso4117Code\": \"str\",\n        \"id\": \"daf6454a-cc54-b7b4-b0e5-735a4d358574\",\n        \"arabicName\": \"string\",\n        \"iso4117Number\": \"stri\"\n      },\n      \"servicer\": {\n        \"id\": \"2295bbfa-188e-5888-a3a4-055edd2c4557\",\n        \"address\": {\n          \"addressType\": \"string\",\n          \"department\": \"string\",\n          \"subDepartment\": \"string\",\n          \"addressLine\": \"string\",\n          \"streetName\": \"string\",\n          \"buildingNumber\": \"string\",\n          \"postalCode\": \"string\",\n          \"townName\": \"string\",\n          \"countrySubDivision\": \"string\",\n          \"country\": \"string\",\n          \"shortAddress\": \"string\",\n          \"unitNumber\": 5252.773251556956,\n          \"secondaryNumber\": \"string\",\n          \"district\": \"string\",\n          \"city\": \"string\"\n        },\n        \"scheme\": \"string\",\n        \"identification\": \"string\"\n      },\n      \"accounts\": [\n        {\n          \"id\": \"8bd4bbbf-38e4-5a23-dc4e-04d1fe35eddd\",\n          \"scheme\": \"string\",\n          \"identification\": \"string\",\n          \"name\": \"string\"\n        },\n        {\n          \"id\": \"1772ac3c-28be-39b7-e730-5e7916385532\",\n          \"scheme\": \"string\",\n          \"identification\": \"string\",\n          \"name\": \"string\"\n        }\n      ],\n      \"status\": \"string\",\n      \"statusUpdatedDateTime\": \"1947-07-10T07:21:41.329Z\",\n      \"type\": \"string\",\n      \"subType\": \"string\",\n      \"description\": \"string\",\n      \"openingDate\": \"1991-09-13T00:10:20.655Z\",\n      \"maturityDate\": \"2020-12-08T16:38:41.587Z\"\n    },\n    \"creditorAgent\": {\n      \"scheme\": \"string\",\n      \"identification\": \"string\",\n      \"address\": {\n        \"addressType\": \"string\",\n        \"department\": \"string\",\n        \"subDepartment\": \"string\",\n        \"addressLine\": \"string\",\n        \"streetName\": \"string\",\n        \"buildingNumber\": \"string\",\n        \"postalCode\": \"string\",\n        \"townName\": \"string\",\n        \"countrySubDivision\": \"string\",\n        \"countryName\": \"string\",\n        \"shortAddress\": \"string\",\n        \"unitNumber\": 5996.195006912549,\n        \"secondaryNumber\": \"string\",\n        \"district\": \"string\",\n        \"city\": \"string\",\n        \"country\": \"string\"\n      }\n    },\n    \"debtorAgent\": {\n      \"scheme\": \"string\",\n      \"identification\": \"string\",\n      \"address\": {\n        \"addressType\": \"string\",\n        \"department\": \"string\",\n        \"subDepartment\": \"string\",\n        \"addressLine\": \"string\",\n        \"streetName\": \"string\",\n        \"buildingNumber\": \"string\",\n        \"postalCode\": \"string\",\n        \"townName\": \"string\",\n        \"countrySubDivision\": \"string\",\n        \"countryName\": \"string\",\n        \"shortAddress\": \"string\",\n        \"unitNumber\": 7020.701228838001,\n        \"secondaryNumber\": \"string\",\n        \"district\": \"string\",\n        \"city\": \"string\",\n        \"country\": \"string\"\n      }\n    },\n    \"deborAccount\": {\n      \"id\": \"2cbea547-6dd0-330f-9080-52ed8dd9928f\",\n      \"scheme\": \"string\",\n      \"identification\": \"string\",\n      \"name\": \"string\"\n    },\n    \"creditorAccount\": {\n      \"id\": \"8d753594-3a3c-62c5-8e38-73d5d151f60e\",\n      \"scheme\": \"string\",\n      \"identification\": \"string\",\n      \"name\": \"string\"\n    },\n    \"id\": \"a222177b-43ba-f855-c50a-33b0b0c894df\",\n    \"transactionReference\": \"string\",\n    \"localTimeZone\": \"string\",\n    \"transactionDateTime\": \"2026-03-24T06:30:52.962Z\",\n    \"subTransactionType\": \"string\",\n    \"transactionType\": \"string\",\n    \"flags\": [\n      \"string\",\n      \"string\"\n    ],\n    \"paymentModes\": \"string\",\n    \"balance\": {\n      \"currency\": {\n        \"englishName\": \"string\",\n        \"iso4117Code\": \"st\",\n        \"id\": \"af38d800-33e3-e0bd-f557-3cafed9a4921\",\n        \"arabicName\": \"string\",\n        \"iso4117Number\": \"stri\"\n      },\n      \"creditDebitIndicator\": \"string\",\n      \"type\": \"string\",\n      \"amount\": 5468.252541559443,\n      \"chargeIncluded\": false\n    },\n    \"transactionMutability\": \"string\",\n    \"transactionInformation\": \"string\",\n    \"statementReference\": \"string\",\n    \"creditDebitIndicator\": \"string\",\n    \"status\": \"string\",\n    \"bookingDateTime\": \"2023-11-13\",\n    \"valueDateTime\": \"2005-03-27\",\n    \"addressLine\": \"string\",\n    \"amount\": {\n      \"currency\": {\n        \"englishName\": \"string\",\n        \"iso4117Code\": \"str\",\n        \"id\": \"2e620e54-9592-a3f6-ac0a-70ba0248019f\",\n        \"arabicName\": \"string\",\n        \"iso4117Number\": \"stri\"\n      },\n      \"localExchange\": {\n        \"sourceCurrency\": \"string\",\n        \"targetCurrency\": \"string\",\n        \"rate\": 4039.697842201092,\n        \"date\": \"1960-02-23\",\n        \"value\": 3084.9865340858064\n      },\n      \"amount\": 4530.1946101692465,\n      \"chargeIncluded\": true\n    },\n    \"chargeAmount\": {\n      \"currency\": {\n        \"englishName\": \"string\",\n        \"iso4117Code\": \"st\",\n        \"id\": \"e1056328-0fbd-0a8b-743f-765d14cbdf1d\",\n        \"arabicName\": \"string\",\n        \"iso4117Number\": \"stri\"\n      },\n      \"amount\": 6669.773787967694,\n      \"chargeIncluded\": true\n    },\n    \"billDetails\": {\n      \"billerId\": \"string\",\n      \"billNumber\": \"string\",\n      \"billPaymentType\": \"string\"\n    },\n    \"currencyExchange\": {\n      \"sourceCurrency\": {\n        \"englishName\": \"string\",\n        \"iso4117Code\": \"st\",\n        \"id\": \"0d306834-f6d4-1004-8c84-46cec2839428\",\n        \"arabicName\": \"string\",\n        \"iso4117Number\": \"stri\"\n      },\n      \"targetCurrency\": {\n        \"englishName\": \"string\",\n        \"iso4117Code\": \"st\",\n        \"id\": \"c2b49807-2903-6971-adc2-f3f1f7edd9fe\",\n        \"arabicName\": \"string\",\n        \"iso4117Number\": \"stri\"\n      },\n      \"exchangeRate\": 1563.3990779459239,\n      \"unitCurrency\": {\n        \"englishName\": \"string\",\n        \"iso4117Code\": \"st\",\n        \"id\": \"d2bd6665-7bc5-f16c-4bbf-d08b41f25021\",\n        \"arabicName\": \"string\",\n        \"iso4117Number\": \"stri\"\n      },\n      \"contractIdentification\": \"string\",\n      \"quotationDate\": \"1979-06-26\",\n      \"instructedAmount\": {\n        \"currency\": {\n          \"englishName\": \"string\",\n          \"iso4117Code\": \"st\",\n          \"id\": \"41798072-0657-3095-ebd7-2ab6e6e11f1b\",\n          \"arabicName\": \"string\",\n          \"iso4117Number\": \"stri\"\n        },\n        \"amount\": 868.4497433516048,\n        \"chargeIncluded\": false\n      }\n    },\n    \"bankTransactionCode\": {\n      \"subCode\": \"string\",\n      \"domain\": \"string\",\n      \"domainCode\": \"string\",\n      \"family\": \"string\",\n      \"familyCode\": \"string\",\n      \"subFamily\": \"string\",\n      \"subFamilyCode\": \"string\",\n      \"code\": \"string\"\n    },\n    \"proprietaryBankTransactionCode\": {\n      \"issuer\": \"string\",\n      \"code\": \"string\"\n    },\n    \"merchantDetails\": {\n      \"categoryCode\": \"string\",\n      \"name\": \"string\",\n      \"merchantId\": 9244\n    },\n    \"subCategoryName\": \"string\",\n    \"categoryCode\": \"string\",\n    \"categoryName\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3a85a8ad-a68d-47fe-a200-48e89c041ab4",
+              "name": "- If transaction id is not valid",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1.0",
+                    "ais",
+                    "Transaction",
+                    "Get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "id",
+                      "value": "<uuid>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"INVALID_DATA\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key_1\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key_2\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "796cea87-d374-4b4f-b084-4b98c15409e9",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1.0",
+                    "ais",
+                    "Transaction",
+                    "Get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "id",
+                      "value": "<uuid>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"COUNTRY_NOT_FOUND\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "16120735-9a69-42ee-a0cb-ca4b0d7544b2",
+              "name": "Payment Required",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1.0",
+                    "ais",
+                    "Transaction",
+                    "Get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "id",
+                      "value": "<uuid>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"COUNTRY_NOT_FOUND\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7aac0584-005a-43dd-a5c7-5dd1aa75d3de",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1.0",
+                    "ais",
+                    "Transaction",
+                    "Get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "id",
+                      "value": "<uuid>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"COUNTRY_NOT_FOUND\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "72836322-3e9b-4a4c-b9be-8bed143c91f1",
+              "name": "- If transaction does not exist",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1.0",
+                    "ais",
+                    "Transaction",
+                    "Get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "id",
+                      "value": "<uuid>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"COUNTRY_NOT_FOUND\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "784487a3-0b13-4c23-862c-4d001fcd0877",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1.0",
+                    "ais",
+                    "Transaction",
+                    "Get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "id",
+                      "value": "<uuid>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ff74a45e-7263-40ba-883f-c4966b6b3454",
+          "name": "List transactions",
+          "request": {
+            "name": "List transactions",
+            "description": {
+              "content": "**Unique resource name :** ais.v1.transaction.list\n            \n**Important!:**\n            \nThe permissions bellow are required on the consent:\n- ReadTransactionsBasic\n- ReadTransactionsDetail\n- ReadTransactionsDebits\n- ReadTransactionsCredits",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1.0",
+                "ais",
+                "Transaction",
+                "List"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "consentId",
+                  "value": "<uuid>",
+                  "description": "(Required) Consent id"
+                },
+                {
+                  "disabled": false,
+                  "key": "accountId",
+                  "value": "<uuid>",
+                  "description": "(Required) Bank account id"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "Page number"
+                },
+                {
+                  "disabled": false,
+                  "key": "perPage",
+                  "value": "20",
+                  "description": "Number of items per page maximum allow is 200 per page"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"fromBookingDateTime\": \"<dateTime>\",\n  \"toBookingDateTime\": \"<dateTime>\",\n  \"status\": \"<string>\",\n  \"type\": \"<string>\",\n  \"searchBy\": \"<string>\",\n  \"searchKeyWord\": \"<string>\",\n  \"orderBy\": \"<string>\",\n  \"order\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "acea8f56-6583-4aa0-9846-0f12550be1c8",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1.0",
+                    "ais",
+                    "Transaction",
+                    "List"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "consentId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "accountId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "perPage",
+                      "value": "20"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"fromBookingDateTime\": \"<dateTime>\",\n  \"toBookingDateTime\": \"<dateTime>\",\n  \"status\": \"<string>\",\n  \"type\": \"<string>\",\n  \"searchBy\": \"<string>\",\n  \"searchKeyWord\": \"<string>\",\n  \"orderBy\": \"<string>\",\n  \"order\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"MULTIPLE_CURRENCY_NOT_ALLOWED\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": [\n    {\n      \"id\": \"6f08da8e-f621-4850-fef3-e2f49f3afbde\",\n      \"transactionReference\": \"string\",\n      \"localTimeZone\": \"string\",\n      \"transactionDateTime\": \"2003-09-07T19:25:43.987Z\",\n      \"subTransactionType\": \"string\",\n      \"transactionType\": \"string\",\n      \"flags\": [\n        \"string\",\n        \"string\"\n      ],\n      \"paymentModes\": \"string\",\n      \"balance\": {\n        \"currency\": {\n          \"englishName\": \"string\",\n          \"iso4117Code\": \"str\",\n          \"id\": \"20b8c8e6-72c2-e687-1e4f-d02f1bcf91d0\",\n          \"arabicName\": \"string\",\n          \"iso4117Number\": \"stri\"\n        },\n        \"creditDebitIndicator\": \"string\",\n        \"type\": \"string\",\n        \"amount\": 1691.7744357172182,\n        \"chargeIncluded\": true\n      },\n      \"transactionMutability\": \"string\",\n      \"transactionInformation\": \"string\",\n      \"statementReference\": \"string\",\n      \"creditDebitIndicator\": \"string\",\n      \"status\": \"string\",\n      \"bookingDateTime\": \"1984-01-09\",\n      \"valueDateTime\": \"2020-06-23\",\n      \"addressLine\": \"string\",\n      \"amount\": {\n        \"currency\": {\n          \"englishName\": \"s\",\n          \"iso4117Code\": \"st\",\n          \"id\": \"fd9e36af-0f8a-b7d7-01ad-25be9d075b0c\",\n          \"arabicName\": \"string\",\n          \"iso4117Number\": \"stri\"\n        },\n        \"localExchange\": {\n          \"sourceCurrency\": \"string\",\n          \"targetCurrency\": \"string\",\n          \"rate\": 9201.307864571585,\n          \"date\": \"1963-12-22\",\n          \"value\": 8173.981727544616\n        },\n        \"amount\": 9224.866305171176,\n        \"chargeIncluded\": true\n      },\n      \"chargeAmount\": {\n        \"currency\": {\n          \"englishName\": \"string\",\n          \"iso4117Code\": \"str\",\n          \"id\": \"7869010f-381c-8c61-7fab-afbdd02bbb53\",\n          \"arabicName\": \"string\",\n          \"iso4117Number\": \"stri\"\n        },\n        \"amount\": 3271.117419860371,\n        \"chargeIncluded\": false\n      },\n      \"billDetails\": {\n        \"billerId\": \"string\",\n        \"billNumber\": \"string\",\n        \"billPaymentType\": \"string\"\n      },\n      \"currencyExchange\": {\n        \"sourceCurrency\": {\n          \"englishName\": \"string\",\n          \"iso4117Code\": \"st\",\n          \"id\": \"97c5e0d0-09f3-92f3-6717-4ca6b3d54865\",\n          \"arabicName\": \"string\",\n          \"iso4117Number\": \"stri\"\n        },\n        \"targetCurrency\": {\n          \"englishName\": \"string\",\n          \"iso4117Code\": \"s\",\n          \"id\": \"fc5c0126-cc7b-130e-231e-0e0c5e2b1f1d\",\n          \"arabicName\": \"string\",\n          \"iso4117Number\": \"stri\"\n        },\n        \"exchangeRate\": 8662.080740838961,\n        \"unitCurrency\": {\n          \"englishName\": \"string\",\n          \"iso4117Code\": \"s\",\n          \"id\": \"188b7b50-2ba1-4c6d-e830-a3ac61d802a2\",\n          \"arabicName\": \"string\",\n          \"iso4117Number\": \"stri\"\n        },\n        \"contractIdentification\": \"string\",\n        \"quotationDate\": \"2013-06-12\",\n        \"instructedAmount\": {\n          \"currency\": {\n            \"englishName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"iso4117Code\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"arabicName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"iso4117Number\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"amount\": 3355.8626646897474,\n          \"chargeIncluded\": false\n        }\n      },\n      \"bankTransactionCode\": {\n        \"subCode\": \"string\",\n        \"domain\": \"string\",\n        \"domainCode\": \"string\",\n        \"family\": \"string\",\n        \"familyCode\": \"string\",\n        \"subFamily\": \"string\",\n        \"subFamilyCode\": \"string\",\n        \"code\": \"string\"\n      },\n      \"proprietaryBankTransactionCode\": {\n        \"issuer\": \"string\",\n        \"code\": \"string\"\n      },\n      \"merchantDetails\": {\n        \"categoryCode\": \"string\",\n        \"name\": \"string\",\n        \"merchantId\": 5917\n      },\n      \"subCategoryName\": \"string\",\n      \"categoryCode\": \"string\",\n      \"categoryName\": \"string\"\n    },\n    {\n      \"id\": \"c7663798-4f72-127d-63a6-a36c21b5b39a\",\n      \"transactionReference\": \"string\",\n      \"localTimeZone\": \"string\",\n      \"transactionDateTime\": \"1967-04-15T21:30:10.501Z\",\n      \"subTransactionType\": \"string\",\n      \"transactionType\": \"string\",\n      \"flags\": [\n        \"string\",\n        \"string\"\n      ],\n      \"paymentModes\": \"string\",\n      \"balance\": {\n        \"currency\": {\n          \"englishName\": \"string\",\n          \"iso4117Code\": \"s\",\n          \"id\": \"54e945da-8809-11c5-c0ef-0e69ae3bb222\",\n          \"arabicName\": \"string\",\n          \"iso4117Number\": \"stri\"\n        },\n        \"creditDebitIndicator\": \"string\",\n        \"type\": \"string\",\n        \"amount\": 2027.2167925746742,\n        \"chargeIncluded\": false\n      },\n      \"transactionMutability\": \"string\",\n      \"transactionInformation\": \"string\",\n      \"statementReference\": \"string\",\n      \"creditDebitIndicator\": \"string\",\n      \"status\": \"string\",\n      \"bookingDateTime\": \"1987-01-01\",\n      \"valueDateTime\": \"1977-01-05\",\n      \"addressLine\": \"string\",\n      \"amount\": {\n        \"currency\": {\n          \"englishName\": \"stri\",\n          \"iso4117Code\": \"s\",\n          \"id\": \"270bdcbb-66f5-27c2-892c-9bb00c978bed\",\n          \"arabicName\": \"string\",\n          \"iso4117Number\": \"stri\"\n        },\n        \"localExchange\": {\n          \"sourceCurrency\": \"string\",\n          \"targetCurrency\": \"string\",\n          \"rate\": 2999.3725769761927,\n          \"date\": \"2012-04-17\",\n          \"value\": 8129.507639615053\n        },\n        \"amount\": 8155.867596099781,\n        \"chargeIncluded\": false\n      },\n      \"chargeAmount\": {\n        \"currency\": {\n          \"englishName\": \"st\",\n          \"iso4117Code\": \"st\",\n          \"id\": \"17da31e4-83bc-33ca-5099-5f7757606555\",\n          \"arabicName\": \"string\",\n          \"iso4117Number\": \"stri\"\n        },\n        \"amount\": 2370.1258160959906,\n        \"chargeIncluded\": false\n      },\n      \"billDetails\": {\n        \"billerId\": \"string\",\n        \"billNumber\": \"string\",\n        \"billPaymentType\": \"string\"\n      },\n      \"currencyExchange\": {\n        \"sourceCurrency\": {\n          \"englishName\": \"strin\",\n          \"iso4117Code\": \"s\",\n          \"id\": \"24e444f8-dac7-5ddd-dd52-792e31bd8ba3\",\n          \"arabicName\": \"string\",\n          \"iso4117Number\": \"stri\"\n        },\n        \"targetCurrency\": {\n          \"englishName\": \"st\",\n          \"iso4117Code\": \"s\",\n          \"id\": \"f6230d0b-4bfd-cfe1-486c-5bccf183996b\",\n          \"arabicName\": \"string\",\n          \"iso4117Number\": \"stri\"\n        },\n        \"exchangeRate\": 4177.435765325564,\n        \"unitCurrency\": {\n          \"englishName\": \"string\",\n          \"iso4117Code\": \"st\",\n          \"id\": \"8cf7c7a5-7712-25ba-d266-9347f1a12417\",\n          \"arabicName\": \"string\",\n          \"iso4117Number\": \"stri\"\n        },\n        \"contractIdentification\": \"string\",\n        \"quotationDate\": \"1984-12-02\",\n        \"instructedAmount\": {\n          \"currency\": {\n            \"englishName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"iso4117Code\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"arabicName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"iso4117Number\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"amount\": 3629.604893600711,\n          \"chargeIncluded\": true\n        }\n      },\n      \"bankTransactionCode\": {\n        \"subCode\": \"string\",\n        \"domain\": \"string\",\n        \"domainCode\": \"string\",\n        \"family\": \"string\",\n        \"familyCode\": \"string\",\n        \"subFamily\": \"string\",\n        \"subFamilyCode\": \"string\",\n        \"code\": \"string\"\n      },\n      \"proprietaryBankTransactionCode\": {\n        \"issuer\": \"string\",\n        \"code\": \"string\"\n      },\n      \"merchantDetails\": {\n        \"categoryCode\": \"string\",\n        \"name\": \"string\",\n        \"merchantId\": 1438\n      },\n      \"subCategoryName\": \"string\",\n      \"categoryCode\": \"string\",\n      \"categoryName\": \"string\"\n    }\n  ],\n  \"meta\": {\n    \"currentPageNumber\": 5706,\n    \"pageSize\": 5938,\n    \"totalNumberOfPages\": 9679\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "282fd187-cd07-4f56-a2ff-ef06db404597",
+              "name": "- If consent id is not valid\n- If filter model is not valid\n- If accountId is null or invalid UUID",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1.0",
+                    "ais",
+                    "Transaction",
+                    "List"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "consentId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "accountId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "perPage",
+                      "value": "20"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"fromBookingDateTime\": \"<dateTime>\",\n  \"toBookingDateTime\": \"<dateTime>\",\n  \"status\": \"<string>\",\n  \"type\": \"<string>\",\n  \"searchBy\": \"<string>\",\n  \"searchKeyWord\": \"<string>\",\n  \"orderBy\": \"<string>\",\n  \"order\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"COUNTRY_NOT_FOUND\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "42f534ca-3f2b-4855-932f-39994c16dad6",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1.0",
+                    "ais",
+                    "Transaction",
+                    "List"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "consentId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "accountId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "perPage",
+                      "value": "20"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"fromBookingDateTime\": \"<dateTime>\",\n  \"toBookingDateTime\": \"<dateTime>\",\n  \"status\": \"<string>\",\n  \"type\": \"<string>\",\n  \"searchBy\": \"<string>\",\n  \"searchKeyWord\": \"<string>\",\n  \"orderBy\": \"<string>\",\n  \"order\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"COUNTRY_NOT_FOUND\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1e6a4482-11e6-4b30-8615-8239c9e45f01",
+              "name": "Payment Required",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1.0",
+                    "ais",
+                    "Transaction",
+                    "List"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "consentId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "accountId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "perPage",
+                      "value": "20"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"fromBookingDateTime\": \"<dateTime>\",\n  \"toBookingDateTime\": \"<dateTime>\",\n  \"status\": \"<string>\",\n  \"type\": \"<string>\",\n  \"searchBy\": \"<string>\",\n  \"searchKeyWord\": \"<string>\",\n  \"orderBy\": \"<string>\",\n  \"order\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"COUNTRY_NOT_FOUND\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3f6fbd09-c1d0-4efe-9dcd-ace79f5fef28",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1.0",
+                    "ais",
+                    "Transaction",
+                    "List"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "consentId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "accountId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "perPage",
+                      "value": "20"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"fromBookingDateTime\": \"<dateTime>\",\n  \"toBookingDateTime\": \"<dateTime>\",\n  \"status\": \"<string>\",\n  \"type\": \"<string>\",\n  \"searchBy\": \"<string>\",\n  \"searchKeyWord\": \"<string>\",\n  \"orderBy\": \"<string>\",\n  \"order\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"COUNTRY_NOT_FOUND\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7915f809-5a9e-4af1-a17c-5cc19282accb",
+              "name": "- If consent does not exist",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1.0",
+                    "ais",
+                    "Transaction",
+                    "List"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "consentId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "accountId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "perPage",
+                      "value": "20"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"fromBookingDateTime\": \"<dateTime>\",\n  \"toBookingDateTime\": \"<dateTime>\",\n  \"status\": \"<string>\",\n  \"type\": \"<string>\",\n  \"searchBy\": \"<string>\",\n  \"searchKeyWord\": \"<string>\",\n  \"orderBy\": \"<string>\",\n  \"order\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"COUNTRY_NOT_FOUND\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f01600d3-d833-4951-a2af-06a42e9a7972",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1.0",
+                    "ais",
+                    "Transaction",
+                    "List"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "consentId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "accountId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "perPage",
+                      "value": "20"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"fromBookingDateTime\": \"<dateTime>\",\n  \"toBookingDateTime\": \"<dateTime>\",\n  \"status\": \"<string>\",\n  \"type\": \"<string>\",\n  \"searchBy\": \"<string>\",\n  \"searchKeyWord\": \"<string>\",\n  \"orderBy\": \"<string>\",\n  \"order\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9df71fed-3f98-46ce-88e1-520c78cabe13",
+          "name": "Get account salary",
+          "request": {
+            "name": "Get account salary",
+            "description": {
+              "content": "**Unique resource name :** ais.v1.transaction.salaries",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1.0",
+                "ais",
+                "Transaction",
+                "Salaries"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "accountId",
+                  "value": "<uuid>",
+                  "description": "(Required) Account id"
+                },
+                {
+                  "disabled": false,
+                  "key": "fromBookingDateTime",
+                  "value": "<dateTime>",
+                  "description": "From booking date time"
+                },
+                {
+                  "disabled": false,
+                  "key": "toBookingDateTime",
+                  "value": "<dateTime>",
+                  "description": "To booking date time"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "02b13ef9-7525-4b43-86af-30b30a95c192",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1.0",
+                    "ais",
+                    "Transaction",
+                    "Salaries"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "accountId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "fromBookingDateTime",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "toBookingDateTime",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"NOT_SUBSCRIBED_TO_SERVICE\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": [\n    {\n      \"accountId\": \"20020f3d-6e86-114c-3369-aedbaa888788\",\n      \"month\": \"string\",\n      \"amount\": 9386.934743505799,\n      \"currency\": \"string\"\n    },\n    {\n      \"accountId\": \"b160877f-536e-3e9e-b9e3-9dd95a471edd\",\n      \"month\": \"string\",\n      \"amount\": 4789.374091281707,\n      \"currency\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "93d91b78-71fe-4ab3-a40e-c4cf00c8e631",
+              "name": "- If accountId is null or invalid UUID",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1.0",
+                    "ais",
+                    "Transaction",
+                    "Salaries"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "accountId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "fromBookingDateTime",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "toBookingDateTime",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"COUNTRY_NOT_FOUND\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "54b2e405-fb5e-4b4e-9f76-1c966ce6643a",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1.0",
+                    "ais",
+                    "Transaction",
+                    "Salaries"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "accountId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "fromBookingDateTime",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "toBookingDateTime",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"COUNTRY_NOT_FOUND\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5e1981c5-99e2-4e7f-8c5d-81273a0a68f1",
+              "name": "Payment Required",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1.0",
+                    "ais",
+                    "Transaction",
+                    "Salaries"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "accountId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "fromBookingDateTime",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "toBookingDateTime",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"COUNTRY_NOT_FOUND\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "87f80564-7441-4c76-868b-3ebdaaa83826",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1.0",
+                    "ais",
+                    "Transaction",
+                    "Salaries"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "accountId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "fromBookingDateTime",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "toBookingDateTime",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"COUNTRY_NOT_FOUND\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7d0edf4d-9e6a-4736-b029-5c2965801ba4",
+              "name": "- If account not exist",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1.0",
+                    "ais",
+                    "Transaction",
+                    "Salaries"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "accountId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "fromBookingDateTime",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "toBookingDateTime",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"COUNTRY_NOT_FOUND\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "12ff73a6-16f0-492b-85c6-e6af19bcd8b8",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1.0",
+                    "ais",
+                    "Transaction",
+                    "Salaries"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "accountId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "fromBookingDateTime",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "toBookingDateTime",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "34896e6a-fe05-4c14-8f30-0e7baad13692",
+          "name": "Get transaction details for long-lived consent",
+          "request": {
+            "name": "Get transaction details for long-lived consent",
+            "description": {
+              "content": "**Unique resource name :** ais.v2.transaction.get\r\n            \r\n**Important!:**\r\n            \r\nThe permissions below are required on the consent:\r\n- `ReadTransactionsBasic`\r\n- `ReadTransactionsDetail`\r\n- `ReadTransactionsDebits`\r\n- `ReadTransactionsCredits`",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v2.0",
+                "ais",
+                "Transaction",
+                "Get"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "id",
+                  "value": "<uuid>",
+                  "description": "(Required) Transaction id"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d1d94514-b0cf-43b6-a271-12a28b3f0772",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2.0",
+                    "ais",
+                    "Transaction",
+                    "Get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "id",
+                      "value": "<uuid>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"TRANSACTION_NOT_FOUND\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key_1\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {\n    \"account\": {\n      \"id\": \"06d50b43-d4d9-c7b9-403d-de25eb5a1d35\",\n      \"currency\": {\n        \"englishName\": \"string\",\n        \"iso4117Code\": \"str\",\n        \"id\": \"16e06f51-62f4-3491-833e-5e8aa08293c6\",\n        \"arabicName\": \"string\",\n        \"iso4117Number\": \"stri\"\n      },\n      \"servicer\": {\n        \"id\": \"9002da0b-ee9a-1a67-a8f6-69826e2c2cfe\",\n        \"address\": {\n          \"addressType\": \"string\",\n          \"department\": \"string\",\n          \"subDepartment\": \"string\",\n          \"addressLine\": \"string\",\n          \"streetName\": \"string\",\n          \"buildingNumber\": \"string\",\n          \"postalCode\": \"string\",\n          \"townName\": \"string\",\n          \"countrySubDivision\": \"string\",\n          \"country\": \"string\",\n          \"shortAddress\": \"string\",\n          \"unitNumber\": 9756.700691019863,\n          \"secondaryNumber\": \"string\",\n          \"district\": \"string\",\n          \"city\": \"string\"\n        },\n        \"scheme\": \"string\",\n        \"identification\": \"string\"\n      },\n      \"accounts\": [\n        {\n          \"id\": \"3d9162d4-5013-4273-ed12-5898d364de1e\",\n          \"scheme\": \"string\",\n          \"identification\": \"string\",\n          \"name\": \"string\"\n        },\n        {\n          \"id\": \"ea3dcdf9-f539-24fc-f344-5b4f691734a4\",\n          \"scheme\": \"string\",\n          \"identification\": \"string\",\n          \"name\": \"string\"\n        }\n      ],\n      \"status\": \"string\",\n      \"statusUpdatedDateTime\": \"1998-11-18T03:24:57.443Z\",\n      \"type\": \"string\",\n      \"subType\": \"string\",\n      \"description\": \"string\",\n      \"openingDate\": \"1949-03-06T00:01:52.044Z\",\n      \"maturityDate\": \"2000-10-23T21:41:52.651Z\"\n    },\n    \"creditorAgent\": {\n      \"scheme\": \"string\",\n      \"identification\": \"string\",\n      \"address\": {\n        \"addressType\": \"string\",\n        \"department\": \"string\",\n        \"subDepartment\": \"string\",\n        \"addressLine\": \"string\",\n        \"streetName\": \"string\",\n        \"buildingNumber\": \"string\",\n        \"postalCode\": \"string\",\n        \"townName\": \"string\",\n        \"countrySubDivision\": \"string\",\n        \"countryName\": \"string\",\n        \"shortAddress\": \"string\",\n        \"unitNumber\": 6439.583835902435,\n        \"secondaryNumber\": \"string\",\n        \"district\": \"string\",\n        \"city\": \"string\",\n        \"country\": \"string\"\n      }\n    },\n    \"debtorAgent\": {\n      \"scheme\": \"string\",\n      \"identification\": \"string\",\n      \"address\": {\n        \"addressType\": \"string\",\n        \"department\": \"string\",\n        \"subDepartment\": \"string\",\n        \"addressLine\": \"string\",\n        \"streetName\": \"string\",\n        \"buildingNumber\": \"string\",\n        \"postalCode\": \"string\",\n        \"townName\": \"string\",\n        \"countrySubDivision\": \"string\",\n        \"countryName\": \"string\",\n        \"shortAddress\": \"string\",\n        \"unitNumber\": 8135.647808587812,\n        \"secondaryNumber\": \"string\",\n        \"district\": \"string\",\n        \"city\": \"string\",\n        \"country\": \"string\"\n      }\n    },\n    \"deborAccount\": {\n      \"id\": \"633d97b5-bebd-9831-a352-6a1e2c65f6fa\",\n      \"scheme\": \"string\",\n      \"identification\": \"string\",\n      \"name\": \"string\"\n    },\n    \"creditorAccount\": {\n      \"id\": \"e699f71c-d8cd-29c3-fc42-f8f6973a7e55\",\n      \"scheme\": \"string\",\n      \"identification\": \"string\",\n      \"name\": \"string\"\n    },\n    \"id\": \"e8ff755b-47a1-7284-44d4-ee404d9cbd4a\",\n    \"transactionReference\": \"string\",\n    \"localTimeZone\": \"string\",\n    \"transactionDateTime\": \"1955-11-14T20:36:45.651Z\",\n    \"subTransactionType\": \"string\",\n    \"transactionType\": \"string\",\n    \"flags\": [\n      \"string\",\n      \"string\"\n    ],\n    \"paymentModes\": \"string\",\n    \"balance\": {\n      \"currency\": {\n        \"englishName\": \"string\",\n        \"iso4117Code\": \"st\",\n        \"id\": \"0c516d2d-9934-3b92-6852-8701b51ce7fa\",\n        \"arabicName\": \"string\",\n        \"iso4117Number\": \"stri\"\n      },\n      \"creditDebitIndicator\": \"string\",\n      \"type\": \"string\",\n      \"amount\": 7429.648163743019,\n      \"chargeIncluded\": true\n    },\n    \"transactionMutability\": \"string\",\n    \"transactionInformation\": \"string\",\n    \"statementReference\": \"string\",\n    \"creditDebitIndicator\": \"string\",\n    \"status\": \"string\",\n    \"bookingDateTime\": \"1987-02-23\",\n    \"valueDateTime\": \"1948-12-09\",\n    \"addressLine\": \"string\",\n    \"amount\": {\n      \"currency\": {\n        \"englishName\": \"string\",\n        \"iso4117Code\": \"st\",\n        \"id\": \"09e44403-1f27-cd11-2f05-0f59ddd23ae9\",\n        \"arabicName\": \"string\",\n        \"iso4117Number\": \"stri\"\n      },\n      \"localExchange\": {\n        \"sourceCurrency\": \"string\",\n        \"targetCurrency\": \"string\",\n        \"rate\": 1900.0457311663965,\n        \"date\": \"1984-04-11\",\n        \"value\": 1340.128147714964\n      },\n      \"amount\": 10.885459761039717,\n      \"chargeIncluded\": true\n    },\n    \"chargeAmount\": {\n      \"currency\": {\n        \"englishName\": \"str\",\n        \"iso4117Code\": \"s\",\n        \"id\": \"45581bde-e82b-eb15-55fc-306a5b4c8af2\",\n        \"arabicName\": \"string\",\n        \"iso4117Number\": \"stri\"\n      },\n      \"amount\": 1160.7074076717272,\n      \"chargeIncluded\": false\n    },\n    \"billDetails\": {\n      \"billerId\": \"string\",\n      \"billNumber\": \"string\",\n      \"billPaymentType\": \"string\"\n    },\n    \"currencyExchange\": {\n      \"sourceCurrency\": {\n        \"englishName\": \"string\",\n        \"iso4117Code\": \"str\",\n        \"id\": \"0e2d372c-3dba-63bc-0ee6-768c222c395c\",\n        \"arabicName\": \"string\",\n        \"iso4117Number\": \"stri\"\n      },\n      \"targetCurrency\": {\n        \"englishName\": \"string\",\n        \"iso4117Code\": \"st\",\n        \"id\": \"779c07b4-e331-ce63-8e56-bb046bb97bc5\",\n        \"arabicName\": \"string\",\n        \"iso4117Number\": \"stri\"\n      },\n      \"exchangeRate\": 698.0048240216719,\n      \"unitCurrency\": {\n        \"englishName\": \"string\",\n        \"iso4117Code\": \"s\",\n        \"id\": \"374ac128-ccc9-4081-85b7-271c2811fffb\",\n        \"arabicName\": \"string\",\n        \"iso4117Number\": \"stri\"\n      },\n      \"contractIdentification\": \"string\",\n      \"quotationDate\": \"1969-09-18\",\n      \"instructedAmount\": {\n        \"currency\": {\n          \"englishName\": \"string\",\n          \"iso4117Code\": \"str\",\n          \"id\": \"5c1f9569-fdec-b8b2-3198-c1596a8a93a5\",\n          \"arabicName\": \"string\",\n          \"iso4117Number\": \"stri\"\n        },\n        \"amount\": 9088.89585931144,\n        \"chargeIncluded\": false\n      }\n    },\n    \"bankTransactionCode\": {\n      \"subCode\": \"string\",\n      \"domain\": \"string\",\n      \"domainCode\": \"string\",\n      \"family\": \"string\",\n      \"familyCode\": \"string\",\n      \"subFamily\": \"string\",\n      \"subFamilyCode\": \"string\",\n      \"code\": \"string\"\n    },\n    \"proprietaryBankTransactionCode\": {\n      \"issuer\": \"string\",\n      \"code\": \"string\"\n    },\n    \"merchantDetails\": {\n      \"categoryCode\": \"string\",\n      \"name\": \"string\",\n      \"merchantId\": 1222\n    },\n    \"subCategoryName\": \"string\",\n    \"categoryCode\": \"string\",\n    \"categoryName\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0e189fdf-ce10-4d35-9bae-f7d1368a3dda",
+              "name": "- If transaction id is not valid",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2.0",
+                    "ais",
+                    "Transaction",
+                    "Get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "id",
+                      "value": "<uuid>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"COUNTRY_NOT_FOUND\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ea778437-89fa-4eb2-bb4c-97a1ef77af2d",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2.0",
+                    "ais",
+                    "Transaction",
+                    "Get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "id",
+                      "value": "<uuid>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"COUNTRY_NOT_FOUND\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c02ceabe-3900-4700-a98b-99c9b579fd5d",
+              "name": "Payment Required",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2.0",
+                    "ais",
+                    "Transaction",
+                    "Get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "id",
+                      "value": "<uuid>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"COUNTRY_NOT_FOUND\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "865a07f4-fd92-45d1-805b-5a318a64bb9c",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2.0",
+                    "ais",
+                    "Transaction",
+                    "Get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "id",
+                      "value": "<uuid>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"COUNTRY_NOT_FOUND\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "23a448eb-bba6-486e-897a-941f3623e9ab",
+              "name": "- If transaction does not exist",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2.0",
+                    "ais",
+                    "Transaction",
+                    "Get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "id",
+                      "value": "<uuid>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"COUNTRY_NOT_FOUND\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f193c7d1-eeed-4e45-8144-570fd76ede75",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2.0",
+                    "ais",
+                    "Transaction",
+                    "Get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "id",
+                      "value": "<uuid>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c2829ef3-71ec-40d7-89a6-c20a3e4feb39",
+          "name": "List transactions for long-lived consent",
+          "request": {
+            "name": "List transactions for long-lived consent",
+            "description": {
+              "content": "**Unique resource name :** ais.v2.transaction.list\r\n            \r\n**Important!:**\r\n            \r\nThe permissions below are required on the consent:\r\n- ReadTransactionsBasic\r\n- ReadTransactionsDetail\r\n- ReadTransactionsDebits\r\n- ReadTransactionsCredits",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v2.0",
+                "ais",
+                "Transaction",
+                "List"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "consentId",
+                  "value": "<uuid>",
+                  "description": "(Required) Consent id"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "Page number"
+                },
+                {
+                  "disabled": false,
+                  "key": "perPage",
+                  "value": "20",
+                  "description": "Number of items per page maximum allow is 200 per page"
+                },
+                {
+                  "disabled": false,
+                  "key": "accountId",
+                  "value": "<uuid>",
+                  "description": "Bank account id"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"fromBookingDateTime\": \"<dateTime>\",\n  \"toBookingDateTime\": \"<dateTime>\",\n  \"status\": \"<string>\",\n  \"type\": \"<string>\",\n  \"searchBy\": \"<string>\",\n  \"searchKeyWord\": \"<string>\",\n  \"orderBy\": \"<string>\",\n  \"order\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b4ad57d5-a98a-47a8-8023-78a6fb000036",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2.0",
+                    "ais",
+                    "Transaction",
+                    "List"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "consentId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "perPage",
+                      "value": "20"
+                    },
+                    {
+                      "key": "accountId",
+                      "value": "<uuid>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"fromBookingDateTime\": \"<dateTime>\",\n  \"toBookingDateTime\": \"<dateTime>\",\n  \"status\": \"<string>\",\n  \"type\": \"<string>\",\n  \"searchBy\": \"<string>\",\n  \"searchKeyWord\": \"<string>\",\n  \"orderBy\": \"<string>\",\n  \"order\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"CONSENT_REVOCATION_FAILED\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": [\n    {\n      \"id\": \"e91d6ce8-7cdf-981d-b170-ab4cc673a3e3\",\n      \"transactionReference\": \"string\",\n      \"localTimeZone\": \"string\",\n      \"transactionDateTime\": \"1968-07-10T00:08:33.092Z\",\n      \"subTransactionType\": \"string\",\n      \"transactionType\": \"string\",\n      \"flags\": [\n        \"string\",\n        \"string\"\n      ],\n      \"paymentModes\": \"string\",\n      \"balance\": {\n        \"currency\": {\n          \"englishName\": \"string\",\n          \"iso4117Code\": \"st\",\n          \"id\": \"b2465644-f64c-1f36-d02f-f91e337c1c0d\",\n          \"arabicName\": \"string\",\n          \"iso4117Number\": \"stri\"\n        },\n        \"creditDebitIndicator\": \"string\",\n        \"type\": \"string\",\n        \"amount\": 542.8640153819175,\n        \"chargeIncluded\": false\n      },\n      \"transactionMutability\": \"string\",\n      \"transactionInformation\": \"string\",\n      \"statementReference\": \"string\",\n      \"creditDebitIndicator\": \"string\",\n      \"status\": \"string\",\n      \"bookingDateTime\": \"1963-03-02\",\n      \"valueDateTime\": \"1972-02-07\",\n      \"addressLine\": \"string\",\n      \"amount\": {\n        \"currency\": {\n          \"englishName\": \"string\",\n          \"iso4117Code\": \"st\",\n          \"id\": \"1ba09186-02c7-0abf-c12d-5346860e4833\",\n          \"arabicName\": \"string\",\n          \"iso4117Number\": \"stri\"\n        },\n        \"localExchange\": {\n          \"sourceCurrency\": \"string\",\n          \"targetCurrency\": \"string\",\n          \"rate\": 1689.852514190938,\n          \"date\": \"1951-10-10\",\n          \"value\": 7095.113052201939\n        },\n        \"amount\": 5465.617722226281,\n        \"chargeIncluded\": true\n      },\n      \"chargeAmount\": {\n        \"currency\": {\n          \"englishName\": \"string\",\n          \"iso4117Code\": \"st\",\n          \"id\": \"465b32b5-375b-4a50-ab1b-90317231e918\",\n          \"arabicName\": \"string\",\n          \"iso4117Number\": \"stri\"\n        },\n        \"amount\": 5263.041051188422,\n        \"chargeIncluded\": true\n      },\n      \"billDetails\": {\n        \"billerId\": \"string\",\n        \"billNumber\": \"string\",\n        \"billPaymentType\": \"string\"\n      },\n      \"currencyExchange\": {\n        \"sourceCurrency\": {\n          \"englishName\": \"string\",\n          \"iso4117Code\": \"str\",\n          \"id\": \"f8057458-2c10-1c11-b27e-09a4e931ddd6\",\n          \"arabicName\": \"string\",\n          \"iso4117Number\": \"stri\"\n        },\n        \"targetCurrency\": {\n          \"englishName\": \"string\",\n          \"iso4117Code\": \"s\",\n          \"id\": \"bd3d3a69-54e9-502e-720a-be39845393a7\",\n          \"arabicName\": \"string\",\n          \"iso4117Number\": \"stri\"\n        },\n        \"exchangeRate\": 3916.7675790185685,\n        \"unitCurrency\": {\n          \"englishName\": \"strin\",\n          \"iso4117Code\": \"st\",\n          \"id\": \"aef8e85a-6b89-fa34-de1a-4fce23a2eb7f\",\n          \"arabicName\": \"string\",\n          \"iso4117Number\": \"stri\"\n        },\n        \"contractIdentification\": \"string\",\n        \"quotationDate\": \"1976-04-14\",\n        \"instructedAmount\": {\n          \"currency\": {\n            \"englishName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"iso4117Code\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"arabicName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"iso4117Number\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"amount\": 4276.525129073714,\n          \"chargeIncluded\": true\n        }\n      },\n      \"bankTransactionCode\": {\n        \"subCode\": \"string\",\n        \"domain\": \"string\",\n        \"domainCode\": \"string\",\n        \"family\": \"string\",\n        \"familyCode\": \"string\",\n        \"subFamily\": \"string\",\n        \"subFamilyCode\": \"string\",\n        \"code\": \"string\"\n      },\n      \"proprietaryBankTransactionCode\": {\n        \"issuer\": \"string\",\n        \"code\": \"string\"\n      },\n      \"merchantDetails\": {\n        \"categoryCode\": \"string\",\n        \"name\": \"string\",\n        \"merchantId\": 9757\n      },\n      \"subCategoryName\": \"string\",\n      \"categoryCode\": \"string\",\n      \"categoryName\": \"string\"\n    },\n    {\n      \"id\": \"cab4b028-eaaf-2b64-4e4d-afe294a4de03\",\n      \"transactionReference\": \"string\",\n      \"localTimeZone\": \"string\",\n      \"transactionDateTime\": \"1967-05-24T14:55:18.329Z\",\n      \"subTransactionType\": \"string\",\n      \"transactionType\": \"string\",\n      \"flags\": [\n        \"string\",\n        \"string\"\n      ],\n      \"paymentModes\": \"string\",\n      \"balance\": {\n        \"currency\": {\n          \"englishName\": \"string\",\n          \"iso4117Code\": \"st\",\n          \"id\": \"52733898-2299-4d82-91fa-2c92ebdbe953\",\n          \"arabicName\": \"string\",\n          \"iso4117Number\": \"stri\"\n        },\n        \"creditDebitIndicator\": \"string\",\n        \"type\": \"string\",\n        \"amount\": 7970.405825041028,\n        \"chargeIncluded\": true\n      },\n      \"transactionMutability\": \"string\",\n      \"transactionInformation\": \"string\",\n      \"statementReference\": \"string\",\n      \"creditDebitIndicator\": \"string\",\n      \"status\": \"string\",\n      \"bookingDateTime\": \"1960-12-22\",\n      \"valueDateTime\": \"1995-05-26\",\n      \"addressLine\": \"string\",\n      \"amount\": {\n        \"currency\": {\n          \"englishName\": \"string\",\n          \"iso4117Code\": \"s\",\n          \"id\": \"f5d9cf92-57fc-c399-c00c-2004be5b73ee\",\n          \"arabicName\": \"string\",\n          \"iso4117Number\": \"stri\"\n        },\n        \"localExchange\": {\n          \"sourceCurrency\": \"string\",\n          \"targetCurrency\": \"string\",\n          \"rate\": 1722.5296086701558,\n          \"date\": \"1975-06-20\",\n          \"value\": 4751.637331140898\n        },\n        \"amount\": 5795.318330044519,\n        \"chargeIncluded\": false\n      },\n      \"chargeAmount\": {\n        \"currency\": {\n          \"englishName\": \"string\",\n          \"iso4117Code\": \"st\",\n          \"id\": \"b2b5e219-5582-8805-e66b-dec2bd7dc24c\",\n          \"arabicName\": \"string\",\n          \"iso4117Number\": \"stri\"\n        },\n        \"amount\": 14.715871422266158,\n        \"chargeIncluded\": true\n      },\n      \"billDetails\": {\n        \"billerId\": \"string\",\n        \"billNumber\": \"string\",\n        \"billPaymentType\": \"string\"\n      },\n      \"currencyExchange\": {\n        \"sourceCurrency\": {\n          \"englishName\": \"string\",\n          \"iso4117Code\": \"st\",\n          \"id\": \"556ba565-0a14-897d-2779-a931aecf95b2\",\n          \"arabicName\": \"string\",\n          \"iso4117Number\": \"stri\"\n        },\n        \"targetCurrency\": {\n          \"englishName\": \"string\",\n          \"iso4117Code\": \"st\",\n          \"id\": \"fae67d74-c090-dc03-d3f6-0eb7fdfa14c9\",\n          \"arabicName\": \"string\",\n          \"iso4117Number\": \"stri\"\n        },\n        \"exchangeRate\": 8323.898332015904,\n        \"unitCurrency\": {\n          \"englishName\": \"string\",\n          \"iso4117Code\": \"st\",\n          \"id\": \"c612d8de-3cdc-c5e4-5d82-f0d43a942127\",\n          \"arabicName\": \"string\",\n          \"iso4117Number\": \"stri\"\n        },\n        \"contractIdentification\": \"string\",\n        \"quotationDate\": \"2009-08-30\",\n        \"instructedAmount\": {\n          \"currency\": {\n            \"englishName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"iso4117Code\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"arabicName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"iso4117Number\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"amount\": 9959.729452420934,\n          \"chargeIncluded\": true\n        }\n      },\n      \"bankTransactionCode\": {\n        \"subCode\": \"string\",\n        \"domain\": \"string\",\n        \"domainCode\": \"string\",\n        \"family\": \"string\",\n        \"familyCode\": \"string\",\n        \"subFamily\": \"string\",\n        \"subFamilyCode\": \"string\",\n        \"code\": \"string\"\n      },\n      \"proprietaryBankTransactionCode\": {\n        \"issuer\": \"string\",\n        \"code\": \"string\"\n      },\n      \"merchantDetails\": {\n        \"categoryCode\": \"string\",\n        \"name\": \"string\",\n        \"merchantId\": 150\n      },\n      \"subCategoryName\": \"string\",\n      \"categoryCode\": \"string\",\n      \"categoryName\": \"string\"\n    }\n  ],\n  \"meta\": {\n    \"currentPageNumber\": 5384,\n    \"pageSize\": 6656,\n    \"totalNumberOfPages\": 7061\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e7a61e2c-cf21-46b3-8f21-ba5b2e039cfa",
+              "name": "- If consent id is not valid\r\n- If a filter model is not valid",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2.0",
+                    "ais",
+                    "Transaction",
+                    "List"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "consentId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "perPage",
+                      "value": "20"
+                    },
+                    {
+                      "key": "accountId",
+                      "value": "<uuid>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"fromBookingDateTime\": \"<dateTime>\",\n  \"toBookingDateTime\": \"<dateTime>\",\n  \"status\": \"<string>\",\n  \"type\": \"<string>\",\n  \"searchBy\": \"<string>\",\n  \"searchKeyWord\": \"<string>\",\n  \"orderBy\": \"<string>\",\n  \"order\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"COUNTRY_NOT_FOUND\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c0c1ccf1-1bcb-4e5f-840d-ea9bdad9c665",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2.0",
+                    "ais",
+                    "Transaction",
+                    "List"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "consentId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "perPage",
+                      "value": "20"
+                    },
+                    {
+                      "key": "accountId",
+                      "value": "<uuid>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"fromBookingDateTime\": \"<dateTime>\",\n  \"toBookingDateTime\": \"<dateTime>\",\n  \"status\": \"<string>\",\n  \"type\": \"<string>\",\n  \"searchBy\": \"<string>\",\n  \"searchKeyWord\": \"<string>\",\n  \"orderBy\": \"<string>\",\n  \"order\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"COUNTRY_NOT_FOUND\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "dbf24ec0-39db-40a1-a8d9-fa1652f97db1",
+              "name": "Payment Required",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2.0",
+                    "ais",
+                    "Transaction",
+                    "List"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "consentId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "perPage",
+                      "value": "20"
+                    },
+                    {
+                      "key": "accountId",
+                      "value": "<uuid>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"fromBookingDateTime\": \"<dateTime>\",\n  \"toBookingDateTime\": \"<dateTime>\",\n  \"status\": \"<string>\",\n  \"type\": \"<string>\",\n  \"searchBy\": \"<string>\",\n  \"searchKeyWord\": \"<string>\",\n  \"orderBy\": \"<string>\",\n  \"order\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"COUNTRY_NOT_FOUND\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b5c068cf-226e-42ab-8311-2a2a59fdf60e",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2.0",
+                    "ais",
+                    "Transaction",
+                    "List"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "consentId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "perPage",
+                      "value": "20"
+                    },
+                    {
+                      "key": "accountId",
+                      "value": "<uuid>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"fromBookingDateTime\": \"<dateTime>\",\n  \"toBookingDateTime\": \"<dateTime>\",\n  \"status\": \"<string>\",\n  \"type\": \"<string>\",\n  \"searchBy\": \"<string>\",\n  \"searchKeyWord\": \"<string>\",\n  \"orderBy\": \"<string>\",\n  \"order\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"COUNTRY_NOT_FOUND\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "070467e8-f5d8-4eb2-9c1a-6add3d968210",
+              "name": "- If consent does not exist",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2.0",
+                    "ais",
+                    "Transaction",
+                    "List"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "consentId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "perPage",
+                      "value": "20"
+                    },
+                    {
+                      "key": "accountId",
+                      "value": "<uuid>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"fromBookingDateTime\": \"<dateTime>\",\n  \"toBookingDateTime\": \"<dateTime>\",\n  \"status\": \"<string>\",\n  \"type\": \"<string>\",\n  \"searchBy\": \"<string>\",\n  \"searchKeyWord\": \"<string>\",\n  \"orderBy\": \"<string>\",\n  \"order\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"COUNTRY_NOT_FOUND\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6df62cc3-d4c8-4a43-a58b-7d4b362547ca",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2.0",
+                    "ais",
+                    "Transaction",
+                    "List"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "consentId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "perPage",
+                      "value": "20"
+                    },
+                    {
+                      "key": "accountId",
+                      "value": "<uuid>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"fromBookingDateTime\": \"<dateTime>\",\n  \"toBookingDateTime\": \"<dateTime>\",\n  \"status\": \"<string>\",\n  \"type\": \"<string>\",\n  \"searchBy\": \"<string>\",\n  \"searchKeyWord\": \"<string>\",\n  \"orderBy\": \"<string>\",\n  \"order\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "dc29c9ba-a17f-444b-9bf4-b49fdc17086c",
+    "name": "Information Account Transaction API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Spare account information API documentation\n\nContact Support:\n Name: Spare Technologies WLL.\n Email: hello@tryspare.com",
+      "type": "text/plain"
+    }
+  }
+}

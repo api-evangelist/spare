@@ -1,0 +1,37 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Information Account Cert API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Cert",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieves the JSON Web Key Set (JWKS) used for token, payloads and webhook signature verification.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1.0/authentication/Jwks"
+          },
+          "docs": "**Unique resource name:** api_authentication.v1.cert.jwks\r\n            \r\nThis endpoint provides a set of JSON Web Keys (JWK) as defined in\r\n<a href=\"https://www.rfc-editor.org/rfc/rfc7517\" target=\"_blank\">RFC 7517</a>.\r\n            \r\n**Usage:**\r\n- Used to verify the signature of access tokens and refresh tokens.\r\n- Used to validate the `x-signature` header in the API responses or webhook events.\r\n- Ensures secure cryptographic verification of API interactions.\r\n            \r\nThe response include"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

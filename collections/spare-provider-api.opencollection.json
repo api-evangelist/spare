@@ -1,0 +1,64 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Information Account Provider API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Provider",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List open banking providers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1.0/ais/Provider/List",
+            "params": [
+              {
+                "name": "countryCode",
+                "value": "",
+                "type": "query",
+                "description": "Country ISO 3166 alpha-2 code"
+              }
+            ]
+          },
+          "docs": "**Unique resource name :** ais.v1.provider.list"
+        },
+        {
+          "info": {
+            "name": "List open banking providers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1.0/pis/Provider/List",
+            "params": [
+              {
+                "name": "countryCode",
+                "value": "",
+                "type": "query",
+                "description": "Country ISO 3166 alpha-2 code"
+              }
+            ]
+          },
+          "docs": "List open banking providers"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

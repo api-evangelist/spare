@@ -1,0 +1,139 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Information Account Customer API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Customer",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create customer",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v1.0/ais/Customer/Create",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "**Unique resource name :** ais.v1.customer.create\n            \n**Important!:**\n            \n- `type` is required and need to be \"Retail\" or \"Business\".\n            \n- `nationalId` is required if `type` is \"Retail\"."
+        },
+        {
+          "info": {
+            "name": "List customers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1.0/ais/Customer/List",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number"
+              },
+              {
+                "name": "perPage",
+                "value": "",
+                "type": "query",
+                "description": "Number of items per page maximum allow is 500 per page"
+              }
+            ]
+          },
+          "docs": "**Unique resource name :** ais.v1.customer.list"
+        },
+        {
+          "info": {
+            "name": "Get customer by id",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1.0/ais/Customer/Get",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "query",
+                "description": "Customer id"
+              },
+              {
+                "name": "nationalIdentifier",
+                "value": "",
+                "type": "query",
+                "description": "It can be either national id or commercial registration"
+              },
+              {
+                "name": "externalId",
+                "value": "",
+                "type": "query",
+                "description": "Customer external id"
+              }
+            ]
+          },
+          "docs": "**Unique resource name :** ais.v1.customer.get"
+        },
+        {
+          "info": {
+            "name": "Update customer",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/api/v1.0/ais/Customer/Update",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "query",
+                "description": "Customer id"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "**Unique resource name :** ais.v1.customer.update"
+        },
+        {
+          "info": {
+            "name": "Delete customer",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/api/v1.0/ais/Customer/Delete",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "query",
+                "description": "Customer id"
+              }
+            ]
+          },
+          "docs": "**Unique resource name :** ais.v1.customer.delete"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

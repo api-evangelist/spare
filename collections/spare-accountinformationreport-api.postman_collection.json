@@ -1,0 +1,2259 @@
+{
+  "item": [
+    {
+      "id": "ed4c69bf-8b51-45a3-8daf-830564746c9e",
+      "name": "AccountInformationReport",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "8bf281b6-2633-425c-86f1-a0f8ede82e5c",
+          "name": "Create account information job report.",
+          "request": {
+            "name": "Create account information job report.",
+            "description": {
+              "content": "**Unique resource name :** ais.v1.account_information_report.create",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1.0",
+                "ais",
+                "AccountInformationReport",
+                "Create"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"accountIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"customerId\": \"<uuid>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d62f0b75-d01e-41a1-aadb-74af58535279",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1.0",
+                    "ais",
+                    "AccountInformationReport",
+                    "Create"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"accountIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"customerId\": \"<uuid>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"RISK_REPORT_NOT_FOUND\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key_1\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {\n    \"id\": \"41193795-00fb-75cf-c78d-ae32e34591a0\",\n    \"jobId\": \"string\",\n    \"customerId\": \"afb9d0cd-cccc-d1f8-8e68-4efbd9ca1f96\",\n    \"startDate\": \"1968-12-26T09:23:33.313Z\",\n    \"endDate\": \"1953-12-19T11:06:01.833Z\",\n    \"createdAt\": \"1966-05-01T06:01:09.347Z\",\n    \"accountsCount\": 2279,\n    \"totalBalance\": 3622.4911886967425,\n    \"status\": \"Succeeded\",\n    \"currency\": {\n      \"englishName\": \"string\",\n      \"iso4117Code\": \"st\",\n      \"id\": \"feb096b7-9373-0302-d396-15aac5c36207\",\n      \"arabicName\": \"string\",\n      \"iso4117Number\": \"stri\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "95bca762-f9ec-46b6-8667-5f431dc18fe9",
+              "name": "- If model is not valid",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1.0",
+                    "ais",
+                    "AccountInformationReport",
+                    "Create"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"accountIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"customerId\": \"<uuid>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"INVALID_SIGNATURE\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key_1\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key_2\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1b53df9e-f346-4d31-a53d-7b0b729b3009",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1.0",
+                    "ais",
+                    "AccountInformationReport",
+                    "Create"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"accountIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"customerId\": \"<uuid>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"CONSENT_REVOKED\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "10dde3aa-2f9d-4a85-b737-25a694027315",
+              "name": "Payment Required",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1.0",
+                    "ais",
+                    "AccountInformationReport",
+                    "Create"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"accountIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"customerId\": \"<uuid>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"CONSENT_REVOKED\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "331873d0-36f2-4cec-bebf-8e4e1ad0ecea",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1.0",
+                    "ais",
+                    "AccountInformationReport",
+                    "Create"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"accountIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"customerId\": \"<uuid>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"CONSENT_REVOKED\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b8d38d1b-123f-47cc-92cb-8d4be722d30a",
+              "name": "- If bank account not found\n- If customer not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1.0",
+                    "ais",
+                    "AccountInformationReport",
+                    "Create"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"accountIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"customerId\": \"<uuid>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "39ba960c-5c38-475f-b2d6-28e3a73fc8cc",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1.0",
+                    "ais",
+                    "AccountInformationReport",
+                    "Create"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"accountIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"customerId\": \"<uuid>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "57403af5-c6c2-44a5-a233-58f76b3d571b",
+          "name": "Get account information job report by id.",
+          "request": {
+            "name": "Get account information job report by id.",
+            "description": {
+              "content": "**Unique resource name :** ais.v1.account_information_report.get",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1.0",
+                "ais",
+                "AccountInformationReport",
+                "Get"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "jobId",
+                  "value": "<uuid>",
+                  "description": "(Required) Account information report job id"
+                },
+                {
+                  "disabled": false,
+                  "key": "customerId",
+                  "value": "<uuid>",
+                  "description": "(Required) Customer id"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1aaced8c-807a-4b7b-bd21-9cb4076bf4fb",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1.0",
+                    "ais",
+                    "AccountInformationReport",
+                    "Get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "jobId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "customerId",
+                      "value": "<uuid>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"DEBTOR_ACCOUNT_NOT_FOUND\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {\n    \"accountHolderName\": \"string\",\n    \"cashFlowTrend\": {\n      \"accounts\": [\n        \"c7ea5be9-134d-3809-d457-0bbdb9491c9c\",\n        \"1abbc022-71b0-340f-2cb3-d541d8ff6bd9\"\n      ],\n      \"currency\": {\n        \"englishName\": \"string\",\n        \"iso4117Code\": \"st\",\n        \"id\": \"207c5852-eebd-7b0f-1bbc-4fa842c01557\",\n        \"arabicName\": \"string\",\n        \"iso4117Number\": \"stri\"\n      },\n      \"dailyTotalCredit\": [\n        {\n          \"key\": \"1977-11-29T21:06:02.317Z\",\n          \"value\": 9154.805684461062\n        },\n        {\n          \"key\": \"1992-07-17T02:24:19.510Z\",\n          \"value\": 6419.468631857029\n        }\n      ],\n      \"dailyTotalDebit\": [\n        {\n          \"key\": \"2009-10-28T20:54:21.012Z\",\n          \"value\": 5990.89488243027\n        },\n        {\n          \"key\": \"1998-11-27T04:30:47.956Z\",\n          \"value\": 3307.9175218461187\n        }\n      ]\n    },\n    \"affordability\": {\n      \"month\": \"1951-04-12T21:59:03.270Z\",\n      \"averageIncomeAffordability\": 2653.771690618104,\n      \"averageNetAffordability\": 5104.4324792450625,\n      \"income\": 387.39957699373775,\n      \"expenses\": 421.0446024782488,\n      \"incomeAffordability\": 1319.1299032476722,\n      \"netAffordability\": 9689.79536235062,\n      \"currency\": {\n        \"englishName\": \"s\",\n        \"iso4117Code\": \"s\",\n        \"id\": \"5301c604-bd6d-0c55-df00-8ef5f238b53a\",\n        \"arabicName\": \"string\",\n        \"iso4117Number\": \"stri\"\n      }\n    },\n    \"accounts\": [\n      {\n        \"provider\": {\n          \"englishName\": \"string\",\n          \"isEnable\": true,\n          \"id\": \"92563c05-35ec-a06e-04a2-605164bfda8b\",\n          \"country\": {\n            \"englishName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"iso3166Code\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"timeZone\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"createdAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"updatedAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"currency\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"arabicName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"allowedPermissions\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"address\": \"string\",\n          \"phone\": \"string\",\n          \"useBenefit\": true,\n          \"arabicName\": \"string\",\n          \"status\": \"Active\",\n          \"logo\": \"https://ZfBKVIhuqelqNBjFIPhso.ixM-7VbX4XCUuiASM9ILNkcGsEuBmn-+YXQ,q-HD0iB\"\n        },\n        \"createdAt\": \"1991-01-08T04:46:38.532Z\",\n        \"id\": \"d604db0d-a9ab-b389-898f-56b8123e4a2b\",\n        \"currency\": {\n          \"englishName\": \"string\",\n          \"iso4117Code\": \"s\",\n          \"id\": \"2eb0e3d8-b1f2-e8f2-f655-a7f74268d1f9\",\n          \"arabicName\": \"string\",\n          \"iso4117Number\": \"stri\"\n        },\n        \"servicer\": {\n          \"id\": \"596a9f22-0006-26e2-9a8d-903bb3f0b85c\",\n          \"address\": {\n            \"addressType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"department\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"subDepartment\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"addressLine\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"streetName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"buildingNumber\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"postalCode\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"townName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"countrySubDivision\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"country\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"shortAddress\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"unitNumber\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"secondaryNumber\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"district\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"city\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"scheme\": \"string\",\n          \"identification\": \"string\"\n        },\n        \"accounts\": [\n          {\n            \"id\": \"3d120a29-95d0-7930-0d58-9428b40319a0\",\n            \"scheme\": \"string\",\n            \"identification\": \"string\",\n            \"name\": \"string\"\n          },\n          {\n            \"id\": \"042218de-5457-0297-beb4-17b6283cfd31\",\n            \"scheme\": \"string\",\n            \"identification\": \"string\",\n            \"name\": \"string\"\n          }\n        ],\n        \"status\": \"string\",\n        \"statusUpdatedDateTime\": \"2003-08-24T15:57:52.791Z\",\n        \"type\": \"string\",\n        \"subType\": \"string\",\n        \"description\": \"string\",\n        \"openingDate\": \"1948-09-03T18:08:08.204Z\",\n        \"maturityDate\": \"1970-03-10T07:56:42.514Z\"\n      },\n      {\n        \"provider\": {\n          \"englishName\": \"string\",\n          \"isEnable\": true,\n          \"id\": \"71323495-e6ba-ac6d-de7f-dd3cca806cfd\",\n          \"country\": {\n            \"englishName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"iso3166Code\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"timeZone\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"createdAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"updatedAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"currency\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"arabicName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"allowedPermissions\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"address\": \"string\",\n          \"phone\": \"string\",\n          \"useBenefit\": false,\n          \"arabicName\": \"string\",\n          \"status\": \"Inactive\",\n          \"logo\": \"https://sEBjbrrQbHAOhSxCS.eeuRSMwElOCg7AuRC,xwMf1PEilrX3F1ib-NYEHiH6A6NkwOzkiNtCLZr0K1fF-8-3oR,n,MnrMgyrDtO\"\n        },\n        \"createdAt\": \"1970-06-09T21:31:49.159Z\",\n        \"id\": \"206d7b61-d9fd-bad2-7cde-504d509ba943\",\n        \"currency\": {\n          \"englishName\": \"string\",\n          \"iso4117Code\": \"s\",\n          \"id\": \"73a2aaac-134f-3c9a-efd3-71ab6ddbfed2\",\n          \"arabicName\": \"string\",\n          \"iso4117Number\": \"stri\"\n        },\n        \"servicer\": {\n          \"id\": \"62c9c8ec-c6e6-38c4-634a-607bec7fbeb8\",\n          \"address\": {\n            \"addressType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"department\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"subDepartment\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"addressLine\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"streetName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"buildingNumber\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"postalCode\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"townName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"countrySubDivision\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"country\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"shortAddress\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"unitNumber\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"secondaryNumber\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"district\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"city\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"scheme\": \"string\",\n          \"identification\": \"string\"\n        },\n        \"accounts\": [\n          {\n            \"id\": \"5066e581-9644-2d04-1ffd-87b7ebce176b\",\n            \"scheme\": \"string\",\n            \"identification\": \"string\",\n            \"name\": \"string\"\n          },\n          {\n            \"id\": \"1a4ee014-30f1-173c-0169-ed89a1cc6c94\",\n            \"scheme\": \"string\",\n            \"identification\": \"string\",\n            \"name\": \"string\"\n          }\n        ],\n        \"status\": \"string\",\n        \"statusUpdatedDateTime\": \"1972-08-12T02:54:38.298Z\",\n        \"type\": \"string\",\n        \"subType\": \"string\",\n        \"description\": \"string\",\n        \"openingDate\": \"2019-02-17T19:21:57.793Z\",\n        \"maturityDate\": \"2021-09-16T19:57:33.545Z\"\n      }\n    ],\n    \"transactionsCategories\": {\n      \"debit\": {\n        \"totalDebit\": 9224.602599723756,\n        \"currency\": {\n          \"englishName\": \"string\",\n          \"iso4117Code\": \"st\",\n          \"id\": \"0bb9974d-bba9-dada-e803-a5bd9f243979\",\n          \"arabicName\": \"string\",\n          \"iso4117Number\": \"stri\"\n        },\n        \"categories\": [\n          {\n            \"subCategoryName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"amount\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"bookingDateTime\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"categoryName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"transactionInformation\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"subCategoryName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"amount\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"bookingDateTime\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"categoryName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"transactionInformation\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ]\n      },\n      \"credit\": {\n        \"totalCredit\": 7566.627326244382,\n        \"totalDebit\": 1787.6559485539444,\n        \"currency\": {\n          \"englishName\": \"string\",\n          \"iso4117Code\": \"str\",\n          \"id\": \"994abd70-1c70-2bf5-c079-2c2447f35d31\",\n          \"arabicName\": \"string\",\n          \"iso4117Number\": \"stri\"\n        },\n        \"categories\": [\n          {\n            \"subCategoryName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"amount\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"bookingDateTime\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"categoryName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"transactionInformation\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"subCategoryName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"amount\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"bookingDateTime\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"categoryName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"transactionInformation\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ]\n      }\n    },\n    \"balanceSummary\": {\n      \"accounts\": [\n        \"fa310da9-e7d2-f18c-6b3f-8b5a88a7fc22\",\n        \"42ceb804-8c6f-d3d2-c33c-8b6997b209a1\"\n      ],\n      \"currency\": {\n        \"englishName\": \"strin\",\n        \"iso4117Code\": \"st\",\n        \"id\": \"285fc31f-dddc-bd19-676d-cd8b90dff15a\",\n        \"arabicName\": \"string\",\n        \"iso4117Number\": \"stri\"\n      },\n      \"currentBalance\": 171.8382119504669,\n      \"minimumBalance\": 773.4026103056435,\n      \"maximumBalance\": 6442.831470648297,\n      \"averageBalance\": 8234.38839754348,\n      \"totalCredit\": 1707.8171978900637,\n      \"totalSixMonthCredit\": 2115.104034832513,\n      \"totalDebit\": 2249.6238836322136,\n      \"averageMonthlyCredit\": 1755.3559973448184,\n      \"averageMonthlyDebit\": 1113.4642458986443,\n      \"daysBelowMean\": 188,\n      \"trendLine\": 3483.517730708894,\n      \"balanceTrendModel\": [\n        {\n          \"slope\": 529.212767426821,\n          \"intercept\": 6173.426312859682,\n          \"accountBalanceHistory\": {\n            \"accountId\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"history\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        {\n          \"slope\": 5609.923705173746,\n          \"intercept\": 8337.563301463899,\n          \"accountBalanceHistory\": {\n            \"accountId\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"history\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        }\n      ]\n    },\n    \"id\": \"7b21ff02-4792-cc39-da15-f9a98380d130\",\n    \"jobId\": \"string\",\n    \"customerId\": \"9133b602-7094-739b-d5a2-38556e05bfc9\",\n    \"startDate\": \"1977-03-10T18:58:07.825Z\",\n    \"endDate\": \"1985-06-23T09:27:03.466Z\",\n    \"createdAt\": \"1957-05-15T09:50:35.977Z\",\n    \"accountsCount\": 299,\n    \"totalBalance\": 299.6047096710419,\n    \"status\": \"Scheduled\",\n    \"currency\": {\n      \"englishName\": \"string\",\n      \"iso4117Code\": \"s\",\n      \"id\": \"500b4a06-fad3-9005-7cdd-a720f3d10e74\",\n      \"arabicName\": \"string\",\n      \"iso4117Number\": \"stri\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "cad23c09-531e-4a83-beae-2d0fc6d0386b",
+              "name": "- If job id is not valid.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1.0",
+                    "ais",
+                    "AccountInformationReport",
+                    "Get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "jobId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "customerId",
+                      "value": "<uuid>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"CONSENT_REVOKED\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f73f12ba-408e-454b-9427-9a1361922d4f",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1.0",
+                    "ais",
+                    "AccountInformationReport",
+                    "Get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "jobId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "customerId",
+                      "value": "<uuid>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"CONSENT_REVOKED\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5171ad85-10c3-4f88-aa41-33fcc254ff3e",
+              "name": "Payment Required",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1.0",
+                    "ais",
+                    "AccountInformationReport",
+                    "Get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "jobId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "customerId",
+                      "value": "<uuid>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"CONSENT_REVOKED\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c2b58cab-75bb-451a-8ab0-70f5fa06647b",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1.0",
+                    "ais",
+                    "AccountInformationReport",
+                    "Get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "jobId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "customerId",
+                      "value": "<uuid>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"CONSENT_REVOKED\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2e3f1b4f-31e3-47b3-ad2c-b82a44c10cd0",
+              "name": "- - If customer not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1.0",
+                    "ais",
+                    "AccountInformationReport",
+                    "Get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "jobId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "customerId",
+                      "value": "<uuid>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "867e613b-849b-475c-8c9f-eb9a89165fe1",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1.0",
+                    "ais",
+                    "AccountInformationReport",
+                    "Get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "jobId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "customerId",
+                      "value": "<uuid>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "dc0ca289-9316-4a9c-bfdb-b8783c3ec289",
+          "name": "Download account information job report.",
+          "request": {
+            "name": "Download account information job report.",
+            "description": {
+              "content": "**Unique resource name :** ais.v1.account_information_report.file",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1.0",
+                "ais",
+                "AccountInformationReport",
+                "File"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "jobId",
+                  "value": "<uuid>",
+                  "description": "(Required) Account information report job id"
+                },
+                {
+                  "disabled": false,
+                  "key": "customerId",
+                  "value": "<uuid>",
+                  "description": "(Required) Customer id"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/pdf"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5ec30cfe-002b-4d06-8dfc-352063640684",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1.0",
+                    "ais",
+                    "AccountInformationReport",
+                    "File"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "jobId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "customerId",
+                      "value": "<uuid>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/pdf"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"INVALID_SIGNATURE\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key_1\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {\n    \"accountHolderName\": \"string\",\n    \"cashFlowTrend\": {\n      \"accounts\": [\n        \"5f8fb95b-8617-c739-30d1-f7a3ebee8d14\",\n        \"ce6c0e74-32d2-fb22-a0ef-42c1f8c3355c\"\n      ],\n      \"currency\": {\n        \"englishName\": \"string\",\n        \"iso4117Code\": \"st\",\n        \"id\": \"dc18bb3f-3ff3-22a4-31d5-a865737b7e52\",\n        \"arabicName\": \"string\",\n        \"iso4117Number\": \"stri\"\n      },\n      \"dailyTotalCredit\": [\n        {\n          \"key\": \"1978-12-20T23:52:19.842Z\",\n          \"value\": 5895.905876342028\n        },\n        {\n          \"key\": \"1984-10-08T14:01:40.486Z\",\n          \"value\": 2255.6560982318306\n        }\n      ],\n      \"dailyTotalDebit\": [\n        {\n          \"key\": \"1990-06-17T07:52:31.777Z\",\n          \"value\": 2145.154083786307\n        },\n        {\n          \"key\": \"1977-05-01T20:45:55.262Z\",\n          \"value\": 6913.28534993294\n        }\n      ]\n    },\n    \"affordability\": {\n      \"month\": \"1974-07-19T05:28:14.008Z\",\n      \"averageIncomeAffordability\": 2436.111102882188,\n      \"averageNetAffordability\": 3802.62370433288,\n      \"income\": 462.6924822597911,\n      \"expenses\": 7635.291257400415,\n      \"incomeAffordability\": 5739.848980374559,\n      \"netAffordability\": 9518.181361467348,\n      \"currency\": {\n        \"englishName\": \"string\",\n        \"iso4117Code\": \"str\",\n        \"id\": \"7767ef04-f4d4-7f34-63a9-83864b91c16a\",\n        \"arabicName\": \"string\",\n        \"iso4117Number\": \"stri\"\n      }\n    },\n    \"accounts\": [\n      {\n        \"provider\": {\n          \"englishName\": \"string\",\n          \"isEnable\": false,\n          \"id\": \"743ce5f5-9392-2a7b-281b-b97754aa7c9c\",\n          \"country\": {\n            \"englishName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"iso3166Code\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"timeZone\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"createdAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"updatedAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"currency\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"arabicName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"allowedPermissions\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"address\": \"string\",\n          \"phone\": \"string\",\n          \"useBenefit\": true,\n          \"arabicName\": \"string\",\n          \"status\": \"Active\",\n          \"logo\": \"https://eupETDAxTnDtRTmHfNoAdEkWI.kxgTlWDqqp\"\n        },\n        \"createdAt\": \"1946-11-15T22:39:02.211Z\",\n        \"id\": \"ba02e9a5-9b22-8a37-f95a-ca868e5553e0\",\n        \"currency\": {\n          \"englishName\": \"string\",\n          \"iso4117Code\": \"s\",\n          \"id\": \"a1d42972-f3de-cc6d-45ba-721534e48759\",\n          \"arabicName\": \"string\",\n          \"iso4117Number\": \"stri\"\n        },\n        \"servicer\": {\n          \"id\": \"05670980-dc46-fd80-0f51-6bbc6363005b\",\n          \"address\": {\n            \"addressType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"department\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"subDepartment\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"addressLine\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"streetName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"buildingNumber\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"postalCode\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"townName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"countrySubDivision\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"country\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"shortAddress\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"unitNumber\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"secondaryNumber\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"district\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"city\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"scheme\": \"string\",\n          \"identification\": \"string\"\n        },\n        \"accounts\": [\n          {\n            \"id\": \"640c1b3c-c946-c438-a3d2-72944755616c\",\n            \"scheme\": \"string\",\n            \"identification\": \"string\",\n            \"name\": \"string\"\n          },\n          {\n            \"id\": \"d773be91-7644-c821-fb86-ed9d073810e2\",\n            \"scheme\": \"string\",\n            \"identification\": \"string\",\n            \"name\": \"string\"\n          }\n        ],\n        \"status\": \"string\",\n        \"statusUpdatedDateTime\": \"1963-08-09T06:28:03.988Z\",\n        \"type\": \"string\",\n        \"subType\": \"string\",\n        \"description\": \"string\",\n        \"openingDate\": \"2012-02-05T13:07:39.402Z\",\n        \"maturityDate\": \"2015-06-19T00:27:39.144Z\"\n      },\n      {\n        \"provider\": {\n          \"englishName\": \"string\",\n          \"isEnable\": true,\n          \"id\": \"0d35470a-c958-0829-9aba-45db62ce4d26\",\n          \"country\": {\n            \"englishName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"iso3166Code\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"timeZone\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"createdAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"updatedAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"currency\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"arabicName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"allowedPermissions\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"address\": \"string\",\n          \"phone\": \"string\",\n          \"useBenefit\": true,\n          \"arabicName\": \"string\",\n          \"status\": \"Active\",\n          \"logo\": \"https://ikaEEzhl.dlxG6WusHMqGkH3z3K8-8fpgaADHv5ze7qn8NV+,u\"\n        },\n        \"createdAt\": \"1965-05-29T07:15:43.187Z\",\n        \"id\": \"c3dc46e3-6a77-ba0a-2e04-2aa3ca7c416b\",\n        \"currency\": {\n          \"englishName\": \"string\",\n          \"iso4117Code\": \"s\",\n          \"id\": \"1dd9b743-b990-a56d-64f8-45134b2b6b47\",\n          \"arabicName\": \"string\",\n          \"iso4117Number\": \"stri\"\n        },\n        \"servicer\": {\n          \"id\": \"1a1162c6-3758-e5b9-e04a-dd849a171b86\",\n          \"address\": {\n            \"addressType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"department\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"subDepartment\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"addressLine\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"streetName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"buildingNumber\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"postalCode\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"townName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"countrySubDivision\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"country\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"shortAddress\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"unitNumber\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"secondaryNumber\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"district\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"city\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"scheme\": \"string\",\n          \"identification\": \"string\"\n        },\n        \"accounts\": [\n          {\n            \"id\": \"1de701c6-e56a-34c2-226a-02660e8b5e77\",\n            \"scheme\": \"string\",\n            \"identification\": \"string\",\n            \"name\": \"string\"\n          },\n          {\n            \"id\": \"d4cafde8-c4d2-f00e-12f4-86da689ef409\",\n            \"scheme\": \"string\",\n            \"identification\": \"string\",\n            \"name\": \"string\"\n          }\n        ],\n        \"status\": \"string\",\n        \"statusUpdatedDateTime\": \"2009-01-18T12:37:55.502Z\",\n        \"type\": \"string\",\n        \"subType\": \"string\",\n        \"description\": \"string\",\n        \"openingDate\": \"1998-10-21T20:06:10.095Z\",\n        \"maturityDate\": \"1958-12-03T08:07:03.717Z\"\n      }\n    ],\n    \"transactionsCategories\": {\n      \"debit\": {\n        \"totalDebit\": 1818.4062745268136,\n        \"currency\": {\n          \"englishName\": \"string\",\n          \"iso4117Code\": \"s\",\n          \"id\": \"1b3a9d1b-c3de-202a-f49e-a71c8cdff612\",\n          \"arabicName\": \"string\",\n          \"iso4117Number\": \"stri\"\n        },\n        \"categories\": [\n          {\n            \"subCategoryName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"amount\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"bookingDateTime\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"categoryName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"transactionInformation\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"subCategoryName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"amount\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"bookingDateTime\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"categoryName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"transactionInformation\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ]\n      },\n      \"credit\": {\n        \"totalCredit\": 7024.438322687708,\n        \"totalDebit\": 813.0992886843125,\n        \"currency\": {\n          \"englishName\": \"string\",\n          \"iso4117Code\": \"str\",\n          \"id\": \"02143872-94d1-5e30-c969-733395263185\",\n          \"arabicName\": \"string\",\n          \"iso4117Number\": \"stri\"\n        },\n        \"categories\": [\n          {\n            \"subCategoryName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"amount\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"bookingDateTime\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"categoryName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"transactionInformation\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"subCategoryName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"amount\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"bookingDateTime\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"categoryName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"transactionInformation\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ]\n      }\n    },\n    \"balanceSummary\": {\n      \"accounts\": [\n        \"c2b820af-a3a2-2a3a-b3de-cecb9cd2021f\",\n        \"272e802e-0a22-ab6a-61af-6afb48604b6c\"\n      ],\n      \"currency\": {\n        \"englishName\": \"string\",\n        \"iso4117Code\": \"s\",\n        \"id\": \"2195d054-afb2-fbfe-b61c-d31f9ee114f0\",\n        \"arabicName\": \"string\",\n        \"iso4117Number\": \"stri\"\n      },\n      \"currentBalance\": 5361.484105126478,\n      \"minimumBalance\": 3600.9066090537012,\n      \"maximumBalance\": 5682.042332672519,\n      \"averageBalance\": 4688.732354490555,\n      \"totalCredit\": 1730.8487078291123,\n      \"totalSixMonthCredit\": 3492.934854503785,\n      \"totalDebit\": 7143.231078007393,\n      \"averageMonthlyCredit\": 3352.4597448308314,\n      \"averageMonthlyDebit\": 5006.583354266535,\n      \"daysBelowMean\": 8136,\n      \"trendLine\": 6288.4809694802725,\n      \"balanceTrendModel\": [\n        {\n          \"slope\": 7847.591049245668,\n          \"intercept\": 5548.698706935497,\n          \"accountBalanceHistory\": {\n            \"accountId\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"history\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        {\n          \"slope\": 1097.7868979959205,\n          \"intercept\": 671.8735059573866,\n          \"accountBalanceHistory\": {\n            \"accountId\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"history\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        }\n      ]\n    },\n    \"id\": \"0b90201d-71cc-9dbd-c4a2-7f6ae2062a2d\",\n    \"jobId\": \"string\",\n    \"customerId\": \"12eb16c6-57ef-d926-a82a-2808b2a0d540\",\n    \"startDate\": \"1984-09-25T11:09:34.442Z\",\n    \"endDate\": \"1989-05-25T21:27:07.908Z\",\n    \"createdAt\": \"2004-11-10T19:57:22.344Z\",\n    \"accountsCount\": 9907,\n    \"totalBalance\": 2067.044003927857,\n    \"status\": \"Scheduled\",\n    \"currency\": {\n      \"englishName\": \"string\",\n      \"iso4117Code\": \"str\",\n      \"id\": \"cbff6dc5-7471-a58f-2d14-7f6f1864064e\",\n      \"arabicName\": \"string\",\n      \"iso4117Number\": \"stri\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9c2481ee-067b-4e2f-af43-7e49e2c2d029",
+              "name": "- If job id is not valid.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1.0",
+                    "ais",
+                    "AccountInformationReport",
+                    "File"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "jobId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "customerId",
+                      "value": "<uuid>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/pdf"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"CONSENT_REVOKED\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b72bc2a8-49b7-4fc6-a23f-1e05e1ddd4d4",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1.0",
+                    "ais",
+                    "AccountInformationReport",
+                    "File"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "jobId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "customerId",
+                      "value": "<uuid>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/pdf"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"CONSENT_REVOKED\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f0f26798-27d1-453e-b57a-c68d5daef731",
+              "name": "Payment Required",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1.0",
+                    "ais",
+                    "AccountInformationReport",
+                    "File"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "jobId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "customerId",
+                      "value": "<uuid>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/pdf"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"CONSENT_REVOKED\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ddacfbc8-e751-420d-b9b6-3c75d4c04abc",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1.0",
+                    "ais",
+                    "AccountInformationReport",
+                    "File"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "jobId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "customerId",
+                      "value": "<uuid>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/pdf"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"CONSENT_REVOKED\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5928a995-556e-438e-ab53-f38b4abfd7ab",
+              "name": "- - If customer not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1.0",
+                    "ais",
+                    "AccountInformationReport",
+                    "File"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "jobId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "customerId",
+                      "value": "<uuid>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/pdf"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"CONSENT_REVOKED\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7e565e5e-fd83-46f5-832f-3ed3e1e52150",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1.0",
+                    "ais",
+                    "AccountInformationReport",
+                    "File"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "jobId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "customerId",
+                      "value": "<uuid>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "109093e2-448e-4b22-b737-b3ad2aeb57df",
+          "name": "List account information reports.",
+          "request": {
+            "name": "List account information reports.",
+            "description": {
+              "content": "**Unique resource name :** ais.v1.account_information_report.list",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1.0",
+                "ais",
+                "AccountInformationReport",
+                "List"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "customerId",
+                  "value": "<uuid>",
+                  "description": "(Required) Customer id"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "Page number"
+                },
+                {
+                  "disabled": false,
+                  "key": "perPage",
+                  "value": "10",
+                  "description": "Number of items per page maximum allow is 10 per page"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "38f74566-9f4e-4a7b-aa75-0ddd2e5bf635",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1.0",
+                    "ais",
+                    "AccountInformationReport",
+                    "List"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "customerId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "perPage",
+                      "value": "10"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"CREDITOR_ACCOUNT_NOT_FOUND\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key_1\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": [\n    {\n      \"id\": \"26483cea-e3f1-21a4-dcb9-dd10ae4b5a98\",\n      \"jobId\": \"string\",\n      \"customerId\": \"73778bf3-0543-b24a-5003-a394329b91f6\",\n      \"startDate\": \"1999-03-03T02:21:15.200Z\",\n      \"endDate\": \"1972-12-30T10:38:35.598Z\",\n      \"createdAt\": \"1965-06-28T12:01:19.469Z\",\n      \"accountsCount\": 2130,\n      \"totalBalance\": 7457.139946914639,\n      \"status\": \"Processing\",\n      \"currency\": {\n        \"englishName\": \"string\",\n        \"iso4117Code\": \"s\",\n        \"id\": \"f4a87780-7955-f4f0-5bfb-6ab0bad98c48\",\n        \"arabicName\": \"string\",\n        \"iso4117Number\": \"stri\"\n      }\n    },\n    {\n      \"id\": \"3c55642b-dc6d-5324-c8e9-b684904ec274\",\n      \"jobId\": \"string\",\n      \"customerId\": \"ca3ed411-0a4d-7dd5-5076-baaf7a8643c1\",\n      \"startDate\": \"1955-01-12T16:13:31.639Z\",\n      \"endDate\": \"1997-07-17T02:54:00.964Z\",\n      \"createdAt\": \"1957-06-26T04:15:15.597Z\",\n      \"accountsCount\": 4488,\n      \"totalBalance\": 1331.745858796215,\n      \"status\": \"Enqueued\",\n      \"currency\": {\n        \"englishName\": \"string\",\n        \"iso4117Code\": \"str\",\n        \"id\": \"baf0e7ae-d272-5a52-baf4-e60988db037a\",\n        \"arabicName\": \"string\",\n        \"iso4117Number\": \"stri\"\n      }\n    }\n  ],\n  \"meta\": {\n    \"currentPageNumber\": 1782,\n    \"pageSize\": 6108,\n    \"totalNumberOfPages\": 510\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "780de0b7-9403-43a8-b470-64e4462e7b0c",
+              "name": "- If pagination is not valid.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1.0",
+                    "ais",
+                    "AccountInformationReport",
+                    "List"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "customerId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "perPage",
+                      "value": "10"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"CONSENT_REVOKED\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f4bccfdc-8105-45d4-9b56-c77a731ecd12",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1.0",
+                    "ais",
+                    "AccountInformationReport",
+                    "List"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "customerId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "perPage",
+                      "value": "10"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"CONSENT_REVOKED\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d85fdec6-fe4e-419a-a6e7-23b26f6e9563",
+              "name": "Payment Required",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1.0",
+                    "ais",
+                    "AccountInformationReport",
+                    "List"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "customerId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "perPage",
+                      "value": "10"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"CONSENT_REVOKED\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "21c421e6-0263-4f3f-926e-0f42930c31c9",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1.0",
+                    "ais",
+                    "AccountInformationReport",
+                    "List"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "customerId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "perPage",
+                      "value": "10"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"CONSENT_REVOKED\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7308a650-8d13-4aa8-84b3-fb456e2b1bd4",
+              "name": "- If customer not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1.0",
+                    "ais",
+                    "AccountInformationReport",
+                    "List"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "customerId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "perPage",
+                      "value": "10"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "94df5400-5188-4e51-afda-6e0494f74b9f",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1.0",
+                    "ais",
+                    "AccountInformationReport",
+                    "List"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "customerId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "perPage",
+                      "value": "10"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "14246f4f-8e36-42bd-a579-9935f5aac144",
+          "name": "Get account information report job status.",
+          "request": {
+            "name": "Get account information report job status.",
+            "description": {
+              "content": "**Unique resource name :** ais.v1.account_information_report.status",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1.0",
+                "ais",
+                "AccountInformationReport",
+                "Status"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "jobId",
+                  "value": "<uuid>",
+                  "description": "(Required) Job id"
+                },
+                {
+                  "disabled": false,
+                  "key": "customerId",
+                  "value": "<uuid>",
+                  "description": "(Required) Customer id"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7606fab6-0799-4c28-a02f-fc1b2725cdaa",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1.0",
+                    "ais",
+                    "AccountInformationReport",
+                    "Status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "jobId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "customerId",
+                      "value": "<uuid>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"NOT_SUBSCRIBED_TO_SERVICE\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key_1\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key_2\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {\n    \"id\": \"7353db6e-4c4e-9f3f-a577-6b5a570160c0\",\n    \"jobId\": \"string\",\n    \"customerId\": \"c0cef3d6-5050-98a4-9d11-6bd1d5d42e5f\",\n    \"startDate\": \"2008-05-05T13:38:03.436Z\",\n    \"endDate\": \"1978-03-27T23:33:33.076Z\",\n    \"createdAt\": \"1995-03-16T22:26:14.583Z\",\n    \"accountsCount\": 3751,\n    \"totalBalance\": 2881.649564199028,\n    \"status\": \"Processing\",\n    \"currency\": {\n      \"englishName\": \"string\",\n      \"iso4117Code\": \"st\",\n      \"id\": \"8a0979f5-c11e-fc1f-6f67-c0af7592b0f1\",\n      \"arabicName\": \"string\",\n      \"iso4117Number\": \"stri\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b158cd82-e55a-40db-8072-3647582d28fd",
+              "name": "- If the job is null or not a valid UUID.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1.0",
+                    "ais",
+                    "AccountInformationReport",
+                    "Status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "jobId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "customerId",
+                      "value": "<uuid>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"CONSENT_REVOKED\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "037c7671-8d55-4673-885a-70a1f192eeaf",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1.0",
+                    "ais",
+                    "AccountInformationReport",
+                    "Status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "jobId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "customerId",
+                      "value": "<uuid>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"CONSENT_REVOKED\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9b195ef0-f78d-4e1f-8f94-884191662718",
+              "name": "Payment Required",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1.0",
+                    "ais",
+                    "AccountInformationReport",
+                    "Status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "jobId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "customerId",
+                      "value": "<uuid>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"CONSENT_REVOKED\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5cb2e45d-90b4-4e75-85ee-e0047306899c",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1.0",
+                    "ais",
+                    "AccountInformationReport",
+                    "Status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "jobId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "customerId",
+                      "value": "<uuid>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"CONSENT_REVOKED\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "44ded538-5c09-40ba-b3a9-f3b632546639",
+              "name": "- If the job does not exist.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1.0",
+                    "ais",
+                    "AccountInformationReport",
+                    "Status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "jobId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "customerId",
+                      "value": "<uuid>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"CONSENT_REVOKED\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a8acb64a-2c67-4baf-83cd-989b24ce0785",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1.0",
+                    "ais",
+                    "AccountInformationReport",
+                    "Status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "jobId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "customerId",
+                      "value": "<uuid>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "96dab4de-cfce-45fb-96cb-577cc63651b7",
+    "name": "Information Account AccountInformationReport API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Spare account information API documentation\n\nContact Support:\n Name: Spare Technologies WLL.\n Email: hello@tryspare.com",
+      "type": "text/plain"
+    }
+  }
+}

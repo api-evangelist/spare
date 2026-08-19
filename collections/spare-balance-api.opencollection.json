@@ -1,0 +1,95 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Information Account Balance API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Balance",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get account balance",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1.0/ais/Balance/Get",
+            "params": [
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "query",
+                "description": "Account id"
+              }
+            ]
+          },
+          "docs": "**Unique resource name :** ais.v1.balance.get\n            \n**Important!:**\n            \nThe permissions bellow are required on the consent:\n- `ReadAccountsBasic`\n- `ReadAccountsDetail`\n- `ReadBalances`"
+        },
+        {
+          "info": {
+            "name": "Get account balance history",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1.0/ais/Balance/History",
+            "params": [
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "query",
+                "description": "Account id"
+              },
+              {
+                "name": "fromBookingDateTime",
+                "value": "",
+                "type": "query",
+                "description": "From booking date time"
+              },
+              {
+                "name": "toBookingDateTime",
+                "value": "",
+                "type": "query",
+                "description": "To booking date time"
+              }
+            ]
+          },
+          "docs": "**Unique resource name :** ais.v1.balance.history\n            \n**Important!:**\n            \n- The maximum allowed date range period is one year.\n- `toDate` need to be greater than `fromDate`\n            \nThe permissions bellow are required on the consent:\n- `ReadAccountsBasic`\n- `ReadAccountsDetail`\n- `ReadBalances`\n- `ReadTransactionsBasic`\n- `ReadTransactionsDetail`\n- `ReadTransactionsDebits`\n- `ReadTransactionsCredits`"
+        },
+        {
+          "info": {
+            "name": "Get account balance for long-lived consent",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v2.0/ais/Balance/Get",
+            "params": [
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "query",
+                "description": "Account id"
+              }
+            ]
+          },
+          "docs": "**Unique resource name :** ais.v2.balance.get\r\n            \r\n**Important!:**\r\n            \r\nThe permissions below are required on the consent:\r\n- `ReadAccountsBasic`\r\n- `ReadAccountsDetail`\r\n- `ReadBalances`"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

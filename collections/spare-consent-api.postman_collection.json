@@ -1,0 +1,3736 @@
+{
+  "item": [
+    {
+      "id": "a9d25b89-89a0-4028-88ee-ca0d92b86d5a",
+      "name": "Consent",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "249f1e1b-f0a0-48f8-b849-f84b1510d3cd",
+          "name": "Create consent",
+          "request": {
+            "name": "Create consent",
+            "description": {
+              "content": "**Unique resource name :** ais.v1.consent.create",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1.0",
+                "ais",
+                "Consent",
+                "Create"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"customerId\": \"<uuid>\",\n  \"providerId\": \"<uuid>\",\n  \"connectionId\": \"<uuid>\",\n  \"expiryDate\": \"<dateTime>\",\n  \"transactionsFromDate\": \"<dateTime>\",\n  \"transactionsToDate\": \"<dateTime>\",\n  \"permissions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"successRedirectUrl\": \"<uri>\",\n  \"failureRedirectUrl\": \"<uri>\",\n  \"autoRedirect\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "2cc115de-3ef7-4084-b548-b962cf556f79",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1.0",
+                    "ais",
+                    "Consent",
+                    "Create"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"customerId\": \"<uuid>\",\n  \"providerId\": \"<uuid>\",\n  \"connectionId\": \"<uuid>\",\n  \"expiryDate\": \"<dateTime>\",\n  \"transactionsFromDate\": \"<dateTime>\",\n  \"transactionsToDate\": \"<dateTime>\",\n  \"permissions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"successRedirectUrl\": \"<uri>\",\n  \"failureRedirectUrl\": \"<uri>\",\n  \"autoRedirect\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"MULTIPLE_CONSENT_DATE_NOT_ALLOWED\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key_1\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key_2\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {\n    \"expiryDate\": \"1956-10-13T21:15:36.651Z\",\n    \"transactionsFromDate\": \"1962-03-30T22:09:55.429Z\",\n    \"transactionsToDate\": \"2005-03-05T12:52:33.221Z\",\n    \"permissions\": [\n      \"string\",\n      \"string\"\n    ],\n    \"statusHistory\": [\n      {\n        \"status\": \"Authorized\",\n        \"dateTime\": \"2006-05-01T14:57:48.867Z\"\n      },\n      {\n        \"status\": \"Revoked\",\n        \"dateTime\": \"2008-04-10T04:05:41.411Z\"\n      }\n    ],\n    \"connection\": {\n      \"provider\": {\n        \"englishName\": \"string\",\n        \"isEnable\": true,\n        \"id\": \"34d35b42-dfa8-0c38-d22a-3818d62910ee\",\n        \"country\": {\n          \"englishName\": \"string\",\n          \"iso3166Code\": \"LL\",\n          \"timeZone\": \"string\",\n          \"id\": \"ab041d8b-f4d9-ac09-155a-aeeb24cdfa92\",\n          \"createdAt\": \"1968-02-13T02:01:14.985Z\",\n          \"updatedAt\": \"1964-11-03T11:06:16.261Z\",\n          \"currency\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"arabicName\": \"string\"\n        },\n        \"allowedPermissions\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"address\": \"string\",\n        \"phone\": \"string\",\n        \"useBenefit\": false,\n        \"arabicName\": \"string\",\n        \"status\": \"Inactive\",\n        \"logo\": \"https://kcQt.sgDrJCcBzSFi.jdp,Sef,B7WMmKcMJ6aZGtc7\"\n      },\n      \"id\": \"f015eaf8-03e4-52a8-4dfc-f9fb95806890\",\n      \"status\": \"INACTIVE\",\n      \"createdAt\": \"2015-07-04T20:39:54.173Z\",\n      \"updatedAt\": \"2012-08-16T20:54:49.619Z\"\n    },\n    \"id\": \"9d4997cb-ad50-1544-87d5-87959903579c\",\n    \"customerId\": \"3dd46430-878a-0c3e-35fa-d44d560b7243\",\n    \"scope\": \"Accounts\",\n    \"createdAt\": \"2004-03-06T16:23:19.843Z\",\n    \"status\": \"Consumed\",\n    \"authorizationLink\": \"string\",\n    \"successRedirectUrl\": \"string\",\n    \"failureRedirectUrl\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ba92ebc1-64ac-47fd-a5c1-3f3f94975eab",
+              "name": "- If provider id is not valid",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1.0",
+                    "ais",
+                    "Consent",
+                    "Create"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"customerId\": \"<uuid>\",\n  \"providerId\": \"<uuid>\",\n  \"connectionId\": \"<uuid>\",\n  \"expiryDate\": \"<dateTime>\",\n  \"transactionsFromDate\": \"<dateTime>\",\n  \"transactionsToDate\": \"<dateTime>\",\n  \"permissions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"successRedirectUrl\": \"<uri>\",\n  \"failureRedirectUrl\": \"<uri>\",\n  \"autoRedirect\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"CONSENT_UNAUTHORIZED\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "551cad11-f2c1-4902-8629-9fc9ff0f1158",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1.0",
+                    "ais",
+                    "Consent",
+                    "Create"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"customerId\": \"<uuid>\",\n  \"providerId\": \"<uuid>\",\n  \"connectionId\": \"<uuid>\",\n  \"expiryDate\": \"<dateTime>\",\n  \"transactionsFromDate\": \"<dateTime>\",\n  \"transactionsToDate\": \"<dateTime>\",\n  \"permissions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"successRedirectUrl\": \"<uri>\",\n  \"failureRedirectUrl\": \"<uri>\",\n  \"autoRedirect\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"NOT_SUBSCRIBED_TO_SERVICE\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key_1\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key_2\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3ae5af16-91b8-4a89-98a0-094bd110a127",
+              "name": "Payment Required",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1.0",
+                    "ais",
+                    "Consent",
+                    "Create"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"customerId\": \"<uuid>\",\n  \"providerId\": \"<uuid>\",\n  \"connectionId\": \"<uuid>\",\n  \"expiryDate\": \"<dateTime>\",\n  \"transactionsFromDate\": \"<dateTime>\",\n  \"transactionsToDate\": \"<dateTime>\",\n  \"permissions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"successRedirectUrl\": \"<uri>\",\n  \"failureRedirectUrl\": \"<uri>\",\n  \"autoRedirect\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"NOT_SUBSCRIBED_TO_SERVICE\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key_1\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key_2\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "dfa476dc-5ef1-4dc0-ac46-d34919fc629c",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1.0",
+                    "ais",
+                    "Consent",
+                    "Create"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"customerId\": \"<uuid>\",\n  \"providerId\": \"<uuid>\",\n  \"connectionId\": \"<uuid>\",\n  \"expiryDate\": \"<dateTime>\",\n  \"transactionsFromDate\": \"<dateTime>\",\n  \"transactionsToDate\": \"<dateTime>\",\n  \"permissions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"successRedirectUrl\": \"<uri>\",\n  \"failureRedirectUrl\": \"<uri>\",\n  \"autoRedirect\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"NOT_SUBSCRIBED_TO_SERVICE\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key_1\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key_2\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3e67718d-6f4a-4ad8-badc-638790280f33",
+              "name": "- If provider does not exist\n- If connection does not exist",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1.0",
+                    "ais",
+                    "Consent",
+                    "Create"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"customerId\": \"<uuid>\",\n  \"providerId\": \"<uuid>\",\n  \"connectionId\": \"<uuid>\",\n  \"expiryDate\": \"<dateTime>\",\n  \"transactionsFromDate\": \"<dateTime>\",\n  \"transactionsToDate\": \"<dateTime>\",\n  \"permissions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"successRedirectUrl\": \"<uri>\",\n  \"failureRedirectUrl\": \"<uri>\",\n  \"autoRedirect\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"NOT_SUBSCRIBED_TO_SERVICE\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key_1\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key_2\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "718bf93f-609c-43d8-b2b5-71463f720509",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1.0",
+                    "ais",
+                    "Consent",
+                    "Create"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"customerId\": \"<uuid>\",\n  \"providerId\": \"<uuid>\",\n  \"connectionId\": \"<uuid>\",\n  \"expiryDate\": \"<dateTime>\",\n  \"transactionsFromDate\": \"<dateTime>\",\n  \"transactionsToDate\": \"<dateTime>\",\n  \"permissions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"successRedirectUrl\": \"<uri>\",\n  \"failureRedirectUrl\": \"<uri>\",\n  \"autoRedirect\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c8e45243-4750-4823-885f-486cc1d4bd62",
+          "name": "List consent",
+          "request": {
+            "name": "List consent",
+            "description": {
+              "content": "**Unique resource name :** ais.v1.consent.list",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1.0",
+                "ais",
+                "Consent",
+                "List"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "Page number"
+                },
+                {
+                  "disabled": false,
+                  "key": "perPage",
+                  "value": "20",
+                  "description": "Number of items per page maximum allow is 500 per page"
+                },
+                {
+                  "disabled": false,
+                  "key": "providerId",
+                  "value": "<uuid>",
+                  "description": "Provider id (Optional)"
+                },
+                {
+                  "disabled": false,
+                  "key": "connectionId",
+                  "value": "<uuid>",
+                  "description": "Connection id (Optional)"
+                },
+                {
+                  "disabled": false,
+                  "key": "customerId",
+                  "value": "<uuid>",
+                  "description": "Customer id (Optional)"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d93a4857-75c1-4292-a026-48e215990739",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1.0",
+                    "ais",
+                    "Consent",
+                    "List"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "perPage",
+                      "value": "20"
+                    },
+                    {
+                      "key": "providerId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "connectionId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "customerId",
+                      "value": "<uuid>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"CONSENT_UNAUTHORIZED\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": [\n    {\n      \"expiryDate\": \"1948-01-14T19:44:46.784Z\",\n      \"transactionsFromDate\": \"2011-01-14T05:46:49.237Z\",\n      \"transactionsToDate\": \"1983-02-18T05:58:06.632Z\",\n      \"permissions\": [\n        \"string\",\n        \"string\"\n      ],\n      \"statusHistory\": [\n        {\n          \"status\": \"Authorized\",\n          \"dateTime\": \"1961-01-17T15:01:16.520Z\"\n        },\n        {\n          \"status\": \"Consumed\",\n          \"dateTime\": \"1984-05-27T18:52:09.922Z\"\n        }\n      ],\n      \"connection\": {\n        \"provider\": {\n          \"englishName\": \"string\",\n          \"isEnable\": true,\n          \"id\": \"36063538-b0d1-6e88-4299-cefa6d44371d\",\n          \"country\": {\n            \"englishName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"iso3166Code\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"timeZone\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"createdAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"updatedAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"currency\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"arabicName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"allowedPermissions\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"address\": \"string\",\n          \"phone\": \"string\",\n          \"useBenefit\": true,\n          \"arabicName\": \"string\",\n          \"status\": \"Active\",\n          \"logo\": \"https://pXVayDJkUFIsFkrq.pzO.y8BcEKyH.yOLARsSpZWmO,EdZw0rkJjmK8sG0SZtHI1qJ\"\n        },\n        \"id\": \"1f1dde62-5f9c-dfc2-1df8-27713f647e73\",\n        \"status\": \"INACTIVE\",\n        \"createdAt\": \"1961-11-29T16:21:10.731Z\",\n        \"updatedAt\": \"2007-10-28T00:38:41.166Z\"\n      },\n      \"id\": \"7b8fe4ea-c3c9-9f85-ce35-82e035625d49\",\n      \"customerId\": \"93632e01-638c-8ad3-bbee-ed72f52b6267\",\n      \"scope\": \"Payments\",\n      \"createdAt\": \"1982-03-28T09:09:49.688Z\",\n      \"status\": \"Authorised\",\n      \"authorizationLink\": \"string\",\n      \"successRedirectUrl\": \"string\",\n      \"failureRedirectUrl\": \"string\"\n    },\n    {\n      \"expiryDate\": \"1972-12-20T06:06:17.698Z\",\n      \"transactionsFromDate\": \"1957-08-05T15:21:51.016Z\",\n      \"transactionsToDate\": \"1952-10-16T09:44:52.557Z\",\n      \"permissions\": [\n        \"string\",\n        \"string\"\n      ],\n      \"statusHistory\": [\n        {\n          \"status\": \"Authorised\",\n          \"dateTime\": \"1956-01-11T05:53:42.276Z\"\n        },\n        {\n          \"status\": \"Rejected\",\n          \"dateTime\": \"1981-04-03T07:04:27.444Z\"\n        }\n      ],\n      \"connection\": {\n        \"provider\": {\n          \"englishName\": \"string\",\n          \"isEnable\": false,\n          \"id\": \"21c4b6fe-76ed-70c8-c060-8358e6d7fda4\",\n          \"country\": {\n            \"englishName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"iso3166Code\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"timeZone\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"createdAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"updatedAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"currency\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"arabicName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"allowedPermissions\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"address\": \"string\",\n          \"phone\": \"string\",\n          \"useBenefit\": false,\n          \"arabicName\": \"string\",\n          \"status\": \"Inactive\",\n          \"logo\": \"https://olAUqrsoXOUw.gbjAAl.av9v8jOI6M7Sf-\"\n        },\n        \"id\": \"96a9f512-9987-d983-fcf9-af5f3bb79f2c\",\n        \"status\": \"ACTIVE\",\n        \"createdAt\": \"2005-01-13T05:52:01.360Z\",\n        \"updatedAt\": \"1951-02-24T16:47:31.822Z\"\n      },\n      \"id\": \"2a3c113a-428f-070e-6f12-f1a2ec073ec6\",\n      \"customerId\": \"dc83dd39-08bf-1b41-2926-b048fc14dc32\",\n      \"scope\": \"Payments\",\n      \"createdAt\": \"1981-10-21T09:27:00.964Z\",\n      \"status\": \"Revoked\",\n      \"authorizationLink\": \"string\",\n      \"successRedirectUrl\": \"string\",\n      \"failureRedirectUrl\": \"string\"\n    }\n  ],\n  \"meta\": {\n    \"currentPageNumber\": 4310,\n    \"pageSize\": 2903,\n    \"totalNumberOfPages\": 7754\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a2f99b30-25c4-4a5d-84e7-161fc69e7687",
+              "name": "- If connection id is not valid",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1.0",
+                    "ais",
+                    "Consent",
+                    "List"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "perPage",
+                      "value": "20"
+                    },
+                    {
+                      "key": "providerId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "connectionId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "customerId",
+                      "value": "<uuid>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c0b443e9-1301-4234-930a-55eb2b1dc6f1",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1.0",
+                    "ais",
+                    "Consent",
+                    "List"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "perPage",
+                      "value": "20"
+                    },
+                    {
+                      "key": "providerId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "connectionId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "customerId",
+                      "value": "<uuid>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"NOT_SUBSCRIBED_TO_SERVICE\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key_1\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key_2\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3041d8e6-769a-474e-bdb4-ea6fc2fae2b1",
+              "name": "Payment Required",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1.0",
+                    "ais",
+                    "Consent",
+                    "List"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "perPage",
+                      "value": "20"
+                    },
+                    {
+                      "key": "providerId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "connectionId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "customerId",
+                      "value": "<uuid>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"NOT_SUBSCRIBED_TO_SERVICE\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key_1\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key_2\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "11dc3e5a-b30f-495c-a937-62955cf57511",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1.0",
+                    "ais",
+                    "Consent",
+                    "List"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "perPage",
+                      "value": "20"
+                    },
+                    {
+                      "key": "providerId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "connectionId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "customerId",
+                      "value": "<uuid>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"NOT_SUBSCRIBED_TO_SERVICE\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key_1\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key_2\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bf2f309b-a197-4f73-a346-97717de3859a",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1.0",
+                    "ais",
+                    "Consent",
+                    "List"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "perPage",
+                      "value": "20"
+                    },
+                    {
+                      "key": "providerId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "connectionId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "customerId",
+                      "value": "<uuid>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e134b49b-759e-4b5b-b7b8-b1a903c73adf",
+          "name": "Get consent by id",
+          "request": {
+            "name": "Get consent by id",
+            "description": {
+              "content": "**Unique resource name :** ais.v1.consent.get",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1.0",
+                "ais",
+                "Consent",
+                "Get"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "id",
+                  "value": "<uuid>",
+                  "description": "(Required) Consent id"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9d3c19c3-b7f2-470c-9e78-247a6000dd0b",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1.0",
+                    "ais",
+                    "Consent",
+                    "Get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "id",
+                      "value": "<uuid>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"MULTIPLE_CURRENCY_NOT_ALLOWED\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key_1\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key_2\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {\n    \"expiryDate\": \"2024-12-12T00:42:26.107Z\",\n    \"transactionsFromDate\": \"1989-08-18T06:02:59.970Z\",\n    \"transactionsToDate\": \"1955-12-13T10:45:08.815Z\",\n    \"permissions\": [\n      \"string\",\n      \"string\"\n    ],\n    \"statusHistory\": [\n      {\n        \"status\": \"Authorized\",\n        \"dateTime\": \"2012-03-05T22:00:31.252Z\"\n      },\n      {\n        \"status\": \"Revoked\",\n        \"dateTime\": \"1953-09-05T10:56:45.929Z\"\n      }\n    ],\n    \"connection\": {\n      \"provider\": {\n        \"englishName\": \"string\",\n        \"isEnable\": false,\n        \"id\": \"d29b4a11-41b4-d9b1-7e81-038bdf075ff1\",\n        \"country\": {\n          \"englishName\": \"string\",\n          \"iso3166Code\": \"UV\",\n          \"timeZone\": \"string\",\n          \"id\": \"c6fa6dd6-bc38-30ef-05f3-02b82e872e5c\",\n          \"createdAt\": \"2020-03-30T09:08:27.348Z\",\n          \"updatedAt\": \"1994-06-13T14:38:21.687Z\",\n          \"currency\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"arabicName\": \"string\"\n        },\n        \"allowedPermissions\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"address\": \"string\",\n        \"phone\": \"string\",\n        \"useBenefit\": false,\n        \"arabicName\": \"string\",\n        \"status\": \"Active\",\n        \"logo\": \"https://PQJeIjsRFDM.ulrTbB4ExF2f6wnt\"\n      },\n      \"id\": \"84984ee0-8bb3-8d6d-f41b-24a2de57929c\",\n      \"status\": \"ACTIVE\",\n      \"createdAt\": \"2000-02-09T22:12:45.184Z\",\n      \"updatedAt\": \"1954-11-27T09:33:54.095Z\"\n    },\n    \"id\": \"d8c79fd2-8511-adb2-a496-4a79b51a583e\",\n    \"customerId\": \"9cc46dba-877f-8a70-e056-e9503efeb5d3\",\n    \"scope\": \"Payments\",\n    \"createdAt\": \"1955-10-25T19:03:51.559Z\",\n    \"status\": \"Consumed\",\n    \"authorizationLink\": \"string\",\n    \"successRedirectUrl\": \"string\",\n    \"failureRedirectUrl\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "494a2539-0829-4fd4-8931-b47e414a4d56",
+              "name": "- If id is not valid",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1.0",
+                    "ais",
+                    "Consent",
+                    "Get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "id",
+                      "value": "<uuid>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"NOT_SUBSCRIBED_TO_SERVICE\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key_1\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key_2\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f0935fb1-0b0d-4d41-8f7d-25fa2938ff1b",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1.0",
+                    "ais",
+                    "Consent",
+                    "Get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "id",
+                      "value": "<uuid>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"NOT_SUBSCRIBED_TO_SERVICE\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key_1\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key_2\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "85699925-bb0b-4b0d-86d4-97683313e386",
+              "name": "Payment Required",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1.0",
+                    "ais",
+                    "Consent",
+                    "Get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "id",
+                      "value": "<uuid>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"NOT_SUBSCRIBED_TO_SERVICE\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key_1\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key_2\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7b283e3b-c441-40d7-bafb-70d99db2daec",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1.0",
+                    "ais",
+                    "Consent",
+                    "Get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "id",
+                      "value": "<uuid>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"NOT_SUBSCRIBED_TO_SERVICE\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key_1\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key_2\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d51ab202-8aed-4d05-879f-02495905418a",
+              "name": "- If consent does not exist",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1.0",
+                    "ais",
+                    "Consent",
+                    "Get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "id",
+                      "value": "<uuid>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"NOT_SUBSCRIBED_TO_SERVICE\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key_1\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key_2\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d6280dae-10b7-4f45-a63a-0ea4391778a5",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1.0",
+                    "ais",
+                    "Consent",
+                    "Get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "id",
+                      "value": "<uuid>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c4d40bff-1edc-4c6a-9db4-84ec5b17f48f",
+          "name": "Revoke consent",
+          "request": {
+            "name": "Revoke consent",
+            "description": {
+              "content": "**Unique resource name :** ais.v1.consent.revoke",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1.0",
+                "ais",
+                "Consent",
+                "Revoke"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "id",
+                  "value": "<uuid>",
+                  "description": "(Required) Consent id"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ab31f973-9e69-4201-9baa-d76c831a46f7",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1.0",
+                    "ais",
+                    "Consent",
+                    "Revoke"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "id",
+                      "value": "<uuid>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1c9361d2-188e-4834-b662-568acf088f13",
+              "name": "- If id is not valid\n- If consent revocation fails",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1.0",
+                    "ais",
+                    "Consent",
+                    "Revoke"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "id",
+                      "value": "<uuid>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"NOT_SUBSCRIBED_TO_SERVICE\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key_1\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key_2\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "aadf7e70-2e6e-42c5-8a1f-0d04340ceb17",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1.0",
+                    "ais",
+                    "Consent",
+                    "Revoke"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "id",
+                      "value": "<uuid>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"NOT_SUBSCRIBED_TO_SERVICE\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key_1\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key_2\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "105446d8-5b75-418c-8a14-b0c3279e9128",
+              "name": "Payment Required",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1.0",
+                    "ais",
+                    "Consent",
+                    "Revoke"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "id",
+                      "value": "<uuid>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"NOT_SUBSCRIBED_TO_SERVICE\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key_1\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key_2\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2faa6894-f49a-4124-888e-25fe645ca7ad",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1.0",
+                    "ais",
+                    "Consent",
+                    "Revoke"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "id",
+                      "value": "<uuid>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"NOT_SUBSCRIBED_TO_SERVICE\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key_1\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key_2\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ce7b7d63-2213-494d-8704-e245e9a8d787",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1.0",
+                    "ais",
+                    "Consent",
+                    "Revoke"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "id",
+                      "value": "<uuid>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b5b4bca9-7a99-4cb8-b54f-87dabcc4a97c",
+          "name": "Create domestic payment consent",
+          "request": {
+            "name": "Create domestic payment consent",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1.0",
+                "pis",
+                "Consent",
+                "Create"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) Json web signature (JWS: RFC7519) of the payment initiation consent request payload in detached mode. <see href=\"https://datatracker.ietf.org/doc/html/rfc7519\" />",
+                "key": "x-signature",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"amount\": \"<string>\",\n  \"creditorAccount\": {\n    \"identification\": \"<string>\",\n    \"scheme\": \"<string>\",\n    \"name\": \"<string>\"\n  },\n  \"currency\": \"<string>\",\n  \"paymentConsentType\": \"<string>\",\n  \"providerId\": \"<uuid>\",\n  \"purpose\": \"<string>\",\n  \"connectionId\": \"<uuid>\",\n  \"externalReference\": \"<string>\",\n  \"description\": \"<string>\",\n  \"successRedirectUrl\": \"<uri>\",\n  \"failureRedirectUrl\": \"<uri>\",\n  \"note\": \"<string>\",\n  \"autoRedirect\": \"<boolean>\",\n  \"debtorAccount\": {\n    \"identification\": \"<string>\",\n    \"scheme\": \"<string>\",\n    \"name\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "8772b821-3d1e-4e07-aa3a-8d58db00c2c7",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1.0",
+                    "pis",
+                    "Consent",
+                    "Create"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Json web signature (JWS: RFC7519) of the payment initiation consent request payload in detached mode. <see href=\"https://datatracker.ietf.org/doc/html/rfc7519\" />",
+                    "key": "x-signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"amount\": \"<string>\",\n  \"creditorAccount\": {\n    \"identification\": \"<string>\",\n    \"scheme\": \"<string>\",\n    \"name\": \"<string>\"\n  },\n  \"currency\": \"<string>\",\n  \"paymentConsentType\": \"<string>\",\n  \"providerId\": \"<uuid>\",\n  \"purpose\": \"<string>\",\n  \"connectionId\": \"<uuid>\",\n  \"externalReference\": \"<string>\",\n  \"description\": \"<string>\",\n  \"successRedirectUrl\": \"<uri>\",\n  \"failureRedirectUrl\": \"<uri>\",\n  \"note\": \"<string>\",\n  \"autoRedirect\": \"<boolean>\",\n  \"debtorAccount\": {\n    \"identification\": \"<string>\",\n    \"scheme\": \"<string>\",\n    \"name\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"CONSENT_UNAUTHORIZED\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key_1\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key_2\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {\n    \"paymentId\": \"6b79978f-27f1-fcb8-bd25-d4a5c2eaa3fa\",\n    \"consentId\": \"3410aa2a-60d5-c0da-be35-a133c439b4b4\",\n    \"externalReference\": \"string\",\n    \"scope\": \"Accounts\",\n    \"paymentConsentType\": \"<string>\",\n    \"executionDateTime\": \"1997-08-16T13:51:47.851Z\",\n    \"authorizationLink\": \"string\",\n    \"amount\": {\n      \"value\": 4431.32180825005,\n      \"currency\": {\n        \"englishName\": \"string\",\n        \"iso4117Code\": \"s\",\n        \"id\": \"5160a855-3d7f-7f93-ce7e-7a5d450ce7b7\",\n        \"arabicName\": \"string\",\n        \"iso4117Number\": \"stri\"\n      }\n    },\n    \"createdAt\": \"2014-01-23T04:20:55.436Z\",\n    \"status\": \"Authorised\",\n    \"creditorAccount\": {\n      \"identification\": \"string\",\n      \"scheme\": \"<string>\",\n      \"id\": \"860573b9-9e6a-d5a5-b106-2bf1dcfb0234\",\n      \"name\": \"string\"\n    },\n    \"debtorAccount\": {\n      \"identification\": \"string\",\n      \"scheme\": \"<string>\",\n      \"id\": \"2549aa7f-5fd3-3b2e-a3c1-383d549230cc\",\n      \"name\": \"string\"\n    },\n    \"connection\": {\n      \"provider\": {\n        \"englishName\": \"string\",\n        \"id\": \"b7d84adf-e3ee-6fec-1882-2e005e4da0cc\",\n        \"country\": {\n          \"englishName\": \"string\",\n          \"iso3166Code\": \"KS\",\n          \"timeZone\": \"strin\",\n          \"id\": \"80654d3c-0c6c-062f-2565-0f4344c430e5\",\n          \"createdAt\": \"1983-09-23T13:24:23.350Z\",\n          \"updatedAt\": \"1948-11-11T18:47:08.028Z\",\n          \"currency\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"arabicName\": \"string\"\n        },\n        \"address\": \"string\",\n        \"phone\": \"string\",\n        \"isEnable\": true,\n        \"arabicName\": \"string\",\n        \"status\": \"Active\",\n        \"logo\": \"https://uSoQvPQq.cuidOstGbvodQjHWNTVjfpjDHQsqdvCieiV\"\n      },\n      \"id\": \"b2899eb6-b176-e912-f1e9-f9b94cdf3b98\",\n      \"status\": \"INACTIVE\",\n      \"createdAt\": \"2023-09-10T15:58:04.818Z\",\n      \"updatedAt\": \"1964-06-03T17:36:16.486Z\"\n    },\n    \"purpose\": \"string\",\n    \"note\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b348bbc8-cc60-4c61-93f6-9beeab1af291",
+              "name": "- If model is not valid.\n- If signature is null or invalid.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1.0",
+                    "pis",
+                    "Consent",
+                    "Create"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Json web signature (JWS: RFC7519) of the payment initiation consent request payload in detached mode. <see href=\"https://datatracker.ietf.org/doc/html/rfc7519\" />",
+                    "key": "x-signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"amount\": \"<string>\",\n  \"creditorAccount\": {\n    \"identification\": \"<string>\",\n    \"scheme\": \"<string>\",\n    \"name\": \"<string>\"\n  },\n  \"currency\": \"<string>\",\n  \"paymentConsentType\": \"<string>\",\n  \"providerId\": \"<uuid>\",\n  \"purpose\": \"<string>\",\n  \"connectionId\": \"<uuid>\",\n  \"externalReference\": \"<string>\",\n  \"description\": \"<string>\",\n  \"successRedirectUrl\": \"<uri>\",\n  \"failureRedirectUrl\": \"<uri>\",\n  \"note\": \"<string>\",\n  \"autoRedirect\": \"<boolean>\",\n  \"debtorAccount\": {\n    \"identification\": \"<string>\",\n    \"scheme\": \"<string>\",\n    \"name\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"NOT_SUBSCRIBED_TO_SERVICE\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key_1\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key_2\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "65ca9c84-0f4d-4ec8-a392-41f3c932e217",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1.0",
+                    "pis",
+                    "Consent",
+                    "Create"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Json web signature (JWS: RFC7519) of the payment initiation consent request payload in detached mode. <see href=\"https://datatracker.ietf.org/doc/html/rfc7519\" />",
+                    "key": "x-signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"amount\": \"<string>\",\n  \"creditorAccount\": {\n    \"identification\": \"<string>\",\n    \"scheme\": \"<string>\",\n    \"name\": \"<string>\"\n  },\n  \"currency\": \"<string>\",\n  \"paymentConsentType\": \"<string>\",\n  \"providerId\": \"<uuid>\",\n  \"purpose\": \"<string>\",\n  \"connectionId\": \"<uuid>\",\n  \"externalReference\": \"<string>\",\n  \"description\": \"<string>\",\n  \"successRedirectUrl\": \"<uri>\",\n  \"failureRedirectUrl\": \"<uri>\",\n  \"note\": \"<string>\",\n  \"autoRedirect\": \"<boolean>\",\n  \"debtorAccount\": {\n    \"identification\": \"<string>\",\n    \"scheme\": \"<string>\",\n    \"name\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"NOT_SUBSCRIBED_TO_SERVICE\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key_1\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key_2\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e58cb689-0260-4073-b23a-244a973c6c01",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1.0",
+                    "pis",
+                    "Consent",
+                    "Create"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Json web signature (JWS: RFC7519) of the payment initiation consent request payload in detached mode. <see href=\"https://datatracker.ietf.org/doc/html/rfc7519\" />",
+                    "key": "x-signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"amount\": \"<string>\",\n  \"creditorAccount\": {\n    \"identification\": \"<string>\",\n    \"scheme\": \"<string>\",\n    \"name\": \"<string>\"\n  },\n  \"currency\": \"<string>\",\n  \"paymentConsentType\": \"<string>\",\n  \"providerId\": \"<uuid>\",\n  \"purpose\": \"<string>\",\n  \"connectionId\": \"<uuid>\",\n  \"externalReference\": \"<string>\",\n  \"description\": \"<string>\",\n  \"successRedirectUrl\": \"<uri>\",\n  \"failureRedirectUrl\": \"<uri>\",\n  \"note\": \"<string>\",\n  \"autoRedirect\": \"<boolean>\",\n  \"debtorAccount\": {\n    \"identification\": \"<string>\",\n    \"scheme\": \"<string>\",\n    \"name\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"NOT_SUBSCRIBED_TO_SERVICE\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key_1\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key_2\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "681edb3d-825a-4b61-b8a7-b2ab530f16b3",
+              "name": "- If provider does not exist\n- If connection does not exist",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1.0",
+                    "pis",
+                    "Consent",
+                    "Create"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Json web signature (JWS: RFC7519) of the payment initiation consent request payload in detached mode. <see href=\"https://datatracker.ietf.org/doc/html/rfc7519\" />",
+                    "key": "x-signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"amount\": \"<string>\",\n  \"creditorAccount\": {\n    \"identification\": \"<string>\",\n    \"scheme\": \"<string>\",\n    \"name\": \"<string>\"\n  },\n  \"currency\": \"<string>\",\n  \"paymentConsentType\": \"<string>\",\n  \"providerId\": \"<uuid>\",\n  \"purpose\": \"<string>\",\n  \"connectionId\": \"<uuid>\",\n  \"externalReference\": \"<string>\",\n  \"description\": \"<string>\",\n  \"successRedirectUrl\": \"<uri>\",\n  \"failureRedirectUrl\": \"<uri>\",\n  \"note\": \"<string>\",\n  \"autoRedirect\": \"<boolean>\",\n  \"debtorAccount\": {\n    \"identification\": \"<string>\",\n    \"scheme\": \"<string>\",\n    \"name\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"NOT_SUBSCRIBED_TO_SERVICE\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key_1\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key_2\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "eeac9bbb-e5a5-401f-ae76-29e0a39326e9",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1.0",
+                    "pis",
+                    "Consent",
+                    "Create"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Json web signature (JWS: RFC7519) of the payment initiation consent request payload in detached mode. <see href=\"https://datatracker.ietf.org/doc/html/rfc7519\" />",
+                    "key": "x-signature",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"amount\": \"<string>\",\n  \"creditorAccount\": {\n    \"identification\": \"<string>\",\n    \"scheme\": \"<string>\",\n    \"name\": \"<string>\"\n  },\n  \"currency\": \"<string>\",\n  \"paymentConsentType\": \"<string>\",\n  \"providerId\": \"<uuid>\",\n  \"purpose\": \"<string>\",\n  \"connectionId\": \"<uuid>\",\n  \"externalReference\": \"<string>\",\n  \"description\": \"<string>\",\n  \"successRedirectUrl\": \"<uri>\",\n  \"failureRedirectUrl\": \"<uri>\",\n  \"note\": \"<string>\",\n  \"autoRedirect\": \"<boolean>\",\n  \"debtorAccount\": {\n    \"identification\": \"<string>\",\n    \"scheme\": \"<string>\",\n    \"name\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "12f81cf4-5a02-441e-8810-863c75ca5241",
+          "name": "List consent",
+          "request": {
+            "name": "List consent",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1.0",
+                "pis",
+                "Consent",
+                "List"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "Page number"
+                },
+                {
+                  "disabled": false,
+                  "key": "perPage",
+                  "value": "20",
+                  "description": "Number of items per page maximum allow is 100 per page"
+                },
+                {
+                  "disabled": false,
+                  "key": "providerId",
+                  "value": "<uuid>",
+                  "description": "Provider id (Optional)"
+                },
+                {
+                  "disabled": false,
+                  "key": "connectionId",
+                  "value": "<uuid>",
+                  "description": "Connection id (Optional)"
+                },
+                {
+                  "disabled": false,
+                  "key": "externalReference",
+                  "value": "<string>",
+                  "description": "External reference (Optional)"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "67edd631-315c-476c-b3bc-62e7bb68954c",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1.0",
+                    "pis",
+                    "Consent",
+                    "List"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "perPage",
+                      "value": "20"
+                    },
+                    {
+                      "key": "providerId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "connectionId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "externalReference",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"SUBSCRIPTION_EXPIRED\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": [\n    {\n      \"paymentId\": \"d6f81821-1253-6ebf-224d-daae3e8bd714\",\n      \"consentId\": \"2f7c8598-f970-b09c-0467-e38c5f69a064\",\n      \"externalReference\": \"string\",\n      \"scope\": \"Accounts\",\n      \"paymentConsentType\": \"<string>\",\n      \"executionDateTime\": \"1946-11-29T08:21:48.466Z\",\n      \"authorizationLink\": \"string\",\n      \"amount\": {\n        \"value\": 4457.65328625123,\n        \"currency\": {\n          \"englishName\": \"string\",\n          \"iso4117Code\": \"s\",\n          \"id\": \"de2c408e-54d7-919e-bc98-22b68d24d5f1\",\n          \"arabicName\": \"string\",\n          \"iso4117Number\": \"stri\"\n        }\n      },\n      \"createdAt\": \"1992-01-18T18:07:27.826Z\",\n      \"status\": \"Expired\",\n      \"creditorAccount\": {\n        \"identification\": \"string\",\n        \"scheme\": \"<string>\",\n        \"id\": \"64184887-0ec3-8ecf-5349-191d906e518f\",\n        \"name\": \"string\"\n      },\n      \"debtorAccount\": {\n        \"identification\": \"string\",\n        \"scheme\": \"<string>\",\n        \"id\": \"d7cb325e-b159-85af-dd56-decf5a50ae57\",\n        \"name\": \"string\"\n      },\n      \"connection\": {\n        \"provider\": {\n          \"englishName\": \"string\",\n          \"id\": \"316effbe-d3ac-3eec-c3e9-b34faf921588\",\n          \"country\": {\n            \"englishName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"iso3166Code\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"timeZone\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"createdAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"updatedAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"currency\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"arabicName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"address\": \"string\",\n          \"phone\": \"string\",\n          \"isEnable\": false,\n          \"arabicName\": \"string\",\n          \"status\": \"Inactive\",\n          \"logo\": \"https://BJZh.ewbrzbzysWA,TzecfcqlnAzYIpuDB2TRudHQI8ucTsO\"\n        },\n        \"id\": \"ad27c022-8b63-9b31-81ac-d55a20f0bcf1\",\n        \"status\": \"ACTIVE\",\n        \"createdAt\": \"1981-01-24T21:18:50.217Z\",\n        \"updatedAt\": \"1999-02-10T02:42:37.558Z\"\n      },\n      \"purpose\": \"string\",\n      \"note\": \"string\"\n    },\n    {\n      \"paymentId\": \"a3ee5412-0aca-2ad8-368f-d62bb5e94180\",\n      \"consentId\": \"1e4cd091-6177-d4ef-3804-199ae562c4b3\",\n      \"externalReference\": \"string\",\n      \"scope\": \"Payments\",\n      \"paymentConsentType\": \"<string>\",\n      \"executionDateTime\": \"1950-11-06T23:57:33.198Z\",\n      \"authorizationLink\": \"string\",\n      \"amount\": {\n        \"value\": 1684.2448290822942,\n        \"currency\": {\n          \"englishName\": \"string\",\n          \"iso4117Code\": \"str\",\n          \"id\": \"cf74007f-11ff-7f9f-7f38-91bfbaf56dfd\",\n          \"arabicName\": \"string\",\n          \"iso4117Number\": \"stri\"\n        }\n      },\n      \"createdAt\": \"1973-05-28T15:00:19.794Z\",\n      \"status\": \"Consumed\",\n      \"creditorAccount\": {\n        \"identification\": \"string\",\n        \"scheme\": \"<string>\",\n        \"id\": \"2a751fc9-ffdc-b9df-6840-ba574992bc5b\",\n        \"name\": \"string\"\n      },\n      \"debtorAccount\": {\n        \"identification\": \"string\",\n        \"scheme\": \"<string>\",\n        \"id\": \"82bde009-4f4f-3b67-57d9-88a174814cc4\",\n        \"name\": \"string\"\n      },\n      \"connection\": {\n        \"provider\": {\n          \"englishName\": \"string\",\n          \"id\": \"62206994-a898-66e5-c4d6-ee2d440f1922\",\n          \"country\": {\n            \"englishName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"iso3166Code\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"timeZone\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"createdAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"updatedAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"currency\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"arabicName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"address\": \"string\",\n          \"phone\": \"string\",\n          \"isEnable\": true,\n          \"arabicName\": \"string\",\n          \"status\": \"Inactive\",\n          \"logo\": \"http://eNbppkyEKfmgthuJMUh.qpzDrFdtgnIau0rTYeHhCMkB5Oknz3xeCB9zmJeT\"\n        },\n        \"id\": \"b79f9b1b-78ff-45ab-003d-2f0f136458d7\",\n        \"status\": \"INACTIVE\",\n        \"createdAt\": \"1989-03-12T09:02:56.761Z\",\n        \"updatedAt\": \"1974-06-13T10:52:10.487Z\"\n      },\n      \"purpose\": \"string\",\n      \"note\": \"string\"\n    }\n  ],\n  \"meta\": {\n    \"currentPageNumber\": 5377,\n    \"pageSize\": 6874,\n    \"totalNumberOfPages\": 1228\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "739e3bef-1c77-4067-9e6d-c93c42679b1d",
+              "name": "- If connection id is not valid\n- If provider id is not valid\n- If pagination parameters are not valid.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1.0",
+                    "pis",
+                    "Consent",
+                    "List"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "perPage",
+                      "value": "20"
+                    },
+                    {
+                      "key": "providerId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "connectionId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "externalReference",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"NOT_SUBSCRIBED_TO_SERVICE\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key_1\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key_2\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "09c8e0ab-01f8-4c4c-8077-d56bd87b74a6",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1.0",
+                    "pis",
+                    "Consent",
+                    "List"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "perPage",
+                      "value": "20"
+                    },
+                    {
+                      "key": "providerId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "connectionId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "externalReference",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"NOT_SUBSCRIBED_TO_SERVICE\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key_1\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key_2\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "759ccc26-503a-494e-8377-a4678b9c2f10",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1.0",
+                    "pis",
+                    "Consent",
+                    "List"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "perPage",
+                      "value": "20"
+                    },
+                    {
+                      "key": "providerId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "connectionId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "externalReference",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"NOT_SUBSCRIBED_TO_SERVICE\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key_1\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key_2\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "13253bb7-8877-4b99-9a48-52cb14e13672",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1.0",
+                    "pis",
+                    "Consent",
+                    "List"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "perPage",
+                      "value": "20"
+                    },
+                    {
+                      "key": "providerId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "connectionId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "externalReference",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6c5d3e11-bb17-4309-aefb-bc017c96d3db",
+          "name": "Get consent by id",
+          "request": {
+            "name": "Get consent by id",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1.0",
+                "pis",
+                "Consent",
+                "Get"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "consentId",
+                  "value": "<uuid>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e72b6264-89c9-4073-bb7e-56e354376cbd",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1.0",
+                    "pis",
+                    "Consent",
+                    "Get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "consentId",
+                      "value": "<uuid>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"CONNECTION_NOT_FOUND\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key_1\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {\n    \"paymentId\": \"8ac91b99-4708-3709-c90a-3e5a65ac01c0\",\n    \"consentId\": \"d807d3d1-cc23-b61b-91d2-0d334ac83545\",\n    \"externalReference\": \"string\",\n    \"scope\": \"Payments\",\n    \"paymentConsentType\": \"<string>\",\n    \"executionDateTime\": \"2014-11-26T04:06:09.256Z\",\n    \"authorizationLink\": \"string\",\n    \"amount\": {\n      \"value\": 8372.019057384701,\n      \"currency\": {\n        \"englishName\": \"string\",\n        \"iso4117Code\": \"st\",\n        \"id\": \"2ebb0af6-bb4c-b5d5-d92f-27f86dc09ab2\",\n        \"arabicName\": \"string\",\n        \"iso4117Number\": \"stri\"\n      }\n    },\n    \"createdAt\": \"1964-08-22T12:29:01.394Z\",\n    \"status\": \"Authorized\",\n    \"creditorAccount\": {\n      \"identification\": \"string\",\n      \"scheme\": \"<string>\",\n      \"id\": \"e687dbd5-4448-7eec-dbec-4355c097e382\",\n      \"name\": \"string\"\n    },\n    \"debtorAccount\": {\n      \"identification\": \"str\",\n      \"scheme\": \"<string>\",\n      \"id\": \"4d2b1344-57ed-3031-fd60-00a3ef0b3a4a\",\n      \"name\": \"string\"\n    },\n    \"connection\": {\n      \"provider\": {\n        \"englishName\": \"string\",\n        \"id\": \"c1aee8f4-9761-7b50-98b8-1d5fa2f23729\",\n        \"country\": {\n          \"englishName\": \"string\",\n          \"iso3166Code\": \"GS\",\n          \"timeZone\": \"string\",\n          \"id\": \"a5732201-beec-fc8f-4fbd-9307c64ed723\",\n          \"createdAt\": \"2011-12-14T05:58:35.665Z\",\n          \"updatedAt\": \"1976-03-27T17:37:56.779Z\",\n          \"currency\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"arabicName\": \"string\"\n        },\n        \"address\": \"string\",\n        \"phone\": \"string\",\n        \"isEnable\": false,\n        \"arabicName\": \"string\",\n        \"status\": \"Inactive\",\n        \"logo\": \"https://LEbTtfAFpXekpZXqsY.nlpuoR9xgkw\"\n      },\n      \"id\": \"f9214943-e06a-5c46-7850-ce89e2639994\",\n      \"status\": \"INACTIVE\",\n      \"createdAt\": \"2008-05-14T23:51:14.660Z\",\n      \"updatedAt\": \"1975-01-10T20:17:30.228Z\"\n    },\n    \"purpose\": \"string\",\n    \"note\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1b2aec15-d62a-4281-9c76-89eb7674928f",
+              "name": "- If consents id is not valid UUID",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1.0",
+                    "pis",
+                    "Consent",
+                    "Get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "consentId",
+                      "value": "<uuid>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"NOT_SUBSCRIBED_TO_SERVICE\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key_1\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key_2\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b6063bbf-60d2-4d69-b9fa-b457516f3a56",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1.0",
+                    "pis",
+                    "Consent",
+                    "Get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "consentId",
+                      "value": "<uuid>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"NOT_SUBSCRIBED_TO_SERVICE\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key_1\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key_2\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b6df6565-9dfa-4c96-99c7-68c2142a48e1",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1.0",
+                    "pis",
+                    "Consent",
+                    "Get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "consentId",
+                      "value": "<uuid>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"NOT_SUBSCRIBED_TO_SERVICE\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key_1\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key_2\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0afd5c5e-4e8c-47ea-b976-905432076a19",
+              "name": "- If consents does not exist",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1.0",
+                    "pis",
+                    "Consent",
+                    "Get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "consentId",
+                      "value": "<uuid>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"NOT_SUBSCRIBED_TO_SERVICE\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key_1\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key_2\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6116317c-ff09-4d1d-aebc-4d22b0c97cc7",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1.0",
+                    "pis",
+                    "Consent",
+                    "Get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "consentId",
+                      "value": "<uuid>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f0824c94-0b85-4c74-8426-93c23f427cd2",
+          "name": "Create short-lived consent",
+          "request": {
+            "name": "Create short-lived consent",
+            "description": {
+              "content": "**Unique resource name :** ais.v1.consent.create_short_lived_consent\r\n            \r\n**Consent lifetime :** 1 Day",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1.0",
+                "ais",
+                "Consent",
+                "CreateShortLivedConsent"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"customerId\": \"<uuid>\",\n  \"providerId\": \"<uuid>\",\n  \"connectionId\": \"<uuid>\",\n  \"transactionsFromDate\": \"<dateTime>\",\n  \"transactionsToDate\": \"<dateTime>\",\n  \"permissions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"successRedirectUrl\": \"<uri>\",\n  \"failureRedirectUrl\": \"<uri>\",\n  \"autoRedirect\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "0941b59c-6529-4d07-8682-0d5f18f0e491",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1.0",
+                    "ais",
+                    "Consent",
+                    "CreateShortLivedConsent"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"customerId\": \"<uuid>\",\n  \"providerId\": \"<uuid>\",\n  \"connectionId\": \"<uuid>\",\n  \"transactionsFromDate\": \"<dateTime>\",\n  \"transactionsToDate\": \"<dateTime>\",\n  \"permissions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"successRedirectUrl\": \"<uri>\",\n  \"failureRedirectUrl\": \"<uri>\",\n  \"autoRedirect\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"MULTIPLE_CURRENCY_NOT_ALLOWED\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key_1\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key_2\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {\n    \"expiryDate\": \"2024-12-12T00:42:26.107Z\",\n    \"transactionsFromDate\": \"1989-08-18T06:02:59.970Z\",\n    \"transactionsToDate\": \"1955-12-13T10:45:08.815Z\",\n    \"permissions\": [\n      \"string\",\n      \"string\"\n    ],\n    \"statusHistory\": [\n      {\n        \"status\": \"Authorized\",\n        \"dateTime\": \"2012-03-05T22:00:31.252Z\"\n      },\n      {\n        \"status\": \"Revoked\",\n        \"dateTime\": \"1953-09-05T10:56:45.929Z\"\n      }\n    ],\n    \"connection\": {\n      \"provider\": {\n        \"englishName\": \"string\",\n        \"isEnable\": false,\n        \"id\": \"d29b4a11-41b4-d9b1-7e81-038bdf075ff1\",\n        \"country\": {\n          \"englishName\": \"string\",\n          \"iso3166Code\": \"UV\",\n          \"timeZone\": \"string\",\n          \"id\": \"c6fa6dd6-bc38-30ef-05f3-02b82e872e5c\",\n          \"createdAt\": \"2020-03-30T09:08:27.348Z\",\n          \"updatedAt\": \"1994-06-13T14:38:21.687Z\",\n          \"currency\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"arabicName\": \"string\"\n        },\n        \"allowedPermissions\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"address\": \"string\",\n        \"phone\": \"string\",\n        \"useBenefit\": false,\n        \"arabicName\": \"string\",\n        \"status\": \"Active\",\n        \"logo\": \"https://PQJeIjsRFDM.ulrTbB4ExF2f6wnt\"\n      },\n      \"id\": \"84984ee0-8bb3-8d6d-f41b-24a2de57929c\",\n      \"status\": \"ACTIVE\",\n      \"createdAt\": \"2000-02-09T22:12:45.184Z\",\n      \"updatedAt\": \"1954-11-27T09:33:54.095Z\"\n    },\n    \"id\": \"d8c79fd2-8511-adb2-a496-4a79b51a583e\",\n    \"customerId\": \"9cc46dba-877f-8a70-e056-e9503efeb5d3\",\n    \"scope\": \"Payments\",\n    \"createdAt\": \"1955-10-25T19:03:51.559Z\",\n    \"status\": \"Consumed\",\n    \"authorizationLink\": \"string\",\n    \"successRedirectUrl\": \"string\",\n    \"failureRedirectUrl\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "97f28c4b-e610-412d-9451-2d411864a1a7",
+              "name": "- If provider id is not valid",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1.0",
+                    "ais",
+                    "Consent",
+                    "CreateShortLivedConsent"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"customerId\": \"<uuid>\",\n  \"providerId\": \"<uuid>\",\n  \"connectionId\": \"<uuid>\",\n  \"transactionsFromDate\": \"<dateTime>\",\n  \"transactionsToDate\": \"<dateTime>\",\n  \"permissions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"successRedirectUrl\": \"<uri>\",\n  \"failureRedirectUrl\": \"<uri>\",\n  \"autoRedirect\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"NOT_SUBSCRIBED_TO_SERVICE\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key_1\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key_2\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "463f6d1a-1818-4471-9f93-a7e42ed2ea40",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1.0",
+                    "ais",
+                    "Consent",
+                    "CreateShortLivedConsent"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"customerId\": \"<uuid>\",\n  \"providerId\": \"<uuid>\",\n  \"connectionId\": \"<uuid>\",\n  \"transactionsFromDate\": \"<dateTime>\",\n  \"transactionsToDate\": \"<dateTime>\",\n  \"permissions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"successRedirectUrl\": \"<uri>\",\n  \"failureRedirectUrl\": \"<uri>\",\n  \"autoRedirect\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"NOT_SUBSCRIBED_TO_SERVICE\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key_1\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key_2\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "489e3c25-259e-4de1-9d27-ee3b38a7d402",
+              "name": "Payment Required",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1.0",
+                    "ais",
+                    "Consent",
+                    "CreateShortLivedConsent"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"customerId\": \"<uuid>\",\n  \"providerId\": \"<uuid>\",\n  \"connectionId\": \"<uuid>\",\n  \"transactionsFromDate\": \"<dateTime>\",\n  \"transactionsToDate\": \"<dateTime>\",\n  \"permissions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"successRedirectUrl\": \"<uri>\",\n  \"failureRedirectUrl\": \"<uri>\",\n  \"autoRedirect\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"NOT_SUBSCRIBED_TO_SERVICE\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key_1\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key_2\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "78ee9cfe-7196-42d4-ba3c-b04289f7f63f",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1.0",
+                    "ais",
+                    "Consent",
+                    "CreateShortLivedConsent"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"customerId\": \"<uuid>\",\n  \"providerId\": \"<uuid>\",\n  \"connectionId\": \"<uuid>\",\n  \"transactionsFromDate\": \"<dateTime>\",\n  \"transactionsToDate\": \"<dateTime>\",\n  \"permissions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"successRedirectUrl\": \"<uri>\",\n  \"failureRedirectUrl\": \"<uri>\",\n  \"autoRedirect\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"NOT_SUBSCRIBED_TO_SERVICE\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key_1\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key_2\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "863c9597-ecfc-4240-8989-f3fd1ba5072a",
+              "name": "- If provider does not exist\r\n- If connection does not exist",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1.0",
+                    "ais",
+                    "Consent",
+                    "CreateShortLivedConsent"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"customerId\": \"<uuid>\",\n  \"providerId\": \"<uuid>\",\n  \"connectionId\": \"<uuid>\",\n  \"transactionsFromDate\": \"<dateTime>\",\n  \"transactionsToDate\": \"<dateTime>\",\n  \"permissions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"successRedirectUrl\": \"<uri>\",\n  \"failureRedirectUrl\": \"<uri>\",\n  \"autoRedirect\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"NOT_SUBSCRIBED_TO_SERVICE\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key_1\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key_2\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b49b0404-fec4-4e1a-a1d8-9f5b669768fc",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1.0",
+                    "ais",
+                    "Consent",
+                    "CreateShortLivedConsent"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"customerId\": \"<uuid>\",\n  \"providerId\": \"<uuid>\",\n  \"connectionId\": \"<uuid>\",\n  \"transactionsFromDate\": \"<dateTime>\",\n  \"transactionsToDate\": \"<dateTime>\",\n  \"permissions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"successRedirectUrl\": \"<uri>\",\n  \"failureRedirectUrl\": \"<uri>\",\n  \"autoRedirect\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "df334fb8-78cc-441b-997e-ab048002f07c",
+          "name": "Create long-lived consent",
+          "request": {
+            "name": "Create long-lived consent",
+            "description": {
+              "content": "**Unique resource name :** ais.v1.consent.create_long_lived_consent\r\n            \r\n**Consent lifetime :** expiry date input",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1.0",
+                "ais",
+                "Consent",
+                "CreateLongLivedConsent"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"customerId\": \"<uuid>\",\n  \"expiryDate\": \"<dateTime>\",\n  \"providerId\": \"<uuid>\",\n  \"connectionId\": \"<uuid>\",\n  \"transactionsFromDate\": \"<dateTime>\",\n  \"transactionsToDate\": \"<dateTime>\",\n  \"permissions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"successRedirectUrl\": \"<uri>\",\n  \"failureRedirectUrl\": \"<uri>\",\n  \"autoRedirect\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d55a0b19-491a-4343-a2dc-f0397039f69a",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1.0",
+                    "ais",
+                    "Consent",
+                    "CreateLongLivedConsent"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"customerId\": \"<uuid>\",\n  \"expiryDate\": \"<dateTime>\",\n  \"providerId\": \"<uuid>\",\n  \"connectionId\": \"<uuid>\",\n  \"transactionsFromDate\": \"<dateTime>\",\n  \"transactionsToDate\": \"<dateTime>\",\n  \"permissions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"successRedirectUrl\": \"<uri>\",\n  \"failureRedirectUrl\": \"<uri>\",\n  \"autoRedirect\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"MULTIPLE_CURRENCY_NOT_ALLOWED\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key_1\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key_2\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {\n    \"expiryDate\": \"2024-12-12T00:42:26.107Z\",\n    \"transactionsFromDate\": \"1989-08-18T06:02:59.970Z\",\n    \"transactionsToDate\": \"1955-12-13T10:45:08.815Z\",\n    \"permissions\": [\n      \"string\",\n      \"string\"\n    ],\n    \"statusHistory\": [\n      {\n        \"status\": \"Authorized\",\n        \"dateTime\": \"2012-03-05T22:00:31.252Z\"\n      },\n      {\n        \"status\": \"Revoked\",\n        \"dateTime\": \"1953-09-05T10:56:45.929Z\"\n      }\n    ],\n    \"connection\": {\n      \"provider\": {\n        \"englishName\": \"string\",\n        \"isEnable\": false,\n        \"id\": \"d29b4a11-41b4-d9b1-7e81-038bdf075ff1\",\n        \"country\": {\n          \"englishName\": \"string\",\n          \"iso3166Code\": \"UV\",\n          \"timeZone\": \"string\",\n          \"id\": \"c6fa6dd6-bc38-30ef-05f3-02b82e872e5c\",\n          \"createdAt\": \"2020-03-30T09:08:27.348Z\",\n          \"updatedAt\": \"1994-06-13T14:38:21.687Z\",\n          \"currency\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"arabicName\": \"string\"\n        },\n        \"allowedPermissions\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"address\": \"string\",\n        \"phone\": \"string\",\n        \"useBenefit\": false,\n        \"arabicName\": \"string\",\n        \"status\": \"Active\",\n        \"logo\": \"https://PQJeIjsRFDM.ulrTbB4ExF2f6wnt\"\n      },\n      \"id\": \"84984ee0-8bb3-8d6d-f41b-24a2de57929c\",\n      \"status\": \"ACTIVE\",\n      \"createdAt\": \"2000-02-09T22:12:45.184Z\",\n      \"updatedAt\": \"1954-11-27T09:33:54.095Z\"\n    },\n    \"id\": \"d8c79fd2-8511-adb2-a496-4a79b51a583e\",\n    \"customerId\": \"9cc46dba-877f-8a70-e056-e9503efeb5d3\",\n    \"scope\": \"Payments\",\n    \"createdAt\": \"1955-10-25T19:03:51.559Z\",\n    \"status\": \"Consumed\",\n    \"authorizationLink\": \"string\",\n    \"successRedirectUrl\": \"string\",\n    \"failureRedirectUrl\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3d0eb939-2b38-4f04-9108-1a62b57b77ba",
+              "name": "- If provider id is not valid",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1.0",
+                    "ais",
+                    "Consent",
+                    "CreateLongLivedConsent"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"customerId\": \"<uuid>\",\n  \"expiryDate\": \"<dateTime>\",\n  \"providerId\": \"<uuid>\",\n  \"connectionId\": \"<uuid>\",\n  \"transactionsFromDate\": \"<dateTime>\",\n  \"transactionsToDate\": \"<dateTime>\",\n  \"permissions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"successRedirectUrl\": \"<uri>\",\n  \"failureRedirectUrl\": \"<uri>\",\n  \"autoRedirect\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"NOT_SUBSCRIBED_TO_SERVICE\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key_1\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key_2\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "03cbd311-778a-4927-982f-806643a3d4d1",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1.0",
+                    "ais",
+                    "Consent",
+                    "CreateLongLivedConsent"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"customerId\": \"<uuid>\",\n  \"expiryDate\": \"<dateTime>\",\n  \"providerId\": \"<uuid>\",\n  \"connectionId\": \"<uuid>\",\n  \"transactionsFromDate\": \"<dateTime>\",\n  \"transactionsToDate\": \"<dateTime>\",\n  \"permissions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"successRedirectUrl\": \"<uri>\",\n  \"failureRedirectUrl\": \"<uri>\",\n  \"autoRedirect\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"NOT_SUBSCRIBED_TO_SERVICE\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key_1\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key_2\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7cabf591-2ab1-4c25-b2d5-509d7e0dda83",
+              "name": "Payment Required",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1.0",
+                    "ais",
+                    "Consent",
+                    "CreateLongLivedConsent"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"customerId\": \"<uuid>\",\n  \"expiryDate\": \"<dateTime>\",\n  \"providerId\": \"<uuid>\",\n  \"connectionId\": \"<uuid>\",\n  \"transactionsFromDate\": \"<dateTime>\",\n  \"transactionsToDate\": \"<dateTime>\",\n  \"permissions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"successRedirectUrl\": \"<uri>\",\n  \"failureRedirectUrl\": \"<uri>\",\n  \"autoRedirect\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"NOT_SUBSCRIBED_TO_SERVICE\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key_1\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key_2\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "05808158-7444-4ca5-a294-316bca63b0f3",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1.0",
+                    "ais",
+                    "Consent",
+                    "CreateLongLivedConsent"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"customerId\": \"<uuid>\",\n  \"expiryDate\": \"<dateTime>\",\n  \"providerId\": \"<uuid>\",\n  \"connectionId\": \"<uuid>\",\n  \"transactionsFromDate\": \"<dateTime>\",\n  \"transactionsToDate\": \"<dateTime>\",\n  \"permissions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"successRedirectUrl\": \"<uri>\",\n  \"failureRedirectUrl\": \"<uri>\",\n  \"autoRedirect\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"NOT_SUBSCRIBED_TO_SERVICE\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key_1\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key_2\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a70df8a8-a366-45d5-863e-07bc4a29608f",
+              "name": "- If provider does not exist\r\n- If connection does not exist",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1.0",
+                    "ais",
+                    "Consent",
+                    "CreateLongLivedConsent"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"customerId\": \"<uuid>\",\n  \"expiryDate\": \"<dateTime>\",\n  \"providerId\": \"<uuid>\",\n  \"connectionId\": \"<uuid>\",\n  \"transactionsFromDate\": \"<dateTime>\",\n  \"transactionsToDate\": \"<dateTime>\",\n  \"permissions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"successRedirectUrl\": \"<uri>\",\n  \"failureRedirectUrl\": \"<uri>\",\n  \"autoRedirect\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"NOT_SUBSCRIBED_TO_SERVICE\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key_1\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key_2\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3ebd833b-c3b7-43b6-90b6-adf7ae7134c2",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1.0",
+                    "ais",
+                    "Consent",
+                    "CreateLongLivedConsent"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"customerId\": \"<uuid>\",\n  \"expiryDate\": \"<dateTime>\",\n  \"providerId\": \"<uuid>\",\n  \"connectionId\": \"<uuid>\",\n  \"transactionsFromDate\": \"<dateTime>\",\n  \"transactionsToDate\": \"<dateTime>\",\n  \"permissions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"successRedirectUrl\": \"<uri>\",\n  \"failureRedirectUrl\": \"<uri>\",\n  \"autoRedirect\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "ceac03ef-a763-4afe-8d39-a905d485307a",
+    "name": "Information Account Consent API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Spare account information API documentation\n\nContact Support:\n Name: Spare Technologies WLL.\n Email: hello@tryspare.com",
+      "type": "text/plain"
+    }
+  }
+}

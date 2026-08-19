@@ -1,0 +1,64 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Information Account Token API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Token",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Generates an API authentication token using the provided API credentials.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1.0/authentication/Token",
+            "headers": [
+              {
+                "name": "app-id",
+                "value": ""
+              },
+              {
+                "name": "x-api-key",
+                "value": ""
+              }
+            ]
+          },
+          "docs": "**Unique resource name:** api_authentication.v1.token\r\n            \r\nThis endpoint authenticates an API keys by validating the provided API credentials.\r\nUpon successful authentication, an access token is generated and returned.\r\n            \r\n**Authentication Process:**\r\n- The `app-id` and `x-api-key` headers must contain valid credentials.\r\n- If authentication is successful, a signed JSON Web Token (JWT) is issued.\r\n- If authentication fails due to invalid credentials, a `401 Unauthorized` res"
+        },
+        {
+          "info": {
+            "name": "Refreshes an API authentication token using a valid refresh token.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1.0/authentication/Refresh",
+            "headers": [
+              {
+                "name": "refresh-token",
+                "value": ""
+              }
+            ]
+          },
+          "docs": "**Unique resource name:** api_authentication.v1.refresh\r\n            \r\nThis endpoint allows clients to obtain a new access token by providing a valid refresh token.\r\nThe refresh token must be issued by the authentication service and must not be expired.\r\n            \r\n**Authentication Process:**\r\n- The `refresh-token` header must contain a valid refresh token.\r\n- If the refresh token is valid, a new access token is issued.\r\n- If the refresh token is invalid or expired, a `401 Unauthorized` respo"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

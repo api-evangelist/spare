@@ -1,0 +1,147 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Information Account AccountInformationReport API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "AccountInformationReport",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create account information job report.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v1.0/ais/AccountInformationReport/Create",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "**Unique resource name :** ais.v1.account_information_report.create"
+        },
+        {
+          "info": {
+            "name": "Get account information job report by id.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1.0/ais/AccountInformationReport/Get",
+            "params": [
+              {
+                "name": "jobId",
+                "value": "",
+                "type": "query",
+                "description": "Account information report job id"
+              },
+              {
+                "name": "customerId",
+                "value": "",
+                "type": "query",
+                "description": "Customer id"
+              }
+            ]
+          },
+          "docs": "**Unique resource name :** ais.v1.account_information_report.get"
+        },
+        {
+          "info": {
+            "name": "Download account information job report.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1.0/ais/AccountInformationReport/File",
+            "params": [
+              {
+                "name": "jobId",
+                "value": "",
+                "type": "query",
+                "description": "Account information report job id"
+              },
+              {
+                "name": "customerId",
+                "value": "",
+                "type": "query",
+                "description": "Customer id"
+              }
+            ]
+          },
+          "docs": "**Unique resource name :** ais.v1.account_information_report.file"
+        },
+        {
+          "info": {
+            "name": "List account information reports.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v1.0/ais/AccountInformationReport/List",
+            "params": [
+              {
+                "name": "customerId",
+                "value": "",
+                "type": "query",
+                "description": "Customer id"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number"
+              },
+              {
+                "name": "perPage",
+                "value": "",
+                "type": "query",
+                "description": "Number of items per page maximum allow is 10 per page"
+              }
+            ]
+          },
+          "docs": "**Unique resource name :** ais.v1.account_information_report.list"
+        },
+        {
+          "info": {
+            "name": "Get account information report job status.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1.0/ais/AccountInformationReport/Status",
+            "params": [
+              {
+                "name": "jobId",
+                "value": "",
+                "type": "query",
+                "description": "Job id"
+              },
+              {
+                "name": "customerId",
+                "value": "",
+                "type": "query",
+                "description": "Customer id"
+              }
+            ]
+          },
+          "docs": "**Unique resource name :** ais.v1.account_information_report.status"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
