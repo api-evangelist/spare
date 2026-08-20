@@ -51,6 +51,23 @@ tags:
 - PISP
 - Consent
 - Bank Data
+- Transaction
+- Balances
+- Payments
+- Fintech
+- MENA
+- Saudi Arabia
+- Bahrain
+- UAE
+tags_raw:
+- Open Banking
+- Open Finance
+- Account Information
+- Payment Initiation
+- AISP
+- PISP
+- Consent
+- Bank Data
 - Transactions
 - Balances
 - Payments
@@ -120,6 +137,8 @@ apis:
   humanURL: https://docs.tryspare.com/reference/get_api-v1-0-authentication-token
   baseURL: https://ob.tryspare.com/api/v1.0/authentication
   tags:
+  - Balances
+  tags_raw:
   - Balance
   properties:
   - type: OpenAPI
@@ -240,6 +259,8 @@ apis:
   humanURL: https://docs.tryspare.com/reference/get_api-v1-0-authentication-token
   baseURL: https://ob.tryspare.com/api/v1.0/authentication
   tags:
+  - Customers
+  tags_raw:
   - Customer
   properties:
   - type: OpenAPI
@@ -264,6 +285,8 @@ apis:
   humanURL: https://docs.tryspare.com/reference/get_api-v1-0-authentication-token
   baseURL: https://ob.tryspare.com/api/v1.0/authentication
   tags:
+  - Direct Debit
+  tags_raw:
   - DirectDebit
   properties:
   - type: OpenAPI
