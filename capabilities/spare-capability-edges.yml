@@ -1,0 +1,48 @@
+slug: spare
+provider: Spare
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Banking & Capital Markets
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 3
+edges:
+- tag: Payment
+  spec_file: spare-payment-api-openapi.yml
+  capability_id: BC-1340.10
+  capability_id_l1: BC-1340
+  capability_name: Payment Initiation Management
+  confidence: 0.78
+  evidence: POST /api/v1.0/pis/Payment/List — List domestic payment; GET /api/v1.0/pis/Payment/Get — Get
+    domestic payment by id; schemas DomesticPaymentResponseModel, PaymentTransactionStatus, PaymentAmountResponseModel
+  reason: Domestic payment objects produced by a licensed Payment Initiation Service Provider; retrieving
+    initiated payments and their transaction status belongs to payment initiation management. Slight ambiguity
+    between initiation and processing sub-capabilities since these operations only read payment state.
+- tag: RiskReport
+  spec_file: spare-riskreport-api-openapi.yml
+  capability_id: BC-1320.20
+  capability_id_l1: BC-1320
+  capability_name: Credit Underwriting & Decisioning Management
+  confidence: 0.78
+  evidence: GET /api/v1.0/ais/RiskReport/Create — Create account information risk report; schemas DebtServiceRatioDetail,
+    IncomeTrendDetail, SalaryRangeDetail, RepaymentRegularityDetail, RiskScoreResponseApiResponse, EmergencyBufferDetail
+  reason: Generates affordability/creditworthiness scoring from transaction data (debt-service ratio,
+    income trend, repayment regularity, risk score) — the analytical input to credit decisioning and underwriting.
+    Some chance the intended edge is credit risk modelling rather than underwriting/decisioning.
+- tag: Customer
+  spec_file: spare-customer-api-openapi.yml
+  capability_id: BC-1300.40
+  capability_id_l1: BC-1300
+  capability_name: Customer Information Management
+  confidence: 0.7
+  evidence: POST /api/v1.0/ais/Customer/Create — Create customer; PATCH /api/v1.0/ais/Customer/Update
+    — Update customer; schemas CustomerRequestModel, CustomerType, CustomerDetailsResponseModel
+  reason: CRUD over customer records within a licensed open-banking (AISP/PISP) platform is customer master/information
+    management for banking customers. Sub-capability chosen over generic CRM because the vendor operates
+    as a regulated bank-data provider; some chance the intended edge is cross-industry customer data management.

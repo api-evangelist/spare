@@ -510,6 +510,9 @@ apis:
   - type: Documentation
     url: https://docs.tryspare.com/docs/ksa-coverage
 common:
+- type: CapabilityMap
+  url: capabilities/spare-capability-edges.yml
+  name: Spare Business Capability Map
 - type: Overlay
   url: overlays/spare-bahrain-ais-overlay.yaml
 - type: TrustCenter
