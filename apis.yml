@@ -297,7 +297,7 @@ apis:
   humanURL: https://docs.tryspare.com/reference/get_api-v1-0-authentication-token
   baseURL: https://ob.tryspare.com/api/v1.0/authentication
   tags:
-  - Direct Debit
+  - DirectDebit
   tags_raw:
   - DirectDebit
   properties:
