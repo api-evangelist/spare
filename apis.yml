@@ -291,32 +291,6 @@ apis:
     url: https://docs.tryspare.com/reference/create-business-domestic-payment
   - type: Documentation
     url: https://docs.tryspare.com/docs/ksa-coverage
-- aid: spare:spare-directdebit-api
-  name: Spare DirectDebit API
-  description: The DirectDebit API from Spare — 1 operation(s) for directdebit.
-  humanURL: https://docs.tryspare.com/reference/get_api-v1-0-authentication-token
-  baseURL: https://ob.tryspare.com/api/v1.0/authentication
-  tags:
-  - Direct Debit
-  tags_raw:
-  - DirectDebit
-  properties:
-  - type: OpenAPI
-    url: openapi/spare-directdebit-api-openapi.yml
-  - type: Documentation
-    url: https://docs.tryspare.com/docs/auth-flow
-  - type: APIReference
-    url: https://docs.tryspare.com/reference/get_api-v1-0-authentication-token
-  - type: Documentation
-    url: https://docs.tryspare.com/docs/data-api-basics
-  - type: APIReference
-    url: https://docs.tryspare.com/reference/get_api-v1-0-ais-account-list-1
-  - type: Documentation
-    url: https://docs.tryspare.com/docs/payments-api-basics
-  - type: APIReference
-    url: https://docs.tryspare.com/reference/create-business-domestic-payment
-  - type: Documentation
-    url: https://docs.tryspare.com/docs/ksa-coverage
 - aid: spare:spare-parties-api
   name: Spare Parties API
   description: The Parties API from Spare — 1 operation(s) for parties.
@@ -495,6 +469,30 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/spare-transaction-api-openapi.yml
+  - type: Documentation
+    url: https://docs.tryspare.com/docs/auth-flow
+  - type: APIReference
+    url: https://docs.tryspare.com/reference/get_api-v1-0-authentication-token
+  - type: Documentation
+    url: https://docs.tryspare.com/docs/data-api-basics
+  - type: APIReference
+    url: https://docs.tryspare.com/reference/get_api-v1-0-ais-account-list-1
+  - type: Documentation
+    url: https://docs.tryspare.com/docs/payments-api-basics
+  - type: APIReference
+    url: https://docs.tryspare.com/reference/create-business-domestic-payment
+  - type: Documentation
+    url: https://docs.tryspare.com/docs/ksa-coverage
+- aid: spare:spare-direct-debit-api
+  name: Spare Direct Debit API
+  description: The Direct Debit API from Spare — 1 operation(s) for direct debit.
+  humanURL: https://docs.tryspare.com/reference/get_api-v1-0-authentication-token
+  baseURL: https://ob.tryspare.com/api/v1.0/authentication
+  tags:
+  - Direct Debit
+  properties:
+  - type: OpenAPI
+    url: openapi/spare-direct-debit-api-openapi.yml
   - type: Documentation
     url: https://docs.tryspare.com/docs/auth-flow
   - type: APIReference
