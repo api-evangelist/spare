@@ -70,7 +70,7 @@ tags:
 - MENA
 - Saudi Arabia
 - Bahrain
-- UAE
+- United Arab Emirates
 tags_raw:
 - Open Banking
 - Open Finance
@@ -321,6 +321,8 @@ apis:
   humanURL: https://docs.tryspare.com/reference/get_api-v1-0-authentication-token
   baseURL: https://ob.tryspare.com/api/v1.0/authentication
   tags:
+  - Payments
+  tags_raw:
   - Payment
   properties:
   - type: OpenAPI
@@ -345,6 +347,8 @@ apis:
   humanURL: https://docs.tryspare.com/reference/get_api-v1-0-authentication-token
   baseURL: https://ob.tryspare.com/api/v1.0/authentication
   tags:
+  - Providers
+  tags_raw:
   - Provider
   properties:
   - type: OpenAPI
@@ -441,6 +445,8 @@ apis:
   humanURL: https://docs.tryspare.com/reference/get_api-v1-0-authentication-token
   baseURL: https://ob.tryspare.com/api/v1.0/authentication
   tags:
+  - Tokens
+  tags_raw:
   - Token
   properties:
   - type: OpenAPI
