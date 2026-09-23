@@ -1,14 +1,9 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Information Account API
-  description: Spare account information API documentation
+  title: Spare Account API
   termsOfService: https://terms.tryspare.com/en
-  contact:
-    name: Spare Technologies WLL.
-    email: hello@tryspare.com
-  license:
-    name: Spare Technologies WLL.
   version: '1.0'
+  description: 'Operations tagged Account across 3 of this provider''s published API definitions: spare-bahrain-ais-openapi-original.json, spare-ksa-ais-openapi-original.json, spare-ksa-ais-v2-openapi-original.json. Each path carries the servers of the definition it was published in.'
 security:
 - Bearer: []
 tags:
@@ -19,7 +14,17 @@ paths:
       tags:
       - Account
       summary: Get an account by id
-      description: "**Unique resource name :** ais.v1.account.get\n            \n**Important!:**\n            \nThe permissions bellow are required on the consent:\n- `ReadAccountsBasic`\n- `ReadAccountsDetail`"
+      description: '**Unique resource name :** ais.v1.account.get
+
+
+        **Important!:**
+
+
+        The permissions bellow are required on the consent:
+
+        - `ReadAccountsBasic`
+
+        - `ReadAccountsDetail`'
       parameters:
       - name: id
         in: query
@@ -67,12 +72,24 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ObjectApiResponse'
+      operationId: getApiV10AisAccountGet
+      x-operation-id-source: derived
   /api/v1.0/ais/Account/List:
     get:
       tags:
       - Account
       summary: List accounts
-      description: "**Unique resource name :** ais.v1.account.list\n            \n**Important!:**\n            \nThe permissions bellow are required on the consent:\n- `ReadAccountsBasic`\n- `ReadAccountsDetail`"
+      description: '**Unique resource name :** ais.v1.account.list
+
+
+        **Important!:**
+
+
+        The permissions bellow are required on the consent:
+
+        - `ReadAccountsBasic`
+
+        - `ReadAccountsDetail`'
       parameters:
       - name: consentId
         in: query
@@ -134,12 +151,24 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ObjectApiResponse'
+      operationId: getApiV10AisAccountList
+      x-operation-id-source: derived
   /api/v2.0/ais/Account/Get:
     get:
       tags:
       - Account
       summary: Get an account by id for long-lived consent
-      description: "**Unique resource name :** ais.v2.account.get\r\n            \r\n**Important!:**\r\n            \r\nThe permissions below are required on the consent:\r\n- `ReadAccountsBasic`\r\n- `ReadAccountsDetail`"
+      description: '**Unique resource name :** ais.v2.account.get
+
+
+        **Important!:**
+
+
+        The permissions below are required on the consent:
+
+        - `ReadAccountsBasic`
+
+        - `ReadAccountsDetail`'
       parameters:
       - name: id
         in: query
@@ -187,12 +216,24 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ObjectApiResponse'
+      operationId: getApiV20AisAccountGet
+      x-operation-id-source: derived
   /api/v2.0/ais/Account/List:
     get:
       tags:
       - Account
       summary: List accounts for long-lived consent
-      description: "**Unique resource name :** ais.v2.account.list\r\n            \r\n**Important!:**\r\n            \r\nThe permissions below are required on the consent:\r\n- `ReadAccountsBasic`\r\n- `ReadAccountsDetail`"
+      description: '**Unique resource name :** ais.v2.account.list
+
+
+        **Important!:**
+
+
+        The permissions below are required on the consent:
+
+        - `ReadAccountsBasic`
+
+        - `ReadAccountsDetail`'
       parameters:
       - name: consentId
         in: query
@@ -254,22 +295,45 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ObjectApiResponse'
+      operationId: getApiV20AisAccountList
+      x-operation-id-source: derived
 components:
   schemas:
-    ServicerResponseModel:
+    SubAccountsResponseModel:
       type: object
       properties:
         id:
           type: string
           format: uuid
-        address:
-          $ref: '#/components/schemas/ServicerAddressResponseModel'
         scheme:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         identification:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
+        name:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
+    ObjectApiResponse:
+      type: object
+      properties:
+        error:
+          $ref: '#/components/schemas/ApiError'
+        errorDescription:
+          type:
+          - object
+          - 'null'
+          additionalProperties:
+            type:
+            - array
+            - 'null'
+            items:
+              type: string
+        data: {}
       additionalProperties: false
     PagesModel:
       type: object
@@ -283,6 +347,113 @@ components:
         totalNumberOfPages:
           type: integer
           format: int32
+      additionalProperties: false
+    ServicerAddressResponseModel:
+      type: object
+      properties:
+        addressType:
+          type:
+          - string
+          - 'null'
+        department:
+          type:
+          - string
+          - 'null'
+        subDepartment:
+          type:
+          - string
+          - 'null'
+        addressLine:
+          type:
+          - string
+          - 'null'
+        streetName:
+          type:
+          - string
+          - 'null'
+        buildingNumber:
+          type:
+          - string
+          - 'null'
+        postalCode:
+          type:
+          - string
+          - 'null'
+        townName:
+          type:
+          - string
+          - 'null'
+        countrySubDivision:
+          type:
+          - string
+          - 'null'
+        country:
+          type:
+          - string
+          - 'null'
+        shortAddress:
+          type:
+          - string
+          - 'null'
+        unitNumber:
+          type:
+          - number
+          - 'null'
+          format: double
+        secondaryNumber:
+          type:
+          - string
+          - 'null'
+        district:
+          type:
+          - string
+          - 'null'
+        city:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
+    BankAccountResponseModelIEnumerablePagesModelMetaApiResponse:
+      type: object
+      properties:
+        error:
+          $ref: '#/components/schemas/ApiError'
+        errorDescription:
+          type:
+          - object
+          - 'null'
+          additionalProperties:
+            type:
+            - array
+            - 'null'
+            items:
+              type: string
+        data:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/BankAccountResponseModel'
+        meta:
+          $ref: '#/components/schemas/PagesModel'
+      additionalProperties: false
+    BankAccountResponseModelApiResponse:
+      type: object
+      properties:
+        error:
+          $ref: '#/components/schemas/ApiError'
+        errorDescription:
+          type:
+          - object
+          - 'null'
+          additionalProperties:
+            type:
+            - array
+            - 'null'
+            items:
+              type: string
+        data:
+          $ref: '#/components/schemas/BankAccountResponseModel'
       additionalProperties: false
     CurrencyResponseModel:
       required:
@@ -299,109 +470,35 @@ components:
           type: string
         arabicName:
           maxLength: 50
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         iso4117Code:
           maxLength: 3
           minLength: 1
           type: string
         iso4117Number:
           maxLength: 4
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
       additionalProperties: false
-    BankAccountResponseModelIEnumerablePagesModelMetaApiResponse:
-      type: object
-      properties:
-        error:
-          $ref: '#/components/schemas/ApiError'
-        errorDescription:
-          type: object
-          additionalProperties:
-            type: array
-            items:
-              type: string
-            nullable: true
-          nullable: true
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/BankAccountResponseModel'
-          nullable: true
-        meta:
-          $ref: '#/components/schemas/PagesModel'
-      additionalProperties: false
-    ObjectApiResponse:
-      type: object
-      properties:
-        error:
-          $ref: '#/components/schemas/ApiError'
-        errorDescription:
-          type: object
-          additionalProperties:
-            type: array
-            items:
-              type: string
-            nullable: true
-          nullable: true
-        data:
-          nullable: true
-      additionalProperties: false
-    BankAccountResponseModel:
+    ServicerResponseModel:
       type: object
       properties:
         id:
           type: string
           format: uuid
-        currency:
-          $ref: '#/components/schemas/CurrencyResponseModel'
-        servicer:
-          $ref: '#/components/schemas/ServicerResponseModel'
-        accounts:
-          type: array
-          items:
-            $ref: '#/components/schemas/SubAccountsResponseModel'
-          nullable: true
-        status:
-          type: string
-          nullable: true
-        statusUpdatedDateTime:
-          type: string
-          format: date-time
-          nullable: true
-        type:
-          type: string
-          nullable: true
-        subType:
-          type: string
-          nullable: true
-        description:
-          type: string
-          nullable: true
-        openingDate:
-          type: string
-          format: date-time
-          nullable: true
-        maturityDate:
-          type: string
-          format: date-time
-          nullable: true
-      additionalProperties: false
-    SubAccountsResponseModel:
-      type: object
-      properties:
-        id:
-          type: string
-          format: uuid
+        address:
+          $ref: '#/components/schemas/ServicerAddressResponseModel'
         scheme:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         identification:
-          type: string
-          nullable: true
-        name:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
       additionalProperties: false
     ApiError:
       enum:
@@ -443,71 +540,275 @@ components:
       - CREDITOR_ACCOUNT_NOT_FOUND
       - UNAUTHORIZED_IP_ADDRESS
       type: string
-    BankAccountResponseModelApiResponse:
+    BankAccountResponseModel:
       type: object
       properties:
-        error:
-          $ref: '#/components/schemas/ApiError'
-        errorDescription:
-          type: object
-          additionalProperties:
-            type: array
-            items:
-              type: string
-            nullable: true
-          nullable: true
-        data:
-          $ref: '#/components/schemas/BankAccountResponseModel'
+        id:
+          type: string
+          format: uuid
+        currency:
+          $ref: '#/components/schemas/CurrencyResponseModel'
+        servicer:
+          $ref: '#/components/schemas/ServicerResponseModel'
+        accounts:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/SubAccountsResponseModel'
+        status:
+          type:
+          - string
+          - 'null'
+        statusUpdatedDateTime:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        type:
+          type:
+          - string
+          - 'null'
+        subType:
+          type:
+          - string
+          - 'null'
+        description:
+          type:
+          - string
+          - 'null'
+        openingDate:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        maturityDate:
+          type:
+          - string
+          - 'null'
+          format: date-time
       additionalProperties: false
-    ServicerAddressResponseModel:
+    PagesModel_2:
       type: object
       properties:
-        addressType:
+        currentPageNumber:
+          type: integer
+          format: int32
+        pageSize:
+          type: integer
+          format: int32
+        totalNumberOfPages:
+          type: integer
+          format: int32
+        totalItems:
+          type: integer
+          format: int32
+      additionalProperties: false
+    ApiError_2:
+      enum:
+      - INVALID_DATA
+      - INVALID_SIGNATURE
+      - RESOURCE_LOCKED
+      - COUNTRY_NOT_FOUND
+      - CURRENCY_NOT_FOUND
+      - PROVIDER_NOT_FOUND
+      - CONNECTION_NOT_FOUND
+      - INSUFFICIENT_CONSENT_PERMISSIONS
+      - CONSENT_EXPIRED
+      - CONSENT_REVOKED
+      - CONSENT_UNAUTHORIZED
+      - CONSENT_NOT_FOUND
+      - ACCOUNT_INFORMATION_REPORT_NOT_FOUND
+      - MULTIPLE_CURRENCY_NOT_ALLOWED
+      - MULTIPLE_CONSENT_DATE_NOT_ALLOWED
+      - PAYMENT_NOT_FOUND
+      - CONSENT_REJECTED
+      - PAYMENT_REQUEST_NOT_FOUND
+      - CUSTOMER_NOT_FOUND
+      - REAL_ESTATE_VERIFY_NOT_FOUND
+      - REAL_ESTATE_VALIDATE_NOT_FOUND
+      - REAL_ESTATE_SEARCH_NOT_FOUND
+      - CUSTOMER_ALREADY_EXISTS
+      - BANK_ACCOUNT_NOT_FOUND
+      - SERVER_ERROR
+      - PROVIDER_CONNECTION_FAILURE
+      - TRANSACTION_NOT_FOUND
+      - ACCOUNT_INFORMATION_ACCESS_REQUEST_NOT_FOUND
+      - CONSENT_REVOCATION_FAILED
+      - CONSENT_REVOKED_OR_EXPIRED
+      - SUBSCRIPTION_EXPIRED
+      - NOT_SUBSCRIBED_TO_SERVICE
+      - BENEFICIARY_NOT_FOUND
+      - PARTIES_NOT_FOUND
+      - DIRECT_DEBIT_NOT_FOUND
+      - SCHEDULED_PAYMENT_NOT_FOUND
+      - DEBTOR_ACCOUNT_NOT_FOUND
+      - CREDITOR_ACCOUNT_NOT_FOUND
+      - UNAUTHORIZED_IP_ADDRESS
+      - REAL_ESTATE_FAILED
+      type: string
+    BankAccountResponseModel_2:
+      type: object
+      properties:
+        id:
           type: string
-          nullable: true
-        department:
+          format: uuid
+        externalId:
+          type:
+          - string
+          - 'null'
+        currency:
+          $ref: '#/components/schemas/CurrencyResponseModel'
+        servicer:
+          $ref: '#/components/schemas/ServicerResponseModel'
+        accounts:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/SubAccountsResponseModel'
+        status:
+          type:
+          - string
+          - 'null'
+        statusUpdatedDateTime:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        type:
+          type:
+          - string
+          - 'null'
+        subType:
+          type:
+          - string
+          - 'null'
+        description:
+          type:
+          - string
+          - 'null'
+        openingDate:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        maturityDate:
+          type:
+          - string
+          - 'null'
+          format: date-time
+      additionalProperties: false
+    PagesModel_3:
+      type: object
+      properties:
+        currentPageNumber:
+          type: integer
+          format: int32
+        pageSize:
+          type: integer
+          format: int32
+        totalNumberOfPages:
+          type: integer
+          format: int32
+        totalItems:
+          type: integer
+          format: int32
+      additionalProperties: false
+    ApiError_3:
+      enum:
+      - INVALID_DATA
+      - INVALID_SIGNATURE
+      - RESOURCE_LOCKED
+      - COUNTRY_NOT_FOUND
+      - CURRENCY_NOT_FOUND
+      - PROVIDER_NOT_FOUND
+      - CONNECTION_NOT_FOUND
+      - INSUFFICIENT_CONSENT_PERMISSIONS
+      - CONSENT_EXPIRED
+      - CONSENT_REVOKED
+      - CONSENT_UNAUTHORIZED
+      - CONSENT_NOT_FOUND
+      - ACCOUNT_INFORMATION_REPORT_NOT_FOUND
+      - MULTIPLE_CURRENCY_NOT_ALLOWED
+      - MULTIPLE_CONSENT_DATE_NOT_ALLOWED
+      - PAYMENT_NOT_FOUND
+      - CONSENT_REJECTED
+      - PAYMENT_REQUEST_NOT_FOUND
+      - CUSTOMER_NOT_FOUND
+      - REAL_ESTATE_VERIFY_NOT_FOUND
+      - REAL_ESTATE_VALIDATE_NOT_FOUND
+      - REAL_ESTATE_SEARCH_NOT_FOUND
+      - CUSTOMER_ALREADY_EXISTS
+      - BANK_ACCOUNT_NOT_FOUND
+      - SERVER_ERROR
+      - PROVIDER_CONNECTION_FAILURE
+      - TRANSACTION_NOT_FOUND
+      - ACCOUNT_INFORMATION_ACCESS_REQUEST_NOT_FOUND
+      - CONSENT_REVOCATION_FAILED
+      - CONSENT_REVOKED_OR_EXPIRED
+      - SUBSCRIPTION_EXPIRED
+      - NOT_SUBSCRIBED_TO_SERVICE
+      - BENEFICIARY_NOT_FOUND
+      - PARTIES_NOT_FOUND
+      - DIRECT_DEBIT_NOT_FOUND
+      - SCHEDULED_PAYMENT_NOT_FOUND
+      - DEBTOR_ACCOUNT_NOT_FOUND
+      - CREDITOR_ACCOUNT_NOT_FOUND
+      - UNAUTHORIZED_IP_ADDRESS
+      - REAL_ESTATE_FAILED
+      type: string
+    BankAccountResponseModel_3:
+      type: object
+      properties:
+        id:
           type: string
-          nullable: true
-        subDepartment:
-          type: string
-          nullable: true
-        addressLine:
-          type: string
-          nullable: true
-        streetName:
-          type: string
-          nullable: true
-        buildingNumber:
-          type: string
-          nullable: true
-        postalCode:
-          type: string
-          nullable: true
-        townName:
-          type: string
-          nullable: true
-        countrySubDivision:
-          type: string
-          nullable: true
-        country:
-          type: string
-          nullable: true
-        shortAddress:
-          type: string
-          nullable: true
-        unitNumber:
-          type: number
-          format: double
-          nullable: true
-        secondaryNumber:
-          type: string
-          nullable: true
-        district:
-          type: string
-          nullable: true
-        city:
-          type: string
-          nullable: true
+          format: uuid
+        externalId:
+          type:
+          - string
+          - 'null'
+        currency:
+          $ref: '#/components/schemas/CurrencyResponseModel'
+        servicer:
+          $ref: '#/components/schemas/ServicerResponseModel'
+        accounts:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/SubAccountsResponseModel'
+        status:
+          type:
+          - string
+          - 'null'
+        statusUpdatedDateTime:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        type:
+          type:
+          - string
+          - 'null'
+        subType:
+          type:
+          - string
+          - 'null'
+        description:
+          type:
+          - string
+          - 'null'
+        openingDate:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        maturityDate:
+          type:
+          - string
+          - 'null'
+          format: date-time
       additionalProperties: false
   securitySchemes:
     Bearer:
@@ -515,3 +816,7 @@ components:
       description: Please enter into field the word 'Bearer' followed by a space and JWT
       name: Authorization
       in: header
+x-refined-from:
+- spare-bahrain-ais-openapi-original.json
+- spare-ksa-ais-openapi-original.json
+- spare-ksa-ais-v2-openapi-original.json

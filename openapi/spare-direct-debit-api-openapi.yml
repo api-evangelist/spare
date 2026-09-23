@@ -1,36 +1,28 @@
 openapi: 3.2.0
 info:
-  title: Spare Statement API
+  title: Spare Direct Debit API
   version: '1.0'
   termsOfService: https://terms.tryspare.com/en
-  description: 'Operations tagged Statement across 2 of this provider''s published API definitions: spare-bahrain-ais-openapi-original.json, spare-ksa-ais-openapi-original.json. Each path carries the servers of the definition it was published in.'
+  description: 'Operations tagged DirectDebit across 2 of this provider''s published API definitions: spare-bahrain-ais-openapi-original.json, spare-ksa-ais-openapi-original.json. Each path carries the servers of the definition it was published in.'
 security:
 - Bearer: []
 tags:
-- name: Statement
+- name: Direct Debit
 paths:
-  /api/v1.0/ais/Statement/File:
+  /api/v1.0/ais/DirectDebit/Get:
     get:
       tags:
-      - Statement
-      summary: Download account statement
-      description: '**Unique resource name :** ais.v1.statement.file
+      - Direct Debit
+      summary: Get account direct debits
+      description: '**Unique resource name :** ais.v1.direct_debit.get
 
 
         **Important!:**
 
 
-        - The permissions bellow are required on the consent:
+        The permissions bellow are required on the consent:
 
-        - `ReadBalances`
-
-        - `ReadTransactionsBasic`
-
-        - `ReadTransactionsDetail`
-
-        - `ReadTransactionsDebits`
-
-        - `ReadTransactionsCredits`'
+        - `ReadDirectDebits`'
       parameters:
       - name: accountId
         in: query
@@ -43,27 +35,12 @@ paths:
         '401':
           description: Unauthorized
           content:
-            application/pdf:
-              schema:
-                $ref: '#/components/schemas/ObjectApiResponse'
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ObjectApiResponse'
-        '402':
-          description: Payment Required
-          content:
-            application/pdf:
-              schema:
-                $ref: '#/components/schemas/ObjectApiResponse'
             application/json:
               schema:
                 $ref: '#/components/schemas/ObjectApiResponse'
         '403':
           description: Forbidden
           content:
-            application/pdf:
-              schema:
-                $ref: '#/components/schemas/ObjectApiResponse'
             application/json:
               schema:
                 $ref: '#/components/schemas/ObjectApiResponse'
@@ -72,37 +49,22 @@ paths:
         '200':
           description: ''
           content:
-            application/pdf:
-              schema:
-                type: string
-                format: binary
             application/json:
               schema:
-                type: string
-                format: binary
+                $ref: '#/components/schemas/DirectDebitsResponseModelIEnumerableApiResponse'
         '400':
-          description: '- If accountId is null or invalid UUID
-
-            - if fromBookingDateTime is null
-
-            - if toBookingDateTime is null'
+          description: '- If account id is not valid'
           content:
-            application/pdf:
-              schema:
-                $ref: '#/components/schemas/ObjectApiResponse'
             application/json:
               schema:
                 $ref: '#/components/schemas/ObjectApiResponse'
         '404':
-          description: '- If account not exist'
+          description: '- If account does not exist'
           content:
-            application/pdf:
-              schema:
-                $ref: '#/components/schemas/ObjectApiResponse'
             application/json:
               schema:
                 $ref: '#/components/schemas/ObjectApiResponse'
-      operationId: getApiV10AisStatementFile
+      operationId: getApiV10AisDirectDebitGet
       x-operation-id-source: derived
 components:
   schemas:
@@ -122,6 +84,59 @@ components:
             items:
               type: string
         data: {}
+      additionalProperties: false
+    DirectDebitsResponseModel:
+      type: object
+      properties:
+        id:
+          type:
+          - string
+          - 'null'
+          format: uuid
+        accountId:
+          type:
+          - string
+          - 'null'
+          format: uuid
+        createdAt:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        updatedAt:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        mandateIdentification:
+          type:
+          - string
+          - 'null'
+        directDebitStatusCode:
+          type:
+          - string
+          - 'null'
+        name:
+          type:
+          - string
+          - 'null'
+        frequency:
+          type:
+          - string
+          - 'null'
+        previousPaymentDateTime:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        previousPaymentAmount:
+          type:
+          - string
+          - 'null'
+        previousPaymentCurrency:
+          type:
+          - string
+          - 'null'
       additionalProperties: false
     ApiError:
       enum:
@@ -163,6 +178,28 @@ components:
       - CREDITOR_ACCOUNT_NOT_FOUND
       - UNAUTHORIZED_IP_ADDRESS
       type: string
+    DirectDebitsResponseModelIEnumerableApiResponse:
+      type: object
+      properties:
+        error:
+          $ref: '#/components/schemas/ApiError'
+        errorDescription:
+          type:
+          - object
+          - 'null'
+          additionalProperties:
+            type:
+            - array
+            - 'null'
+            items:
+              type: string
+        data:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/DirectDebitsResponseModel'
+      additionalProperties: false
     ApiError_2:
       enum:
       - INVALID_DATA

@@ -1,7 +1,7 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Information Account Token API
-  description: Spare account information API documentation
+  title: Authentication Token API
+  description: Spare api authentication API documentation
   termsOfService: https://terms.tryspare.com/en
   contact:
     name: Spare Technologies WLL.
@@ -9,8 +9,6 @@ info:
   license:
     name: Spare Technologies WLL.
   version: '1.0'
-security:
-- Bearer: []
 tags:
 - name: Token
 paths:
@@ -18,8 +16,29 @@ paths:
     get:
       tags:
       - Token
-      summary: Generates an API authentication token using the provided API credentials.
-      description: "**Unique resource name:** api_authentication.v1.token\r\n            \r\nThis endpoint authenticates an API keys by validating the provided API credentials.\r\nUpon successful authentication, an access token is generated and returned.\r\n            \r\n**Authentication Process:**\r\n- The `app-id` and `x-api-key` headers must contain valid credentials.\r\n- If authentication is successful, a signed JSON Web Token (JWT) is issued.\r\n- If authentication fails due to invalid credentials, a `401 Unauthorized` response is returned.\r\n            \r\n**Security Considerations:**\r\n- The API key (`x-api-key`) should be kept confidential.\r\n- The generated JWT should be used for subsequent authenticated requests."
+      summary: Generates an API authentication token using the provided API credentials
+      description: '**Unique resource name:** api_authentication.v1.token
+
+
+        This endpoint authenticates an API keys by validating the provided API credentials.
+
+        Upon successful authentication, an access token is generated and returned.
+
+
+        **Authentication Process:**
+
+        - The `app-id` and `x-api-key` headers must contain valid credentials.
+
+        - If authentication is successful, a signed JSON Web Token (JWT) is issued.
+
+        - If authentication fails due to invalid credentials, a `401 Unauthorized` response is returned.
+
+
+        **Security Considerations:**
+
+        - The API key (`x-api-key`) should be kept confidential.
+
+        - The generated JWT should be used for subsequent authenticated requests.'
       parameters:
       - name: app-id
         in: header
@@ -54,12 +73,33 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/JsonWebTokenResponseModel'
+      operationId: getApiV10AuthenticationToken
+      x-operation-id-source: derived
   /api/v1.0/authentication/Refresh:
     get:
       tags:
       - Token
-      summary: Refreshes an API authentication token using a valid refresh token.
-      description: "**Unique resource name:** api_authentication.v1.refresh\r\n            \r\nThis endpoint allows clients to obtain a new access token by providing a valid refresh token.\r\nThe refresh token must be issued by the authentication service and must not be expired.\r\n            \r\n**Authentication Process:**\r\n- The `refresh-token` header must contain a valid refresh token.\r\n- If the refresh token is valid, a new access token is issued.\r\n- If the refresh token is invalid or expired, a `401 Unauthorized` response is returned.\r\n            \r\n**Security Considerations:**\r\n- Refresh tokens should be stored securely and not shared."
+      summary: Refreshes an API authentication token using a valid refresh token
+      description: '**Unique resource name:** api_authentication.v1.refresh
+
+
+        This endpoint allows clients to obtain a new access token by providing a valid refresh token.
+
+        The refresh token must be issued by the authentication service and must not be expired.
+
+
+        **Authentication Process:**
+
+        - The `refresh-token` header must contain a valid refresh token.
+
+        - If the refresh token is valid, a new access token is issued.
+
+        - If the refresh token is invalid or expired, a `401 Unauthorized` response is returned.
+
+
+        **Security Considerations:**
+
+        - Refresh tokens should be stored securely and not shared.'
       parameters:
       - name: refresh-token
         in: header
@@ -88,51 +128,55 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/JsonWebTokenResponseModel'
+      operationId: getApiV10AuthenticationRefresh
+      x-operation-id-source: derived
 components:
   schemas:
-    ProblemDetails:
-      type: object
-      properties:
-        type:
-          type: string
-          nullable: true
-        title:
-          type: string
-          nullable: true
-        status:
-          type: integer
-          format: int32
-          nullable: true
-        detail:
-          type: string
-          nullable: true
-        instance:
-          type: string
-          nullable: true
-      additionalProperties: {}
     JsonWebTokenResponseModel:
       type: object
       properties:
         type:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
           readOnly: true
         access_token:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         expires_in:
           type: integer
           format: int32
         refresh_token:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         refresh_expires_in:
           type: integer
           format: int32
       additionalProperties: false
-  securitySchemes:
-    Bearer:
-      type: apiKey
-      description: Please enter into field the word 'Bearer' followed by a space and JWT
-      name: Authorization
-      in: header
+    ProblemDetails:
+      type: object
+      properties:
+        type:
+          type:
+          - string
+          - 'null'
+        title:
+          type:
+          - string
+          - 'null'
+        status:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        detail:
+          type:
+          - string
+          - 'null'
+        instance:
+          type:
+          - string
+          - 'null'
+      additionalProperties: {}

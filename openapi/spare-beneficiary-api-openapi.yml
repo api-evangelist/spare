@@ -1,14 +1,9 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Information Account Beneficiary API
-  description: Spare account information API documentation
-  termsOfService: https://terms.tryspare.com/en
-  contact:
-    name: Spare Technologies WLL.
-    email: hello@tryspare.com
-  license:
-    name: Spare Technologies WLL.
+  title: Spare Beneficiary API
   version: '1.0'
+  termsOfService: https://terms.tryspare.com/en
+  description: 'Operations tagged Beneficiary across 2 of this provider''s published API definitions: spare-bahrain-ais-openapi-original.json, spare-ksa-ais-openapi-original.json. Each path carries the servers of the definition it was published in.'
 security:
 - Bearer: []
 tags:
@@ -19,7 +14,17 @@ paths:
       tags:
       - Beneficiary
       summary: Get account beneficiary
-      description: "**Unique resource name :** ais.v1.beneficiary.get\n            \n**Important!:**\n            \nThe permissions bellow are required on the consent:\n- `ReadBeneficiariesBasic`\n- `ReadBeneficiariesDetail`"
+      description: '**Unique resource name :** ais.v1.beneficiary.get
+
+
+        **Important!:**
+
+
+        The permissions bellow are required on the consent:
+
+        - `ReadBeneficiariesBasic`
+
+        - `ReadBeneficiariesDetail`'
       parameters:
       - name: accountId
         in: query
@@ -61,26 +66,30 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ObjectApiResponse'
+      operationId: getApiV10AisBeneficiaryGet
+      x-operation-id-source: derived
 components:
   schemas:
-    BeneficiaryResponseModelIEnumerableApiResponse:
+    BeneficiaryServicerResponseModel:
       type: object
       properties:
-        error:
-          $ref: '#/components/schemas/ApiError'
-        errorDescription:
-          type: object
-          additionalProperties:
-            type: array
-            items:
-              type: string
-            nullable: true
-          nullable: true
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/BeneficiaryResponseModel'
-          nullable: true
+        name:
+          type:
+          - string
+          - 'null'
+        id:
+          type: string
+          format: uuid
+        address:
+          $ref: '#/components/schemas/ServicerAddressResponseModel'
+        scheme:
+          type:
+          - string
+          - 'null'
+        identification:
+          type:
+          - string
+          - 'null'
       additionalProperties: false
     ObjectApiResponse:
       type: object
@@ -88,72 +97,151 @@ components:
         error:
           $ref: '#/components/schemas/ApiError'
         errorDescription:
-          type: object
+          type:
+          - object
+          - 'null'
           additionalProperties:
-            type: array
+            type:
+            - array
+            - 'null'
             items:
               type: string
-            nullable: true
-          nullable: true
-        data:
-          nullable: true
+        data: {}
       additionalProperties: false
-    BeneficiaryServicerResponseModel:
+    ServicerAddressResponseModel:
       type: object
       properties:
-        name:
-          type: string
-          nullable: true
-        id:
-          type: string
-          format: uuid
-        address:
-          $ref: '#/components/schemas/ServicerAddressResponseModel'
-        scheme:
-          type: string
-          nullable: true
-        identification:
-          type: string
-          nullable: true
+        addressType:
+          type:
+          - string
+          - 'null'
+        department:
+          type:
+          - string
+          - 'null'
+        subDepartment:
+          type:
+          - string
+          - 'null'
+        addressLine:
+          type:
+          - string
+          - 'null'
+        streetName:
+          type:
+          - string
+          - 'null'
+        buildingNumber:
+          type:
+          - string
+          - 'null'
+        postalCode:
+          type:
+          - string
+          - 'null'
+        townName:
+          type:
+          - string
+          - 'null'
+        countrySubDivision:
+          type:
+          - string
+          - 'null'
+        country:
+          type:
+          - string
+          - 'null'
+        shortAddress:
+          type:
+          - string
+          - 'null'
+        unitNumber:
+          type:
+          - number
+          - 'null'
+          format: double
+        secondaryNumber:
+          type:
+          - string
+          - 'null'
+        district:
+          type:
+          - string
+          - 'null'
+        city:
+          type:
+          - string
+          - 'null'
       additionalProperties: false
     BeneficiaryResponseModel:
       type: object
       properties:
         id:
-          type: string
+          type:
+          - string
+          - 'null'
           format: uuid
-          nullable: true
         accountId:
-          type: string
+          type:
+          - string
+          - 'null'
           format: uuid
-          nullable: true
         createdAt:
-          type: string
+          type:
+          - string
+          - 'null'
           format: date-time
-          nullable: true
         updatedAt:
-          type: string
+          type:
+          - string
+          - 'null'
           format: date-time
-          nullable: true
         accountHolderName:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         accountHolderShortName:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         beneficiaryType:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         reference:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         creditorAccount:
-          type: array
+          type:
+          - array
+          - 'null'
           items:
             $ref: '#/components/schemas/SubAccountsResponseModel'
-          nullable: true
         creditorAgent:
           $ref: '#/components/schemas/BeneficiaryServicerResponseModel'
+      additionalProperties: false
+    BeneficiaryResponseModelIEnumerableApiResponse:
+      type: object
+      properties:
+        error:
+          $ref: '#/components/schemas/ApiError'
+        errorDescription:
+          type:
+          - object
+          - 'null'
+          additionalProperties:
+            type:
+            - array
+            - 'null'
+            items:
+              type: string
+        data:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/BeneficiaryResponseModel'
       additionalProperties: false
     SubAccountsResponseModel:
       type: object
@@ -162,14 +250,17 @@ components:
           type: string
           format: uuid
         scheme:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         identification:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         name:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
       additionalProperties: false
     ApiError:
       enum:
@@ -211,59 +302,55 @@ components:
       - CREDITOR_ACCOUNT_NOT_FOUND
       - UNAUTHORIZED_IP_ADDRESS
       type: string
-    ServicerAddressResponseModel:
-      type: object
-      properties:
-        addressType:
-          type: string
-          nullable: true
-        department:
-          type: string
-          nullable: true
-        subDepartment:
-          type: string
-          nullable: true
-        addressLine:
-          type: string
-          nullable: true
-        streetName:
-          type: string
-          nullable: true
-        buildingNumber:
-          type: string
-          nullable: true
-        postalCode:
-          type: string
-          nullable: true
-        townName:
-          type: string
-          nullable: true
-        countrySubDivision:
-          type: string
-          nullable: true
-        country:
-          type: string
-          nullable: true
-        shortAddress:
-          type: string
-          nullable: true
-        unitNumber:
-          type: number
-          format: double
-          nullable: true
-        secondaryNumber:
-          type: string
-          nullable: true
-        district:
-          type: string
-          nullable: true
-        city:
-          type: string
-          nullable: true
-      additionalProperties: false
+    ApiError_2:
+      enum:
+      - INVALID_DATA
+      - INVALID_SIGNATURE
+      - RESOURCE_LOCKED
+      - COUNTRY_NOT_FOUND
+      - CURRENCY_NOT_FOUND
+      - PROVIDER_NOT_FOUND
+      - CONNECTION_NOT_FOUND
+      - INSUFFICIENT_CONSENT_PERMISSIONS
+      - CONSENT_EXPIRED
+      - CONSENT_REVOKED
+      - CONSENT_UNAUTHORIZED
+      - CONSENT_NOT_FOUND
+      - ACCOUNT_INFORMATION_REPORT_NOT_FOUND
+      - MULTIPLE_CURRENCY_NOT_ALLOWED
+      - MULTIPLE_CONSENT_DATE_NOT_ALLOWED
+      - PAYMENT_NOT_FOUND
+      - CONSENT_REJECTED
+      - PAYMENT_REQUEST_NOT_FOUND
+      - CUSTOMER_NOT_FOUND
+      - REAL_ESTATE_VERIFY_NOT_FOUND
+      - REAL_ESTATE_VALIDATE_NOT_FOUND
+      - REAL_ESTATE_SEARCH_NOT_FOUND
+      - CUSTOMER_ALREADY_EXISTS
+      - BANK_ACCOUNT_NOT_FOUND
+      - SERVER_ERROR
+      - PROVIDER_CONNECTION_FAILURE
+      - TRANSACTION_NOT_FOUND
+      - ACCOUNT_INFORMATION_ACCESS_REQUEST_NOT_FOUND
+      - CONSENT_REVOCATION_FAILED
+      - CONSENT_REVOKED_OR_EXPIRED
+      - SUBSCRIPTION_EXPIRED
+      - NOT_SUBSCRIBED_TO_SERVICE
+      - BENEFICIARY_NOT_FOUND
+      - PARTIES_NOT_FOUND
+      - DIRECT_DEBIT_NOT_FOUND
+      - SCHEDULED_PAYMENT_NOT_FOUND
+      - DEBTOR_ACCOUNT_NOT_FOUND
+      - CREDITOR_ACCOUNT_NOT_FOUND
+      - UNAUTHORIZED_IP_ADDRESS
+      - REAL_ESTATE_FAILED
+      type: string
   securitySchemes:
     Bearer:
       type: apiKey
       description: Please enter into field the word 'Bearer' followed by a space and JWT
       name: Authorization
       in: header
+x-refined-from:
+- spare-bahrain-ais-openapi-original.json
+- spare-ksa-ais-openapi-original.json

@@ -1,14 +1,9 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Information Account Customer API
-  description: Spare account information API documentation
-  termsOfService: https://terms.tryspare.com/en
-  contact:
-    name: Spare Technologies WLL.
-    email: hello@tryspare.com
-  license:
-    name: Spare Technologies WLL.
+  title: Spare Customer API
   version: '1.0'
+  termsOfService: https://terms.tryspare.com/en
+  description: 'Operations tagged Customer across 2 of this provider''s published API definitions: spare-bahrain-ais-openapi-original.json, spare-ksa-ais-openapi-original.json. Each path carries the servers of the definition it was published in.'
 security:
 - Bearer: []
 tags:
@@ -19,7 +14,16 @@ paths:
       tags:
       - Customer
       summary: Create customer
-      description: "**Unique resource name :** ais.v1.customer.create\n            \n**Important!:**\n            \n- `type` is required and need to be \"Retail\" or \"Business\".\n            \n- `nationalId` is required if `type` is \"Retail\"."
+      description: '**Unique resource name :** ais.v1.customer.create
+
+
+        **Important!:**
+
+
+        - `type` is required and need to be "Retail" or "Business".
+
+
+        - `nationalId` is required if `type` is "Retail".'
       requestBody:
         description: ''
         content:
@@ -81,6 +85,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ObjectApiResponse'
+      operationId: postApiV10AisCustomerCreate
+      x-operation-id-source: derived
   /api/v1.0/ais/Customer/List:
     get:
       tags:
@@ -129,6 +135,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/CustomerResponseModelIEnumerablePagesModelMetaApiResponse'
+      operationId: getApiV10AisCustomerList
+      x-operation-id-source: derived
   /api/v1.0/ais/Customer/Get:
     get:
       tags:
@@ -192,6 +200,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ObjectApiResponse'
+      operationId: getApiV10AisCustomerGet
+      x-operation-id-source: derived
   /api/v1.0/ais/Customer/Update:
     patch:
       tags:
@@ -269,6 +279,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ObjectApiResponse'
+      operationId: patchApiV10AisCustomerUpdate
+      x-operation-id-source: derived
   /api/v1.0/ais/Customer/Delete:
     delete:
       tags:
@@ -312,33 +324,27 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ObjectApiResponse'
+      operationId: deleteApiV10AisCustomerDelete
+      x-operation-id-source: derived
 components:
   schemas:
-    CustomerType:
-      enum:
-      - Retail
-      - Business
-      type: string
-    CustomerResponseModelIEnumerablePagesModelMetaApiResponse:
+    CustomerDetailsResponseModelApiResponse:
       type: object
       properties:
         error:
           $ref: '#/components/schemas/ApiError'
         errorDescription:
-          type: object
+          type:
+          - object
+          - 'null'
           additionalProperties:
-            type: array
+            type:
+            - array
+            - 'null'
             items:
               type: string
-            nullable: true
-          nullable: true
         data:
-          type: array
-          items:
-            $ref: '#/components/schemas/CustomerResponseModel'
-          nullable: true
-        meta:
-          $ref: '#/components/schemas/PagesModel'
+          $ref: '#/components/schemas/CustomerDetailsResponseModel'
       additionalProperties: false
     PagesModel:
       type: object
@@ -353,57 +359,61 @@ components:
           type: integer
           format: int32
       additionalProperties: false
+    CustomerRequestModel:
+      required:
+      - email
+      - type
+      type: object
+      properties:
+        email:
+          minLength: 1
+          type: string
+          format: email
+        fullName:
+          maxLength: 50
+          minLength: 2
+          type:
+          - string
+          - 'null'
+        phone:
+          maxLength: 16
+          minLength: 6
+          pattern: ^(\+|00)(\d{1,4})([0-9]+)$
+          type:
+          - string
+          - 'null'
+        nationalId:
+          type:
+          - string
+          - 'null'
+        type:
+          $ref: '#/components/schemas/CustomerType'
+        registrationNumber:
+          type:
+          - string
+          - 'null'
+        externalId:
+          maxLength: 50
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
     ObjectApiResponse:
       type: object
       properties:
         error:
           $ref: '#/components/schemas/ApiError'
         errorDescription:
-          type: object
+          type:
+          - object
+          - 'null'
           additionalProperties:
-            type: array
+            type:
+            - array
+            - 'null'
             items:
               type: string
-            nullable: true
-          nullable: true
-        data:
-          nullable: true
-      additionalProperties: false
-    CustomerResponseModel:
-      type: object
-      properties:
-        id:
-          type: string
-          format: uuid
-        fullName:
-          type: string
-          nullable: true
-        phone:
-          type: string
-          nullable: true
-        email:
-          type: string
-          nullable: true
-        nationalId:
-          type: string
-          nullable: true
-        registrationNumber:
-          type: string
-          nullable: true
-        type:
-          $ref: '#/components/schemas/CustomerType'
-        externalId:
-          type: string
-          nullable: true
-        createdAt:
-          type: string
-          format: date-time
-        updatedAt:
-          type: string
-          format: date-time
-        archived:
-          type: boolean
-          nullable: true
+        data: {}
       additionalProperties: false
     CustomerUpdateModel:
       required:
@@ -418,29 +428,87 @@ components:
           maxLength: 16
           minLength: 6
           pattern: ^(\+|00)(\d{1,4})([0-9]+)$
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         fullName:
           maxLength: 50
           minLength: 2
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
       additionalProperties: false
-    CustomerDetailsResponseModelApiResponse:
+    CustomerType:
+      enum:
+      - Retail
+      - Business
+      type: string
+    CustomerResponseModelIEnumerablePagesModelMetaApiResponse:
       type: object
       properties:
         error:
           $ref: '#/components/schemas/ApiError'
         errorDescription:
-          type: object
+          type:
+          - object
+          - 'null'
           additionalProperties:
-            type: array
+            type:
+            - array
+            - 'null'
             items:
               type: string
-            nullable: true
-          nullable: true
         data:
-          $ref: '#/components/schemas/CustomerDetailsResponseModel'
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/CustomerResponseModel'
+        meta:
+          $ref: '#/components/schemas/PagesModel'
+      additionalProperties: false
+    CustomerDetailsResponseModel:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        fullName:
+          type:
+          - string
+          - 'null'
+        phone:
+          type:
+          - string
+          - 'null'
+        email:
+          type:
+          - string
+          - 'null'
+        nationalId:
+          type:
+          - string
+          - 'null'
+        registrationNumber:
+          type:
+          - string
+          - 'null'
+        type:
+          $ref: '#/components/schemas/CustomerType'
+        externalId:
+          type:
+          - string
+          - 'null'
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+        archived:
+          type:
+          - boolean
+          - 'null'
       additionalProperties: false
     ApiError:
       enum:
@@ -482,32 +550,38 @@ components:
       - CREDITOR_ACCOUNT_NOT_FOUND
       - UNAUTHORIZED_IP_ADDRESS
       type: string
-    CustomerDetailsResponseModel:
+    CustomerResponseModel:
       type: object
       properties:
         id:
           type: string
           format: uuid
         fullName:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         phone:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         email:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         nationalId:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         registrationNumber:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         type:
           $ref: '#/components/schemas/CustomerType'
         externalId:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         createdAt:
           type: string
           format: date-time
@@ -515,12 +589,30 @@ components:
           type: string
           format: date-time
         archived:
-          type: boolean
-          nullable: true
+          type:
+          - boolean
+          - 'null'
       additionalProperties: false
-    CustomerRequestModel:
+    PagesModel_2:
+      type: object
+      properties:
+        currentPageNumber:
+          type: integer
+          format: int32
+        pageSize:
+          type: integer
+          format: int32
+        totalNumberOfPages:
+          type: integer
+          format: int32
+        totalItems:
+          type: integer
+          format: int32
+      additionalProperties: false
+    CustomerRequestModel_2:
       required:
       - email
+      - fullName
       - type
       type: object
       properties:
@@ -532,29 +624,78 @@ components:
           maxLength: 50
           minLength: 2
           type: string
-          nullable: true
         phone:
           maxLength: 16
           minLength: 6
           pattern: ^(\+|00)(\d{1,4})([0-9]+)$
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         nationalId:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         type:
           $ref: '#/components/schemas/CustomerType'
         registrationNumber:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         externalId:
           maxLength: 50
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
       additionalProperties: false
+    ApiError_2:
+      enum:
+      - INVALID_DATA
+      - INVALID_SIGNATURE
+      - RESOURCE_LOCKED
+      - COUNTRY_NOT_FOUND
+      - CURRENCY_NOT_FOUND
+      - PROVIDER_NOT_FOUND
+      - CONNECTION_NOT_FOUND
+      - INSUFFICIENT_CONSENT_PERMISSIONS
+      - CONSENT_EXPIRED
+      - CONSENT_REVOKED
+      - CONSENT_UNAUTHORIZED
+      - CONSENT_NOT_FOUND
+      - ACCOUNT_INFORMATION_REPORT_NOT_FOUND
+      - MULTIPLE_CURRENCY_NOT_ALLOWED
+      - MULTIPLE_CONSENT_DATE_NOT_ALLOWED
+      - PAYMENT_NOT_FOUND
+      - CONSENT_REJECTED
+      - PAYMENT_REQUEST_NOT_FOUND
+      - CUSTOMER_NOT_FOUND
+      - REAL_ESTATE_VERIFY_NOT_FOUND
+      - REAL_ESTATE_VALIDATE_NOT_FOUND
+      - REAL_ESTATE_SEARCH_NOT_FOUND
+      - CUSTOMER_ALREADY_EXISTS
+      - BANK_ACCOUNT_NOT_FOUND
+      - SERVER_ERROR
+      - PROVIDER_CONNECTION_FAILURE
+      - TRANSACTION_NOT_FOUND
+      - ACCOUNT_INFORMATION_ACCESS_REQUEST_NOT_FOUND
+      - CONSENT_REVOCATION_FAILED
+      - CONSENT_REVOKED_OR_EXPIRED
+      - SUBSCRIPTION_EXPIRED
+      - NOT_SUBSCRIBED_TO_SERVICE
+      - BENEFICIARY_NOT_FOUND
+      - PARTIES_NOT_FOUND
+      - DIRECT_DEBIT_NOT_FOUND
+      - SCHEDULED_PAYMENT_NOT_FOUND
+      - DEBTOR_ACCOUNT_NOT_FOUND
+      - CREDITOR_ACCOUNT_NOT_FOUND
+      - UNAUTHORIZED_IP_ADDRESS
+      - REAL_ESTATE_FAILED
+      type: string
   securitySchemes:
     Bearer:
       type: apiKey
       description: Please enter into field the word 'Bearer' followed by a space and JWT
       name: Authorization
       in: header
+x-refined-from:
+- spare-bahrain-ais-openapi-original.json
+- spare-ksa-ais-openapi-original.json

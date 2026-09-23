@@ -1,14 +1,9 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Information Account Balance API
-  description: Spare account information API documentation
+  title: Spare Balance API
   termsOfService: https://terms.tryspare.com/en
-  contact:
-    name: Spare Technologies WLL.
-    email: hello@tryspare.com
-  license:
-    name: Spare Technologies WLL.
   version: '1.0'
+  description: 'Operations tagged Balance across 3 of this provider''s published API definitions: spare-bahrain-ais-openapi-original.json, spare-ksa-ais-openapi-original.json, spare-ksa-ais-v2-openapi-original.json. Each path carries the servers of the definition it was published in.'
 security:
 - Bearer: []
 tags:
@@ -19,7 +14,19 @@ paths:
       tags:
       - Balance
       summary: Get account balance
-      description: "**Unique resource name :** ais.v1.balance.get\n            \n**Important!:**\n            \nThe permissions bellow are required on the consent:\n- `ReadAccountsBasic`\n- `ReadAccountsDetail`\n- `ReadBalances`"
+      description: '**Unique resource name :** ais.v1.balance.get
+
+
+        **Important!:**
+
+
+        The permissions bellow are required on the consent:
+
+        - `ReadAccountsBasic`
+
+        - `ReadAccountsDetail`
+
+        - `ReadBalances`'
       parameters:
       - name: accountId
         in: query
@@ -67,12 +74,39 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ObjectApiResponse'
+      operationId: getApiV10AisBalanceGet
+      x-operation-id-source: derived
   /api/v1.0/ais/Balance/History:
     get:
       tags:
       - Balance
       summary: Get account balance history
-      description: "**Unique resource name :** ais.v1.balance.history\n            \n**Important!:**\n            \n- The maximum allowed date range period is one year.\n- `toDate` need to be greater than `fromDate`\n            \nThe permissions bellow are required on the consent:\n- `ReadAccountsBasic`\n- `ReadAccountsDetail`\n- `ReadBalances`\n- `ReadTransactionsBasic`\n- `ReadTransactionsDetail`\n- `ReadTransactionsDebits`\n- `ReadTransactionsCredits`"
+      description: '**Unique resource name :** ais.v1.balance.history
+
+
+        **Important!:**
+
+
+        - The maximum allowed date range period is one year.
+
+        - `toDate` need to be greater than `fromDate`
+
+
+        The permissions bellow are required on the consent:
+
+        - `ReadAccountsBasic`
+
+        - `ReadAccountsDetail`
+
+        - `ReadBalances`
+
+        - `ReadTransactionsBasic`
+
+        - `ReadTransactionsDetail`
+
+        - `ReadTransactionsDebits`
+
+        - `ReadTransactionsCredits`'
       parameters:
       - name: accountId
         in: query
@@ -132,12 +166,26 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ObjectApiResponse'
+      operationId: getApiV10AisBalanceHistory
+      x-operation-id-source: derived
   /api/v2.0/ais/Balance/Get:
     get:
       tags:
       - Balance
       summary: Get account balance for long-lived consent
-      description: "**Unique resource name :** ais.v2.balance.get\r\n            \r\n**Important!:**\r\n            \r\nThe permissions below are required on the consent:\r\n- `ReadAccountsBasic`\r\n- `ReadAccountsDetail`\r\n- `ReadBalances`"
+      description: '**Unique resource name :** ais.v2.balance.get
+
+
+        **Important!:**
+
+
+        The permissions below are required on the consent:
+
+        - `ReadAccountsBasic`
+
+        - `ReadAccountsDetail`
+
+        - `ReadBalances`'
       parameters:
       - name: accountId
         in: query
@@ -185,17 +233,39 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ObjectApiResponse'
+      operationId: getApiV20AisBalanceGet
+      x-operation-id-source: derived
 components:
   schemas:
+    AccountBalanceModelApiResponse:
+      type: object
+      properties:
+        error:
+          $ref: '#/components/schemas/ApiError'
+        errorDescription:
+          type:
+          - object
+          - 'null'
+          additionalProperties:
+            type:
+            - array
+            - 'null'
+            items:
+              type: string
+        data:
+          $ref: '#/components/schemas/AccountBalanceModel'
+      additionalProperties: false
     BalanceLocalExchangeModel:
       type: object
       properties:
         sourceCurrency:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         targetCurrency:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         rate:
           type: number
           format: double
@@ -206,29 +276,93 @@ components:
           type: number
           format: double
       additionalProperties: false
-    AccountBalanceModel:
+    ObjectApiResponse:
       type: object
       properties:
-        accountId:
-          type: string
-          format: uuid
+        error:
+          $ref: '#/components/schemas/ApiError'
+        errorDescription:
+          type:
+          - object
+          - 'null'
+          additionalProperties:
+            type:
+            - array
+            - 'null'
+            items:
+              type: string
+        data: {}
+      additionalProperties: false
+    BalanceHistoryModel:
+      type: object
+      properties:
+        date:
+          type:
+          - string
+          - 'null'
         balances:
-          type: array
+          type:
+          - array
+          - 'null'
           items:
-            $ref: '#/components/schemas/BalanceModel'
-          nullable: true
+            $ref: '#/components/schemas/BalanceBaseModel'
+      additionalProperties: false
+    AccountBalanceHistoryModelApiResponse:
+      type: object
+      properties:
+        error:
+          $ref: '#/components/schemas/ApiError'
+        errorDescription:
+          type:
+          - object
+          - 'null'
+          additionalProperties:
+            type:
+            - array
+            - 'null'
+            items:
+              type: string
+        data:
+          $ref: '#/components/schemas/AccountBalanceHistoryModel'
       additionalProperties: false
     BalanceDataCreditLineModel:
       type: object
       properties:
         included:
-          type: boolean
-          nullable: true
+          type:
+          - boolean
+          - 'null'
         type:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         amount:
           $ref: '#/components/schemas/BalanceAmountModel'
+      additionalProperties: false
+    BalanceBaseModel:
+      type: object
+      properties:
+        type:
+          type:
+          - string
+          - 'null'
+        amount:
+          $ref: '#/components/schemas/BalanceAmountModel'
+      additionalProperties: false
+    AccountBalanceHistoryModel:
+      type: object
+      properties:
+        accountId:
+          type:
+          - string
+          - 'null'
+          format: uuid
+        history:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/BalanceHistoryModel'
       additionalProperties: false
     BalanceAmountModel:
       type: object
@@ -237,96 +371,48 @@ components:
           type: number
           format: double
         currency:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         localExchange:
           $ref: '#/components/schemas/BalanceLocalExchangeModel'
-      additionalProperties: false
-    BalanceBaseModel:
-      type: object
-      properties:
-        type:
-          type: string
-          nullable: true
-        amount:
-          $ref: '#/components/schemas/BalanceAmountModel'
-      additionalProperties: false
-    ObjectApiResponse:
-      type: object
-      properties:
-        error:
-          $ref: '#/components/schemas/ApiError'
-        errorDescription:
-          type: object
-          additionalProperties:
-            type: array
-            items:
-              type: string
-            nullable: true
-          nullable: true
-        data:
-          nullable: true
-      additionalProperties: false
-    AccountBalanceHistoryModel:
-      type: object
-      properties:
-        accountId:
-          type: string
-          format: uuid
-          nullable: true
-        history:
-          type: array
-          items:
-            $ref: '#/components/schemas/BalanceHistoryModel'
-          nullable: true
-      additionalProperties: false
-    AccountBalanceHistoryModelApiResponse:
-      type: object
-      properties:
-        error:
-          $ref: '#/components/schemas/ApiError'
-        errorDescription:
-          type: object
-          additionalProperties:
-            type: array
-            items:
-              type: string
-            nullable: true
-          nullable: true
-        data:
-          $ref: '#/components/schemas/AccountBalanceHistoryModel'
-      additionalProperties: false
-    BalanceHistoryModel:
-      type: object
-      properties:
-        date:
-          type: string
-          nullable: true
-        balances:
-          type: array
-          items:
-            $ref: '#/components/schemas/BalanceBaseModel'
-          nullable: true
       additionalProperties: false
     BalanceModel:
       type: object
       properties:
         creditDebitIndicator:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         dateTime:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         creditLine:
-          type: array
+          type:
+          - array
+          - 'null'
           items:
             $ref: '#/components/schemas/BalanceDataCreditLineModel'
-          nullable: true
         type:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         amount:
           $ref: '#/components/schemas/BalanceAmountModel'
+      additionalProperties: false
+    AccountBalanceModel:
+      type: object
+      properties:
+        accountId:
+          type: string
+          format: uuid
+        balances:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/BalanceModel'
       additionalProperties: false
     ApiError:
       enum:
@@ -368,25 +454,133 @@ components:
       - CREDITOR_ACCOUNT_NOT_FOUND
       - UNAUTHORIZED_IP_ADDRESS
       type: string
-    AccountBalanceModelApiResponse:
+    AccountBalanceModel_2:
       type: object
       properties:
-        error:
-          $ref: '#/components/schemas/ApiError'
-        errorDescription:
-          type: object
-          additionalProperties:
-            type: array
-            items:
-              type: string
-            nullable: true
-          nullable: true
-        data:
-          $ref: '#/components/schemas/AccountBalanceModel'
+        accountId:
+          type: string
+          format: uuid
+        externalAccountId:
+          type:
+          - string
+          - 'null'
+        balances:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/BalanceModel'
       additionalProperties: false
+    ApiError_2:
+      enum:
+      - INVALID_DATA
+      - INVALID_SIGNATURE
+      - RESOURCE_LOCKED
+      - COUNTRY_NOT_FOUND
+      - CURRENCY_NOT_FOUND
+      - PROVIDER_NOT_FOUND
+      - CONNECTION_NOT_FOUND
+      - INSUFFICIENT_CONSENT_PERMISSIONS
+      - CONSENT_EXPIRED
+      - CONSENT_REVOKED
+      - CONSENT_UNAUTHORIZED
+      - CONSENT_NOT_FOUND
+      - ACCOUNT_INFORMATION_REPORT_NOT_FOUND
+      - MULTIPLE_CURRENCY_NOT_ALLOWED
+      - MULTIPLE_CONSENT_DATE_NOT_ALLOWED
+      - PAYMENT_NOT_FOUND
+      - CONSENT_REJECTED
+      - PAYMENT_REQUEST_NOT_FOUND
+      - CUSTOMER_NOT_FOUND
+      - REAL_ESTATE_VERIFY_NOT_FOUND
+      - REAL_ESTATE_VALIDATE_NOT_FOUND
+      - REAL_ESTATE_SEARCH_NOT_FOUND
+      - CUSTOMER_ALREADY_EXISTS
+      - BANK_ACCOUNT_NOT_FOUND
+      - SERVER_ERROR
+      - PROVIDER_CONNECTION_FAILURE
+      - TRANSACTION_NOT_FOUND
+      - ACCOUNT_INFORMATION_ACCESS_REQUEST_NOT_FOUND
+      - CONSENT_REVOCATION_FAILED
+      - CONSENT_REVOKED_OR_EXPIRED
+      - SUBSCRIPTION_EXPIRED
+      - NOT_SUBSCRIBED_TO_SERVICE
+      - BENEFICIARY_NOT_FOUND
+      - PARTIES_NOT_FOUND
+      - DIRECT_DEBIT_NOT_FOUND
+      - SCHEDULED_PAYMENT_NOT_FOUND
+      - DEBTOR_ACCOUNT_NOT_FOUND
+      - CREDITOR_ACCOUNT_NOT_FOUND
+      - UNAUTHORIZED_IP_ADDRESS
+      - REAL_ESTATE_FAILED
+      type: string
+    AccountBalanceModel_3:
+      type: object
+      properties:
+        accountId:
+          type: string
+          format: uuid
+        externalAccountId:
+          type:
+          - string
+          - 'null'
+        balances:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/BalanceModel'
+      additionalProperties: false
+    ApiError_3:
+      enum:
+      - INVALID_DATA
+      - INVALID_SIGNATURE
+      - RESOURCE_LOCKED
+      - COUNTRY_NOT_FOUND
+      - CURRENCY_NOT_FOUND
+      - PROVIDER_NOT_FOUND
+      - CONNECTION_NOT_FOUND
+      - INSUFFICIENT_CONSENT_PERMISSIONS
+      - CONSENT_EXPIRED
+      - CONSENT_REVOKED
+      - CONSENT_UNAUTHORIZED
+      - CONSENT_NOT_FOUND
+      - ACCOUNT_INFORMATION_REPORT_NOT_FOUND
+      - MULTIPLE_CURRENCY_NOT_ALLOWED
+      - MULTIPLE_CONSENT_DATE_NOT_ALLOWED
+      - PAYMENT_NOT_FOUND
+      - CONSENT_REJECTED
+      - PAYMENT_REQUEST_NOT_FOUND
+      - CUSTOMER_NOT_FOUND
+      - REAL_ESTATE_VERIFY_NOT_FOUND
+      - REAL_ESTATE_VALIDATE_NOT_FOUND
+      - REAL_ESTATE_SEARCH_NOT_FOUND
+      - CUSTOMER_ALREADY_EXISTS
+      - BANK_ACCOUNT_NOT_FOUND
+      - SERVER_ERROR
+      - PROVIDER_CONNECTION_FAILURE
+      - TRANSACTION_NOT_FOUND
+      - ACCOUNT_INFORMATION_ACCESS_REQUEST_NOT_FOUND
+      - CONSENT_REVOCATION_FAILED
+      - CONSENT_REVOKED_OR_EXPIRED
+      - SUBSCRIPTION_EXPIRED
+      - NOT_SUBSCRIBED_TO_SERVICE
+      - BENEFICIARY_NOT_FOUND
+      - PARTIES_NOT_FOUND
+      - DIRECT_DEBIT_NOT_FOUND
+      - SCHEDULED_PAYMENT_NOT_FOUND
+      - DEBTOR_ACCOUNT_NOT_FOUND
+      - CREDITOR_ACCOUNT_NOT_FOUND
+      - UNAUTHORIZED_IP_ADDRESS
+      - REAL_ESTATE_FAILED
+      type: string
   securitySchemes:
     Bearer:
       type: apiKey
       description: Please enter into field the word 'Bearer' followed by a space and JWT
       name: Authorization
       in: header
+x-refined-from:
+- spare-bahrain-ais-openapi-original.json
+- spare-ksa-ais-openapi-original.json
+- spare-ksa-ais-v2-openapi-original.json

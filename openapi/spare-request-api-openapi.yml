@@ -1,14 +1,9 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Information Account Request API
-  description: Spare account information API documentation
-  termsOfService: https://terms.tryspare.com/en
-  contact:
-    name: Spare Technologies WLL.
-    email: hello@tryspare.com
-  license:
-    name: Spare Technologies WLL.
+  title: Spare Request API
   version: '1.0'
+  termsOfService: https://terms.tryspare.com/en
+  description: 'Operations tagged Request across 3 of this provider''s published API definitions: spare-bahrain-ais-openapi-original.json, spare-bahrain-pis-openapi-original.json, spare-ksa-ais-openapi-original.json. Each path carries the servers of the definition it was published in.'
 security:
 - Bearer: []
 tags:
@@ -69,6 +64,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ObjectApiResponse'
+      operationId: postApiV10AisRequestCreate
+      x-operation-id-source: derived
   /api/v1.0/ais/Request/List:
     get:
       tags:
@@ -125,6 +122,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ObjectApiResponse'
+      operationId: getApiV10AisRequestList
+      x-operation-id-source: derived
   /api/v1.0/ais/Request/Get:
     get:
       tags:
@@ -178,6 +177,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ObjectApiResponse'
+      operationId: getApiV10AisRequestGet
+      x-operation-id-source: derived
   /api/v1.0/ais/Request/Update:
     put:
       tags:
@@ -251,6 +252,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ObjectApiResponse'
+      operationId: putApiV10AisRequestUpdate
+      x-operation-id-source: derived
   /api/v1.0/ais/Request/Delete:
     delete:
       tags:
@@ -294,6 +297,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ObjectApiResponse'
+      operationId: deleteApiV10AisRequestDelete
+      x-operation-id-source: derived
   /api/v1.0/pis/Request/Create:
     post:
       tags:
@@ -353,6 +358,8 @@ paths:
                 $ref: '#/components/schemas/ObjectApiResponse'
         '404':
           description: '- If provider not found.'
+      operationId: postApiV10PisRequestCreate
+      x-operation-id-source: derived
   /api/v1.0/pis/Request/List:
     get:
       tags:
@@ -407,6 +414,8 @@ paths:
                 $ref: '#/components/schemas/ObjectApiResponse'
         '200':
           description: ''
+      operationId: getApiV10PisRequestList
+      x-operation-id-source: derived
   /api/v1.0/pis/Request/Get:
     get:
       tags:
@@ -453,6 +462,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ObjectApiResponse'
+      operationId: getApiV10PisRequestGet
+      x-operation-id-source: derived
   /api/v1.0/pis/Request/Delete:
     get:
       tags:
@@ -495,12 +506,17 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ObjectApiResponse'
+      operationId: getApiV10PisRequestDelete
+      x-operation-id-source: derived
   /api/v1.0/ais/Request/CreateShortLivedRequest:
     post:
       tags:
       - Request
       summary: Create account information access request for short-lived consent
-      description: "**Unique resource name :** ais.v1.request.create_short_lived_request\r\n            \r\n**Consent lifetime :** 1 Day"
+      description: '**Unique resource name :** ais.v1.request.create_short_lived_request
+
+
+        **Consent lifetime :** 1 Day'
       requestBody:
         description: Account information access request.
         content:
@@ -550,12 +566,17 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ObjectApiResponse'
+      operationId: postApiV10AisRequestCreateShortLivedRequest
+      x-operation-id-source: derived
   /api/v1.0/ais/Request/CreateLongLivedRequest:
     post:
       tags:
       - Request
       summary: Create account information access request for long-lived consent
-      description: "**Unique resource name :** ais.v1.request.create_long_lived_request\r\n            \r\n**Consent lifetime :** consent expiry date input"
+      description: '**Unique resource name :** ais.v1.request.create_long_lived_request
+
+
+        **Consent lifetime :** consent expiry date input'
       requestBody:
         description: Account information access request.
         content:
@@ -605,13 +626,259 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ObjectApiResponse'
+      operationId: postApiV10AisRequestCreateLongLivedRequest
+      x-operation-id-source: derived
 components:
   schemas:
-    ConsentScope:
+    RequestStatus:
       enum:
-      - Accounts
-      - Payments
+      - AwaitingApproval
+      - Rejected
+      - Approved
+      - Expired
       type: string
+    ObjectApiResponse:
+      type: object
+      properties:
+        error:
+          $ref: '#/components/schemas/ApiError'
+        errorDescription:
+          type:
+          - object
+          - 'null'
+          additionalProperties:
+            type:
+            - array
+            - 'null'
+            items:
+              type: string
+        data: {}
+      additionalProperties: false
+    ConsentStatusHistoryModel:
+      type: object
+      properties:
+        status:
+          $ref: '#/components/schemas/ObConsentsStatus'
+        dateTime:
+          type: string
+          format: date-time
+      additionalProperties: false
+    ConsentSource:
+      enum:
+      - WEB
+      - API
+      type: string
+    AccountInformationRequestAccessResponseModel:
+      required:
+      - countryCode
+      - customerId
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        status:
+          $ref: '#/components/schemas/RequestStatus'
+        source:
+          $ref: '#/components/schemas/ConsentSource'
+        consent:
+          $ref: '#/components/schemas/AccountInformationConsentResponseModel'
+        country:
+          $ref: '#/components/schemas/CountryResponseModel'
+        requestPermissions:
+          type:
+          - array
+          - 'null'
+          items:
+            type: string
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+        requestLink:
+          type:
+          - string
+          - 'null'
+        customerId:
+          type: string
+          format: uuid
+        consentExpiryDate:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        consentTransactionsFromDate:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        consentTransactionsToDate:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        countryCode:
+          minLength: 1
+          pattern: ^[A-Z]{2}
+          type: string
+        redirectionFlow:
+          $ref: '#/components/schemas/RedirectionFlow'
+        successRedirectUrl:
+          maxLength: 255
+          type:
+          - string
+          - 'null'
+          format: uri
+        failureRedirectUrl:
+          maxLength: 255
+          type:
+          - string
+          - 'null'
+          format: uri
+        autoRedirect:
+          type: boolean
+      additionalProperties: false
+    ObConsentsStatus:
+      enum:
+      - AwaitingAuthorization
+      - Authorized
+      - Authorised
+      - Consumed
+      - Rejected
+      - Expired
+      - Revoked
+      type: string
+    AccountInformationConsentResponseModel:
+      type: object
+      properties:
+        expiryDate:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        transactionsFromDate:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        transactionsToDate:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        permissions:
+          type:
+          - array
+          - 'null'
+          items:
+            type: string
+        statusHistory:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/ConsentStatusHistoryModel'
+        connection:
+          $ref: '#/components/schemas/AccountInformationConnectionResponseModel'
+        id:
+          type: string
+          format: uuid
+        customerId:
+          type:
+          - string
+          - 'null'
+          format: uuid
+        scope:
+          $ref: '#/components/schemas/ConsentScope'
+        createdAt:
+          type: string
+          format: date-time
+        status:
+          $ref: '#/components/schemas/ObConsentsStatus'
+        authorizationLink:
+          type:
+          - string
+          - 'null'
+        successRedirectUrl:
+          type:
+          - string
+          - 'null'
+        failureRedirectUrl:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
+    UpdateAccountInformationRequestAccessModel:
+      required:
+      - countryCode
+      - requestPermissions
+      type: object
+      properties:
+        consentExpiryDate:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        consentTransactionsFromDate:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        consentTransactionsToDate:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        countryCode:
+          minLength: 1
+          pattern: ^[A-Z]{2}
+          type: string
+        requestPermissions:
+          type: array
+          items:
+            $ref: '#/components/schemas/AccountInformationPermission'
+        redirectionFlow:
+          $ref: '#/components/schemas/RedirectionFlow'
+        successRedirectUrl:
+          maxLength: 255
+          type:
+          - string
+          - 'null'
+          format: uri
+        failureRedirectUrl:
+          maxLength: 255
+          type:
+          - string
+          - 'null'
+          format: uri
+        autoRedirect:
+          type: boolean
+      additionalProperties: false
+    ProviderStatus:
+      enum:
+      - Active
+      - Inactive
+      type: string
+    AccountInformationRequestAccessResponseModelApiResponse:
+      type: object
+      properties:
+        error:
+          $ref: '#/components/schemas/ApiError'
+        errorDescription:
+          type:
+          - object
+          - 'null'
+          additionalProperties:
+            type:
+            - array
+            - 'null'
+            items:
+              type: string
+        data:
+          $ref: '#/components/schemas/AccountInformationRequestAccessResponseModel'
+      additionalProperties: false
     AccountInformationPermission:
       enum:
       - ReadAccountsBasic
@@ -640,77 +907,91 @@ components:
       - ReadStandingOrdersBasic
       - ReadStandingOrdersDetail
       type: string
-    AccountInformationProviderModel:
+    PagesModel:
+      type: object
+      properties:
+        currentPageNumber:
+          type: integer
+          format: int32
+        pageSize:
+          type: integer
+          format: int32
+        totalNumberOfPages:
+          type: integer
+          format: int32
+      additionalProperties: false
+    ConnectionStatus:
+      enum:
+      - ACTIVE
+      - INACTIVE
+      type: string
+    ConsentScope:
+      enum:
+      - Accounts
+      - Payments
+      type: string
+    CountryResponseModel:
       required:
       - englishName
-      - isEnable
+      - iso3166Code
+      - timeZone
       type: object
       properties:
         id:
           type: string
           format: uuid
-        country:
-          $ref: '#/components/schemas/CountryResponseModel'
-        allowedPermissions:
-          type: array
-          items:
-            $ref: '#/components/schemas/AccountInformationPermission'
-          nullable: true
-        address:
+        createdAt:
           type: string
-          nullable: true
-        phone:
+          format: date-time
+        updatedAt:
           type: string
-          nullable: true
-        useBenefit:
-          type: boolean
-          nullable: true
-        arabicName:
-          maxLength: 255
-          type: string
-          nullable: true
+          format: date-time
+        currency:
+          $ref: '#/components/schemas/CurrencyResponseModel'
         englishName:
-          maxLength: 255
+          maxLength: 50
           minLength: 1
           type: string
-        status:
-          $ref: '#/components/schemas/ProviderStatus'
-        isEnable:
-          type: boolean
-        logo:
-          maxLength: 255
+        arabicName:
+          maxLength: 50
+          type:
+          - string
+          - 'null'
+        iso3166Code:
+          maxLength: 2
+          minLength: 1
+          pattern: ^[A-Z]{2}$
           type: string
-          format: uri
-          nullable: true
+        timeZone:
+          maxLength: 50
+          minLength: 1
+          type: string
       additionalProperties: false
-    LongLivedRequestModel:
+    AccountInformationRequestAccessModel:
       required:
-      - consentExpiryDate
       - countryCode
       - customerId
       - requestPermissions
       type: object
       properties:
-        consentExpiryDate:
-          type: string
-          format: date-time
-        providers:
-          type: array
-          items:
-            type: string
-            format: uuid
-          nullable: true
         customerId:
           type: string
           format: uuid
+        consentExpiryDate:
+          type:
+          - string
+          - 'null'
+          format: date-time
         consentTransactionsFromDate:
-          type: string
+          type:
+          - string
+          - 'null'
           format: date-time
-          nullable: true
         consentTransactionsToDate:
-          type: string
+          type:
+          - string
+          - 'null'
           format: date-time
-          nullable: true
         countryCode:
           minLength: 1
           pattern: ^[A-Z]{2}
@@ -723,16 +1004,141 @@ components:
           $ref: '#/components/schemas/RedirectionFlow'
         successRedirectUrl:
           maxLength: 255
-          type: string
+          type:
+          - string
+          - 'null'
           format: uri
-          nullable: true
         failureRedirectUrl:
           maxLength: 255
-          type: string
+          type:
+          - string
+          - 'null'
           format: uri
-          nullable: true
         autoRedirect:
           type: boolean
+      additionalProperties: false
+    AccountInformationConnectionResponseModel:
+      type: object
+      properties:
+        provider:
+          $ref: '#/components/schemas/AccountInformationProviderModel'
+        id:
+          type: string
+          format: uuid
+        status:
+          $ref: '#/components/schemas/ConnectionStatus'
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+      additionalProperties: false
+    AccountInformationRequestAccessResponseModelIEnumerablePagesModelMetaApiResponse:
+      type: object
+      properties:
+        error:
+          $ref: '#/components/schemas/ApiError'
+        errorDescription:
+          type:
+          - object
+          - 'null'
+          additionalProperties:
+            type:
+            - array
+            - 'null'
+            items:
+              type: string
+        data:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/AccountInformationRequestAccessResponseModel'
+        meta:
+          $ref: '#/components/schemas/PagesModel'
+      additionalProperties: false
+    CurrencyResponseModel:
+      required:
+      - englishName
+      - iso4117Code
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        englishName:
+          maxLength: 50
+          minLength: 1
+          type: string
+        arabicName:
+          maxLength: 50
+          type:
+          - string
+          - 'null'
+        iso4117Code:
+          maxLength: 3
+          minLength: 1
+          type: string
+        iso4117Number:
+          maxLength: 4
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
+    RedirectionFlow:
+      enum:
+      - WEB
+      - DECOUPLED
+      type: string
+    AccountInformationProviderModel:
+      required:
+      - englishName
+      - isEnable
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        country:
+          $ref: '#/components/schemas/CountryResponseModel'
+        allowedPermissions:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/AccountInformationPermission'
+        address:
+          type:
+          - string
+          - 'null'
+        phone:
+          type:
+          - string
+          - 'null'
+        useBenefit:
+          type:
+          - boolean
+          - 'null'
+        arabicName:
+          maxLength: 255
+          type:
+          - string
+          - 'null'
+        englishName:
+          maxLength: 255
+          minLength: 1
+          type: string
+        status:
+          $ref: '#/components/schemas/ProviderStatus'
+        isEnable:
+          type: boolean
+        logo:
+          maxLength: 255
+          type:
+          - string
+          - 'null'
+          format: uri
       additionalProperties: false
     ApiError:
       enum:
@@ -774,92 +1180,146 @@ components:
       - CREDITOR_ACCOUNT_NOT_FOUND
       - UNAUTHORIZED_IP_ADDRESS
       type: string
-    AccountInformationRequestAccessResponseModel:
+    AccountRequestModel:
       required:
-      - countryCode
-      - customerId
+      - identification
+      - scheme
+      type: object
+      properties:
+        scheme:
+          $ref: '#/components/schemas/SchemeName'
+        identification:
+          minLength: 1
+          type: string
+        name:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
+    PaymentInitiationProviderModel:
+      required:
+      - englishName
       type: object
       properties:
         id:
-          type: string
+          type:
+          - string
+          - 'null'
           format: uuid
-        status:
-          $ref: '#/components/schemas/RequestStatus'
-        source:
-          $ref: '#/components/schemas/ConsentSource'
-        consent:
-          $ref: '#/components/schemas/AccountInformationConsentResponseModel'
         country:
           $ref: '#/components/schemas/CountryResponseModel'
-        requestPermissions:
-          type: array
-          items:
-            type: string
-          nullable: true
-        createdAt:
-          type: string
-          format: date-time
-        updatedAt:
-          type: string
-          format: date-time
-        requestLink:
-          type: string
-          nullable: true
-        customerId:
-          type: string
-          format: uuid
-        consentExpiryDate:
-          type: string
-          format: date-time
-          nullable: true
-        consentTransactionsFromDate:
-          type: string
-          format: date-time
-          nullable: true
-        consentTransactionsToDate:
-          type: string
-          format: date-time
-          nullable: true
-        countryCode:
-          minLength: 1
-          pattern: ^[A-Z]{2}
-          type: string
-        redirectionFlow:
-          $ref: '#/components/schemas/RedirectionFlow'
-        successRedirectUrl:
-          maxLength: 255
-          type: string
-          format: uri
-          nullable: true
-        failureRedirectUrl:
-          maxLength: 255
-          type: string
-          format: uri
-          nullable: true
-        autoRedirect:
+        address:
+          type:
+          - string
+          - 'null'
+        phone:
+          type:
+          - string
+          - 'null'
+        isEnable:
           type: boolean
+        arabicName:
+          maxLength: 255
+          type:
+          - string
+          - 'null'
+        englishName:
+          maxLength: 255
+          minLength: 1
+          type: string
+        status:
+          $ref: '#/components/schemas/ProviderStatus'
+        logo:
+          maxLength: 255
+          type:
+          - string
+          - 'null'
+          format: uri
       additionalProperties: false
+    ConsentPaymentType:
+      enum:
+      - SingleInstantPayment
+      type: string
     PaymentAccessRequestResponseModelIEnumerablePagesModelMetaApiResponse:
       type: object
       properties:
         error:
           $ref: '#/components/schemas/ApiError'
         errorDescription:
-          type: object
+          type:
+          - object
+          - 'null'
           additionalProperties:
-            type: array
+            type:
+            - array
+            - 'null'
             items:
               type: string
-            nullable: true
-          nullable: true
         data:
-          type: array
+          type:
+          - array
+          - 'null'
           items:
             $ref: '#/components/schemas/PaymentAccessRequestResponseModel'
-          nullable: true
         meta:
           $ref: '#/components/schemas/PagesModel'
       additionalProperties: false
+    PaymentInitiationConnectionResponseModel:
+      type: object
+      properties:
+        provider:
+          $ref: '#/components/schemas/PaymentInitiationProviderModel'
+        id:
+          type: string
+          format: uuid
+        status:
+          $ref: '#/components/schemas/ConnectionStatus'
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+      additionalProperties: false
+    PaymentAccountResponseModel:
+      required:
+      - identification
+      - scheme
+      type: object
+      properties:
+        provider:
+          $ref: '#/components/schemas/PaymentInitiationProviderModel'
+        id:
+          type:
+          - string
+          - 'null'
+          format: uuid
+        scheme:
+          $ref: '#/components/schemas/SchemeName'
+        identification:
+          minLength: 1
+          type: string
+        name:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
+    PaymentAmountResponseModel:
+      type: object
+      properties:
+        value:
+          type:
+          - number
+          - 'null'
+          format: double
+        currency:
+          $ref: '#/components/schemas/CurrencyResponseModel'
+      additionalProperties: false
+    PaymentType:
+      enum:
+      - SINGLE_DOMESTIC
+      - RECURRENT
+      type: string
     PaymentPurpose:
       enum:
       - SELF
@@ -877,16 +1337,6 @@ components:
       - IBAN
       - BBAN
       type: string
-    PaymentAmountResponseModel:
-      type: object
-      properties:
-        value:
-          type: number
-          format: double
-          nullable: true
-        currency:
-          $ref: '#/components/schemas/CurrencyResponseModel'
-      additionalProperties: false
     PaymentInitiationConsentResponseModel:
       type: object
       properties:
@@ -895,22 +1345,26 @@ components:
         paymentConsentType:
           $ref: '#/components/schemas/ConsentPaymentType'
         executionDateTime:
-          type: string
+          type:
+          - string
+          - 'null'
           format: date-time
-          nullable: true
         purpose:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         note:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         id:
           type: string
           format: uuid
         customerId:
-          type: string
+          type:
+          - string
+          - 'null'
           format: uuid
-          nullable: true
         scope:
           $ref: '#/components/schemas/ConsentScope'
         createdAt:
@@ -919,234 +1373,106 @@ components:
         status:
           $ref: '#/components/schemas/ObConsentsStatus'
         authorizationLink:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         successRedirectUrl:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         failureRedirectUrl:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
       additionalProperties: false
-    ObjectApiResponse:
-      type: object
-      properties:
-        error:
-          $ref: '#/components/schemas/ApiError'
-        errorDescription:
-          type: object
-          additionalProperties:
-            type: array
-            items:
-              type: string
-            nullable: true
-          nullable: true
-        data:
-          nullable: true
-      additionalProperties: false
-    ConnectionStatus:
-      enum:
-      - ACTIVE
-      - INACTIVE
-      type: string
-    ConsentSource:
-      enum:
-      - WEB
-      - API
-      type: string
     PaymentAccessRequestResponseModelApiResponse:
       type: object
       properties:
         error:
           $ref: '#/components/schemas/ApiError'
         errorDescription:
-          type: object
+          type:
+          - object
+          - 'null'
           additionalProperties:
-            type: array
+            type:
+            - array
+            - 'null'
             items:
               type: string
-            nullable: true
-          nullable: true
         data:
           $ref: '#/components/schemas/PaymentAccessRequestResponseModel'
       additionalProperties: false
-    PaymentInitiationProviderModel:
+    PaymentRequestModel:
       required:
-      - englishName
-      type: object
-      properties:
-        id:
-          type: string
-          format: uuid
-          nullable: true
-        country:
-          $ref: '#/components/schemas/CountryResponseModel'
-        address:
-          type: string
-          nullable: true
-        phone:
-          type: string
-          nullable: true
-        isEnable:
-          type: boolean
-        arabicName:
-          maxLength: 255
-          type: string
-          nullable: true
-        englishName:
-          maxLength: 255
-          minLength: 1
-          type: string
-        status:
-          $ref: '#/components/schemas/ProviderStatus'
-        logo:
-          maxLength: 255
-          type: string
-          format: uri
-          nullable: true
-      additionalProperties: false
-    RedirectionFlow:
-      enum:
-      - WEB
-      - DECOUPLED
-      type: string
-    AisRequestAccessModel:
-      required:
+      - amount
       - countryCode
-      - customerId
-      - requestPermissions
+      - creditorAccount
+      - currency
+      - paymentConsentType
+      - purpose
+      - type
       type: object
       properties:
-        providers:
-          type: array
-          items:
-            type: string
-            format: uuid
-          nullable: true
-        customerId:
-          type: string
-          format: uuid
-        consentTransactionsFromDate:
-          type: string
-          format: date-time
-          nullable: true
-        consentTransactionsToDate:
-          type: string
-          format: date-time
-          nullable: true
-        countryCode:
-          minLength: 1
-          pattern: ^[A-Z]{2}
-          type: string
-        requestPermissions:
-          type: array
-          items:
-            $ref: '#/components/schemas/AccountInformationPermission'
+        type:
+          $ref: '#/components/schemas/PaymentType'
+        description:
+          maxLength: 500
+          type:
+          - string
+          - 'null'
+        externalReference:
+          maxLength: 255
+          type:
+          - string
+          - 'null'
         redirectionFlow:
           $ref: '#/components/schemas/RedirectionFlow'
         successRedirectUrl:
           maxLength: 255
-          type: string
+          type:
+          - string
+          - 'null'
           format: uri
-          nullable: true
         failureRedirectUrl:
           maxLength: 255
-          type: string
+          type:
+          - string
+          - 'null'
           format: uri
-          nullable: true
         autoRedirect:
-          type: boolean
-      additionalProperties: false
-    ConsentPaymentType:
-      enum:
-      - SingleInstantPayment
-      type: string
-    AccountInformationRequestAccessResponseModelIEnumerablePagesModelMetaApiResponse:
-      type: object
-      properties:
-        error:
-          $ref: '#/components/schemas/ApiError'
-        errorDescription:
-          type: object
-          additionalProperties:
-            type: array
-            items:
-              type: string
-            nullable: true
-          nullable: true
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/AccountInformationRequestAccessResponseModel'
-          nullable: true
-        meta:
-          $ref: '#/components/schemas/PagesModel'
-      additionalProperties: false
-    AccountInformationRequestAccessModel:
-      required:
-      - countryCode
-      - customerId
-      - requestPermissions
-      type: object
-      properties:
-        customerId:
+          type:
+          - boolean
+          - 'null'
+        debtorAccount:
+          $ref: '#/components/schemas/AccountRequestModel'
+        creditorAccount:
+          $ref: '#/components/schemas/AccountRequestModel'
+        amount:
+          minLength: 1
+          pattern: ^\d{1,3}(\.\d{3})?$
           type: string
+        currency:
+          minLength: 1
+          pattern: ^[A-Z]{3}
+          type: string
+        providerId:
+          type:
+          - string
+          - 'null'
           format: uuid
-        consentExpiryDate:
-          type: string
-          format: date-time
-          nullable: true
-        consentTransactionsFromDate:
-          type: string
-          format: date-time
-          nullable: true
-        consentTransactionsToDate:
-          type: string
-          format: date-time
-          nullable: true
         countryCode:
           minLength: 1
           pattern: ^[A-Z]{2}
           type: string
-        requestPermissions:
-          type: array
-          items:
-            $ref: '#/components/schemas/AccountInformationPermission'
-        redirectionFlow:
-          $ref: '#/components/schemas/RedirectionFlow'
-        successRedirectUrl:
-          maxLength: 255
-          type: string
-          format: uri
-          nullable: true
-        failureRedirectUrl:
-          maxLength: 255
-          type: string
-          format: uri
-          nullable: true
-        autoRedirect:
-          type: boolean
-      additionalProperties: false
-    PaymentType:
-      enum:
-      - SINGLE_DOMESTIC
-      - RECURRENT
-      type: string
-    AccountInformationRequestAccessResponseModelApiResponse:
-      type: object
-      properties:
-        error:
-          $ref: '#/components/schemas/ApiError'
-        errorDescription:
-          type: object
-          additionalProperties:
-            type: array
-            items:
-              type: string
-            nullable: true
-          nullable: true
-        data:
-          $ref: '#/components/schemas/AccountInformationRequestAccessResponseModel'
+        paymentConsentType:
+          $ref: '#/components/schemas/ConsentPaymentType'
+        purpose:
+          $ref: '#/components/schemas/PaymentPurpose'
+        note:
+          type:
+          - string
+          - 'null'
       additionalProperties: false
     PaymentAccessRequestResponseModel:
       required:
@@ -1169,14 +1495,17 @@ components:
         creditorAccount:
           $ref: '#/components/schemas/PaymentAccountResponseModel'
         hashId:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         purpose:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         note:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         createdAt:
           type: string
           format: date-time
@@ -1184,152 +1513,141 @@ components:
           type: string
           format: date-time
         requestLink:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         paymentConsentType:
           $ref: '#/components/schemas/ConsentPaymentType'
         executionDateTime:
-          type: string
+          type:
+          - string
+          - 'null'
           format: date-time
-          nullable: true
         type:
           $ref: '#/components/schemas/PaymentType'
         description:
           maxLength: 500
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         externalReference:
           maxLength: 255
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         redirectionFlow:
           $ref: '#/components/schemas/RedirectionFlow'
         successRedirectUrl:
           maxLength: 255
-          type: string
+          type:
+          - string
+          - 'null'
           format: uri
-          nullable: true
         failureRedirectUrl:
           maxLength: 255
-          type: string
+          type:
+          - string
+          - 'null'
           format: uri
-          nullable: true
         autoRedirect:
           type: boolean
       additionalProperties: false
-    ConsentStatusHistoryModel:
+    AccountInformationRequestAccessResponseModel_2:
+      required:
+      - countryCode
+      - customerId
       type: object
       properties:
-        status:
-          $ref: '#/components/schemas/ObConsentsStatus'
-        dateTime:
-          type: string
-          format: date-time
-      additionalProperties: false
-    AccountInformationConnectionResponseModel:
-      type: object
-      properties:
-        provider:
-          $ref: '#/components/schemas/AccountInformationProviderModel'
         id:
           type: string
           format: uuid
         status:
-          $ref: '#/components/schemas/ConnectionStatus'
+          $ref: '#/components/schemas/RequestStatus'
+        source:
+          $ref: '#/components/schemas/ConsentSource'
+        consentExpiryDate:
+          type: string
+          format: date-time
+        consent:
+          $ref: '#/components/schemas/AccountInformationConsentResponseModel'
+        country:
+          $ref: '#/components/schemas/CountryResponseModel'
+        requestPermissions:
+          type:
+          - array
+          - 'null'
+          items:
+            type: string
         createdAt:
           type: string
           format: date-time
         updatedAt:
           type: string
           format: date-time
-      additionalProperties: false
-    PaymentAccountResponseModel:
-      required:
-      - identification
-      - scheme
-      type: object
-      properties:
-        provider:
-          $ref: '#/components/schemas/PaymentInitiationProviderModel'
-        id:
+        requestLink:
+          type:
+          - string
+          - 'null'
+        customerId:
           type: string
           format: uuid
-          nullable: true
-        scheme:
-          $ref: '#/components/schemas/SchemeName'
-        identification:
-          minLength: 1
-          type: string
-        name:
-          type: string
-          nullable: true
-      additionalProperties: false
-    ProviderStatus:
-      enum:
-      - Active
-      - Inactive
-      type: string
-    CountryResponseModel:
-      required:
-      - englishName
-      - iso3166Code
-      - timeZone
-      type: object
-      properties:
-        id:
-          type: string
-          format: uuid
-        createdAt:
-          type: string
+        consentTransactionsFromDate:
+          type:
+          - string
+          - 'null'
           format: date-time
-        updatedAt:
-          type: string
+        consentTransactionsToDate:
+          type:
+          - string
+          - 'null'
           format: date-time
-        currency:
-          $ref: '#/components/schemas/CurrencyResponseModel'
-        englishName:
-          maxLength: 50
+        countryCode:
           minLength: 1
+          pattern: ^[A-Z]{2}
           type: string
-        arabicName:
-          maxLength: 50
-          type: string
-          nullable: true
-        iso3166Code:
-          maxLength: 2
-          minLength: 1
-          pattern: ^[A-Z]{2}$
-          type: string
-        timeZone:
-          maxLength: 50
-          minLength: 1
-          type: string
+        redirectionFlow:
+          $ref: '#/components/schemas/RedirectionFlow'
+        successRedirectUrl:
+          maxLength: 255
+          type:
+          - string
+          - 'null'
+          format: uri
+        failureRedirectUrl:
+          maxLength: 255
+          type:
+          - string
+          - 'null'
+          format: uri
+        autoRedirect:
+          type: boolean
       additionalProperties: false
-    RequestStatus:
+    ObConsentsStatus_2:
       enum:
-      - AwaitingApproval
+      - AwaitingAuthorization
+      - Authorized
+      - Consumed
+      - Finished
       - Rejected
-      - Approved
       - Expired
+      - Revoked
       type: string
-    UpdateAccountInformationRequestAccessModel:
+    UpdateAccountInformationRequestAccessModel_2:
       required:
       - countryCode
       - requestPermissions
       type: object
       properties:
-        consentExpiryDate:
-          type: string
-          format: date-time
-          nullable: true
         consentTransactionsFromDate:
-          type: string
+          type:
+          - string
+          - 'null'
           format: date-time
-          nullable: true
         consentTransactionsToDate:
-          type: string
+          type:
+          - string
+          - 'null'
           format: date-time
-          nullable: true
         countryCode:
           minLength: 1
           pattern: ^[A-Z]{2}
@@ -1342,107 +1660,20 @@ components:
           $ref: '#/components/schemas/RedirectionFlow'
         successRedirectUrl:
           maxLength: 255
-          type: string
+          type:
+          - string
+          - 'null'
           format: uri
-          nullable: true
         failureRedirectUrl:
           maxLength: 255
-          type: string
+          type:
+          - string
+          - 'null'
           format: uri
-          nullable: true
         autoRedirect:
           type: boolean
       additionalProperties: false
-    PaymentRequestModel:
-      required:
-      - amount
-      - countryCode
-      - creditorAccount
-      - currency
-      - paymentConsentType
-      - purpose
-      - type
-      type: object
-      properties:
-        type:
-          $ref: '#/components/schemas/PaymentType'
-        description:
-          maxLength: 500
-          type: string
-          nullable: true
-        externalReference:
-          maxLength: 255
-          type: string
-          nullable: true
-        redirectionFlow:
-          $ref: '#/components/schemas/RedirectionFlow'
-        successRedirectUrl:
-          maxLength: 255
-          type: string
-          format: uri
-          nullable: true
-        failureRedirectUrl:
-          maxLength: 255
-          type: string
-          format: uri
-          nullable: true
-        autoRedirect:
-          type: boolean
-          nullable: true
-        debtorAccount:
-          $ref: '#/components/schemas/AccountRequestModel'
-        creditorAccount:
-          $ref: '#/components/schemas/AccountRequestModel'
-        amount:
-          minLength: 1
-          pattern: ^\d{1,3}(\.\d{3})?$
-          type: string
-        currency:
-          minLength: 1
-          pattern: ^[A-Z]{3}
-          type: string
-        providerId:
-          type: string
-          format: uuid
-          nullable: true
-        countryCode:
-          minLength: 1
-          pattern: ^[A-Z]{2}
-          type: string
-        paymentConsentType:
-          $ref: '#/components/schemas/ConsentPaymentType'
-        purpose:
-          $ref: '#/components/schemas/PaymentPurpose'
-        note:
-          type: string
-          nullable: true
-      additionalProperties: false
-    ObConsentsStatus:
-      enum:
-      - AwaitingAuthorization
-      - Authorized
-      - Authorised
-      - Consumed
-      - Rejected
-      - Expired
-      - Revoked
-      type: string
-    AccountRequestModel:
-      required:
-      - identification
-      - scheme
-      type: object
-      properties:
-        scheme:
-          $ref: '#/components/schemas/SchemeName'
-        identification:
-          minLength: 1
-          type: string
-        name:
-          type: string
-          nullable: true
-      additionalProperties: false
-    PagesModel:
+    PagesModel_2:
       type: object
       properties:
         currentPageNumber:
@@ -1454,100 +1685,205 @@ components:
         totalNumberOfPages:
           type: integer
           format: int32
+        totalItems:
+          type: integer
+          format: int32
       additionalProperties: false
-    CurrencyResponseModel:
+    AccountInformationProviderModel_2:
       required:
       - englishName
-      - iso4117Code
+      - isEnable
       type: object
       properties:
         id:
           type: string
           format: uuid
-        englishName:
-          maxLength: 50
-          minLength: 1
-          type: string
+        country:
+          $ref: '#/components/schemas/CountryResponseModel'
+        allowedPermissions:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/AccountInformationPermission'
+        address:
+          type:
+          - string
+          - 'null'
+        phone:
+          type:
+          - string
+          - 'null'
         arabicName:
-          maxLength: 50
-          type: string
-          nullable: true
-        iso4117Code:
-          maxLength: 3
+          maxLength: 255
+          type:
+          - string
+          - 'null'
+        englishName:
+          maxLength: 255
           minLength: 1
           type: string
-        iso4117Number:
-          maxLength: 4
-          type: string
-          nullable: true
-      additionalProperties: false
-    PaymentInitiationConnectionResponseModel:
-      type: object
-      properties:
-        provider:
-          $ref: '#/components/schemas/PaymentInitiationProviderModel'
-        id:
-          type: string
-          format: uuid
         status:
-          $ref: '#/components/schemas/ConnectionStatus'
-        createdAt:
-          type: string
-          format: date-time
-        updatedAt:
-          type: string
-          format: date-time
+          $ref: '#/components/schemas/ProviderStatus'
+        isEnable:
+          type: boolean
+        logo:
+          maxLength: 255
+          type:
+          - string
+          - 'null'
+          format: uri
       additionalProperties: false
-    AccountInformationConsentResponseModel:
+    LongLivedRequestModel:
+      required:
+      - consentExpiryDate
+      - countryCode
+      - customerId
+      - requestPermissions
       type: object
       properties:
-        expiryDate:
+        consentExpiryDate:
           type: string
           format: date-time
-          nullable: true
-        transactionsFromDate:
-          type: string
-          format: date-time
-          nullable: true
-        transactionsToDate:
-          type: string
-          format: date-time
-          nullable: true
-        permissions:
-          type: array
+        providers:
+          type:
+          - array
+          - 'null'
           items:
             type: string
-          nullable: true
-        statusHistory:
-          type: array
-          items:
-            $ref: '#/components/schemas/ConsentStatusHistoryModel'
-          nullable: true
-        connection:
-          $ref: '#/components/schemas/AccountInformationConnectionResponseModel'
-        id:
-          type: string
-          format: uuid
+            format: uuid
         customerId:
           type: string
           format: uuid
-          nullable: true
-        scope:
-          $ref: '#/components/schemas/ConsentScope'
-        createdAt:
-          type: string
+        consentTransactionsFromDate:
+          type:
+          - string
+          - 'null'
           format: date-time
-        status:
-          $ref: '#/components/schemas/ObConsentsStatus'
-        authorizationLink:
+        consentTransactionsToDate:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        countryCode:
+          minLength: 1
+          pattern: ^[A-Z]{2}
           type: string
-          nullable: true
+        requestPermissions:
+          type: array
+          items:
+            $ref: '#/components/schemas/AccountInformationPermission'
+        redirectionFlow:
+          $ref: '#/components/schemas/RedirectionFlow'
         successRedirectUrl:
-          type: string
-          nullable: true
+          maxLength: 255
+          type:
+          - string
+          - 'null'
+          format: uri
         failureRedirectUrl:
+          maxLength: 255
+          type:
+          - string
+          - 'null'
+          format: uri
+        autoRedirect:
+          type: boolean
+      additionalProperties: false
+    ApiError_2:
+      enum:
+      - INVALID_DATA
+      - INVALID_SIGNATURE
+      - RESOURCE_LOCKED
+      - COUNTRY_NOT_FOUND
+      - CURRENCY_NOT_FOUND
+      - PROVIDER_NOT_FOUND
+      - CONNECTION_NOT_FOUND
+      - INSUFFICIENT_CONSENT_PERMISSIONS
+      - CONSENT_EXPIRED
+      - CONSENT_REVOKED
+      - CONSENT_UNAUTHORIZED
+      - CONSENT_NOT_FOUND
+      - ACCOUNT_INFORMATION_REPORT_NOT_FOUND
+      - MULTIPLE_CURRENCY_NOT_ALLOWED
+      - MULTIPLE_CONSENT_DATE_NOT_ALLOWED
+      - PAYMENT_NOT_FOUND
+      - CONSENT_REJECTED
+      - PAYMENT_REQUEST_NOT_FOUND
+      - CUSTOMER_NOT_FOUND
+      - REAL_ESTATE_VERIFY_NOT_FOUND
+      - REAL_ESTATE_VALIDATE_NOT_FOUND
+      - REAL_ESTATE_SEARCH_NOT_FOUND
+      - CUSTOMER_ALREADY_EXISTS
+      - BANK_ACCOUNT_NOT_FOUND
+      - SERVER_ERROR
+      - PROVIDER_CONNECTION_FAILURE
+      - TRANSACTION_NOT_FOUND
+      - ACCOUNT_INFORMATION_ACCESS_REQUEST_NOT_FOUND
+      - CONSENT_REVOCATION_FAILED
+      - CONSENT_REVOKED_OR_EXPIRED
+      - SUBSCRIPTION_EXPIRED
+      - NOT_SUBSCRIBED_TO_SERVICE
+      - BENEFICIARY_NOT_FOUND
+      - PARTIES_NOT_FOUND
+      - DIRECT_DEBIT_NOT_FOUND
+      - SCHEDULED_PAYMENT_NOT_FOUND
+      - DEBTOR_ACCOUNT_NOT_FOUND
+      - CREDITOR_ACCOUNT_NOT_FOUND
+      - UNAUTHORIZED_IP_ADDRESS
+      - REAL_ESTATE_FAILED
+      type: string
+    AisRequestAccessModel:
+      required:
+      - countryCode
+      - customerId
+      - requestPermissions
+      type: object
+      properties:
+        providers:
+          type:
+          - array
+          - 'null'
+          items:
+            type: string
+            format: uuid
+        customerId:
           type: string
-          nullable: true
+          format: uuid
+        consentTransactionsFromDate:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        consentTransactionsToDate:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        countryCode:
+          minLength: 1
+          pattern: ^[A-Z]{2}
+          type: string
+        requestPermissions:
+          type: array
+          items:
+            $ref: '#/components/schemas/AccountInformationPermission'
+        redirectionFlow:
+          $ref: '#/components/schemas/RedirectionFlow'
+        successRedirectUrl:
+          maxLength: 255
+          type:
+          - string
+          - 'null'
+          format: uri
+        failureRedirectUrl:
+          maxLength: 255
+          type:
+          - string
+          - 'null'
+          format: uri
+        autoRedirect:
+          type: boolean
       additionalProperties: false
   securitySchemes:
     Bearer:
@@ -1555,3 +1891,7 @@ components:
       description: Please enter into field the word 'Bearer' followed by a space and JWT
       name: Authorization
       in: header
+x-refined-from:
+- spare-bahrain-ais-openapi-original.json
+- spare-bahrain-pis-openapi-original.json
+- spare-ksa-ais-openapi-original.json

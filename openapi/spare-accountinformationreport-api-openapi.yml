@@ -1,14 +1,9 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Information Account AccountInformationReport API
-  description: Spare account information API documentation
-  termsOfService: https://terms.tryspare.com/en
-  contact:
-    name: Spare Technologies WLL.
-    email: hello@tryspare.com
-  license:
-    name: Spare Technologies WLL.
+  title: Spare Account Information Report API
   version: '1.0'
+  termsOfService: https://terms.tryspare.com/en
+  description: 'Operations tagged AccountInformationReport across 2 of this provider''s published API definitions: spare-bahrain-ais-openapi-original.json, spare-ksa-ais-openapi-original.json. Each path carries the servers of the definition it was published in.'
 security:
 - Bearer: []
 tags:
@@ -18,7 +13,7 @@ paths:
     post:
       tags:
       - AccountInformationReport
-      summary: Create account information job report.
+      summary: Create account information job report
       description: '**Unique resource name :** ais.v1.account_information_report.create'
       requestBody:
         description: Account information report model
@@ -72,11 +67,13 @@ paths:
           description: '- If bank account not found
 
             - If customer not found'
+      operationId: postApiV10AisAccountInformationReportCreate
+      x-operation-id-source: derived
   /api/v1.0/ais/AccountInformationReport/Get:
     get:
       tags:
       - AccountInformationReport
-      summary: Get account information job report by id.
+      summary: Get account information job report by id
       description: '**Unique resource name :** ais.v1.account_information_report.get'
       parameters:
       - name: jobId
@@ -128,11 +125,13 @@ paths:
                 $ref: '#/components/schemas/ObjectApiResponse'
         '404':
           description: '- - If customer not found'
+      operationId: getApiV10AisAccountInformationReportGet
+      x-operation-id-source: derived
   /api/v1.0/ais/AccountInformationReport/File:
     get:
       tags:
       - AccountInformationReport
-      summary: Download account information job report.
+      summary: Download account information job report
       description: '**Unique resource name :** ais.v1.account_information_report.file'
       parameters:
       - name: jobId
@@ -206,11 +205,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ObjectApiResponse'
+      operationId: getApiV10AisAccountInformationReportFile
+      x-operation-id-source: derived
   /api/v1.0/ais/AccountInformationReport/List:
     post:
       tags:
       - AccountInformationReport
-      summary: List account information reports.
+      summary: List account information reports
       description: '**Unique resource name :** ais.v1.account_information_report.list'
       parameters:
       - name: customerId
@@ -269,11 +270,13 @@ paths:
                 $ref: '#/components/schemas/ObjectApiResponse'
         '404':
           description: '- If customer not found'
+      operationId: postApiV10AisAccountInformationReportList
+      x-operation-id-source: derived
   /api/v1.0/ais/AccountInformationReport/Status:
     get:
       tags:
       - AccountInformationReport
-      summary: Get account information report job status.
+      summary: Get account information report job status
       description: '**Unique resource name :** ais.v1.account_information_report.status'
       parameters:
       - name: jobId
@@ -329,8 +332,418 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ObjectApiResponse'
+      operationId: getApiV10AisAccountInformationReportStatus
+      x-operation-id-source: derived
 components:
   schemas:
+    BalanceLocalExchangeModel:
+      type: object
+      properties:
+        sourceCurrency:
+          type:
+          - string
+          - 'null'
+        targetCurrency:
+          type:
+          - string
+          - 'null'
+        rate:
+          type: number
+          format: double
+        date:
+          type: string
+          format: date
+        value:
+          type: number
+          format: double
+      additionalProperties: false
+    ObjectApiResponse:
+      type: object
+      properties:
+        error:
+          $ref: '#/components/schemas/ApiError'
+        errorDescription:
+          type:
+          - object
+          - 'null'
+          additionalProperties:
+            type:
+            - array
+            - 'null'
+            items:
+              type: string
+        data: {}
+      additionalProperties: false
+    AccountInformationReportJobDetailsResponseModel:
+      type: object
+      properties:
+        accountHolderName:
+          type:
+          - string
+          - 'null'
+        cashFlowTrend:
+          $ref: '#/components/schemas/CashFlowTrendModel'
+        affordability:
+          $ref: '#/components/schemas/AccountInformationReportJobAffordabilityModel'
+        accounts:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/AccountInformationReportBankAccountResponseModel'
+        transactionsCategories:
+          $ref: '#/components/schemas/TransactionCategorizationResponseModel'
+        balanceSummary:
+          $ref: '#/components/schemas/BalanceSummaryModel'
+        id:
+          type:
+          - string
+          - 'null'
+          format: uuid
+        jobId:
+          type:
+          - string
+          - 'null'
+        customerId:
+          type:
+          - string
+          - 'null'
+          format: uuid
+        startDate:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        endDate:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        createdAt:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        accountsCount:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        totalBalance:
+          type:
+          - number
+          - 'null'
+          format: double
+        status:
+          $ref: '#/components/schemas/AccountInformationReportJobStatus'
+        currency:
+          $ref: '#/components/schemas/CurrencyResponseModel'
+      additionalProperties: false
+    CreditTransactionCategoryModel:
+      type: object
+      properties:
+        totalCredit:
+          type:
+          - number
+          - 'null'
+          format: double
+        totalDebit:
+          type:
+          - number
+          - 'null'
+          format: double
+        currency:
+          $ref: '#/components/schemas/CurrencyResponseModel'
+        categories:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/TransactionCategory'
+      additionalProperties: false
+    BalanceTrendModel:
+      type: object
+      properties:
+        slope:
+          type:
+          - number
+          - 'null'
+          format: double
+        intercept:
+          type:
+          - number
+          - 'null'
+          format: double
+        accountBalanceHistory:
+          $ref: '#/components/schemas/AccountBalanceHistoryModel'
+      additionalProperties: false
+    AccountInformationReportBankAccountResponseModel:
+      type: object
+      properties:
+        provider:
+          $ref: '#/components/schemas/AccountInformationProviderModel'
+        createdAt:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        id:
+          type: string
+          format: uuid
+        currency:
+          $ref: '#/components/schemas/CurrencyResponseModel'
+        servicer:
+          $ref: '#/components/schemas/ServicerResponseModel'
+        accounts:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/SubAccountsResponseModel'
+        status:
+          type:
+          - string
+          - 'null'
+        statusUpdatedDateTime:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        type:
+          type:
+          - string
+          - 'null'
+        subType:
+          type:
+          - string
+          - 'null'
+        description:
+          type:
+          - string
+          - 'null'
+        openingDate:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        maturityDate:
+          type:
+          - string
+          - 'null'
+          format: date-time
+      additionalProperties: false
+    AccountInformationReportJobResponseModelIEnumerablePagesModelMetaApiResponse:
+      type: object
+      properties:
+        error:
+          $ref: '#/components/schemas/ApiError'
+        errorDescription:
+          type:
+          - object
+          - 'null'
+          additionalProperties:
+            type:
+            - array
+            - 'null'
+            items:
+              type: string
+        data:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/AccountInformationReportJobResponseModel'
+        meta:
+          $ref: '#/components/schemas/PagesModel'
+      additionalProperties: false
+    AccountInformationReportJobDetailsResponseModelApiResponse:
+      type: object
+      properties:
+        error:
+          $ref: '#/components/schemas/ApiError'
+        errorDescription:
+          type:
+          - object
+          - 'null'
+          additionalProperties:
+            type:
+            - array
+            - 'null'
+            items:
+              type: string
+        data:
+          $ref: '#/components/schemas/AccountInformationReportJobDetailsResponseModel'
+      additionalProperties: false
+    AccountInformationReportJobAffordabilityModel:
+      type: object
+      properties:
+        month:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        averageIncomeAffordability:
+          type:
+          - number
+          - 'null'
+          format: double
+        averageNetAffordability:
+          type:
+          - number
+          - 'null'
+          format: double
+        income:
+          type:
+          - number
+          - 'null'
+          format: double
+        expenses:
+          type:
+          - number
+          - 'null'
+          format: double
+        incomeAffordability:
+          type:
+          - number
+          - 'null'
+          format: double
+        netAffordability:
+          type:
+          - number
+          - 'null'
+          format: double
+        currency:
+          $ref: '#/components/schemas/CurrencyResponseModel'
+      additionalProperties: false
+    ServicerAddressResponseModel:
+      type: object
+      properties:
+        addressType:
+          type:
+          - string
+          - 'null'
+        department:
+          type:
+          - string
+          - 'null'
+        subDepartment:
+          type:
+          - string
+          - 'null'
+        addressLine:
+          type:
+          - string
+          - 'null'
+        streetName:
+          type:
+          - string
+          - 'null'
+        buildingNumber:
+          type:
+          - string
+          - 'null'
+        postalCode:
+          type:
+          - string
+          - 'null'
+        townName:
+          type:
+          - string
+          - 'null'
+        countrySubDivision:
+          type:
+          - string
+          - 'null'
+        country:
+          type:
+          - string
+          - 'null'
+        shortAddress:
+          type:
+          - string
+          - 'null'
+        unitNumber:
+          type:
+          - number
+          - 'null'
+          format: double
+        secondaryNumber:
+          type:
+          - string
+          - 'null'
+        district:
+          type:
+          - string
+          - 'null'
+        city:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
+    BalanceHistoryModel:
+      type: object
+      properties:
+        date:
+          type:
+          - string
+          - 'null'
+        balances:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/BalanceBaseModel'
+      additionalProperties: false
+    ProviderStatus:
+      enum:
+      - Active
+      - Inactive
+      type: string
+    DateTimeDecimalValueAggregationModel:
+      type: object
+      properties:
+        key:
+          type: string
+          format: date-time
+        value:
+          type: number
+          format: double
+      additionalProperties: false
+    AccountInformationReportJobStatus:
+      enum:
+      - Awaiting
+      - Deleted
+      - Enqueued
+      - Failed
+      - Processing
+      - Scheduled
+      - Succeeded
+      - Created
+      type: string
+    AccountInformationReportModel:
+      type: object
+      properties:
+        accountIds:
+          type:
+          - array
+          - 'null'
+          items:
+            type: string
+            format: uuid
+        customerId:
+          type: string
+          format: uuid
+      additionalProperties: false
+    BalanceBaseModel:
+      type: object
+      properties:
+        type:
+          type:
+          - string
+          - 'null'
+        amount:
+          $ref: '#/components/schemas/BalanceAmountModel'
+      additionalProperties: false
     AccountInformationPermission:
       enum:
       - ReadAccountsBasic
@@ -359,44 +772,234 @@ components:
       - ReadStandingOrdersBasic
       - ReadStandingOrdersDetail
       type: string
-    AccountInformationReportJobResponseModel:
+    PagesModel:
+      type: object
+      properties:
+        currentPageNumber:
+          type: integer
+          format: int32
+        pageSize:
+          type: integer
+          format: int32
+        totalNumberOfPages:
+          type: integer
+          format: int32
+      additionalProperties: false
+    CountryResponseModel:
+      required:
+      - englishName
+      - iso3166Code
+      - timeZone
       type: object
       properties:
         id:
           type: string
           format: uuid
-          nullable: true
-        jobId:
-          type: string
-          nullable: true
-        customerId:
-          type: string
-          format: uuid
-          nullable: true
-        startDate:
-          type: string
-          format: date-time
-          nullable: true
-        endDate:
-          type: string
-          format: date-time
-          nullable: true
         createdAt:
           type: string
           format: date-time
-          nullable: true
-        accountsCount:
-          type: integer
-          format: int32
-          nullable: true
-        totalBalance:
+        updatedAt:
+          type: string
+          format: date-time
+        currency:
+          $ref: '#/components/schemas/CurrencyResponseModel'
+        englishName:
+          maxLength: 50
+          minLength: 1
+          type: string
+        arabicName:
+          maxLength: 50
+          type:
+          - string
+          - 'null'
+        iso3166Code:
+          maxLength: 2
+          minLength: 1
+          pattern: ^[A-Z]{2}$
+          type: string
+        timeZone:
+          maxLength: 50
+          minLength: 1
+          type: string
+      additionalProperties: false
+    CashFlowTrendModel:
+      type: object
+      properties:
+        accounts:
+          type:
+          - array
+          - 'null'
+          items:
+            type: string
+            format: uuid
+        currency:
+          $ref: '#/components/schemas/CurrencyResponseModel'
+        dailyTotalCredit:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/DateTimeDecimalValueAggregationModel'
+        dailyTotalDebit:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/DateTimeDecimalValueAggregationModel'
+      additionalProperties: false
+    TransactionCategory:
+      type: object
+      properties:
+        subCategoryName:
+          type:
+          - string
+          - 'null'
+        amount:
+          type:
+          - number
+          - 'null'
+          format: double
+        bookingDateTime:
+          type:
+          - string
+          - 'null'
+          format: date
+        categoryName:
+          type:
+          - string
+          - 'null'
+        transactionInformation:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
+    AccountBalanceHistoryModel:
+      type: object
+      properties:
+        accountId:
+          type:
+          - string
+          - 'null'
+          format: uuid
+        history:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/BalanceHistoryModel'
+      additionalProperties: false
+    CurrencyResponseModel:
+      required:
+      - englishName
+      - iso4117Code
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        englishName:
+          maxLength: 50
+          minLength: 1
+          type: string
+        arabicName:
+          maxLength: 50
+          type:
+          - string
+          - 'null'
+        iso4117Code:
+          maxLength: 3
+          minLength: 1
+          type: string
+        iso4117Number:
+          maxLength: 4
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
+    BalanceAmountModel:
+      type: object
+      properties:
+        amount:
           type: number
           format: double
-          nullable: true
+        currency:
+          type:
+          - string
+          - 'null'
+        localExchange:
+          $ref: '#/components/schemas/BalanceLocalExchangeModel'
+      additionalProperties: false
+    AccountInformationReportJobResponseModel:
+      type: object
+      properties:
+        id:
+          type:
+          - string
+          - 'null'
+          format: uuid
+        jobId:
+          type:
+          - string
+          - 'null'
+        customerId:
+          type:
+          - string
+          - 'null'
+          format: uuid
+        startDate:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        endDate:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        createdAt:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        accountsCount:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        totalBalance:
+          type:
+          - number
+          - 'null'
+          format: double
         status:
           $ref: '#/components/schemas/AccountInformationReportJobStatus'
         currency:
           $ref: '#/components/schemas/CurrencyResponseModel'
+      additionalProperties: false
+    ServicerResponseModel:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        address:
+          $ref: '#/components/schemas/ServicerAddressResponseModel'
+        scheme:
+          type:
+          - string
+          - 'null'
+        identification:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
+    TransactionCategorizationResponseModel:
+      type: object
+      properties:
+        debit:
+          $ref: '#/components/schemas/DebitTransactionCategoryModel'
+        credit:
+          $ref: '#/components/schemas/CreditTransactionCategoryModel'
       additionalProperties: false
     AccountInformationProviderModel:
       required:
@@ -410,23 +1013,28 @@ components:
         country:
           $ref: '#/components/schemas/CountryResponseModel'
         allowedPermissions:
-          type: array
+          type:
+          - array
+          - 'null'
           items:
             $ref: '#/components/schemas/AccountInformationPermission'
-          nullable: true
         address:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         phone:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         useBenefit:
-          type: boolean
-          nullable: true
+          type:
+          - boolean
+          - 'null'
         arabicName:
           maxLength: 255
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         englishName:
           maxLength: 255
           minLength: 1
@@ -437,92 +1045,119 @@ components:
           type: boolean
         logo:
           maxLength: 255
-          type: string
+          type:
+          - string
+          - 'null'
           format: uri
-          nullable: true
       additionalProperties: false
-    BalanceAmountModel:
+    AccountInformationReportJobResponseModelApiResponse:
       type: object
       properties:
-        amount:
-          type: number
-          format: double
-        currency:
-          type: string
-          nullable: true
-        localExchange:
-          $ref: '#/components/schemas/BalanceLocalExchangeModel'
+        error:
+          $ref: '#/components/schemas/ApiError'
+        errorDescription:
+          type:
+          - object
+          - 'null'
+          additionalProperties:
+            type:
+            - array
+            - 'null'
+            items:
+              type: string
+        data:
+          $ref: '#/components/schemas/AccountInformationReportJobResponseModel'
       additionalProperties: false
-    AccountInformationReportBankAccountResponseModel:
+    BalanceSummaryModel:
       type: object
       properties:
-        provider:
-          $ref: '#/components/schemas/AccountInformationProviderModel'
-        createdAt:
-          type: string
-          format: date-time
-          nullable: true
-        id:
-          type: string
-          format: uuid
+        accounts:
+          type:
+          - array
+          - 'null'
+          items:
+            type: string
+            format: uuid
         currency:
           $ref: '#/components/schemas/CurrencyResponseModel'
-        servicer:
-          $ref: '#/components/schemas/ServicerResponseModel'
-        accounts:
-          type: array
+        currentBalance:
+          type:
+          - number
+          - 'null'
+          format: double
+        minimumBalance:
+          type:
+          - number
+          - 'null'
+          format: double
+        maximumBalance:
+          type:
+          - number
+          - 'null'
+          format: double
+        averageBalance:
+          type:
+          - number
+          - 'null'
+          format: double
+        totalCredit:
+          type:
+          - number
+          - 'null'
+          format: double
+        totalSixMonthCredit:
+          type:
+          - number
+          - 'null'
+          format: double
+        totalDebit:
+          type:
+          - number
+          - 'null'
+          format: double
+        averageMonthlyCredit:
+          type:
+          - number
+          - 'null'
+          format: double
+        averageMonthlyDebit:
+          type:
+          - number
+          - 'null'
+          format: double
+        daysBelowMean:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        trendLine:
+          type:
+          - number
+          - 'null'
+          format: double
+        balanceTrendModel:
+          type:
+          - array
+          - 'null'
           items:
-            $ref: '#/components/schemas/SubAccountsResponseModel'
-          nullable: true
-        status:
-          type: string
-          nullable: true
-        statusUpdatedDateTime:
-          type: string
-          format: date-time
-          nullable: true
-        type:
-          type: string
-          nullable: true
-        subType:
-          type: string
-          nullable: true
-        description:
-          type: string
-          nullable: true
-        openingDate:
-          type: string
-          format: date-time
-          nullable: true
-        maturityDate:
-          type: string
-          format: date-time
-          nullable: true
+            $ref: '#/components/schemas/BalanceTrendModel'
       additionalProperties: false
-    AccountBalanceHistoryModel:
+    DebitTransactionCategoryModel:
       type: object
       properties:
-        accountId:
-          type: string
-          format: uuid
-          nullable: true
-        history:
-          type: array
+        totalDebit:
+          type:
+          - number
+          - 'null'
+          format: double
+        currency:
+          $ref: '#/components/schemas/CurrencyResponseModel'
+        categories:
+          type:
+          - array
+          - 'null'
           items:
-            $ref: '#/components/schemas/BalanceHistoryModel'
-          nullable: true
-      additionalProperties: false
-    BalanceHistoryModel:
-      type: object
-      properties:
-        date:
-          type: string
-          nullable: true
-        balances:
-          type: array
-          items:
-            $ref: '#/components/schemas/BalanceBaseModel'
-          nullable: true
+            $ref: '#/components/schemas/TransactionCategory'
       additionalProperties: false
     SubAccountsResponseModel:
       type: object
@@ -531,14 +1166,17 @@ components:
           type: string
           format: uuid
         scheme:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         identification:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         name:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
       additionalProperties: false
     ApiError:
       enum:
@@ -580,391 +1218,135 @@ components:
       - CREDITOR_ACCOUNT_NOT_FOUND
       - UNAUTHORIZED_IP_ADDRESS
       type: string
-    ServicerAddressResponseModel:
-      type: object
-      properties:
-        addressType:
-          type: string
-          nullable: true
-        department:
-          type: string
-          nullable: true
-        subDepartment:
-          type: string
-          nullable: true
-        addressLine:
-          type: string
-          nullable: true
-        streetName:
-          type: string
-          nullable: true
-        buildingNumber:
-          type: string
-          nullable: true
-        postalCode:
-          type: string
-          nullable: true
-        townName:
-          type: string
-          nullable: true
-        countrySubDivision:
-          type: string
-          nullable: true
-        country:
-          type: string
-          nullable: true
-        shortAddress:
-          type: string
-          nullable: true
-        unitNumber:
-          type: number
-          format: double
-          nullable: true
-        secondaryNumber:
-          type: string
-          nullable: true
-        district:
-          type: string
-          nullable: true
-        city:
-          type: string
-          nullable: true
-      additionalProperties: false
-    DebitTransactionCategoryModel:
-      type: object
-      properties:
-        totalDebit:
-          type: number
-          format: double
-          nullable: true
-        currency:
-          $ref: '#/components/schemas/CurrencyResponseModel'
-        categories:
-          type: array
-          items:
-            $ref: '#/components/schemas/TransactionCategory'
-          nullable: true
-      additionalProperties: false
-    BalanceBaseModel:
-      type: object
-      properties:
-        type:
-          type: string
-          nullable: true
-        amount:
-          $ref: '#/components/schemas/BalanceAmountModel'
-      additionalProperties: false
-    ObjectApiResponse:
-      type: object
-      properties:
-        error:
-          $ref: '#/components/schemas/ApiError'
-        errorDescription:
-          type: object
-          additionalProperties:
-            type: array
-            items:
-              type: string
-            nullable: true
-          nullable: true
-        data:
-          nullable: true
-      additionalProperties: false
-    TransactionCategory:
-      type: object
-      properties:
-        subCategoryName:
-          type: string
-          nullable: true
-        amount:
-          type: number
-          format: double
-          nullable: true
-        bookingDateTime:
-          type: string
-          format: date
-          nullable: true
-        categoryName:
-          type: string
-          nullable: true
-        transactionInformation:
-          type: string
-          nullable: true
-      additionalProperties: false
-    DateTimeDecimalValueAggregationModel:
-      type: object
-      properties:
-        key:
-          type: string
-          format: date-time
-        value:
-          type: number
-          format: double
-      additionalProperties: false
-    CreditTransactionCategoryModel:
-      type: object
-      properties:
-        totalCredit:
-          type: number
-          format: double
-          nullable: true
-        totalDebit:
-          type: number
-          format: double
-          nullable: true
-        currency:
-          $ref: '#/components/schemas/CurrencyResponseModel'
-        categories:
-          type: array
-          items:
-            $ref: '#/components/schemas/TransactionCategory'
-          nullable: true
-      additionalProperties: false
-    TransactionCategorizationResponseModel:
-      type: object
-      properties:
-        debit:
-          $ref: '#/components/schemas/DebitTransactionCategoryModel'
-        credit:
-          $ref: '#/components/schemas/CreditTransactionCategoryModel'
-      additionalProperties: false
-    AccountInformationReportJobDetailsResponseModel:
+    AccountInformationReportJobDetailsResponseModel_2:
       type: object
       properties:
         accountHolderName:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         cashFlowTrend:
           $ref: '#/components/schemas/CashFlowTrendModel'
         affordability:
           $ref: '#/components/schemas/AccountInformationReportJobAffordabilityModel'
         accounts:
-          type: array
+          type:
+          - array
+          - 'null'
           items:
-            $ref: '#/components/schemas/AccountInformationReportBankAccountResponseModel'
-          nullable: true
+            $ref: '#/components/schemas/AccountInformationReportBankAccountResponseModel_2'
         transactionsCategories:
           $ref: '#/components/schemas/TransactionCategorizationResponseModel'
         balanceSummary:
           $ref: '#/components/schemas/BalanceSummaryModel'
         id:
-          type: string
+          type:
+          - string
+          - 'null'
           format: uuid
-          nullable: true
         jobId:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         customerId:
-          type: string
+          type:
+          - string
+          - 'null'
           format: uuid
-          nullable: true
         startDate:
-          type: string
+          type:
+          - string
+          - 'null'
           format: date-time
-          nullable: true
         endDate:
-          type: string
+          type:
+          - string
+          - 'null'
           format: date-time
-          nullable: true
         createdAt:
-          type: string
+          type:
+          - string
+          - 'null'
           format: date-time
-          nullable: true
         accountsCount:
-          type: integer
+          type:
+          - integer
+          - 'null'
           format: int32
-          nullable: true
         totalBalance:
-          type: number
+          type:
+          - number
+          - 'null'
           format: double
-          nullable: true
+        description:
+          type:
+          - string
+          - 'null'
+        currency:
+          $ref: '#/components/schemas/CurrencyResponseModel'
         status:
-          $ref: '#/components/schemas/AccountInformationReportJobStatus'
-        currency:
-          $ref: '#/components/schemas/CurrencyResponseModel'
+          $ref: '#/components/schemas/AccountInformationReportJobStatus_2'
       additionalProperties: false
-    CashFlowTrendModel:
+    AccountInformationReportBankAccountResponseModel_2:
       type: object
       properties:
-        accounts:
-          type: array
-          items:
-            type: string
-            format: uuid
-          nullable: true
-        currency:
-          $ref: '#/components/schemas/CurrencyResponseModel'
-        dailyTotalCredit:
-          type: array
-          items:
-            $ref: '#/components/schemas/DateTimeDecimalValueAggregationModel'
-          nullable: true
-        dailyTotalDebit:
-          type: array
-          items:
-            $ref: '#/components/schemas/DateTimeDecimalValueAggregationModel'
-          nullable: true
-      additionalProperties: false
-    BalanceLocalExchangeModel:
-      type: object
-      properties:
-        sourceCurrency:
-          type: string
-          nullable: true
-        targetCurrency:
-          type: string
-          nullable: true
-        rate:
-          type: number
-          format: double
-        date:
-          type: string
-          format: date
-        value:
-          type: number
-          format: double
-      additionalProperties: false
-    ServicerResponseModel:
-      type: object
-      properties:
-        id:
-          type: string
-          format: uuid
-        address:
-          $ref: '#/components/schemas/ServicerAddressResponseModel'
-        scheme:
-          type: string
-          nullable: true
-        identification:
-          type: string
-          nullable: true
-      additionalProperties: false
-    AccountInformationReportJobResponseModelIEnumerablePagesModelMetaApiResponse:
-      type: object
-      properties:
-        error:
-          $ref: '#/components/schemas/ApiError'
-        errorDescription:
-          type: object
-          additionalProperties:
-            type: array
-            items:
-              type: string
-            nullable: true
-          nullable: true
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/AccountInformationReportJobResponseModel'
-          nullable: true
-        meta:
-          $ref: '#/components/schemas/PagesModel'
-      additionalProperties: false
-    ProviderStatus:
-      enum:
-      - Active
-      - Inactive
-      type: string
-    CountryResponseModel:
-      required:
-      - englishName
-      - iso3166Code
-      - timeZone
-      type: object
-      properties:
-        id:
-          type: string
-          format: uuid
+        provider:
+          $ref: '#/components/schemas/AccountInformationProviderModel_2'
         createdAt:
-          type: string
+          type:
+          - string
+          - 'null'
           format: date-time
-        updatedAt:
-          type: string
-          format: date-time
-        currency:
-          $ref: '#/components/schemas/CurrencyResponseModel'
-        englishName:
-          maxLength: 50
-          minLength: 1
-          type: string
-        arabicName:
-          maxLength: 50
-          type: string
-          nullable: true
-        iso3166Code:
-          maxLength: 2
-          minLength: 1
-          pattern: ^[A-Z]{2}$
-          type: string
-        timeZone:
-          maxLength: 50
-          minLength: 1
-          type: string
-      additionalProperties: false
-    AccountInformationReportJobDetailsResponseModelApiResponse:
-      type: object
-      properties:
-        error:
-          $ref: '#/components/schemas/ApiError'
-        errorDescription:
-          type: object
-          additionalProperties:
-            type: array
-            items:
-              type: string
-            nullable: true
-          nullable: true
-        data:
-          $ref: '#/components/schemas/AccountInformationReportJobDetailsResponseModel'
-      additionalProperties: false
-    AccountInformationReportModel:
-      type: object
-      properties:
-        accountIds:
-          type: array
-          items:
-            type: string
-            format: uuid
-          nullable: true
-        customerId:
+        id:
           type: string
           format: uuid
-      additionalProperties: false
-    AccountInformationReportJobAffordabilityModel:
-      type: object
-      properties:
-        month:
-          type: string
-          format: date-time
-          nullable: true
-        averageIncomeAffordability:
-          type: number
-          format: double
-          nullable: true
-        averageNetAffordability:
-          type: number
-          format: double
-          nullable: true
-        income:
-          type: number
-          format: double
-          nullable: true
-        expenses:
-          type: number
-          format: double
-          nullable: true
-        incomeAffordability:
-          type: number
-          format: double
-          nullable: true
-        netAffordability:
-          type: number
-          format: double
-          nullable: true
+        externalId:
+          type:
+          - string
+          - 'null'
         currency:
           $ref: '#/components/schemas/CurrencyResponseModel'
+        servicer:
+          $ref: '#/components/schemas/ServicerResponseModel'
+        accounts:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/SubAccountsResponseModel'
+        status:
+          type:
+          - string
+          - 'null'
+        statusUpdatedDateTime:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        type:
+          type:
+          - string
+          - 'null'
+        subType:
+          type:
+          - string
+          - 'null'
+        description:
+          type:
+          - string
+          - 'null'
+        openingDate:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        maturityDate:
+          type:
+          - string
+          - 'null'
+          format: date-time
       additionalProperties: false
-    AccountInformationReportJobStatus:
+    AccountInformationReportJobStatus_2:
       enum:
       - Awaiting
       - Deleted
@@ -973,96 +1355,8 @@ components:
       - Processing
       - Scheduled
       - Succeeded
-      - Created
       type: string
-    BalanceSummaryModel:
-      type: object
-      properties:
-        accounts:
-          type: array
-          items:
-            type: string
-            format: uuid
-          nullable: true
-        currency:
-          $ref: '#/components/schemas/CurrencyResponseModel'
-        currentBalance:
-          type: number
-          format: double
-          nullable: true
-        minimumBalance:
-          type: number
-          format: double
-          nullable: true
-        maximumBalance:
-          type: number
-          format: double
-          nullable: true
-        averageBalance:
-          type: number
-          format: double
-          nullable: true
-        totalCredit:
-          type: number
-          format: double
-          nullable: true
-        totalSixMonthCredit:
-          type: number
-          format: double
-          nullable: true
-        totalDebit:
-          type: number
-          format: double
-          nullable: true
-        averageMonthlyCredit:
-          type: number
-          format: double
-          nullable: true
-        averageMonthlyDebit:
-          type: number
-          format: double
-          nullable: true
-        daysBelowMean:
-          type: integer
-          format: int32
-          nullable: true
-        trendLine:
-          type: number
-          format: double
-          nullable: true
-        balanceTrendModel:
-          type: array
-          items:
-            $ref: '#/components/schemas/BalanceTrendModel'
-          nullable: true
-      additionalProperties: false
-    CurrencyResponseModel:
-      required:
-      - englishName
-      - iso4117Code
-      type: object
-      properties:
-        id:
-          type: string
-          format: uuid
-        englishName:
-          maxLength: 50
-          minLength: 1
-          type: string
-        arabicName:
-          maxLength: 50
-          type: string
-          nullable: true
-        iso4117Code:
-          maxLength: 3
-          minLength: 1
-          type: string
-        iso4117Number:
-          maxLength: 4
-          type: string
-          nullable: true
-      additionalProperties: false
-    PagesModel:
+    PagesModel_2:
       type: object
       properties:
         currentPageNumber:
@@ -1074,40 +1368,155 @@ components:
         totalNumberOfPages:
           type: integer
           format: int32
+        totalItems:
+          type: integer
+          format: int32
       additionalProperties: false
-    BalanceTrendModel:
+    AccountInformationReportJobResponseModel_2:
       type: object
       properties:
-        slope:
-          type: number
+        id:
+          type:
+          - string
+          - 'null'
+          format: uuid
+        jobId:
+          type:
+          - string
+          - 'null'
+        customerId:
+          type:
+          - string
+          - 'null'
+          format: uuid
+        startDate:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        endDate:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        createdAt:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        accountsCount:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        totalBalance:
+          type:
+          - number
+          - 'null'
           format: double
-          nullable: true
-        intercept:
-          type: number
-          format: double
-          nullable: true
-        accountBalanceHistory:
-          $ref: '#/components/schemas/AccountBalanceHistoryModel'
+        description:
+          type:
+          - string
+          - 'null'
+        currency:
+          $ref: '#/components/schemas/CurrencyResponseModel'
+        status:
+          $ref: '#/components/schemas/AccountInformationReportJobStatus_2'
       additionalProperties: false
-    AccountInformationReportJobResponseModelApiResponse:
+    AccountInformationProviderModel_2:
+      required:
+      - englishName
+      - isEnable
       type: object
       properties:
-        error:
-          $ref: '#/components/schemas/ApiError'
-        errorDescription:
-          type: object
-          additionalProperties:
-            type: array
-            items:
-              type: string
-            nullable: true
-          nullable: true
-        data:
-          $ref: '#/components/schemas/AccountInformationReportJobResponseModel'
+        id:
+          type: string
+          format: uuid
+        country:
+          $ref: '#/components/schemas/CountryResponseModel'
+        allowedPermissions:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/AccountInformationPermission'
+        address:
+          type:
+          - string
+          - 'null'
+        phone:
+          type:
+          - string
+          - 'null'
+        arabicName:
+          maxLength: 255
+          type:
+          - string
+          - 'null'
+        englishName:
+          maxLength: 255
+          minLength: 1
+          type: string
+        status:
+          $ref: '#/components/schemas/ProviderStatus'
+        isEnable:
+          type: boolean
+        logo:
+          maxLength: 255
+          type:
+          - string
+          - 'null'
+          format: uri
       additionalProperties: false
+    ApiError_2:
+      enum:
+      - INVALID_DATA
+      - INVALID_SIGNATURE
+      - RESOURCE_LOCKED
+      - COUNTRY_NOT_FOUND
+      - CURRENCY_NOT_FOUND
+      - PROVIDER_NOT_FOUND
+      - CONNECTION_NOT_FOUND
+      - INSUFFICIENT_CONSENT_PERMISSIONS
+      - CONSENT_EXPIRED
+      - CONSENT_REVOKED
+      - CONSENT_UNAUTHORIZED
+      - CONSENT_NOT_FOUND
+      - ACCOUNT_INFORMATION_REPORT_NOT_FOUND
+      - MULTIPLE_CURRENCY_NOT_ALLOWED
+      - MULTIPLE_CONSENT_DATE_NOT_ALLOWED
+      - PAYMENT_NOT_FOUND
+      - CONSENT_REJECTED
+      - PAYMENT_REQUEST_NOT_FOUND
+      - CUSTOMER_NOT_FOUND
+      - REAL_ESTATE_VERIFY_NOT_FOUND
+      - REAL_ESTATE_VALIDATE_NOT_FOUND
+      - REAL_ESTATE_SEARCH_NOT_FOUND
+      - CUSTOMER_ALREADY_EXISTS
+      - BANK_ACCOUNT_NOT_FOUND
+      - SERVER_ERROR
+      - PROVIDER_CONNECTION_FAILURE
+      - TRANSACTION_NOT_FOUND
+      - ACCOUNT_INFORMATION_ACCESS_REQUEST_NOT_FOUND
+      - CONSENT_REVOCATION_FAILED
+      - CONSENT_REVOKED_OR_EXPIRED
+      - SUBSCRIPTION_EXPIRED
+      - NOT_SUBSCRIBED_TO_SERVICE
+      - BENEFICIARY_NOT_FOUND
+      - PARTIES_NOT_FOUND
+      - DIRECT_DEBIT_NOT_FOUND
+      - SCHEDULED_PAYMENT_NOT_FOUND
+      - DEBTOR_ACCOUNT_NOT_FOUND
+      - CREDITOR_ACCOUNT_NOT_FOUND
+      - UNAUTHORIZED_IP_ADDRESS
+      - REAL_ESTATE_FAILED
+      type: string
   securitySchemes:
     Bearer:
       type: apiKey
       description: Please enter into field the word 'Bearer' followed by a space and JWT
       name: Authorization
       in: header
+x-refined-from:
+- spare-bahrain-ais-openapi-original.json
+- spare-ksa-ais-openapi-original.json
