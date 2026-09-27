@@ -238,6 +238,104 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    AccountInformationConnectionResponseModel:
+      type: object
+      properties:
+        provider:
+          $ref: '#/components/schemas/AccountInformationProviderModel'
+        id:
+          type: string
+          format: uuid
+        status:
+          $ref: '#/components/schemas/ConnectionStatus'
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+      additionalProperties: false
+    PagesModel:
+      type: object
+      properties:
+        currentPageNumber:
+          type: integer
+          format: int32
+        pageSize:
+          type: integer
+          format: int32
+        totalNumberOfPages:
+          type: integer
+          format: int32
+      additionalProperties: false
+    ProviderStatus:
+      enum:
+      - Active
+      - Inactive
+      type: string
+    ConnectionStatus:
+      enum:
+      - ACTIVE
+      - INACTIVE
+      type: string
+    AccountInformationConnectionResponseModelApiResponse:
+      type: object
+      properties:
+        error:
+          $ref: '#/components/schemas/ApiError'
+        errorDescription:
+          type:
+          - object
+          - 'null'
+          additionalProperties:
+            type:
+            - array
+            - 'null'
+            items:
+              type: string
+        data:
+          $ref: '#/components/schemas/AccountInformationConnectionResponseModel'
+      additionalProperties: false
+    ApiError:
+      enum:
+      - INVALID_DATA
+      - INVALID_SIGNATURE
+      - RESOURCE_LOCKED
+      - COUNTRY_NOT_FOUND
+      - CURRENCY_NOT_FOUND
+      - PROVIDER_NOT_FOUND
+      - CONNECTION_NOT_FOUND
+      - INSUFFICIENT_CONSENT_PERMISSIONS
+      - CONSENT_EXPIRED
+      - CONSENT_REVOKED
+      - CONSENT_UNAUTHORIZED
+      - CONSENT_NOT_FOUND
+      - RISK_REPORT_NOT_FOUND
+      - ACCOUNT_INFORMATION_REPORT_NOT_FOUND
+      - MULTIPLE_CURRENCY_NOT_ALLOWED
+      - MULTIPLE_CONSENT_DATE_NOT_ALLOWED
+      - PAYMENT_NOT_FOUND
+      - CONSENT_REJECTED
+      - PAYMENT_REQUEST_NOT_FOUND
+      - CUSTOMER_NOT_FOUND
+      - CUSTOMER_ALREADY_EXISTS
+      - BANK_ACCOUNT_NOT_FOUND
+      - SERVER_ERROR
+      - PROVIDER_CONNECTION_FAILURE
+      - TRANSACTION_NOT_FOUND
+      - ACCOUNT_INFORMATION_ACCESS_REQUEST_NOT_FOUND
+      - CONSENT_REVOCATION_FAILED
+      - CONSENT_REVOKED_OR_EXPIRED
+      - SUBSCRIPTION_EXPIRED
+      - NOT_SUBSCRIBED_TO_SERVICE
+      - BENEFICIARY_NOT_FOUND
+      - PARTIES_NOT_FOUND
+      - DIRECT_DEBIT_NOT_FOUND
+      - SCHEDULED_PAYMENT_NOT_FOUND
+      - DEBTOR_ACCOUNT_NOT_FOUND
+      - CREDITOR_ACCOUNT_NOT_FOUND
+      - UNAUTHORIZED_IP_ADDRESS
+      type: string
     AccountInformationConnectionResponseModelIEnumerablePagesModelMetaApiResponse:
       type: object
       properties:
@@ -262,6 +360,43 @@ components:
         meta:
           $ref: '#/components/schemas/PagesModel'
       additionalProperties: false
+    CountryResponseModel:
+      required:
+      - englishName
+      - iso3166Code
+      - timeZone
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+        currency:
+          $ref: '#/components/schemas/CurrencyResponseModel'
+        englishName:
+          maxLength: 50
+          minLength: 1
+          type: string
+        arabicName:
+          maxLength: 50
+          type:
+          - string
+          - 'null'
+        iso3166Code:
+          maxLength: 2
+          minLength: 1
+          pattern: ^[A-Z]{2}$
+          type: string
+        timeZone:
+          maxLength: 50
+          minLength: 1
+          type: string
+      additionalProperties: false
     ObjectApiResponse:
       type: object
       properties:
@@ -278,19 +413,6 @@ components:
             items:
               type: string
         data: {}
-      additionalProperties: false
-    PagesModel:
-      type: object
-      properties:
-        currentPageNumber:
-          type: integer
-          format: int32
-        pageSize:
-          type: integer
-          format: int32
-        totalNumberOfPages:
-          type: integer
-          format: int32
       additionalProperties: false
     AccountInformationProviderModel:
       required:
@@ -341,156 +463,6 @@ components:
           - 'null'
           format: uri
       additionalProperties: false
-    ProviderStatus:
-      enum:
-      - Active
-      - Inactive
-      type: string
-    AccountInformationConnectionResponseModelApiResponse:
-      type: object
-      properties:
-        error:
-          $ref: '#/components/schemas/ApiError'
-        errorDescription:
-          type:
-          - object
-          - 'null'
-          additionalProperties:
-            type:
-            - array
-            - 'null'
-            items:
-              type: string
-        data:
-          $ref: '#/components/schemas/AccountInformationConnectionResponseModel'
-      additionalProperties: false
-    ConnectionStatus:
-      enum:
-      - ACTIVE
-      - INACTIVE
-      type: string
-    CountryResponseModel:
-      required:
-      - englishName
-      - iso3166Code
-      - timeZone
-      type: object
-      properties:
-        id:
-          type: string
-          format: uuid
-        createdAt:
-          type: string
-          format: date-time
-        updatedAt:
-          type: string
-          format: date-time
-        currency:
-          $ref: '#/components/schemas/CurrencyResponseModel'
-        englishName:
-          maxLength: 50
-          minLength: 1
-          type: string
-        arabicName:
-          maxLength: 50
-          type:
-          - string
-          - 'null'
-        iso3166Code:
-          maxLength: 2
-          minLength: 1
-          pattern: ^[A-Z]{2}$
-          type: string
-        timeZone:
-          maxLength: 50
-          minLength: 1
-          type: string
-      additionalProperties: false
-    ApiError:
-      enum:
-      - INVALID_DATA
-      - INVALID_SIGNATURE
-      - RESOURCE_LOCKED
-      - COUNTRY_NOT_FOUND
-      - CURRENCY_NOT_FOUND
-      - PROVIDER_NOT_FOUND
-      - CONNECTION_NOT_FOUND
-      - INSUFFICIENT_CONSENT_PERMISSIONS
-      - CONSENT_EXPIRED
-      - CONSENT_REVOKED
-      - CONSENT_UNAUTHORIZED
-      - CONSENT_NOT_FOUND
-      - RISK_REPORT_NOT_FOUND
-      - ACCOUNT_INFORMATION_REPORT_NOT_FOUND
-      - MULTIPLE_CURRENCY_NOT_ALLOWED
-      - MULTIPLE_CONSENT_DATE_NOT_ALLOWED
-      - PAYMENT_NOT_FOUND
-      - CONSENT_REJECTED
-      - PAYMENT_REQUEST_NOT_FOUND
-      - CUSTOMER_NOT_FOUND
-      - CUSTOMER_ALREADY_EXISTS
-      - BANK_ACCOUNT_NOT_FOUND
-      - SERVER_ERROR
-      - PROVIDER_CONNECTION_FAILURE
-      - TRANSACTION_NOT_FOUND
-      - ACCOUNT_INFORMATION_ACCESS_REQUEST_NOT_FOUND
-      - CONSENT_REVOCATION_FAILED
-      - CONSENT_REVOKED_OR_EXPIRED
-      - SUBSCRIPTION_EXPIRED
-      - NOT_SUBSCRIBED_TO_SERVICE
-      - BENEFICIARY_NOT_FOUND
-      - PARTIES_NOT_FOUND
-      - DIRECT_DEBIT_NOT_FOUND
-      - SCHEDULED_PAYMENT_NOT_FOUND
-      - DEBTOR_ACCOUNT_NOT_FOUND
-      - CREDITOR_ACCOUNT_NOT_FOUND
-      - UNAUTHORIZED_IP_ADDRESS
-      type: string
-    AccountInformationConnectionResponseModel:
-      type: object
-      properties:
-        provider:
-          $ref: '#/components/schemas/AccountInformationProviderModel'
-        id:
-          type: string
-          format: uuid
-        status:
-          $ref: '#/components/schemas/ConnectionStatus'
-        createdAt:
-          type: string
-          format: date-time
-        updatedAt:
-          type: string
-          format: date-time
-      additionalProperties: false
-    CurrencyResponseModel:
-      required:
-      - englishName
-      - iso4117Code
-      type: object
-      properties:
-        id:
-          type: string
-          format: uuid
-        englishName:
-          maxLength: 50
-          minLength: 1
-          type: string
-        arabicName:
-          maxLength: 50
-          type:
-          - string
-          - 'null'
-        iso4117Code:
-          maxLength: 3
-          minLength: 1
-          type: string
-        iso4117Number:
-          maxLength: 4
-          type:
-          - string
-          - 'null'
-      additionalProperties: false
     AccountInformationPermission:
       enum:
       - ReadAccountsBasic
@@ -519,6 +491,34 @@ components:
       - ReadStandingOrdersBasic
       - ReadStandingOrdersDetail
       type: string
+    CurrencyResponseModel:
+      required:
+      - englishName
+      - iso4117Code
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        englishName:
+          maxLength: 50
+          minLength: 1
+          type: string
+        arabicName:
+          maxLength: 50
+          type:
+          - string
+          - 'null'
+        iso4117Code:
+          maxLength: 3
+          minLength: 1
+          type: string
+        iso4117Number:
+          maxLength: 4
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
     PagesModel_2:
       type: object
       properties:
@@ -535,6 +535,49 @@ components:
           type: integer
           format: int32
       additionalProperties: false
+    ApiError_2:
+      enum:
+      - INVALID_DATA
+      - INVALID_SIGNATURE
+      - RESOURCE_LOCKED
+      - COUNTRY_NOT_FOUND
+      - CURRENCY_NOT_FOUND
+      - PROVIDER_NOT_FOUND
+      - CONNECTION_NOT_FOUND
+      - INSUFFICIENT_CONSENT_PERMISSIONS
+      - CONSENT_EXPIRED
+      - CONSENT_REVOKED
+      - CONSENT_UNAUTHORIZED
+      - CONSENT_NOT_FOUND
+      - ACCOUNT_INFORMATION_REPORT_NOT_FOUND
+      - MULTIPLE_CURRENCY_NOT_ALLOWED
+      - MULTIPLE_CONSENT_DATE_NOT_ALLOWED
+      - PAYMENT_NOT_FOUND
+      - CONSENT_REJECTED
+      - PAYMENT_REQUEST_NOT_FOUND
+      - CUSTOMER_NOT_FOUND
+      - REAL_ESTATE_VERIFY_NOT_FOUND
+      - REAL_ESTATE_VALIDATE_NOT_FOUND
+      - REAL_ESTATE_SEARCH_NOT_FOUND
+      - CUSTOMER_ALREADY_EXISTS
+      - BANK_ACCOUNT_NOT_FOUND
+      - SERVER_ERROR
+      - PROVIDER_CONNECTION_FAILURE
+      - TRANSACTION_NOT_FOUND
+      - ACCOUNT_INFORMATION_ACCESS_REQUEST_NOT_FOUND
+      - CONSENT_REVOCATION_FAILED
+      - CONSENT_REVOKED_OR_EXPIRED
+      - SUBSCRIPTION_EXPIRED
+      - NOT_SUBSCRIBED_TO_SERVICE
+      - BENEFICIARY_NOT_FOUND
+      - PARTIES_NOT_FOUND
+      - DIRECT_DEBIT_NOT_FOUND
+      - SCHEDULED_PAYMENT_NOT_FOUND
+      - DEBTOR_ACCOUNT_NOT_FOUND
+      - CREDITOR_ACCOUNT_NOT_FOUND
+      - UNAUTHORIZED_IP_ADDRESS
+      - REAL_ESTATE_FAILED
+      type: string
     AccountInformationProviderModel_2:
       required:
       - englishName
@@ -580,49 +623,6 @@ components:
           - 'null'
           format: uri
       additionalProperties: false
-    ApiError_2:
-      enum:
-      - INVALID_DATA
-      - INVALID_SIGNATURE
-      - RESOURCE_LOCKED
-      - COUNTRY_NOT_FOUND
-      - CURRENCY_NOT_FOUND
-      - PROVIDER_NOT_FOUND
-      - CONNECTION_NOT_FOUND
-      - INSUFFICIENT_CONSENT_PERMISSIONS
-      - CONSENT_EXPIRED
-      - CONSENT_REVOKED
-      - CONSENT_UNAUTHORIZED
-      - CONSENT_NOT_FOUND
-      - ACCOUNT_INFORMATION_REPORT_NOT_FOUND
-      - MULTIPLE_CURRENCY_NOT_ALLOWED
-      - MULTIPLE_CONSENT_DATE_NOT_ALLOWED
-      - PAYMENT_NOT_FOUND
-      - CONSENT_REJECTED
-      - PAYMENT_REQUEST_NOT_FOUND
-      - CUSTOMER_NOT_FOUND
-      - REAL_ESTATE_VERIFY_NOT_FOUND
-      - REAL_ESTATE_VALIDATE_NOT_FOUND
-      - REAL_ESTATE_SEARCH_NOT_FOUND
-      - CUSTOMER_ALREADY_EXISTS
-      - BANK_ACCOUNT_NOT_FOUND
-      - SERVER_ERROR
-      - PROVIDER_CONNECTION_FAILURE
-      - TRANSACTION_NOT_FOUND
-      - ACCOUNT_INFORMATION_ACCESS_REQUEST_NOT_FOUND
-      - CONSENT_REVOCATION_FAILED
-      - CONSENT_REVOKED_OR_EXPIRED
-      - SUBSCRIPTION_EXPIRED
-      - NOT_SUBSCRIBED_TO_SERVICE
-      - BENEFICIARY_NOT_FOUND
-      - PARTIES_NOT_FOUND
-      - DIRECT_DEBIT_NOT_FOUND
-      - SCHEDULED_PAYMENT_NOT_FOUND
-      - DEBTOR_ACCOUNT_NOT_FOUND
-      - CREDITOR_ACCOUNT_NOT_FOUND
-      - UNAUTHORIZED_IP_ADDRESS
-      - REAL_ESTATE_FAILED
-      type: string
   securitySchemes:
     Bearer:
       type: apiKey

@@ -328,24 +328,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    CustomerDetailsResponseModelApiResponse:
-      type: object
-      properties:
-        error:
-          $ref: '#/components/schemas/ApiError'
-        errorDescription:
-          type:
-          - object
-          - 'null'
-          additionalProperties:
-            type:
-            - array
-            - 'null'
-            items:
-              type: string
-        data:
-          $ref: '#/components/schemas/CustomerDetailsResponseModel'
-      additionalProperties: false
     PagesModel:
       type: object
       properties:
@@ -358,114 +340,6 @@ components:
         totalNumberOfPages:
           type: integer
           format: int32
-      additionalProperties: false
-    CustomerRequestModel:
-      required:
-      - email
-      - type
-      type: object
-      properties:
-        email:
-          minLength: 1
-          type: string
-          format: email
-        fullName:
-          maxLength: 50
-          minLength: 2
-          type:
-          - string
-          - 'null'
-        phone:
-          maxLength: 16
-          minLength: 6
-          pattern: ^(\+|00)(\d{1,4})([0-9]+)$
-          type:
-          - string
-          - 'null'
-        nationalId:
-          type:
-          - string
-          - 'null'
-        type:
-          $ref: '#/components/schemas/CustomerType'
-        registrationNumber:
-          type:
-          - string
-          - 'null'
-        externalId:
-          maxLength: 50
-          type:
-          - string
-          - 'null'
-      additionalProperties: false
-    ObjectApiResponse:
-      type: object
-      properties:
-        error:
-          $ref: '#/components/schemas/ApiError'
-        errorDescription:
-          type:
-          - object
-          - 'null'
-          additionalProperties:
-            type:
-            - array
-            - 'null'
-            items:
-              type: string
-        data: {}
-      additionalProperties: false
-    CustomerUpdateModel:
-      required:
-      - email
-      type: object
-      properties:
-        email:
-          minLength: 1
-          type: string
-          format: email
-        phone:
-          maxLength: 16
-          minLength: 6
-          pattern: ^(\+|00)(\d{1,4})([0-9]+)$
-          type:
-          - string
-          - 'null'
-        fullName:
-          maxLength: 50
-          minLength: 2
-          type:
-          - string
-          - 'null'
-      additionalProperties: false
-    CustomerType:
-      enum:
-      - Retail
-      - Business
-      type: string
-    CustomerResponseModelIEnumerablePagesModelMetaApiResponse:
-      type: object
-      properties:
-        error:
-          $ref: '#/components/schemas/ApiError'
-        errorDescription:
-          type:
-          - object
-          - 'null'
-          additionalProperties:
-            type:
-            - array
-            - 'null'
-            items:
-              type: string
-        data:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/CustomerResponseModel'
-        meta:
-          $ref: '#/components/schemas/PagesModel'
       additionalProperties: false
     CustomerDetailsResponseModel:
       type: object
@@ -510,6 +384,91 @@ components:
           - boolean
           - 'null'
       additionalProperties: false
+    CustomerUpdateModel:
+      required:
+      - email
+      type: object
+      properties:
+        email:
+          minLength: 1
+          type: string
+          format: email
+        phone:
+          maxLength: 16
+          minLength: 6
+          pattern: ^(\+|00)(\d{1,4})([0-9]+)$
+          type:
+          - string
+          - 'null'
+        fullName:
+          maxLength: 50
+          minLength: 2
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
+    CustomerType:
+      enum:
+      - Retail
+      - Business
+      type: string
+    CustomerRequestModel:
+      required:
+      - email
+      - type
+      type: object
+      properties:
+        email:
+          minLength: 1
+          type: string
+          format: email
+        fullName:
+          maxLength: 50
+          minLength: 2
+          type:
+          - string
+          - 'null'
+        phone:
+          maxLength: 16
+          minLength: 6
+          pattern: ^(\+|00)(\d{1,4})([0-9]+)$
+          type:
+          - string
+          - 'null'
+        nationalId:
+          type:
+          - string
+          - 'null'
+        type:
+          $ref: '#/components/schemas/CustomerType'
+        registrationNumber:
+          type:
+          - string
+          - 'null'
+        externalId:
+          maxLength: 50
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
+    CustomerDetailsResponseModelApiResponse:
+      type: object
+      properties:
+        error:
+          $ref: '#/components/schemas/ApiError'
+        errorDescription:
+          type:
+          - object
+          - 'null'
+          additionalProperties:
+            type:
+            - array
+            - 'null'
+            items:
+              type: string
+        data:
+          $ref: '#/components/schemas/CustomerDetailsResponseModel'
+      additionalProperties: false
     ApiError:
       enum:
       - INVALID_DATA
@@ -550,6 +509,30 @@ components:
       - CREDITOR_ACCOUNT_NOT_FOUND
       - UNAUTHORIZED_IP_ADDRESS
       type: string
+    CustomerResponseModelIEnumerablePagesModelMetaApiResponse:
+      type: object
+      properties:
+        error:
+          $ref: '#/components/schemas/ApiError'
+        errorDescription:
+          type:
+          - object
+          - 'null'
+          additionalProperties:
+            type:
+            - array
+            - 'null'
+            items:
+              type: string
+        data:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/CustomerResponseModel'
+        meta:
+          $ref: '#/components/schemas/PagesModel'
+      additionalProperties: false
     CustomerResponseModel:
       type: object
       properties:
@@ -592,6 +575,23 @@ components:
           type:
           - boolean
           - 'null'
+      additionalProperties: false
+    ObjectApiResponse:
+      type: object
+      properties:
+        error:
+          $ref: '#/components/schemas/ApiError'
+        errorDescription:
+          type:
+          - object
+          - 'null'
+          additionalProperties:
+            type:
+            - array
+            - 'null'
+            items:
+              type: string
+        data: {}
       additionalProperties: false
     PagesModel_2:
       type: object

@@ -70,28 +70,7 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    BeneficiaryServicerResponseModel:
-      type: object
-      properties:
-        name:
-          type:
-          - string
-          - 'null'
-        id:
-          type: string
-          format: uuid
-        address:
-          $ref: '#/components/schemas/ServicerAddressResponseModel'
-        scheme:
-          type:
-          - string
-          - 'null'
-        identification:
-          type:
-          - string
-          - 'null'
-      additionalProperties: false
-    ObjectApiResponse:
+    BeneficiaryResponseModelIEnumerableApiResponse:
       type: object
       properties:
         error:
@@ -106,7 +85,12 @@ components:
             - 'null'
             items:
               type: string
-        data: {}
+        data:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/BeneficiaryResponseModel'
       additionalProperties: false
     ServicerAddressResponseModel:
       type: object
@@ -173,75 +157,26 @@ components:
           - string
           - 'null'
       additionalProperties: false
-    BeneficiaryResponseModel:
+    BeneficiaryServicerResponseModel:
       type: object
       properties:
+        name:
+          type:
+          - string
+          - 'null'
         id:
-          type:
-          - string
-          - 'null'
+          type: string
           format: uuid
-        accountId:
+        address:
+          $ref: '#/components/schemas/ServicerAddressResponseModel'
+        scheme:
           type:
           - string
           - 'null'
-          format: uuid
-        createdAt:
+        identification:
           type:
           - string
           - 'null'
-          format: date-time
-        updatedAt:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        accountHolderName:
-          type:
-          - string
-          - 'null'
-        accountHolderShortName:
-          type:
-          - string
-          - 'null'
-        beneficiaryType:
-          type:
-          - string
-          - 'null'
-        reference:
-          type:
-          - string
-          - 'null'
-        creditorAccount:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/SubAccountsResponseModel'
-        creditorAgent:
-          $ref: '#/components/schemas/BeneficiaryServicerResponseModel'
-      additionalProperties: false
-    BeneficiaryResponseModelIEnumerableApiResponse:
-      type: object
-      properties:
-        error:
-          $ref: '#/components/schemas/ApiError'
-        errorDescription:
-          type:
-          - object
-          - 'null'
-          additionalProperties:
-            type:
-            - array
-            - 'null'
-            items:
-              type: string
-        data:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/BeneficiaryResponseModel'
       additionalProperties: false
     SubAccountsResponseModel:
       type: object
@@ -302,6 +237,71 @@ components:
       - CREDITOR_ACCOUNT_NOT_FOUND
       - UNAUTHORIZED_IP_ADDRESS
       type: string
+    ObjectApiResponse:
+      type: object
+      properties:
+        error:
+          $ref: '#/components/schemas/ApiError'
+        errorDescription:
+          type:
+          - object
+          - 'null'
+          additionalProperties:
+            type:
+            - array
+            - 'null'
+            items:
+              type: string
+        data: {}
+      additionalProperties: false
+    BeneficiaryResponseModel:
+      type: object
+      properties:
+        id:
+          type:
+          - string
+          - 'null'
+          format: uuid
+        accountId:
+          type:
+          - string
+          - 'null'
+          format: uuid
+        createdAt:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        updatedAt:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        accountHolderName:
+          type:
+          - string
+          - 'null'
+        accountHolderShortName:
+          type:
+          - string
+          - 'null'
+        beneficiaryType:
+          type:
+          - string
+          - 'null'
+        reference:
+          type:
+          - string
+          - 'null'
+        creditorAccount:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/SubAccountsResponseModel'
+        creditorAgent:
+          $ref: '#/components/schemas/BeneficiaryServicerResponseModel'
+      additionalProperties: false
     ApiError_2:
       enum:
       - INVALID_DATA

@@ -237,76 +237,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    AccountBalanceModelApiResponse:
-      type: object
-      properties:
-        error:
-          $ref: '#/components/schemas/ApiError'
-        errorDescription:
-          type:
-          - object
-          - 'null'
-          additionalProperties:
-            type:
-            - array
-            - 'null'
-            items:
-              type: string
-        data:
-          $ref: '#/components/schemas/AccountBalanceModel'
-      additionalProperties: false
-    BalanceLocalExchangeModel:
-      type: object
-      properties:
-        sourceCurrency:
-          type:
-          - string
-          - 'null'
-        targetCurrency:
-          type:
-          - string
-          - 'null'
-        rate:
-          type: number
-          format: double
-        date:
-          type: string
-          format: date
-        value:
-          type: number
-          format: double
-      additionalProperties: false
-    ObjectApiResponse:
-      type: object
-      properties:
-        error:
-          $ref: '#/components/schemas/ApiError'
-        errorDescription:
-          type:
-          - object
-          - 'null'
-          additionalProperties:
-            type:
-            - array
-            - 'null'
-            items:
-              type: string
-        data: {}
-      additionalProperties: false
-    BalanceHistoryModel:
-      type: object
-      properties:
-        date:
-          type:
-          - string
-          - 'null'
-        balances:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/BalanceBaseModel'
-      additionalProperties: false
     AccountBalanceHistoryModelApiResponse:
       type: object
       properties:
@@ -324,58 +254,6 @@ components:
               type: string
         data:
           $ref: '#/components/schemas/AccountBalanceHistoryModel'
-      additionalProperties: false
-    BalanceDataCreditLineModel:
-      type: object
-      properties:
-        included:
-          type:
-          - boolean
-          - 'null'
-        type:
-          type:
-          - string
-          - 'null'
-        amount:
-          $ref: '#/components/schemas/BalanceAmountModel'
-      additionalProperties: false
-    BalanceBaseModel:
-      type: object
-      properties:
-        type:
-          type:
-          - string
-          - 'null'
-        amount:
-          $ref: '#/components/schemas/BalanceAmountModel'
-      additionalProperties: false
-    AccountBalanceHistoryModel:
-      type: object
-      properties:
-        accountId:
-          type:
-          - string
-          - 'null'
-          format: uuid
-        history:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/BalanceHistoryModel'
-      additionalProperties: false
-    BalanceAmountModel:
-      type: object
-      properties:
-        amount:
-          type: number
-          format: double
-        currency:
-          type:
-          - string
-          - 'null'
-        localExchange:
-          $ref: '#/components/schemas/BalanceLocalExchangeModel'
       additionalProperties: false
     BalanceModel:
       type: object
@@ -401,18 +279,48 @@ components:
         amount:
           $ref: '#/components/schemas/BalanceAmountModel'
       additionalProperties: false
-    AccountBalanceModel:
+    AccountBalanceHistoryModel:
       type: object
       properties:
         accountId:
-          type: string
+          type:
+          - string
+          - 'null'
           format: uuid
-        balances:
+        history:
           type:
           - array
           - 'null'
           items:
-            $ref: '#/components/schemas/BalanceModel'
+            $ref: '#/components/schemas/BalanceHistoryModel'
+      additionalProperties: false
+    BalanceBaseModel:
+      type: object
+      properties:
+        type:
+          type:
+          - string
+          - 'null'
+        amount:
+          $ref: '#/components/schemas/BalanceAmountModel'
+      additionalProperties: false
+    AccountBalanceModelApiResponse:
+      type: object
+      properties:
+        error:
+          $ref: '#/components/schemas/ApiError'
+        errorDescription:
+          type:
+          - object
+          - 'null'
+          additionalProperties:
+            type:
+            - array
+            - 'null'
+            items:
+              type: string
+        data:
+          $ref: '#/components/schemas/AccountBalanceModel'
       additionalProperties: false
     ApiError:
       enum:
@@ -454,13 +362,44 @@ components:
       - CREDITOR_ACCOUNT_NOT_FOUND
       - UNAUTHORIZED_IP_ADDRESS
       type: string
-    AccountBalanceModel_2:
+    BalanceLocalExchangeModel:
+      type: object
+      properties:
+        sourceCurrency:
+          type:
+          - string
+          - 'null'
+        targetCurrency:
+          type:
+          - string
+          - 'null'
+        rate:
+          type: number
+          format: double
+        date:
+          type: string
+          format: date
+        value:
+          type: number
+          format: double
+      additionalProperties: false
+    AccountBalanceModel:
       type: object
       properties:
         accountId:
           type: string
           format: uuid
-        externalAccountId:
+        balances:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/BalanceModel'
+      additionalProperties: false
+    BalanceHistoryModel:
+      type: object
+      properties:
+        date:
           type:
           - string
           - 'null'
@@ -469,7 +408,51 @@ components:
           - array
           - 'null'
           items:
-            $ref: '#/components/schemas/BalanceModel'
+            $ref: '#/components/schemas/BalanceBaseModel'
+      additionalProperties: false
+    ObjectApiResponse:
+      type: object
+      properties:
+        error:
+          $ref: '#/components/schemas/ApiError'
+        errorDescription:
+          type:
+          - object
+          - 'null'
+          additionalProperties:
+            type:
+            - array
+            - 'null'
+            items:
+              type: string
+        data: {}
+      additionalProperties: false
+    BalanceDataCreditLineModel:
+      type: object
+      properties:
+        included:
+          type:
+          - boolean
+          - 'null'
+        type:
+          type:
+          - string
+          - 'null'
+        amount:
+          $ref: '#/components/schemas/BalanceAmountModel'
+      additionalProperties: false
+    BalanceAmountModel:
+      type: object
+      properties:
+        amount:
+          type: number
+          format: double
+        currency:
+          type:
+          - string
+          - 'null'
+        localExchange:
+          $ref: '#/components/schemas/BalanceLocalExchangeModel'
       additionalProperties: false
     ApiError_2:
       enum:
@@ -514,7 +497,7 @@ components:
       - UNAUTHORIZED_IP_ADDRESS
       - REAL_ESTATE_FAILED
       type: string
-    AccountBalanceModel_3:
+    AccountBalanceModel_2:
       type: object
       properties:
         accountId:
@@ -574,6 +557,23 @@ components:
       - UNAUTHORIZED_IP_ADDRESS
       - REAL_ESTATE_FAILED
       type: string
+    AccountBalanceModel_3:
+      type: object
+      properties:
+        accountId:
+          type: string
+          format: uuid
+        externalAccountId:
+          type:
+          - string
+          - 'null'
+        balances:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/BalanceModel'
+      additionalProperties: false
   securitySchemes:
     Bearer:
       type: apiKey

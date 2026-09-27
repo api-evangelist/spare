@@ -68,56 +68,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    ObjectApiResponse:
-      type: object
-      properties:
-        error:
-          $ref: '#/components/schemas/ApiError'
-        errorDescription:
-          type:
-          - object
-          - 'null'
-          additionalProperties:
-            type:
-            - array
-            - 'null'
-            items:
-              type: string
-        data: {}
-      additionalProperties: false
-    AssuranceProcessResponseModel:
-      type: object
-      properties:
-        id:
-          type:
-          - string
-          - 'null'
-          format: uuid
-        createdAt:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        updatedAt:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        assuranceDetails:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/AssuranceDetailResponseModel'
-        policy:
-          type:
-          - string
-          - 'null'
-        procedure:
-          type:
-          - string
-          - 'null'
-      additionalProperties: false
     VerificationResponseModel:
       type: object
       properties:
@@ -162,44 +112,6 @@ components:
           - string
           - 'null'
       additionalProperties: false
-    EvidenceResponseModel:
-      type: object
-      properties:
-        id:
-          type:
-          - string
-          - 'null'
-          format: uuid
-        createdAt:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        updatedAt:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        documentDetails:
-          $ref: '#/components/schemas/DocumentDetailsResponseModel'
-        type:
-          type:
-          - string
-          - 'null'
-        verifierOrganization:
-          type:
-          - string
-          - 'null'
-        verifierTxn:
-          type:
-          - string
-          - 'null'
-        time:
-          type:
-          - string
-          - 'null'
-          format: date-time
-      additionalProperties: false
     PartiesResponseModel:
       type: object
       properties:
@@ -241,40 +153,6 @@ components:
           - 'null'
           items:
             $ref: '#/components/schemas/VerifiedClaimsResponseModel'
-      additionalProperties: false
-    EvidenceReferenceModel:
-      type: object
-      properties:
-        evidenceClassification:
-          type:
-          - string
-          - 'null'
-        txn:
-          type:
-          - string
-          - 'null'
-      additionalProperties: false
-    PartiesResponseModelIEnumerableApiResponse:
-      type: object
-      properties:
-        error:
-          $ref: '#/components/schemas/ApiError'
-        errorDescription:
-          type:
-          - object
-          - 'null'
-          additionalProperties:
-            type:
-            - array
-            - 'null'
-            items:
-              type: string
-        data:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/PartiesResponseModel'
       additionalProperties: false
     DocumentDetailsResponseModel:
       type: object
@@ -361,7 +239,7 @@ components:
           - string
           - 'null'
       additionalProperties: false
-    AssuranceDetailResponseModel:
+    EvidenceResponseModel:
       type: object
       properties:
         id:
@@ -379,26 +257,103 @@ components:
           - string
           - 'null'
           format: date-time
-        evidenceReference:
+        documentDetails:
+          $ref: '#/components/schemas/DocumentDetailsResponseModel'
+        type:
+          type:
+          - string
+          - 'null'
+        verifierOrganization:
+          type:
+          - string
+          - 'null'
+        verifierTxn:
+          type:
+          - string
+          - 'null'
+        time:
+          type:
+          - string
+          - 'null'
+          format: date-time
+      additionalProperties: false
+    PartiesResponseModelIEnumerableApiResponse:
+      type: object
+      properties:
+        error:
+          $ref: '#/components/schemas/ApiError'
+        errorDescription:
+          type:
+          - object
+          - 'null'
+          additionalProperties:
+            type:
+            - array
+            - 'null'
+            items:
+              type: string
+        data:
           type:
           - array
           - 'null'
           items:
-            $ref: '#/components/schemas/EvidenceReferenceResponseModel'
-        evidenceRef:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/EvidenceReferenceModel'
-        assuranceClassification:
+            $ref: '#/components/schemas/PartiesResponseModel'
+      additionalProperties: false
+    EvidenceReferenceModel:
+      type: object
+      properties:
+        evidenceClassification:
           type:
           - string
           - 'null'
-        assuranceType:
+        txn:
           type:
           - string
           - 'null'
+      additionalProperties: false
+    EvidenceReferenceResponseModel:
+      type: object
+      properties:
+        id:
+          type:
+          - string
+          - 'null'
+          format: uuid
+        createdAt:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        updatedAt:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        evidenceClassification:
+          type:
+          - string
+          - 'null'
+        txn:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
+    ObjectApiResponse:
+      type: object
+      properties:
+        error:
+          $ref: '#/components/schemas/ApiError'
+        errorDescription:
+          type:
+          - object
+          - 'null'
+          additionalProperties:
+            type:
+            - array
+            - 'null'
+            items:
+              type: string
+        data: {}
       additionalProperties: false
     ApiError:
       enum:
@@ -440,7 +395,7 @@ components:
       - CREDITOR_ACCOUNT_NOT_FOUND
       - UNAUTHORIZED_IP_ADDRESS
       type: string
-    VerifiedClaimsResponseModel:
+    AssuranceProcessResponseModel:
       type: object
       properties:
         id:
@@ -458,34 +413,17 @@ components:
           - string
           - 'null'
           format: date-time
-        verification:
-          $ref: '#/components/schemas/VerificationResponseModel'
-        claims:
-          $ref: '#/components/schemas/ClaimsResponseModel'
-      additionalProperties: false
-    EvidenceReferenceResponseModel:
-      type: object
-      properties:
-        id:
+        assuranceDetails:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/AssuranceDetailResponseModel'
+        policy:
           type:
           - string
           - 'null'
-          format: uuid
-        createdAt:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        updatedAt:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        evidenceClassification:
-          type:
-          - string
-          - 'null'
-        txn:
+        procedure:
           type:
           - string
           - 'null'
@@ -648,21 +586,84 @@ components:
           - string
           - 'null'
       additionalProperties: false
-    AttachmentsModel:
+    VerifiedClaimsResponseModel:
       type: object
       properties:
-        description:
+        id:
           type:
           - string
           - 'null'
-        contentType:
+          format: uuid
+        createdAt:
           type:
           - string
           - 'null'
-        content:
+          format: date-time
+        updatedAt:
           type:
           - string
           - 'null'
+          format: date-time
+        verification:
+          $ref: '#/components/schemas/VerificationResponseModel'
+        claims:
+          $ref: '#/components/schemas/ClaimsResponseModel'
+      additionalProperties: false
+    AssuranceDetailResponseModel:
+      type: object
+      properties:
+        id:
+          type:
+          - string
+          - 'null'
+          format: uuid
+        createdAt:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        updatedAt:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        evidenceReference:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/EvidenceReferenceResponseModel'
+        evidenceRef:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/EvidenceReferenceModel'
+        assuranceClassification:
+          type:
+          - string
+          - 'null'
+        assuranceType:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
+    CheckDetailsModel:
+      type: object
+      properties:
+        checkMethod:
+          type:
+          - string
+          - 'null'
+        organization:
+          type:
+          - string
+          - 'null'
+        time:
+          type:
+          - string
+          - 'null'
+          format: date-time
         identifier:
           type:
           - string
@@ -718,22 +719,21 @@ components:
           items:
             $ref: '#/components/schemas/CheckDetailsModel'
       additionalProperties: false
-    CheckDetailsModel:
+    AttachmentsModel:
       type: object
       properties:
-        checkMethod:
+        description:
           type:
           - string
           - 'null'
-        organization:
+        contentType:
           type:
           - string
           - 'null'
-        time:
+        content:
           type:
           - string
           - 'null'
-          format: date-time
         identifier:
           type:
           - string

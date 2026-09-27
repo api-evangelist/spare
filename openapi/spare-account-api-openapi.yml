@@ -299,26 +299,20 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    SubAccountsResponseModel:
+    PagesModel:
       type: object
       properties:
-        id:
-          type: string
-          format: uuid
-        scheme:
-          type:
-          - string
-          - 'null'
-        identification:
-          type:
-          - string
-          - 'null'
-        name:
-          type:
-          - string
-          - 'null'
+        currentPageNumber:
+          type: integer
+          format: int32
+        pageSize:
+          type: integer
+          format: int32
+        totalNumberOfPages:
+          type: integer
+          format: int32
       additionalProperties: false
-    ObjectApiResponse:
+    BankAccountResponseModelApiResponse:
       type: object
       properties:
         error:
@@ -333,20 +327,8 @@ components:
             - 'null'
             items:
               type: string
-        data: {}
-      additionalProperties: false
-    PagesModel:
-      type: object
-      properties:
-        currentPageNumber:
-          type: integer
-          format: int32
-        pageSize:
-          type: integer
-          format: int32
-        totalNumberOfPages:
-          type: integer
-          format: int32
+        data:
+          $ref: '#/components/schemas/BankAccountResponseModel'
       additionalProperties: false
     ServicerAddressResponseModel:
       type: object
@@ -413,89 +395,21 @@ components:
           - string
           - 'null'
       additionalProperties: false
-    BankAccountResponseModelIEnumerablePagesModelMetaApiResponse:
-      type: object
-      properties:
-        error:
-          $ref: '#/components/schemas/ApiError'
-        errorDescription:
-          type:
-          - object
-          - 'null'
-          additionalProperties:
-            type:
-            - array
-            - 'null'
-            items:
-              type: string
-        data:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/BankAccountResponseModel'
-        meta:
-          $ref: '#/components/schemas/PagesModel'
-      additionalProperties: false
-    BankAccountResponseModelApiResponse:
-      type: object
-      properties:
-        error:
-          $ref: '#/components/schemas/ApiError'
-        errorDescription:
-          type:
-          - object
-          - 'null'
-          additionalProperties:
-            type:
-            - array
-            - 'null'
-            items:
-              type: string
-        data:
-          $ref: '#/components/schemas/BankAccountResponseModel'
-      additionalProperties: false
-    CurrencyResponseModel:
-      required:
-      - englishName
-      - iso4117Code
+    SubAccountsResponseModel:
       type: object
       properties:
         id:
           type: string
           format: uuid
-        englishName:
-          maxLength: 50
-          minLength: 1
-          type: string
-        arabicName:
-          maxLength: 50
-          type:
-          - string
-          - 'null'
-        iso4117Code:
-          maxLength: 3
-          minLength: 1
-          type: string
-        iso4117Number:
-          maxLength: 4
-          type:
-          - string
-          - 'null'
-      additionalProperties: false
-    ServicerResponseModel:
-      type: object
-      properties:
-        id:
-          type: string
-          format: uuid
-        address:
-          $ref: '#/components/schemas/ServicerAddressResponseModel'
         scheme:
           type:
           - string
           - 'null'
         identification:
+          type:
+          - string
+          - 'null'
+        name:
           type:
           - string
           - 'null'
@@ -587,6 +501,92 @@ components:
           - string
           - 'null'
           format: date-time
+      additionalProperties: false
+    ServicerResponseModel:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        address:
+          $ref: '#/components/schemas/ServicerAddressResponseModel'
+        scheme:
+          type:
+          - string
+          - 'null'
+        identification:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
+    CurrencyResponseModel:
+      required:
+      - englishName
+      - iso4117Code
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        englishName:
+          maxLength: 50
+          minLength: 1
+          type: string
+        arabicName:
+          maxLength: 50
+          type:
+          - string
+          - 'null'
+        iso4117Code:
+          maxLength: 3
+          minLength: 1
+          type: string
+        iso4117Number:
+          maxLength: 4
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
+    ObjectApiResponse:
+      type: object
+      properties:
+        error:
+          $ref: '#/components/schemas/ApiError'
+        errorDescription:
+          type:
+          - object
+          - 'null'
+          additionalProperties:
+            type:
+            - array
+            - 'null'
+            items:
+              type: string
+        data: {}
+      additionalProperties: false
+    BankAccountResponseModelIEnumerablePagesModelMetaApiResponse:
+      type: object
+      properties:
+        error:
+          $ref: '#/components/schemas/ApiError'
+        errorDescription:
+          type:
+          - object
+          - 'null'
+          additionalProperties:
+            type:
+            - array
+            - 'null'
+            items:
+              type: string
+        data:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/BankAccountResponseModel'
+        meta:
+          $ref: '#/components/schemas/PagesModel'
       additionalProperties: false
     PagesModel_2:
       type: object
