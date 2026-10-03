@@ -102,6 +102,71 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    CountryResponseModel:
+      required:
+      - englishName
+      - iso3166Code
+      - timeZone
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+        currency:
+          $ref: '#/components/schemas/CurrencyResponseModel'
+        englishName:
+          maxLength: 50
+          minLength: 1
+          type: string
+        arabicName:
+          maxLength: 50
+          type:
+          - string
+          - 'null'
+        iso3166Code:
+          maxLength: 2
+          minLength: 1
+          pattern: ^[A-Z]{2}$
+          type: string
+        timeZone:
+          maxLength: 50
+          minLength: 1
+          type: string
+      additionalProperties: false
+    AccountInformationPermission:
+      enum:
+      - ReadAccountsBasic
+      - ReadAccountsDetail
+      - ReadBalances
+      - ReadBeneficiariesBasic
+      - ReadBeneficiariesDetail
+      - ReadDirectDebits
+      - ReadTransactionsBasic
+      - ReadTransactionsDetail
+      - ReadTransactionsCredits
+      - ReadTransactionsDebits
+      - ReadStatementsBasic
+      - ReadStatementsDetail
+      - ReadSupplementaryAccountInfo
+      - ReadOffers
+      - ReadParty
+      - ReadPartyCustomer
+      - ReadFutureDatedPaymentsBasic
+      - ReadFutureDatedPaymentsDetail
+      - ReadPAN
+      - ReadPartyPSU
+      - ReadPartyPSUIdentity
+      - ReadScheduledPaymentsBasic
+      - ReadScheduledPaymentsDetail
+      - ReadStandingOrdersBasic
+      - ReadStandingOrdersDetail
+      type: string
     ProviderStatus:
       enum:
       - Active
@@ -147,24 +212,15 @@ components:
       - CREDITOR_ACCOUNT_NOT_FOUND
       - UNAUTHORIZED_IP_ADDRESS
       type: string
-    CountryResponseModel:
+    CurrencyResponseModel:
       required:
       - englishName
-      - iso3166Code
-      - timeZone
+      - iso4117Code
       type: object
       properties:
         id:
           type: string
           format: uuid
-        createdAt:
-          type: string
-          format: date-time
-        updatedAt:
-          type: string
-          format: date-time
-        currency:
-          $ref: '#/components/schemas/CurrencyResponseModel'
         englishName:
           maxLength: 50
           minLength: 1
@@ -174,15 +230,32 @@ components:
           type:
           - string
           - 'null'
-        iso3166Code:
-          maxLength: 2
-          minLength: 1
-          pattern: ^[A-Z]{2}$
-          type: string
-        timeZone:
-          maxLength: 50
+        iso4117Code:
+          maxLength: 3
           minLength: 1
           type: string
+        iso4117Number:
+          maxLength: 4
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
+    ObjectApiResponse:
+      type: object
+      properties:
+        error:
+          $ref: '#/components/schemas/ApiError'
+        errorDescription:
+          type:
+          - object
+          - 'null'
+          additionalProperties:
+            type:
+            - array
+            - 'null'
+            items:
+              type: string
+        data: {}
       additionalProperties: false
     AccountInformationProviderModelIEnumerableApiResponse:
       type: object
@@ -205,23 +278,6 @@ components:
           - 'null'
           items:
             $ref: '#/components/schemas/AccountInformationProviderModel'
-      additionalProperties: false
-    ObjectApiResponse:
-      type: object
-      properties:
-        error:
-          $ref: '#/components/schemas/ApiError'
-        errorDescription:
-          type:
-          - object
-          - 'null'
-          additionalProperties:
-            type:
-            - array
-            - 'null'
-            items:
-              type: string
-        data: {}
       additionalProperties: false
     AccountInformationProviderModel:
       required:
@@ -272,61 +328,27 @@ components:
           - 'null'
           format: uri
       additionalProperties: false
-    AccountInformationPermission:
-      enum:
-      - ReadAccountsBasic
-      - ReadAccountsDetail
-      - ReadBalances
-      - ReadBeneficiariesBasic
-      - ReadBeneficiariesDetail
-      - ReadDirectDebits
-      - ReadTransactionsBasic
-      - ReadTransactionsDetail
-      - ReadTransactionsCredits
-      - ReadTransactionsDebits
-      - ReadStatementsBasic
-      - ReadStatementsDetail
-      - ReadSupplementaryAccountInfo
-      - ReadOffers
-      - ReadParty
-      - ReadPartyCustomer
-      - ReadFutureDatedPaymentsBasic
-      - ReadFutureDatedPaymentsDetail
-      - ReadPAN
-      - ReadPartyPSU
-      - ReadPartyPSUIdentity
-      - ReadScheduledPaymentsBasic
-      - ReadScheduledPaymentsDetail
-      - ReadStandingOrdersBasic
-      - ReadStandingOrdersDetail
-      type: string
-    CurrencyResponseModel:
-      required:
-      - englishName
-      - iso4117Code
+    PaymentInitiationProviderModelIEnumerableApiResponse:
       type: object
       properties:
-        id:
-          type: string
-          format: uuid
-        englishName:
-          maxLength: 50
-          minLength: 1
-          type: string
-        arabicName:
-          maxLength: 50
+        error:
+          $ref: '#/components/schemas/ApiError'
+        errorDescription:
           type:
-          - string
+          - object
           - 'null'
-        iso4117Code:
-          maxLength: 3
-          minLength: 1
-          type: string
-        iso4117Number:
-          maxLength: 4
+          additionalProperties:
+            type:
+            - array
+            - 'null'
+            items:
+              type: string
+        data:
           type:
-          - string
+          - array
           - 'null'
+          items:
+            $ref: '#/components/schemas/PaymentInitiationProviderModel'
       additionalProperties: false
     PaymentInitiationProviderModel:
       required:
@@ -367,28 +389,6 @@ components:
           - string
           - 'null'
           format: uri
-      additionalProperties: false
-    PaymentInitiationProviderModelIEnumerableApiResponse:
-      type: object
-      properties:
-        error:
-          $ref: '#/components/schemas/ApiError'
-        errorDescription:
-          type:
-          - object
-          - 'null'
-          additionalProperties:
-            type:
-            - array
-            - 'null'
-            items:
-              type: string
-        data:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/PaymentInitiationProviderModel'
       additionalProperties: false
     ApiError_2:
       enum:

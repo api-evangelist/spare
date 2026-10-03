@@ -336,247 +336,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    AccountInformationReportJobResponseModelIEnumerablePagesModelMetaApiResponse:
-      type: object
-      properties:
-        error:
-          $ref: '#/components/schemas/ApiError'
-        errorDescription:
-          type:
-          - object
-          - 'null'
-          additionalProperties:
-            type:
-            - array
-            - 'null'
-            items:
-              type: string
-        data:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/AccountInformationReportJobResponseModel'
-        meta:
-          $ref: '#/components/schemas/PagesModel'
-      additionalProperties: false
-    TransactionCategorizationResponseModel:
-      type: object
-      properties:
-        debit:
-          $ref: '#/components/schemas/DebitTransactionCategoryModel'
-        credit:
-          $ref: '#/components/schemas/CreditTransactionCategoryModel'
-      additionalProperties: false
-    DebitTransactionCategoryModel:
-      type: object
-      properties:
-        totalDebit:
-          type:
-          - number
-          - 'null'
-          format: double
-        currency:
-          $ref: '#/components/schemas/CurrencyResponseModel'
-        categories:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/TransactionCategory'
-      additionalProperties: false
-    ObjectApiResponse:
-      type: object
-      properties:
-        error:
-          $ref: '#/components/schemas/ApiError'
-        errorDescription:
-          type:
-          - object
-          - 'null'
-          additionalProperties:
-            type:
-            - array
-            - 'null'
-            items:
-              type: string
-        data: {}
-      additionalProperties: false
-    BalanceAmountModel:
-      type: object
-      properties:
-        amount:
-          type: number
-          format: double
-        currency:
-          type:
-          - string
-          - 'null'
-        localExchange:
-          $ref: '#/components/schemas/BalanceLocalExchangeModel'
-      additionalProperties: false
-    BalanceHistoryModel:
-      type: object
-      properties:
-        date:
-          type:
-          - string
-          - 'null'
-        balances:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/BalanceBaseModel'
-      additionalProperties: false
-    AccountInformationPermission:
-      enum:
-      - ReadAccountsBasic
-      - ReadAccountsDetail
-      - ReadBalances
-      - ReadBeneficiariesBasic
-      - ReadBeneficiariesDetail
-      - ReadDirectDebits
-      - ReadTransactionsBasic
-      - ReadTransactionsDetail
-      - ReadTransactionsCredits
-      - ReadTransactionsDebits
-      - ReadStatementsBasic
-      - ReadStatementsDetail
-      - ReadSupplementaryAccountInfo
-      - ReadOffers
-      - ReadParty
-      - ReadPartyCustomer
-      - ReadFutureDatedPaymentsBasic
-      - ReadFutureDatedPaymentsDetail
-      - ReadPAN
-      - ReadPartyPSU
-      - ReadPartyPSUIdentity
-      - ReadScheduledPaymentsBasic
-      - ReadScheduledPaymentsDetail
-      - ReadStandingOrdersBasic
-      - ReadStandingOrdersDetail
-      type: string
-    AccountInformationReportJobStatus:
-      enum:
-      - Awaiting
-      - Deleted
-      - Enqueued
-      - Failed
-      - Processing
-      - Scheduled
-      - Succeeded
-      - Created
-      type: string
-    TransactionCategory:
-      type: object
-      properties:
-        subCategoryName:
-          type:
-          - string
-          - 'null'
-        amount:
-          type:
-          - number
-          - 'null'
-          format: double
-        bookingDateTime:
-          type:
-          - string
-          - 'null'
-          format: date
-        categoryName:
-          type:
-          - string
-          - 'null'
-        transactionInformation:
-          type:
-          - string
-          - 'null'
-      additionalProperties: false
-    PagesModel:
-      type: object
-      properties:
-        currentPageNumber:
-          type: integer
-          format: int32
-        pageSize:
-          type: integer
-          format: int32
-        totalNumberOfPages:
-          type: integer
-          format: int32
-      additionalProperties: false
-    AccountInformationReportBankAccountResponseModel:
-      type: object
-      properties:
-        provider:
-          $ref: '#/components/schemas/AccountInformationProviderModel'
-        createdAt:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        id:
-          type: string
-          format: uuid
-        currency:
-          $ref: '#/components/schemas/CurrencyResponseModel'
-        servicer:
-          $ref: '#/components/schemas/ServicerResponseModel'
-        accounts:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/SubAccountsResponseModel'
-        status:
-          type:
-          - string
-          - 'null'
-        statusUpdatedDateTime:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        type:
-          type:
-          - string
-          - 'null'
-        subType:
-          type:
-          - string
-          - 'null'
-        description:
-          type:
-          - string
-          - 'null'
-        openingDate:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        maturityDate:
-          type:
-          - string
-          - 'null'
-          format: date-time
-      additionalProperties: false
-    AccountBalanceHistoryModel:
-      type: object
-      properties:
-        accountId:
-          type:
-          - string
-          - 'null'
-          format: uuid
-        history:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/BalanceHistoryModel'
-      additionalProperties: false
     ServicerAddressResponseModel:
       type: object
       properties:
@@ -642,6 +401,49 @@ components:
           - string
           - 'null'
       additionalProperties: false
+    AccountInformationPermission:
+      enum:
+      - ReadAccountsBasic
+      - ReadAccountsDetail
+      - ReadBalances
+      - ReadBeneficiariesBasic
+      - ReadBeneficiariesDetail
+      - ReadDirectDebits
+      - ReadTransactionsBasic
+      - ReadTransactionsDetail
+      - ReadTransactionsCredits
+      - ReadTransactionsDebits
+      - ReadStatementsBasic
+      - ReadStatementsDetail
+      - ReadSupplementaryAccountInfo
+      - ReadOffers
+      - ReadParty
+      - ReadPartyCustomer
+      - ReadFutureDatedPaymentsBasic
+      - ReadFutureDatedPaymentsDetail
+      - ReadPAN
+      - ReadPartyPSU
+      - ReadPartyPSUIdentity
+      - ReadScheduledPaymentsBasic
+      - ReadScheduledPaymentsDetail
+      - ReadStandingOrdersBasic
+      - ReadStandingOrdersDetail
+      type: string
+    AccountBalanceHistoryModel:
+      type: object
+      properties:
+        accountId:
+          type:
+          - string
+          - 'null'
+          format: uuid
+        history:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/BalanceHistoryModel'
+      additionalProperties: false
     CashFlowTrendModel:
       type: object
       properties:
@@ -667,46 +469,33 @@ components:
           items:
             $ref: '#/components/schemas/DateTimeDecimalValueAggregationModel'
       additionalProperties: false
-    ApiError:
-      enum:
-      - INVALID_DATA
-      - INVALID_SIGNATURE
-      - RESOURCE_LOCKED
-      - COUNTRY_NOT_FOUND
-      - CURRENCY_NOT_FOUND
-      - PROVIDER_NOT_FOUND
-      - CONNECTION_NOT_FOUND
-      - INSUFFICIENT_CONSENT_PERMISSIONS
-      - CONSENT_EXPIRED
-      - CONSENT_REVOKED
-      - CONSENT_UNAUTHORIZED
-      - CONSENT_NOT_FOUND
-      - RISK_REPORT_NOT_FOUND
-      - ACCOUNT_INFORMATION_REPORT_NOT_FOUND
-      - MULTIPLE_CURRENCY_NOT_ALLOWED
-      - MULTIPLE_CONSENT_DATE_NOT_ALLOWED
-      - PAYMENT_NOT_FOUND
-      - CONSENT_REJECTED
-      - PAYMENT_REQUEST_NOT_FOUND
-      - CUSTOMER_NOT_FOUND
-      - CUSTOMER_ALREADY_EXISTS
-      - BANK_ACCOUNT_NOT_FOUND
-      - SERVER_ERROR
-      - PROVIDER_CONNECTION_FAILURE
-      - TRANSACTION_NOT_FOUND
-      - ACCOUNT_INFORMATION_ACCESS_REQUEST_NOT_FOUND
-      - CONSENT_REVOCATION_FAILED
-      - CONSENT_REVOKED_OR_EXPIRED
-      - SUBSCRIPTION_EXPIRED
-      - NOT_SUBSCRIBED_TO_SERVICE
-      - BENEFICIARY_NOT_FOUND
-      - PARTIES_NOT_FOUND
-      - DIRECT_DEBIT_NOT_FOUND
-      - SCHEDULED_PAYMENT_NOT_FOUND
-      - DEBTOR_ACCOUNT_NOT_FOUND
-      - CREDITOR_ACCOUNT_NOT_FOUND
-      - UNAUTHORIZED_IP_ADDRESS
-      type: string
+    DebitTransactionCategoryModel:
+      type: object
+      properties:
+        totalDebit:
+          type:
+          - number
+          - 'null'
+          format: double
+        currency:
+          $ref: '#/components/schemas/CurrencyResponseModel'
+        categories:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/TransactionCategory'
+      additionalProperties: false
+    BalanceBaseModel:
+      type: object
+      properties:
+        type:
+          type:
+          - string
+          - 'null'
+        amount:
+          $ref: '#/components/schemas/BalanceAmountModel'
+      additionalProperties: false
     AccountInformationReportJobDetailsResponseModel:
       type: object
       properties:
@@ -772,6 +561,16 @@ components:
         currency:
           $ref: '#/components/schemas/CurrencyResponseModel'
       additionalProperties: false
+    DateTimeDecimalValueAggregationModel:
+      type: object
+      properties:
+        key:
+          type: string
+          format: date-time
+        value:
+          type: number
+          format: double
+      additionalProperties: false
     BalanceLocalExchangeModel:
       type: object
       properties:
@@ -793,27 +592,54 @@ components:
           type: number
           format: double
       additionalProperties: false
-    CreditTransactionCategoryModel:
+    AccountInformationProviderModel:
+      required:
+      - englishName
+      - isEnable
       type: object
       properties:
-        totalCredit:
-          type:
-          - number
-          - 'null'
-          format: double
-        totalDebit:
-          type:
-          - number
-          - 'null'
-          format: double
-        currency:
-          $ref: '#/components/schemas/CurrencyResponseModel'
-        categories:
+        id:
+          type: string
+          format: uuid
+        country:
+          $ref: '#/components/schemas/CountryResponseModel'
+        allowedPermissions:
           type:
           - array
           - 'null'
           items:
-            $ref: '#/components/schemas/TransactionCategory'
+            $ref: '#/components/schemas/AccountInformationPermission'
+        address:
+          type:
+          - string
+          - 'null'
+        phone:
+          type:
+          - string
+          - 'null'
+        useBenefit:
+          type:
+          - boolean
+          - 'null'
+        arabicName:
+          maxLength: 255
+          type:
+          - string
+          - 'null'
+        englishName:
+          maxLength: 255
+          minLength: 1
+          type: string
+        status:
+          $ref: '#/components/schemas/ProviderStatus'
+        isEnable:
+          type: boolean
+        logo:
+          maxLength: 255
+          type:
+          - string
+          - 'null'
+          format: uri
       additionalProperties: false
     ServicerResponseModel:
       type: object
@@ -832,66 +658,45 @@ components:
           - string
           - 'null'
       additionalProperties: false
-    CountryResponseModel:
-      required:
-      - englishName
-      - iso3166Code
-      - timeZone
+    AccountInformationReportJobResponseModelIEnumerablePagesModelMetaApiResponse:
       type: object
       properties:
-        id:
-          type: string
-          format: uuid
-        createdAt:
-          type: string
-          format: date-time
-        updatedAt:
-          type: string
-          format: date-time
-        currency:
-          $ref: '#/components/schemas/CurrencyResponseModel'
-        englishName:
-          maxLength: 50
-          minLength: 1
-          type: string
-        arabicName:
-          maxLength: 50
+        error:
+          $ref: '#/components/schemas/ApiError'
+        errorDescription:
           type:
-          - string
+          - object
           - 'null'
-        iso3166Code:
-          maxLength: 2
-          minLength: 1
-          pattern: ^[A-Z]{2}$
-          type: string
-        timeZone:
-          maxLength: 50
-          minLength: 1
-          type: string
-      additionalProperties: false
-    AccountInformationReportModel:
-      type: object
-      properties:
-        accountIds:
+          additionalProperties:
+            type:
+            - array
+            - 'null'
+            items:
+              type: string
+        data:
           type:
           - array
           - 'null'
           items:
-            type: string
-            format: uuid
-        customerId:
-          type: string
-          format: uuid
+            $ref: '#/components/schemas/AccountInformationReportJobResponseModel'
+        meta:
+          $ref: '#/components/schemas/PagesModel'
       additionalProperties: false
-    BalanceBaseModel:
+    BalanceTrendModel:
       type: object
       properties:
-        type:
+        slope:
           type:
-          - string
+          - number
           - 'null'
-        amount:
-          $ref: '#/components/schemas/BalanceAmountModel'
+          format: double
+        intercept:
+          type:
+          - number
+          - 'null'
+          format: double
+        accountBalanceHistory:
+          $ref: '#/components/schemas/AccountBalanceHistoryModel'
       additionalProperties: false
     AccountInformationReportJobResponseModel:
       type: object
@@ -940,25 +745,208 @@ components:
         currency:
           $ref: '#/components/schemas/CurrencyResponseModel'
       additionalProperties: false
-    SubAccountsResponseModel:
+    AccountInformationReportModel:
+      type: object
+      properties:
+        accountIds:
+          type:
+          - array
+          - 'null'
+          items:
+            type: string
+            format: uuid
+        customerId:
+          type: string
+          format: uuid
+      additionalProperties: false
+    ApiError:
+      enum:
+      - INVALID_DATA
+      - INVALID_SIGNATURE
+      - RESOURCE_LOCKED
+      - COUNTRY_NOT_FOUND
+      - CURRENCY_NOT_FOUND
+      - PROVIDER_NOT_FOUND
+      - CONNECTION_NOT_FOUND
+      - INSUFFICIENT_CONSENT_PERMISSIONS
+      - CONSENT_EXPIRED
+      - CONSENT_REVOKED
+      - CONSENT_UNAUTHORIZED
+      - CONSENT_NOT_FOUND
+      - RISK_REPORT_NOT_FOUND
+      - ACCOUNT_INFORMATION_REPORT_NOT_FOUND
+      - MULTIPLE_CURRENCY_NOT_ALLOWED
+      - MULTIPLE_CONSENT_DATE_NOT_ALLOWED
+      - PAYMENT_NOT_FOUND
+      - CONSENT_REJECTED
+      - PAYMENT_REQUEST_NOT_FOUND
+      - CUSTOMER_NOT_FOUND
+      - CUSTOMER_ALREADY_EXISTS
+      - BANK_ACCOUNT_NOT_FOUND
+      - SERVER_ERROR
+      - PROVIDER_CONNECTION_FAILURE
+      - TRANSACTION_NOT_FOUND
+      - ACCOUNT_INFORMATION_ACCESS_REQUEST_NOT_FOUND
+      - CONSENT_REVOCATION_FAILED
+      - CONSENT_REVOKED_OR_EXPIRED
+      - SUBSCRIPTION_EXPIRED
+      - NOT_SUBSCRIBED_TO_SERVICE
+      - BENEFICIARY_NOT_FOUND
+      - PARTIES_NOT_FOUND
+      - DIRECT_DEBIT_NOT_FOUND
+      - SCHEDULED_PAYMENT_NOT_FOUND
+      - DEBTOR_ACCOUNT_NOT_FOUND
+      - CREDITOR_ACCOUNT_NOT_FOUND
+      - UNAUTHORIZED_IP_ADDRESS
+      type: string
+    CurrencyResponseModel:
+      required:
+      - englishName
+      - iso4117Code
       type: object
       properties:
         id:
           type: string
           format: uuid
-        scheme:
+        englishName:
+          maxLength: 50
+          minLength: 1
+          type: string
+        arabicName:
+          maxLength: 50
           type:
           - string
           - 'null'
-        identification:
-          type:
-          - string
-          - 'null'
-        name:
+        iso4117Code:
+          maxLength: 3
+          minLength: 1
+          type: string
+        iso4117Number:
+          maxLength: 4
           type:
           - string
           - 'null'
       additionalProperties: false
+    AccountInformationReportBankAccountResponseModel:
+      type: object
+      properties:
+        provider:
+          $ref: '#/components/schemas/AccountInformationProviderModel'
+        createdAt:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        id:
+          type: string
+          format: uuid
+        currency:
+          $ref: '#/components/schemas/CurrencyResponseModel'
+        servicer:
+          $ref: '#/components/schemas/ServicerResponseModel'
+        accounts:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/SubAccountsResponseModel'
+        status:
+          type:
+          - string
+          - 'null'
+        statusUpdatedDateTime:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        type:
+          type:
+          - string
+          - 'null'
+        subType:
+          type:
+          - string
+          - 'null'
+        description:
+          type:
+          - string
+          - 'null'
+        openingDate:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        maturityDate:
+          type:
+          - string
+          - 'null'
+          format: date-time
+      additionalProperties: false
+    ProviderStatus:
+      enum:
+      - Active
+      - Inactive
+      type: string
+    AccountInformationReportJobAffordabilityModel:
+      type: object
+      properties:
+        month:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        averageIncomeAffordability:
+          type:
+          - number
+          - 'null'
+          format: double
+        averageNetAffordability:
+          type:
+          - number
+          - 'null'
+          format: double
+        income:
+          type:
+          - number
+          - 'null'
+          format: double
+        expenses:
+          type:
+          - number
+          - 'null'
+          format: double
+        incomeAffordability:
+          type:
+          - number
+          - 'null'
+          format: double
+        netAffordability:
+          type:
+          - number
+          - 'null'
+          format: double
+        currency:
+          $ref: '#/components/schemas/CurrencyResponseModel'
+      additionalProperties: false
+    TransactionCategorizationResponseModel:
+      type: object
+      properties:
+        debit:
+          $ref: '#/components/schemas/DebitTransactionCategoryModel'
+        credit:
+          $ref: '#/components/schemas/CreditTransactionCategoryModel'
+      additionalProperties: false
+    AccountInformationReportJobStatus:
+      enum:
+      - Awaiting
+      - Deleted
+      - Enqueued
+      - Failed
+      - Processing
+      - Scheduled
+      - Succeeded
+      - Created
+      type: string
     BalanceSummaryModel:
       type: object
       properties:
@@ -1033,15 +1021,70 @@ components:
           items:
             $ref: '#/components/schemas/BalanceTrendModel'
       additionalProperties: false
-    CurrencyResponseModel:
-      required:
-      - englishName
-      - iso4117Code
+    BalanceHistoryModel:
+      type: object
+      properties:
+        date:
+          type:
+          - string
+          - 'null'
+        balances:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/BalanceBaseModel'
+      additionalProperties: false
+    SubAccountsResponseModel:
       type: object
       properties:
         id:
           type: string
           format: uuid
+        scheme:
+          type:
+          - string
+          - 'null'
+        identification:
+          type:
+          - string
+          - 'null'
+        name:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
+    PagesModel:
+      type: object
+      properties:
+        currentPageNumber:
+          type: integer
+          format: int32
+        pageSize:
+          type: integer
+          format: int32
+        totalNumberOfPages:
+          type: integer
+          format: int32
+      additionalProperties: false
+    CountryResponseModel:
+      required:
+      - englishName
+      - iso3166Code
+      - timeZone
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+        currency:
+          $ref: '#/components/schemas/CurrencyResponseModel'
         englishName:
           maxLength: 50
           minLength: 1
@@ -1051,12 +1094,69 @@ components:
           type:
           - string
           - 'null'
-        iso4117Code:
-          maxLength: 3
+        iso3166Code:
+          maxLength: 2
+          minLength: 1
+          pattern: ^[A-Z]{2}$
+          type: string
+        timeZone:
+          maxLength: 50
           minLength: 1
           type: string
-        iso4117Number:
-          maxLength: 4
+      additionalProperties: false
+    BalanceAmountModel:
+      type: object
+      properties:
+        amount:
+          type: number
+          format: double
+        currency:
+          type:
+          - string
+          - 'null'
+        localExchange:
+          $ref: '#/components/schemas/BalanceLocalExchangeModel'
+      additionalProperties: false
+    AccountInformationReportJobDetailsResponseModelApiResponse:
+      type: object
+      properties:
+        error:
+          $ref: '#/components/schemas/ApiError'
+        errorDescription:
+          type:
+          - object
+          - 'null'
+          additionalProperties:
+            type:
+            - array
+            - 'null'
+            items:
+              type: string
+        data:
+          $ref: '#/components/schemas/AccountInformationReportJobDetailsResponseModel'
+      additionalProperties: false
+    TransactionCategory:
+      type: object
+      properties:
+        subCategoryName:
+          type:
+          - string
+          - 'null'
+        amount:
+          type:
+          - number
+          - 'null'
+          format: double
+        bookingDateTime:
+          type:
+          - string
+          - 'null'
+          format: date
+        categoryName:
+          type:
+          - string
+          - 'null'
+        transactionInformation:
           type:
           - string
           - 'null'
@@ -1079,7 +1179,7 @@ components:
         data:
           $ref: '#/components/schemas/AccountInformationReportJobResponseModel'
       additionalProperties: false
-    AccountInformationReportJobDetailsResponseModelApiResponse:
+    ObjectApiResponse:
       type: object
       properties:
         error:
@@ -1094,258 +1194,30 @@ components:
             - 'null'
             items:
               type: string
-        data:
-          $ref: '#/components/schemas/AccountInformationReportJobDetailsResponseModel'
+        data: {}
       additionalProperties: false
-    ProviderStatus:
-      enum:
-      - Active
-      - Inactive
-      type: string
-    BalanceTrendModel:
+    CreditTransactionCategoryModel:
       type: object
       properties:
-        slope:
+        totalCredit:
           type:
           - number
           - 'null'
           format: double
-        intercept:
-          type:
-          - number
-          - 'null'
-          format: double
-        accountBalanceHistory:
-          $ref: '#/components/schemas/AccountBalanceHistoryModel'
-      additionalProperties: false
-    AccountInformationReportJobAffordabilityModel:
-      type: object
-      properties:
-        month:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        averageIncomeAffordability:
-          type:
-          - number
-          - 'null'
-          format: double
-        averageNetAffordability:
-          type:
-          - number
-          - 'null'
-          format: double
-        income:
-          type:
-          - number
-          - 'null'
-          format: double
-        expenses:
-          type:
-          - number
-          - 'null'
-          format: double
-        incomeAffordability:
-          type:
-          - number
-          - 'null'
-          format: double
-        netAffordability:
+        totalDebit:
           type:
           - number
           - 'null'
           format: double
         currency:
           $ref: '#/components/schemas/CurrencyResponseModel'
-      additionalProperties: false
-    AccountInformationProviderModel:
-      required:
-      - englishName
-      - isEnable
-      type: object
-      properties:
-        id:
-          type: string
-          format: uuid
-        country:
-          $ref: '#/components/schemas/CountryResponseModel'
-        allowedPermissions:
+        categories:
           type:
           - array
           - 'null'
           items:
-            $ref: '#/components/schemas/AccountInformationPermission'
-        address:
-          type:
-          - string
-          - 'null'
-        phone:
-          type:
-          - string
-          - 'null'
-        useBenefit:
-          type:
-          - boolean
-          - 'null'
-        arabicName:
-          maxLength: 255
-          type:
-          - string
-          - 'null'
-        englishName:
-          maxLength: 255
-          minLength: 1
-          type: string
-        status:
-          $ref: '#/components/schemas/ProviderStatus'
-        isEnable:
-          type: boolean
-        logo:
-          maxLength: 255
-          type:
-          - string
-          - 'null'
-          format: uri
+            $ref: '#/components/schemas/TransactionCategory'
       additionalProperties: false
-    DateTimeDecimalValueAggregationModel:
-      type: object
-      properties:
-        key:
-          type: string
-          format: date-time
-        value:
-          type: number
-          format: double
-      additionalProperties: false
-    AccountInformationReportJobStatus_2:
-      enum:
-      - Awaiting
-      - Deleted
-      - Enqueued
-      - Failed
-      - Processing
-      - Scheduled
-      - Succeeded
-      type: string
-    PagesModel_2:
-      type: object
-      properties:
-        currentPageNumber:
-          type: integer
-          format: int32
-        pageSize:
-          type: integer
-          format: int32
-        totalNumberOfPages:
-          type: integer
-          format: int32
-        totalItems:
-          type: integer
-          format: int32
-      additionalProperties: false
-    AccountInformationReportBankAccountResponseModel_2:
-      type: object
-      properties:
-        provider:
-          $ref: '#/components/schemas/AccountInformationProviderModel_2'
-        createdAt:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        id:
-          type: string
-          format: uuid
-        externalId:
-          type:
-          - string
-          - 'null'
-        currency:
-          $ref: '#/components/schemas/CurrencyResponseModel'
-        servicer:
-          $ref: '#/components/schemas/ServicerResponseModel'
-        accounts:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/SubAccountsResponseModel'
-        status:
-          type:
-          - string
-          - 'null'
-        statusUpdatedDateTime:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        type:
-          type:
-          - string
-          - 'null'
-        subType:
-          type:
-          - string
-          - 'null'
-        description:
-          type:
-          - string
-          - 'null'
-        openingDate:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        maturityDate:
-          type:
-          - string
-          - 'null'
-          format: date-time
-      additionalProperties: false
-    ApiError_2:
-      enum:
-      - INVALID_DATA
-      - INVALID_SIGNATURE
-      - RESOURCE_LOCKED
-      - COUNTRY_NOT_FOUND
-      - CURRENCY_NOT_FOUND
-      - PROVIDER_NOT_FOUND
-      - CONNECTION_NOT_FOUND
-      - INSUFFICIENT_CONSENT_PERMISSIONS
-      - CONSENT_EXPIRED
-      - CONSENT_REVOKED
-      - CONSENT_UNAUTHORIZED
-      - CONSENT_NOT_FOUND
-      - ACCOUNT_INFORMATION_REPORT_NOT_FOUND
-      - MULTIPLE_CURRENCY_NOT_ALLOWED
-      - MULTIPLE_CONSENT_DATE_NOT_ALLOWED
-      - PAYMENT_NOT_FOUND
-      - CONSENT_REJECTED
-      - PAYMENT_REQUEST_NOT_FOUND
-      - CUSTOMER_NOT_FOUND
-      - REAL_ESTATE_VERIFY_NOT_FOUND
-      - REAL_ESTATE_VALIDATE_NOT_FOUND
-      - REAL_ESTATE_SEARCH_NOT_FOUND
-      - CUSTOMER_ALREADY_EXISTS
-      - BANK_ACCOUNT_NOT_FOUND
-      - SERVER_ERROR
-      - PROVIDER_CONNECTION_FAILURE
-      - TRANSACTION_NOT_FOUND
-      - ACCOUNT_INFORMATION_ACCESS_REQUEST_NOT_FOUND
-      - CONSENT_REVOCATION_FAILED
-      - CONSENT_REVOKED_OR_EXPIRED
-      - SUBSCRIPTION_EXPIRED
-      - NOT_SUBSCRIBED_TO_SERVICE
-      - BENEFICIARY_NOT_FOUND
-      - PARTIES_NOT_FOUND
-      - DIRECT_DEBIT_NOT_FOUND
-      - SCHEDULED_PAYMENT_NOT_FOUND
-      - DEBTOR_ACCOUNT_NOT_FOUND
-      - CREDITOR_ACCOUNT_NOT_FOUND
-      - UNAUTHORIZED_IP_ADDRESS
-      - REAL_ESTATE_FAILED
-      type: string
     AccountInformationReportJobDetailsResponseModel_2:
       type: object
       properties:
@@ -1367,57 +1239,6 @@ components:
           $ref: '#/components/schemas/TransactionCategorizationResponseModel'
         balanceSummary:
           $ref: '#/components/schemas/BalanceSummaryModel'
-        id:
-          type:
-          - string
-          - 'null'
-          format: uuid
-        jobId:
-          type:
-          - string
-          - 'null'
-        customerId:
-          type:
-          - string
-          - 'null'
-          format: uuid
-        startDate:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        endDate:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        createdAt:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        accountsCount:
-          type:
-          - integer
-          - 'null'
-          format: int32
-        totalBalance:
-          type:
-          - number
-          - 'null'
-          format: double
-        description:
-          type:
-          - string
-          - 'null'
-        currency:
-          $ref: '#/components/schemas/CurrencyResponseModel'
-        status:
-          $ref: '#/components/schemas/AccountInformationReportJobStatus_2'
-      additionalProperties: false
-    AccountInformationReportJobResponseModel_2:
-      type: object
-      properties:
         id:
           type:
           - string
@@ -1510,6 +1331,185 @@ components:
           - string
           - 'null'
           format: uri
+      additionalProperties: false
+    AccountInformationReportJobResponseModel_2:
+      type: object
+      properties:
+        id:
+          type:
+          - string
+          - 'null'
+          format: uuid
+        jobId:
+          type:
+          - string
+          - 'null'
+        customerId:
+          type:
+          - string
+          - 'null'
+          format: uuid
+        startDate:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        endDate:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        createdAt:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        accountsCount:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        totalBalance:
+          type:
+          - number
+          - 'null'
+          format: double
+        description:
+          type:
+          - string
+          - 'null'
+        currency:
+          $ref: '#/components/schemas/CurrencyResponseModel'
+        status:
+          $ref: '#/components/schemas/AccountInformationReportJobStatus_2'
+      additionalProperties: false
+    ApiError_2:
+      enum:
+      - INVALID_DATA
+      - INVALID_SIGNATURE
+      - RESOURCE_LOCKED
+      - COUNTRY_NOT_FOUND
+      - CURRENCY_NOT_FOUND
+      - PROVIDER_NOT_FOUND
+      - CONNECTION_NOT_FOUND
+      - INSUFFICIENT_CONSENT_PERMISSIONS
+      - CONSENT_EXPIRED
+      - CONSENT_REVOKED
+      - CONSENT_UNAUTHORIZED
+      - CONSENT_NOT_FOUND
+      - ACCOUNT_INFORMATION_REPORT_NOT_FOUND
+      - MULTIPLE_CURRENCY_NOT_ALLOWED
+      - MULTIPLE_CONSENT_DATE_NOT_ALLOWED
+      - PAYMENT_NOT_FOUND
+      - CONSENT_REJECTED
+      - PAYMENT_REQUEST_NOT_FOUND
+      - CUSTOMER_NOT_FOUND
+      - REAL_ESTATE_VERIFY_NOT_FOUND
+      - REAL_ESTATE_VALIDATE_NOT_FOUND
+      - REAL_ESTATE_SEARCH_NOT_FOUND
+      - CUSTOMER_ALREADY_EXISTS
+      - BANK_ACCOUNT_NOT_FOUND
+      - SERVER_ERROR
+      - PROVIDER_CONNECTION_FAILURE
+      - TRANSACTION_NOT_FOUND
+      - ACCOUNT_INFORMATION_ACCESS_REQUEST_NOT_FOUND
+      - CONSENT_REVOCATION_FAILED
+      - CONSENT_REVOKED_OR_EXPIRED
+      - SUBSCRIPTION_EXPIRED
+      - NOT_SUBSCRIBED_TO_SERVICE
+      - BENEFICIARY_NOT_FOUND
+      - PARTIES_NOT_FOUND
+      - DIRECT_DEBIT_NOT_FOUND
+      - SCHEDULED_PAYMENT_NOT_FOUND
+      - DEBTOR_ACCOUNT_NOT_FOUND
+      - CREDITOR_ACCOUNT_NOT_FOUND
+      - UNAUTHORIZED_IP_ADDRESS
+      - REAL_ESTATE_FAILED
+      type: string
+    AccountInformationReportBankAccountResponseModel_2:
+      type: object
+      properties:
+        provider:
+          $ref: '#/components/schemas/AccountInformationProviderModel_2'
+        createdAt:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        id:
+          type: string
+          format: uuid
+        externalId:
+          type:
+          - string
+          - 'null'
+        currency:
+          $ref: '#/components/schemas/CurrencyResponseModel'
+        servicer:
+          $ref: '#/components/schemas/ServicerResponseModel'
+        accounts:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/SubAccountsResponseModel'
+        status:
+          type:
+          - string
+          - 'null'
+        statusUpdatedDateTime:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        type:
+          type:
+          - string
+          - 'null'
+        subType:
+          type:
+          - string
+          - 'null'
+        description:
+          type:
+          - string
+          - 'null'
+        openingDate:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        maturityDate:
+          type:
+          - string
+          - 'null'
+          format: date-time
+      additionalProperties: false
+    AccountInformationReportJobStatus_2:
+      enum:
+      - Awaiting
+      - Deleted
+      - Enqueued
+      - Failed
+      - Processing
+      - Scheduled
+      - Succeeded
+      type: string
+    PagesModel_2:
+      type: object
+      properties:
+        currentPageNumber:
+          type: integer
+          format: int32
+        pageSize:
+          type: integer
+          format: int32
+        totalNumberOfPages:
+          type: integer
+          format: int32
+        totalItems:
+          type: integer
+          format: int32
       additionalProperties: false
   securitySchemes:
     Bearer:

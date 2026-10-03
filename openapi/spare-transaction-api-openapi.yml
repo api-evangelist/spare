@@ -431,6 +431,88 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    TransactionAmountResponseModel:
+      type: object
+      properties:
+        currency:
+          $ref: '#/components/schemas/CurrencyResponseModel'
+        localExchange:
+          $ref: '#/components/schemas/BalanceLocalExchangeModel'
+        amount:
+          type:
+          - number
+          - 'null'
+          format: double
+        chargeIncluded:
+          type:
+          - boolean
+          - 'null'
+      additionalProperties: false
+    ServicerAddressResponseModel:
+      type: object
+      properties:
+        addressType:
+          type:
+          - string
+          - 'null'
+        department:
+          type:
+          - string
+          - 'null'
+        subDepartment:
+          type:
+          - string
+          - 'null'
+        addressLine:
+          type:
+          - string
+          - 'null'
+        streetName:
+          type:
+          - string
+          - 'null'
+        buildingNumber:
+          type:
+          - string
+          - 'null'
+        postalCode:
+          type:
+          - string
+          - 'null'
+        townName:
+          type:
+          - string
+          - 'null'
+        countrySubDivision:
+          type:
+          - string
+          - 'null'
+        country:
+          type:
+          - string
+          - 'null'
+        shortAddress:
+          type:
+          - string
+          - 'null'
+        unitNumber:
+          type:
+          - number
+          - 'null'
+          format: double
+        secondaryNumber:
+          type:
+          - string
+          - 'null'
+        district:
+          type:
+          - string
+          - 'null'
+        city:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
     ServicerAddressModel:
       type: object
       properties:
@@ -500,418 +582,16 @@ components:
           - string
           - 'null'
       additionalProperties: false
-    AmountResponseModel:
+    TransactionProprietaryBankTransactionCodeModel:
       type: object
       properties:
-        currency:
-          $ref: '#/components/schemas/CurrencyResponseModel'
-        amount:
-          type:
-          - number
-          - 'null'
-          format: double
-        chargeIncluded:
-          type:
-          - boolean
-          - 'null'
-      additionalProperties: false
-    ServicerModel:
-      type: object
-      properties:
-        scheme:
+        issuer:
           type:
           - string
           - 'null'
-        identification:
+        code:
           type:
           - string
-          - 'null'
-        address:
-          $ref: '#/components/schemas/ServicerAddressModel'
-      additionalProperties: false
-    ObTransactionProperty:
-      enum:
-      - BOOKING_DATE
-      - STATUS
-      - TYPE
-      - MERCHANT_NAME
-      - MERCHANT_CATEGORY_CODE
-      type: string
-    ObjectApiResponse:
-      type: object
-      properties:
-        error:
-          $ref: '#/components/schemas/ApiError'
-        errorDescription:
-          type:
-          - object
-          - 'null'
-          additionalProperties:
-            type:
-            - array
-            - 'null'
-            items:
-              type: string
-        data: {}
-      additionalProperties: false
-    BillDetailsModel:
-      type: object
-      properties:
-        billerId:
-          type:
-          - string
-          - 'null'
-        billNumber:
-          type:
-          - string
-          - 'null'
-        billPaymentType:
-          type:
-          - string
-          - 'null'
-      additionalProperties: false
-    PagesModel:
-      type: object
-      properties:
-        currentPageNumber:
-          type: integer
-          format: int32
-        pageSize:
-          type: integer
-          format: int32
-        totalNumberOfPages:
-          type: integer
-          format: int32
-      additionalProperties: false
-    FilterOrder:
-      enum:
-      - ASCENDING
-      - DESCENDING
-      type: string
-    ServicerAddressResponseModel:
-      type: object
-      properties:
-        addressType:
-          type:
-          - string
-          - 'null'
-        department:
-          type:
-          - string
-          - 'null'
-        subDepartment:
-          type:
-          - string
-          - 'null'
-        addressLine:
-          type:
-          - string
-          - 'null'
-        streetName:
-          type:
-          - string
-          - 'null'
-        buildingNumber:
-          type:
-          - string
-          - 'null'
-        postalCode:
-          type:
-          - string
-          - 'null'
-        townName:
-          type:
-          - string
-          - 'null'
-        countrySubDivision:
-          type:
-          - string
-          - 'null'
-        country:
-          type:
-          - string
-          - 'null'
-        shortAddress:
-          type:
-          - string
-          - 'null'
-        unitNumber:
-          type:
-          - number
-          - 'null'
-          format: double
-        secondaryNumber:
-          type:
-          - string
-          - 'null'
-        district:
-          type:
-          - string
-          - 'null'
-        city:
-          type:
-          - string
-          - 'null'
-      additionalProperties: false
-    ApiError:
-      enum:
-      - INVALID_DATA
-      - INVALID_SIGNATURE
-      - RESOURCE_LOCKED
-      - COUNTRY_NOT_FOUND
-      - CURRENCY_NOT_FOUND
-      - PROVIDER_NOT_FOUND
-      - CONNECTION_NOT_FOUND
-      - INSUFFICIENT_CONSENT_PERMISSIONS
-      - CONSENT_EXPIRED
-      - CONSENT_REVOKED
-      - CONSENT_UNAUTHORIZED
-      - CONSENT_NOT_FOUND
-      - RISK_REPORT_NOT_FOUND
-      - ACCOUNT_INFORMATION_REPORT_NOT_FOUND
-      - MULTIPLE_CURRENCY_NOT_ALLOWED
-      - MULTIPLE_CONSENT_DATE_NOT_ALLOWED
-      - PAYMENT_NOT_FOUND
-      - CONSENT_REJECTED
-      - PAYMENT_REQUEST_NOT_FOUND
-      - CUSTOMER_NOT_FOUND
-      - CUSTOMER_ALREADY_EXISTS
-      - BANK_ACCOUNT_NOT_FOUND
-      - SERVER_ERROR
-      - PROVIDER_CONNECTION_FAILURE
-      - TRANSACTION_NOT_FOUND
-      - ACCOUNT_INFORMATION_ACCESS_REQUEST_NOT_FOUND
-      - CONSENT_REVOCATION_FAILED
-      - CONSENT_REVOKED_OR_EXPIRED
-      - SUBSCRIPTION_EXPIRED
-      - NOT_SUBSCRIBED_TO_SERVICE
-      - BENEFICIARY_NOT_FOUND
-      - PARTIES_NOT_FOUND
-      - DIRECT_DEBIT_NOT_FOUND
-      - SCHEDULED_PAYMENT_NOT_FOUND
-      - DEBTOR_ACCOUNT_NOT_FOUND
-      - CREDITOR_ACCOUNT_NOT_FOUND
-      - UNAUTHORIZED_IP_ADDRESS
-      type: string
-    BalanceLocalExchangeModel:
-      type: object
-      properties:
-        sourceCurrency:
-          type:
-          - string
-          - 'null'
-        targetCurrency:
-          type:
-          - string
-          - 'null'
-        rate:
-          type: number
-          format: double
-        date:
-          type: string
-          format: date
-        value:
-          type: number
-          format: double
-      additionalProperties: false
-    SalaryModel:
-      type: object
-      properties:
-        accountId:
-          type: string
-          format: uuid
-        month:
-          type:
-          - string
-          - 'null'
-        amount:
-          type: number
-          format: double
-        currency:
-          type:
-          - string
-          - 'null'
-      additionalProperties: false
-    BankAccountResponseModel:
-      type: object
-      properties:
-        id:
-          type: string
-          format: uuid
-        currency:
-          $ref: '#/components/schemas/CurrencyResponseModel'
-        servicer:
-          $ref: '#/components/schemas/ServicerResponseModel'
-        accounts:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/SubAccountsResponseModel'
-        status:
-          type:
-          - string
-          - 'null'
-        statusUpdatedDateTime:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        type:
-          type:
-          - string
-          - 'null'
-        subType:
-          type:
-          - string
-          - 'null'
-        description:
-          type:
-          - string
-          - 'null'
-        openingDate:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        maturityDate:
-          type:
-          - string
-          - 'null'
-          format: date-time
-      additionalProperties: false
-    ServicerResponseModel:
-      type: object
-      properties:
-        id:
-          type: string
-          format: uuid
-        address:
-          $ref: '#/components/schemas/ServicerAddressResponseModel'
-        scheme:
-          type:
-          - string
-          - 'null'
-        identification:
-          type:
-          - string
-          - 'null'
-      additionalProperties: false
-    TransactionResponseModel:
-      type: object
-      properties:
-        id:
-          type: string
-          format: uuid
-        transactionReference:
-          type:
-          - string
-          - 'null'
-        localTimeZone:
-          type:
-          - string
-          - 'null'
-        transactionDateTime:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        subTransactionType:
-          type:
-          - string
-          - 'null'
-        transactionType:
-          type:
-          - string
-          - 'null'
-        flags:
-          type:
-          - array
-          - 'null'
-          items:
-            type: string
-        paymentModes:
-          type:
-          - string
-          - 'null'
-        balance:
-          $ref: '#/components/schemas/TransactionBalanceModel'
-        transactionMutability:
-          type:
-          - string
-          - 'null'
-        transactionInformation:
-          type:
-          - string
-          - 'null'
-        statementReference:
-          type:
-          - string
-          - 'null'
-        creditDebitIndicator:
-          type:
-          - string
-          - 'null'
-        status:
-          type:
-          - string
-          - 'null'
-        bookingDateTime:
-          type:
-          - string
-          - 'null'
-          format: date
-        valueDateTime:
-          type:
-          - string
-          - 'null'
-          format: date
-        addressLine:
-          type:
-          - string
-          - 'null'
-        amount:
-          $ref: '#/components/schemas/TransactionAmountResponseModel'
-        chargeAmount:
-          $ref: '#/components/schemas/AmountResponseModel'
-        billDetails:
-          $ref: '#/components/schemas/BillDetailsModel'
-        currencyExchange:
-          $ref: '#/components/schemas/TransactionCurrencyExchangeResponseModel'
-        bankTransactionCode:
-          $ref: '#/components/schemas/TransactionBankCodeModel'
-        proprietaryBankTransactionCode:
-          $ref: '#/components/schemas/TransactionProprietaryBankTransactionCodeModel'
-        merchantDetails:
-          $ref: '#/components/schemas/TransactionMerchantDetailsModel'
-        subCategoryName:
-          type:
-          - string
-          - 'null'
-        categoryCode:
-          type:
-          - string
-          - 'null'
-        categoryName:
-          type:
-          - string
-          - 'null'
-      additionalProperties: false
-    TransactionAmountResponseModel:
-      type: object
-      properties:
-        currency:
-          $ref: '#/components/schemas/CurrencyResponseModel'
-        localExchange:
-          $ref: '#/components/schemas/BalanceLocalExchangeModel'
-        amount:
-          type:
-          - number
-          - 'null'
-          format: double
-        chargeIncluded:
-          type:
-          - boolean
           - 'null'
       additionalProperties: false
     TransactionBankCodeModel:
@@ -950,235 +630,17 @@ components:
           - string
           - 'null'
       additionalProperties: false
-    SubAccountsResponseModel:
-      type: object
-      properties:
-        id:
-          type: string
-          format: uuid
-        scheme:
-          type:
-          - string
-          - 'null'
-        identification:
-          type:
-          - string
-          - 'null'
-        name:
-          type:
-          - string
-          - 'null'
-      additionalProperties: false
-    TransactionDetailsResponseModelApiResponse:
-      type: object
-      properties:
-        error:
-          $ref: '#/components/schemas/ApiError'
-        errorDescription:
-          type:
-          - object
-          - 'null'
-          additionalProperties:
-            type:
-            - array
-            - 'null'
-            items:
-              type: string
-        data:
-          $ref: '#/components/schemas/TransactionDetailsResponseModel'
-      additionalProperties: false
-    CurrencyResponseModel:
-      required:
-      - englishName
-      - iso4117Code
-      type: object
-      properties:
-        id:
-          type: string
-          format: uuid
-        englishName:
-          maxLength: 50
-          minLength: 1
-          type: string
-        arabicName:
-          maxLength: 50
-          type:
-          - string
-          - 'null'
-        iso4117Code:
-          maxLength: 3
-          minLength: 1
-          type: string
-        iso4117Number:
-          maxLength: 4
-          type:
-          - string
-          - 'null'
-      additionalProperties: false
-    SalaryModelIEnumerableApiResponse:
-      type: object
-      properties:
-        error:
-          $ref: '#/components/schemas/ApiError'
-        errorDescription:
-          type:
-          - object
-          - 'null'
-          additionalProperties:
-            type:
-            - array
-            - 'null'
-            items:
-              type: string
-        data:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/SalaryModel'
-      additionalProperties: false
-    TransactionBalanceModel:
-      type: object
-      properties:
-        currency:
-          $ref: '#/components/schemas/CurrencyResponseModel'
-        creditDebitIndicator:
-          type:
-          - string
-          - 'null'
-        type:
-          type:
-          - string
-          - 'null'
-        amount:
-          type:
-          - number
-          - 'null'
-          format: double
-        chargeIncluded:
-          type:
-          - boolean
-          - 'null'
-      additionalProperties: false
+    FilterOrder:
+      enum:
+      - ASCENDING
+      - DESCENDING
+      type: string
     ObTransactionStatus:
       enum:
       - BOOKED
       - PENDING
       - INTERIM_PENDING
       - REJECTED
-      type: string
-    TransactionFilterModel:
-      type: object
-      properties:
-        fromBookingDateTime:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        toBookingDateTime:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        status:
-          $ref: '#/components/schemas/ObTransactionStatus'
-        type:
-          $ref: '#/components/schemas/ObTransactionType'
-        searchBy:
-          $ref: '#/components/schemas/ObTransactionProperty'
-        searchKeyWord:
-          maxLength: 100
-          type:
-          - string
-          - 'null'
-        orderBy:
-          $ref: '#/components/schemas/ObTransactionProperty'
-        order:
-          $ref: '#/components/schemas/FilterOrder'
-      additionalProperties: false
-    TransactionMerchantDetailsModel:
-      type: object
-      properties:
-        categoryCode:
-          type:
-          - string
-          - 'null'
-        name:
-          type:
-          - string
-          - 'null'
-        merchantId:
-          type:
-          - integer
-          - 'null'
-          format: int64
-      additionalProperties: false
-    TransactionProprietaryBankTransactionCodeModel:
-      type: object
-      properties:
-        issuer:
-          type:
-          - string
-          - 'null'
-        code:
-          type:
-          - string
-          - 'null'
-      additionalProperties: false
-    TransactionCurrencyExchangeResponseModel:
-      type: object
-      properties:
-        sourceCurrency:
-          $ref: '#/components/schemas/CurrencyResponseModel'
-        targetCurrency:
-          $ref: '#/components/schemas/CurrencyResponseModel'
-        exchangeRate:
-          type:
-          - number
-          - 'null'
-          format: double
-        unitCurrency:
-          $ref: '#/components/schemas/CurrencyResponseModel'
-        contractIdentification:
-          type:
-          - string
-          - 'null'
-        quotationDate:
-          type:
-          - string
-          - 'null'
-          format: date
-        instructedAmount:
-          $ref: '#/components/schemas/AmountResponseModel'
-      additionalProperties: false
-    TransactionResponseModelIEnumerablePagesModelMetaApiResponse:
-      type: object
-      properties:
-        error:
-          $ref: '#/components/schemas/ApiError'
-        errorDescription:
-          type:
-          - object
-          - 'null'
-          additionalProperties:
-            type:
-            - array
-            - 'null'
-            items:
-              type: string
-        data:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/TransactionResponseModel'
-        meta:
-          $ref: '#/components/schemas/PagesModel'
-      additionalProperties: false
-    ObTransactionType:
-      enum:
-      - CREDIT
-      - DEBIT
       type: string
     TransactionDetailsResponseModel:
       type: object
@@ -1290,75 +752,172 @@ components:
           - string
           - 'null'
       additionalProperties: false
-    PagesModel_2:
+    TransactionResponseModelIEnumerablePagesModelMetaApiResponse:
       type: object
       properties:
-        currentPageNumber:
-          type: integer
-          format: int32
-        pageSize:
-          type: integer
-          format: int32
-        totalNumberOfPages:
-          type: integer
-          format: int32
-        totalItems:
-          type: integer
-          format: int32
+        error:
+          $ref: '#/components/schemas/ApiError'
+        errorDescription:
+          type:
+          - object
+          - 'null'
+          additionalProperties:
+            type:
+            - array
+            - 'null'
+            items:
+              type: string
+        data:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/TransactionResponseModel'
+        meta:
+          $ref: '#/components/schemas/PagesModel'
       additionalProperties: false
-    ApiError_2:
+    ObTransactionProperty:
       enum:
-      - INVALID_DATA
-      - INVALID_SIGNATURE
-      - RESOURCE_LOCKED
-      - COUNTRY_NOT_FOUND
-      - CURRENCY_NOT_FOUND
-      - PROVIDER_NOT_FOUND
-      - CONNECTION_NOT_FOUND
-      - INSUFFICIENT_CONSENT_PERMISSIONS
-      - CONSENT_EXPIRED
-      - CONSENT_REVOKED
-      - CONSENT_UNAUTHORIZED
-      - CONSENT_NOT_FOUND
-      - ACCOUNT_INFORMATION_REPORT_NOT_FOUND
-      - MULTIPLE_CURRENCY_NOT_ALLOWED
-      - MULTIPLE_CONSENT_DATE_NOT_ALLOWED
-      - PAYMENT_NOT_FOUND
-      - CONSENT_REJECTED
-      - PAYMENT_REQUEST_NOT_FOUND
-      - CUSTOMER_NOT_FOUND
-      - REAL_ESTATE_VERIFY_NOT_FOUND
-      - REAL_ESTATE_VALIDATE_NOT_FOUND
-      - REAL_ESTATE_SEARCH_NOT_FOUND
-      - CUSTOMER_ALREADY_EXISTS
-      - BANK_ACCOUNT_NOT_FOUND
-      - SERVER_ERROR
-      - PROVIDER_CONNECTION_FAILURE
-      - TRANSACTION_NOT_FOUND
-      - ACCOUNT_INFORMATION_ACCESS_REQUEST_NOT_FOUND
-      - CONSENT_REVOCATION_FAILED
-      - CONSENT_REVOKED_OR_EXPIRED
-      - SUBSCRIPTION_EXPIRED
-      - NOT_SUBSCRIBED_TO_SERVICE
-      - BENEFICIARY_NOT_FOUND
-      - PARTIES_NOT_FOUND
-      - DIRECT_DEBIT_NOT_FOUND
-      - SCHEDULED_PAYMENT_NOT_FOUND
-      - DEBTOR_ACCOUNT_NOT_FOUND
-      - CREDITOR_ACCOUNT_NOT_FOUND
-      - UNAUTHORIZED_IP_ADDRESS
-      - REAL_ESTATE_FAILED
+      - BOOKING_DATE
+      - STATUS
+      - TYPE
+      - MERCHANT_NAME
+      - MERCHANT_CATEGORY_CODE
       type: string
-    BankAccountResponseModel_2:
+    BalanceLocalExchangeModel:
+      type: object
+      properties:
+        sourceCurrency:
+          type:
+          - string
+          - 'null'
+        targetCurrency:
+          type:
+          - string
+          - 'null'
+        rate:
+          type: number
+          format: double
+        date:
+          type: string
+          format: date
+        value:
+          type: number
+          format: double
+      additionalProperties: false
+    ObTransactionType:
+      enum:
+      - CREDIT
+      - DEBIT
+      type: string
+    TransactionFilterModel:
+      type: object
+      properties:
+        fromBookingDateTime:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        toBookingDateTime:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        status:
+          $ref: '#/components/schemas/ObTransactionStatus'
+        type:
+          $ref: '#/components/schemas/ObTransactionType'
+        searchBy:
+          $ref: '#/components/schemas/ObTransactionProperty'
+        searchKeyWord:
+          maxLength: 100
+          type:
+          - string
+          - 'null'
+        orderBy:
+          $ref: '#/components/schemas/ObTransactionProperty'
+        order:
+          $ref: '#/components/schemas/FilterOrder'
+      additionalProperties: false
+    ServicerResponseModel:
       type: object
       properties:
         id:
           type: string
           format: uuid
-        externalId:
+        address:
+          $ref: '#/components/schemas/ServicerAddressResponseModel'
+        scheme:
           type:
           - string
           - 'null'
+        identification:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
+    SalaryModelIEnumerableApiResponse:
+      type: object
+      properties:
+        error:
+          $ref: '#/components/schemas/ApiError'
+        errorDescription:
+          type:
+          - object
+          - 'null'
+          additionalProperties:
+            type:
+            - array
+            - 'null'
+            items:
+              type: string
+        data:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/SalaryModel'
+      additionalProperties: false
+    BillDetailsModel:
+      type: object
+      properties:
+        billerId:
+          type:
+          - string
+          - 'null'
+        billNumber:
+          type:
+          - string
+          - 'null'
+        billPaymentType:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
+    TransactionDetailsResponseModelApiResponse:
+      type: object
+      properties:
+        error:
+          $ref: '#/components/schemas/ApiError'
+        errorDescription:
+          type:
+          - object
+          - 'null'
+          additionalProperties:
+            type:
+            - array
+            - 'null'
+            items:
+              type: string
+        data:
+          $ref: '#/components/schemas/TransactionDetailsResponseModel'
+      additionalProperties: false
+    BankAccountResponseModel:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
         currency:
           $ref: '#/components/schemas/CurrencyResponseModel'
         servicer:
@@ -1401,20 +960,185 @@ components:
           - 'null'
           format: date-time
       additionalProperties: false
-    TransactionResponseModel_2:
+    ApiError:
+      enum:
+      - INVALID_DATA
+      - INVALID_SIGNATURE
+      - RESOURCE_LOCKED
+      - COUNTRY_NOT_FOUND
+      - CURRENCY_NOT_FOUND
+      - PROVIDER_NOT_FOUND
+      - CONNECTION_NOT_FOUND
+      - INSUFFICIENT_CONSENT_PERMISSIONS
+      - CONSENT_EXPIRED
+      - CONSENT_REVOKED
+      - CONSENT_UNAUTHORIZED
+      - CONSENT_NOT_FOUND
+      - RISK_REPORT_NOT_FOUND
+      - ACCOUNT_INFORMATION_REPORT_NOT_FOUND
+      - MULTIPLE_CURRENCY_NOT_ALLOWED
+      - MULTIPLE_CONSENT_DATE_NOT_ALLOWED
+      - PAYMENT_NOT_FOUND
+      - CONSENT_REJECTED
+      - PAYMENT_REQUEST_NOT_FOUND
+      - CUSTOMER_NOT_FOUND
+      - CUSTOMER_ALREADY_EXISTS
+      - BANK_ACCOUNT_NOT_FOUND
+      - SERVER_ERROR
+      - PROVIDER_CONNECTION_FAILURE
+      - TRANSACTION_NOT_FOUND
+      - ACCOUNT_INFORMATION_ACCESS_REQUEST_NOT_FOUND
+      - CONSENT_REVOCATION_FAILED
+      - CONSENT_REVOKED_OR_EXPIRED
+      - SUBSCRIPTION_EXPIRED
+      - NOT_SUBSCRIBED_TO_SERVICE
+      - BENEFICIARY_NOT_FOUND
+      - PARTIES_NOT_FOUND
+      - DIRECT_DEBIT_NOT_FOUND
+      - SCHEDULED_PAYMENT_NOT_FOUND
+      - DEBTOR_ACCOUNT_NOT_FOUND
+      - CREDITOR_ACCOUNT_NOT_FOUND
+      - UNAUTHORIZED_IP_ADDRESS
+      type: string
+    CurrencyResponseModel:
+      required:
+      - englishName
+      - iso4117Code
       type: object
       properties:
         id:
           type: string
           format: uuid
-        externalTransactionId:
+        englishName:
+          maxLength: 50
+          minLength: 1
+          type: string
+        arabicName:
+          maxLength: 50
           type:
           - string
           - 'null'
-        externalAccountId:
+        iso4117Code:
+          maxLength: 3
+          minLength: 1
+          type: string
+        iso4117Number:
+          maxLength: 4
           type:
           - string
           - 'null'
+      additionalProperties: false
+    SalaryModel:
+      type: object
+      properties:
+        accountId:
+          type: string
+          format: uuid
+        month:
+          type:
+          - string
+          - 'null'
+        amount:
+          type: number
+          format: double
+        currency:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
+    SubAccountsResponseModel:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        scheme:
+          type:
+          - string
+          - 'null'
+        identification:
+          type:
+          - string
+          - 'null'
+        name:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
+    ServicerModel:
+      type: object
+      properties:
+        scheme:
+          type:
+          - string
+          - 'null'
+        identification:
+          type:
+          - string
+          - 'null'
+        address:
+          $ref: '#/components/schemas/ServicerAddressModel'
+      additionalProperties: false
+    PagesModel:
+      type: object
+      properties:
+        currentPageNumber:
+          type: integer
+          format: int32
+        pageSize:
+          type: integer
+          format: int32
+        totalNumberOfPages:
+          type: integer
+          format: int32
+      additionalProperties: false
+    AmountResponseModel:
+      type: object
+      properties:
+        currency:
+          $ref: '#/components/schemas/CurrencyResponseModel'
+        amount:
+          type:
+          - number
+          - 'null'
+          format: double
+        chargeIncluded:
+          type:
+          - boolean
+          - 'null'
+      additionalProperties: false
+    TransactionCurrencyExchangeResponseModel:
+      type: object
+      properties:
+        sourceCurrency:
+          $ref: '#/components/schemas/CurrencyResponseModel'
+        targetCurrency:
+          $ref: '#/components/schemas/CurrencyResponseModel'
+        exchangeRate:
+          type:
+          - number
+          - 'null'
+          format: double
+        unitCurrency:
+          $ref: '#/components/schemas/CurrencyResponseModel'
+        contractIdentification:
+          type:
+          - string
+          - 'null'
+        quotationDate:
+          type:
+          - string
+          - 'null'
+          format: date
+        instructedAmount:
+          $ref: '#/components/schemas/AmountResponseModel'
+      additionalProperties: false
+    TransactionResponseModel:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
         transactionReference:
           type:
           - string
@@ -1446,6 +1170,8 @@ components:
           type:
           - string
           - 'null'
+        balance:
+          $ref: '#/components/schemas/TransactionBalanceModel'
         transactionMutability:
           type:
           - string
@@ -1506,6 +1232,63 @@ components:
           type:
           - string
           - 'null'
+      additionalProperties: false
+    ObjectApiResponse:
+      type: object
+      properties:
+        error:
+          $ref: '#/components/schemas/ApiError'
+        errorDescription:
+          type:
+          - object
+          - 'null'
+          additionalProperties:
+            type:
+            - array
+            - 'null'
+            items:
+              type: string
+        data: {}
+      additionalProperties: false
+    TransactionBalanceModel:
+      type: object
+      properties:
+        currency:
+          $ref: '#/components/schemas/CurrencyResponseModel'
+        creditDebitIndicator:
+          type:
+          - string
+          - 'null'
+        type:
+          type:
+          - string
+          - 'null'
+        amount:
+          type:
+          - number
+          - 'null'
+          format: double
+        chargeIncluded:
+          type:
+          - boolean
+          - 'null'
+      additionalProperties: false
+    TransactionMerchantDetailsModel:
+      type: object
+      properties:
+        categoryCode:
+          type:
+          - string
+          - 'null'
+        name:
+          type:
+          - string
+          - 'null'
+        merchantId:
+          type:
+          - integer
+          - 'null'
+          format: int64
       additionalProperties: false
     ObTransactionStatus_2:
       enum:
@@ -1631,66 +1414,7 @@ components:
           - string
           - 'null'
       additionalProperties: false
-    PagesModel_3:
-      type: object
-      properties:
-        currentPageNumber:
-          type: integer
-          format: int32
-        pageSize:
-          type: integer
-          format: int32
-        totalNumberOfPages:
-          type: integer
-          format: int32
-        totalItems:
-          type: integer
-          format: int32
-      additionalProperties: false
-    ApiError_3:
-      enum:
-      - INVALID_DATA
-      - INVALID_SIGNATURE
-      - RESOURCE_LOCKED
-      - COUNTRY_NOT_FOUND
-      - CURRENCY_NOT_FOUND
-      - PROVIDER_NOT_FOUND
-      - CONNECTION_NOT_FOUND
-      - INSUFFICIENT_CONSENT_PERMISSIONS
-      - CONSENT_EXPIRED
-      - CONSENT_REVOKED
-      - CONSENT_UNAUTHORIZED
-      - CONSENT_NOT_FOUND
-      - ACCOUNT_INFORMATION_REPORT_NOT_FOUND
-      - MULTIPLE_CURRENCY_NOT_ALLOWED
-      - MULTIPLE_CONSENT_DATE_NOT_ALLOWED
-      - PAYMENT_NOT_FOUND
-      - CONSENT_REJECTED
-      - PAYMENT_REQUEST_NOT_FOUND
-      - CUSTOMER_NOT_FOUND
-      - REAL_ESTATE_VERIFY_NOT_FOUND
-      - REAL_ESTATE_VALIDATE_NOT_FOUND
-      - REAL_ESTATE_SEARCH_NOT_FOUND
-      - CUSTOMER_ALREADY_EXISTS
-      - BANK_ACCOUNT_NOT_FOUND
-      - SERVER_ERROR
-      - PROVIDER_CONNECTION_FAILURE
-      - TRANSACTION_NOT_FOUND
-      - ACCOUNT_INFORMATION_ACCESS_REQUEST_NOT_FOUND
-      - CONSENT_REVOCATION_FAILED
-      - CONSENT_REVOKED_OR_EXPIRED
-      - SUBSCRIPTION_EXPIRED
-      - NOT_SUBSCRIBED_TO_SERVICE
-      - BENEFICIARY_NOT_FOUND
-      - PARTIES_NOT_FOUND
-      - DIRECT_DEBIT_NOT_FOUND
-      - SCHEDULED_PAYMENT_NOT_FOUND
-      - DEBTOR_ACCOUNT_NOT_FOUND
-      - CREDITOR_ACCOUNT_NOT_FOUND
-      - UNAUTHORIZED_IP_ADDRESS
-      - REAL_ESTATE_FAILED
-      type: string
-    BankAccountResponseModel_3:
+    BankAccountResponseModel_2:
       type: object
       properties:
         id:
@@ -1742,7 +1466,66 @@ components:
           - 'null'
           format: date-time
       additionalProperties: false
-    TransactionResponseModel_3:
+    ApiError_2:
+      enum:
+      - INVALID_DATA
+      - INVALID_SIGNATURE
+      - RESOURCE_LOCKED
+      - COUNTRY_NOT_FOUND
+      - CURRENCY_NOT_FOUND
+      - PROVIDER_NOT_FOUND
+      - CONNECTION_NOT_FOUND
+      - INSUFFICIENT_CONSENT_PERMISSIONS
+      - CONSENT_EXPIRED
+      - CONSENT_REVOKED
+      - CONSENT_UNAUTHORIZED
+      - CONSENT_NOT_FOUND
+      - ACCOUNT_INFORMATION_REPORT_NOT_FOUND
+      - MULTIPLE_CURRENCY_NOT_ALLOWED
+      - MULTIPLE_CONSENT_DATE_NOT_ALLOWED
+      - PAYMENT_NOT_FOUND
+      - CONSENT_REJECTED
+      - PAYMENT_REQUEST_NOT_FOUND
+      - CUSTOMER_NOT_FOUND
+      - REAL_ESTATE_VERIFY_NOT_FOUND
+      - REAL_ESTATE_VALIDATE_NOT_FOUND
+      - REAL_ESTATE_SEARCH_NOT_FOUND
+      - CUSTOMER_ALREADY_EXISTS
+      - BANK_ACCOUNT_NOT_FOUND
+      - SERVER_ERROR
+      - PROVIDER_CONNECTION_FAILURE
+      - TRANSACTION_NOT_FOUND
+      - ACCOUNT_INFORMATION_ACCESS_REQUEST_NOT_FOUND
+      - CONSENT_REVOCATION_FAILED
+      - CONSENT_REVOKED_OR_EXPIRED
+      - SUBSCRIPTION_EXPIRED
+      - NOT_SUBSCRIBED_TO_SERVICE
+      - BENEFICIARY_NOT_FOUND
+      - PARTIES_NOT_FOUND
+      - DIRECT_DEBIT_NOT_FOUND
+      - SCHEDULED_PAYMENT_NOT_FOUND
+      - DEBTOR_ACCOUNT_NOT_FOUND
+      - CREDITOR_ACCOUNT_NOT_FOUND
+      - UNAUTHORIZED_IP_ADDRESS
+      - REAL_ESTATE_FAILED
+      type: string
+    PagesModel_2:
+      type: object
+      properties:
+        currentPageNumber:
+          type: integer
+          format: int32
+        pageSize:
+          type: integer
+          format: int32
+        totalNumberOfPages:
+          type: integer
+          format: int32
+        totalItems:
+          type: integer
+          format: int32
+      additionalProperties: false
+    TransactionResponseModel_2:
       type: object
       properties:
         id:
@@ -1869,6 +1652,223 @@ components:
           $ref: '#/components/schemas/SubAccountsResponseModel'
         creditorAccount:
           $ref: '#/components/schemas/SubAccountsResponseModel'
+        id:
+          type: string
+          format: uuid
+        externalTransactionId:
+          type:
+          - string
+          - 'null'
+        externalAccountId:
+          type:
+          - string
+          - 'null'
+        transactionReference:
+          type:
+          - string
+          - 'null'
+        localTimeZone:
+          type:
+          - string
+          - 'null'
+        transactionDateTime:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        subTransactionType:
+          type:
+          - string
+          - 'null'
+        transactionType:
+          type:
+          - string
+          - 'null'
+        flags:
+          type:
+          - array
+          - 'null'
+          items:
+            type: string
+        paymentModes:
+          type:
+          - string
+          - 'null'
+        transactionMutability:
+          type:
+          - string
+          - 'null'
+        transactionInformation:
+          type:
+          - string
+          - 'null'
+        statementReference:
+          type:
+          - string
+          - 'null'
+        creditDebitIndicator:
+          type:
+          - string
+          - 'null'
+        status:
+          type:
+          - string
+          - 'null'
+        bookingDateTime:
+          type:
+          - string
+          - 'null'
+          format: date
+        valueDateTime:
+          type:
+          - string
+          - 'null'
+          format: date
+        addressLine:
+          type:
+          - string
+          - 'null'
+        amount:
+          $ref: '#/components/schemas/TransactionAmountResponseModel'
+        chargeAmount:
+          $ref: '#/components/schemas/AmountResponseModel'
+        billDetails:
+          $ref: '#/components/schemas/BillDetailsModel'
+        currencyExchange:
+          $ref: '#/components/schemas/TransactionCurrencyExchangeResponseModel'
+        bankTransactionCode:
+          $ref: '#/components/schemas/TransactionBankCodeModel'
+        proprietaryBankTransactionCode:
+          $ref: '#/components/schemas/TransactionProprietaryBankTransactionCodeModel'
+        merchantDetails:
+          $ref: '#/components/schemas/TransactionMerchantDetailsModel'
+        subCategoryName:
+          type:
+          - string
+          - 'null'
+        categoryCode:
+          type:
+          - string
+          - 'null'
+        categoryName:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
+    BankAccountResponseModel_3:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        externalId:
+          type:
+          - string
+          - 'null'
+        currency:
+          $ref: '#/components/schemas/CurrencyResponseModel'
+        servicer:
+          $ref: '#/components/schemas/ServicerResponseModel'
+        accounts:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/SubAccountsResponseModel'
+        status:
+          type:
+          - string
+          - 'null'
+        statusUpdatedDateTime:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        type:
+          type:
+          - string
+          - 'null'
+        subType:
+          type:
+          - string
+          - 'null'
+        description:
+          type:
+          - string
+          - 'null'
+        openingDate:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        maturityDate:
+          type:
+          - string
+          - 'null'
+          format: date-time
+      additionalProperties: false
+    ApiError_3:
+      enum:
+      - INVALID_DATA
+      - INVALID_SIGNATURE
+      - RESOURCE_LOCKED
+      - COUNTRY_NOT_FOUND
+      - CURRENCY_NOT_FOUND
+      - PROVIDER_NOT_FOUND
+      - CONNECTION_NOT_FOUND
+      - INSUFFICIENT_CONSENT_PERMISSIONS
+      - CONSENT_EXPIRED
+      - CONSENT_REVOKED
+      - CONSENT_UNAUTHORIZED
+      - CONSENT_NOT_FOUND
+      - ACCOUNT_INFORMATION_REPORT_NOT_FOUND
+      - MULTIPLE_CURRENCY_NOT_ALLOWED
+      - MULTIPLE_CONSENT_DATE_NOT_ALLOWED
+      - PAYMENT_NOT_FOUND
+      - CONSENT_REJECTED
+      - PAYMENT_REQUEST_NOT_FOUND
+      - CUSTOMER_NOT_FOUND
+      - REAL_ESTATE_VERIFY_NOT_FOUND
+      - REAL_ESTATE_VALIDATE_NOT_FOUND
+      - REAL_ESTATE_SEARCH_NOT_FOUND
+      - CUSTOMER_ALREADY_EXISTS
+      - BANK_ACCOUNT_NOT_FOUND
+      - SERVER_ERROR
+      - PROVIDER_CONNECTION_FAILURE
+      - TRANSACTION_NOT_FOUND
+      - ACCOUNT_INFORMATION_ACCESS_REQUEST_NOT_FOUND
+      - CONSENT_REVOCATION_FAILED
+      - CONSENT_REVOKED_OR_EXPIRED
+      - SUBSCRIPTION_EXPIRED
+      - NOT_SUBSCRIBED_TO_SERVICE
+      - BENEFICIARY_NOT_FOUND
+      - PARTIES_NOT_FOUND
+      - DIRECT_DEBIT_NOT_FOUND
+      - SCHEDULED_PAYMENT_NOT_FOUND
+      - DEBTOR_ACCOUNT_NOT_FOUND
+      - CREDITOR_ACCOUNT_NOT_FOUND
+      - UNAUTHORIZED_IP_ADDRESS
+      - REAL_ESTATE_FAILED
+      type: string
+    PagesModel_3:
+      type: object
+      properties:
+        currentPageNumber:
+          type: integer
+          format: int32
+        pageSize:
+          type: integer
+          format: int32
+        totalNumberOfPages:
+          type: integer
+          format: int32
+        totalItems:
+          type: integer
+          format: int32
+      additionalProperties: false
+    TransactionResponseModel_3:
+      type: object
+      properties:
         id:
           type: string
           format: uuid

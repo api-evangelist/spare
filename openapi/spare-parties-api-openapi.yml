@@ -68,92 +68,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    VerificationResponseModel:
-      type: object
-      properties:
-        id:
-          type:
-          - string
-          - 'null'
-          format: uuid
-        createdAt:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        updatedAt:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        assuranceProcess:
-          $ref: '#/components/schemas/AssuranceProcessResponseModel'
-        evidence:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/EvidenceResponseModel'
-        assuranceLevel:
-          type:
-          - string
-          - 'null'
-        time:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        trustFramework:
-          type:
-          - string
-          - 'null'
-        verificationProcess:
-          type:
-          - string
-          - 'null'
-      additionalProperties: false
-    PartiesResponseModel:
-      type: object
-      properties:
-        id:
-          type:
-          - string
-          - 'null'
-          format: uuid
-        accountId:
-          type:
-          - string
-          - 'null'
-          format: uuid
-        createdAt:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        updatedAt:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        partyNumber:
-          type:
-          - string
-          - 'null'
-        partyType:
-          type:
-          - string
-          - 'null'
-        accountRole:
-          type:
-          - string
-          - 'null'
-        verifiedClaims:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/VerifiedClaimsResponseModel'
-      additionalProperties: false
     DocumentDetailsResponseModel:
       type: object
       properties:
@@ -239,6 +153,133 @@ components:
           - string
           - 'null'
       additionalProperties: false
+    VerificationResponseModel:
+      type: object
+      properties:
+        id:
+          type:
+          - string
+          - 'null'
+          format: uuid
+        createdAt:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        updatedAt:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        assuranceProcess:
+          $ref: '#/components/schemas/AssuranceProcessResponseModel'
+        evidence:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/EvidenceResponseModel'
+        assuranceLevel:
+          type:
+          - string
+          - 'null'
+        time:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        trustFramework:
+          type:
+          - string
+          - 'null'
+        verificationProcess:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
+    AssuranceProcessResponseModel:
+      type: object
+      properties:
+        id:
+          type:
+          - string
+          - 'null'
+          format: uuid
+        createdAt:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        updatedAt:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        assuranceDetails:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/AssuranceDetailResponseModel'
+        policy:
+          type:
+          - string
+          - 'null'
+        procedure:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
+    EvidenceReferenceResponseModel:
+      type: object
+      properties:
+        id:
+          type:
+          - string
+          - 'null'
+          format: uuid
+        createdAt:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        updatedAt:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        evidenceClassification:
+          type:
+          - string
+          - 'null'
+        txn:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
+    VerifiedClaimsResponseModel:
+      type: object
+      properties:
+        id:
+          type:
+          - string
+          - 'null'
+          format: uuid
+        createdAt:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        updatedAt:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        verification:
+          $ref: '#/components/schemas/VerificationResponseModel'
+        claims:
+          $ref: '#/components/schemas/ClaimsResponseModel'
+      additionalProperties: false
     EvidenceResponseModel:
       type: object
       properties:
@@ -277,44 +318,15 @@ components:
           - 'null'
           format: date-time
       additionalProperties: false
-    PartiesResponseModelIEnumerableApiResponse:
-      type: object
-      properties:
-        error:
-          $ref: '#/components/schemas/ApiError'
-        errorDescription:
-          type:
-          - object
-          - 'null'
-          additionalProperties:
-            type:
-            - array
-            - 'null'
-            items:
-              type: string
-        data:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/PartiesResponseModel'
-      additionalProperties: false
-    EvidenceReferenceModel:
-      type: object
-      properties:
-        evidenceClassification:
-          type:
-          - string
-          - 'null'
-        txn:
-          type:
-          - string
-          - 'null'
-      additionalProperties: false
-    EvidenceReferenceResponseModel:
+    PartiesResponseModel:
       type: object
       properties:
         id:
+          type:
+          - string
+          - 'null'
+          format: uuid
+        accountId:
           type:
           - string
           - 'null'
@@ -329,31 +341,24 @@ components:
           - string
           - 'null'
           format: date-time
-        evidenceClassification:
+        partyNumber:
           type:
           - string
           - 'null'
-        txn:
+        partyType:
           type:
           - string
           - 'null'
-      additionalProperties: false
-    ObjectApiResponse:
-      type: object
-      properties:
-        error:
-          $ref: '#/components/schemas/ApiError'
-        errorDescription:
+        accountRole:
           type:
-          - object
+          - string
           - 'null'
-          additionalProperties:
-            type:
-            - array
-            - 'null'
-            items:
-              type: string
-        data: {}
+        verifiedClaims:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/VerifiedClaimsResponseModel'
       additionalProperties: false
     ApiError:
       enum:
@@ -395,38 +400,44 @@ components:
       - CREDITOR_ACCOUNT_NOT_FOUND
       - UNAUTHORIZED_IP_ADDRESS
       type: string
-    AssuranceProcessResponseModel:
+    PartiesResponseModelIEnumerableApiResponse:
       type: object
       properties:
-        id:
+        error:
+          $ref: '#/components/schemas/ApiError'
+        errorDescription:
           type:
-          - string
+          - object
           - 'null'
-          format: uuid
-        createdAt:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        updatedAt:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        assuranceDetails:
+          additionalProperties:
+            type:
+            - array
+            - 'null'
+            items:
+              type: string
+        data:
           type:
           - array
           - 'null'
           items:
-            $ref: '#/components/schemas/AssuranceDetailResponseModel'
-        policy:
+            $ref: '#/components/schemas/PartiesResponseModel'
+      additionalProperties: false
+    ObjectApiResponse:
+      type: object
+      properties:
+        error:
+          $ref: '#/components/schemas/ApiError'
+        errorDescription:
           type:
-          - string
+          - object
           - 'null'
-        procedure:
-          type:
-          - string
-          - 'null'
+          additionalProperties:
+            type:
+            - array
+            - 'null'
+            items:
+              type: string
+        data: {}
       additionalProperties: false
     ClaimsResponseModel:
       type: object
@@ -586,28 +597,17 @@ components:
           - string
           - 'null'
       additionalProperties: false
-    VerifiedClaimsResponseModel:
+    EvidenceReferenceModel:
       type: object
       properties:
-        id:
+        evidenceClassification:
           type:
           - string
           - 'null'
-          format: uuid
-        createdAt:
+        txn:
           type:
           - string
           - 'null'
-          format: date-time
-        updatedAt:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        verification:
-          $ref: '#/components/schemas/VerificationResponseModel'
-        claims:
-          $ref: '#/components/schemas/ClaimsResponseModel'
       additionalProperties: false
     AssuranceDetailResponseModel:
       type: object
@@ -644,27 +644,6 @@ components:
           - string
           - 'null'
         assuranceType:
-          type:
-          - string
-          - 'null'
-      additionalProperties: false
-    CheckDetailsModel:
-      type: object
-      properties:
-        checkMethod:
-          type:
-          - string
-          - 'null'
-        organization:
-          type:
-          - string
-          - 'null'
-        time:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        identifier:
           type:
           - string
           - 'null'
@@ -719,26 +698,6 @@ components:
           items:
             $ref: '#/components/schemas/CheckDetailsModel'
       additionalProperties: false
-    AttachmentsModel:
-      type: object
-      properties:
-        description:
-          type:
-          - string
-          - 'null'
-        contentType:
-          type:
-          - string
-          - 'null'
-        content:
-          type:
-          - string
-          - 'null'
-        identifier:
-          type:
-          - string
-          - 'null'
-      additionalProperties: false
     ApiError_2:
       enum:
       - INVALID_DATA
@@ -782,6 +741,47 @@ components:
       - UNAUTHORIZED_IP_ADDRESS
       - REAL_ESTATE_FAILED
       type: string
+    AttachmentsModel:
+      type: object
+      properties:
+        description:
+          type:
+          - string
+          - 'null'
+        contentType:
+          type:
+          - string
+          - 'null'
+        content:
+          type:
+          - string
+          - 'null'
+        identifier:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
+    CheckDetailsModel:
+      type: object
+      properties:
+        checkMethod:
+          type:
+          - string
+          - 'null'
+        organization:
+          type:
+          - string
+          - 'null'
+        time:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        identifier:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
   securitySchemes:
     Bearer:
       type: apiKey

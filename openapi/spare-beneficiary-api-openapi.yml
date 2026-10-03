@@ -70,28 +70,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    BeneficiaryResponseModelIEnumerableApiResponse:
-      type: object
-      properties:
-        error:
-          $ref: '#/components/schemas/ApiError'
-        errorDescription:
-          type:
-          - object
-          - 'null'
-          additionalProperties:
-            type:
-            - array
-            - 'null'
-            items:
-              type: string
-        data:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/BeneficiaryResponseModel'
-      additionalProperties: false
     ServicerAddressResponseModel:
       type: object
       properties:
@@ -157,45 +135,27 @@ components:
           - string
           - 'null'
       additionalProperties: false
-    BeneficiaryServicerResponseModel:
+    BeneficiaryResponseModelIEnumerableApiResponse:
       type: object
       properties:
-        name:
+        error:
+          $ref: '#/components/schemas/ApiError'
+        errorDescription:
           type:
-          - string
+          - object
           - 'null'
-        id:
-          type: string
-          format: uuid
-        address:
-          $ref: '#/components/schemas/ServicerAddressResponseModel'
-        scheme:
+          additionalProperties:
+            type:
+            - array
+            - 'null'
+            items:
+              type: string
+        data:
           type:
-          - string
+          - array
           - 'null'
-        identification:
-          type:
-          - string
-          - 'null'
-      additionalProperties: false
-    SubAccountsResponseModel:
-      type: object
-      properties:
-        id:
-          type: string
-          format: uuid
-        scheme:
-          type:
-          - string
-          - 'null'
-        identification:
-          type:
-          - string
-          - 'null'
-        name:
-          type:
-          - string
-          - 'null'
+          items:
+            $ref: '#/components/schemas/BeneficiaryResponseModel'
       additionalProperties: false
     ApiError:
       enum:
@@ -254,6 +214,27 @@ components:
               type: string
         data: {}
       additionalProperties: false
+    BeneficiaryServicerResponseModel:
+      type: object
+      properties:
+        name:
+          type:
+          - string
+          - 'null'
+        id:
+          type: string
+          format: uuid
+        address:
+          $ref: '#/components/schemas/ServicerAddressResponseModel'
+        scheme:
+          type:
+          - string
+          - 'null'
+        identification:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
     BeneficiaryResponseModel:
       type: object
       properties:
@@ -301,6 +282,25 @@ components:
             $ref: '#/components/schemas/SubAccountsResponseModel'
         creditorAgent:
           $ref: '#/components/schemas/BeneficiaryServicerResponseModel'
+      additionalProperties: false
+    SubAccountsResponseModel:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        scheme:
+          type:
+          - string
+          - 'null'
+        identification:
+          type:
+          - string
+          - 'null'
+        name:
+          type:
+          - string
+          - 'null'
       additionalProperties: false
     ApiError_2:
       enum:

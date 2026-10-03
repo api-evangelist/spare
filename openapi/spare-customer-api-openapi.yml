@@ -328,20 +328,7 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    PagesModel:
-      type: object
-      properties:
-        currentPageNumber:
-          type: integer
-          format: int32
-        pageSize:
-          type: integer
-          format: int32
-        totalNumberOfPages:
-          type: integer
-          format: int32
-      additionalProperties: false
-    CustomerDetailsResponseModel:
+    CustomerResponseModel:
       type: object
       properties:
         id:
@@ -407,49 +394,29 @@ components:
           - string
           - 'null'
       additionalProperties: false
-    CustomerType:
-      enum:
-      - Retail
-      - Business
-      type: string
-    CustomerRequestModel:
-      required:
-      - email
-      - type
+    CustomerResponseModelIEnumerablePagesModelMetaApiResponse:
       type: object
       properties:
-        email:
-          minLength: 1
-          type: string
-          format: email
-        fullName:
-          maxLength: 50
-          minLength: 2
+        error:
+          $ref: '#/components/schemas/ApiError'
+        errorDescription:
           type:
-          - string
+          - object
           - 'null'
-        phone:
-          maxLength: 16
-          minLength: 6
-          pattern: ^(\+|00)(\d{1,4})([0-9]+)$
+          additionalProperties:
+            type:
+            - array
+            - 'null'
+            items:
+              type: string
+        data:
           type:
-          - string
+          - array
           - 'null'
-        nationalId:
-          type:
-          - string
-          - 'null'
-        type:
-          $ref: '#/components/schemas/CustomerType'
-        registrationNumber:
-          type:
-          - string
-          - 'null'
-        externalId:
-          maxLength: 50
-          type:
-          - string
-          - 'null'
+          items:
+            $ref: '#/components/schemas/CustomerResponseModel'
+        meta:
+          $ref: '#/components/schemas/PagesModel'
       additionalProperties: false
     CustomerDetailsResponseModelApiResponse:
       type: object
@@ -469,6 +436,11 @@ components:
         data:
           $ref: '#/components/schemas/CustomerDetailsResponseModel'
       additionalProperties: false
+    CustomerType:
+      enum:
+      - Retail
+      - Business
+      type: string
     ApiError:
       enum:
       - INVALID_DATA
@@ -509,7 +481,7 @@ components:
       - CREDITOR_ACCOUNT_NOT_FOUND
       - UNAUTHORIZED_IP_ADDRESS
       type: string
-    CustomerResponseModelIEnumerablePagesModelMetaApiResponse:
+    ObjectApiResponse:
       type: object
       properties:
         error:
@@ -524,16 +496,48 @@ components:
             - 'null'
             items:
               type: string
-        data:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/CustomerResponseModel'
-        meta:
-          $ref: '#/components/schemas/PagesModel'
+        data: {}
       additionalProperties: false
-    CustomerResponseModel:
+    CustomerRequestModel:
+      required:
+      - email
+      - type
+      type: object
+      properties:
+        email:
+          minLength: 1
+          type: string
+          format: email
+        fullName:
+          maxLength: 50
+          minLength: 2
+          type:
+          - string
+          - 'null'
+        phone:
+          maxLength: 16
+          minLength: 6
+          pattern: ^(\+|00)(\d{1,4})([0-9]+)$
+          type:
+          - string
+          - 'null'
+        nationalId:
+          type:
+          - string
+          - 'null'
+        type:
+          $ref: '#/components/schemas/CustomerType'
+        registrationNumber:
+          type:
+          - string
+          - 'null'
+        externalId:
+          maxLength: 50
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
+    CustomerDetailsResponseModel:
       type: object
       properties:
         id:
@@ -576,24 +580,7 @@ components:
           - boolean
           - 'null'
       additionalProperties: false
-    ObjectApiResponse:
-      type: object
-      properties:
-        error:
-          $ref: '#/components/schemas/ApiError'
-        errorDescription:
-          type:
-          - object
-          - 'null'
-          additionalProperties:
-            type:
-            - array
-            - 'null'
-            items:
-              type: string
-        data: {}
-      additionalProperties: false
-    PagesModel_2:
+    PagesModel:
       type: object
       properties:
         currentPageNumber:
@@ -605,47 +592,6 @@ components:
         totalNumberOfPages:
           type: integer
           format: int32
-        totalItems:
-          type: integer
-          format: int32
-      additionalProperties: false
-    CustomerRequestModel_2:
-      required:
-      - email
-      - fullName
-      - type
-      type: object
-      properties:
-        email:
-          minLength: 1
-          type: string
-          format: email
-        fullName:
-          maxLength: 50
-          minLength: 2
-          type: string
-        phone:
-          maxLength: 16
-          minLength: 6
-          pattern: ^(\+|00)(\d{1,4})([0-9]+)$
-          type:
-          - string
-          - 'null'
-        nationalId:
-          type:
-          - string
-          - 'null'
-        type:
-          $ref: '#/components/schemas/CustomerType'
-        registrationNumber:
-          type:
-          - string
-          - 'null'
-        externalId:
-          maxLength: 50
-          type:
-          - string
-          - 'null'
       additionalProperties: false
     ApiError_2:
       enum:
@@ -690,6 +636,60 @@ components:
       - UNAUTHORIZED_IP_ADDRESS
       - REAL_ESTATE_FAILED
       type: string
+    CustomerRequestModel_2:
+      required:
+      - email
+      - fullName
+      - type
+      type: object
+      properties:
+        email:
+          minLength: 1
+          type: string
+          format: email
+        fullName:
+          maxLength: 50
+          minLength: 2
+          type: string
+        phone:
+          maxLength: 16
+          minLength: 6
+          pattern: ^(\+|00)(\d{1,4})([0-9]+)$
+          type:
+          - string
+          - 'null'
+        nationalId:
+          type:
+          - string
+          - 'null'
+        type:
+          $ref: '#/components/schemas/CustomerType'
+        registrationNumber:
+          type:
+          - string
+          - 'null'
+        externalId:
+          maxLength: 50
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
+    PagesModel_2:
+      type: object
+      properties:
+        currentPageNumber:
+          type: integer
+          format: int32
+        pageSize:
+          type: integer
+          format: int32
+        totalNumberOfPages:
+          type: integer
+          format: int32
+        totalItems:
+          type: integer
+          format: int32
+      additionalProperties: false
   securitySchemes:
     Bearer:
       type: apiKey

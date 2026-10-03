@@ -237,7 +237,33 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    AccountBalanceHistoryModelApiResponse:
+    AccountBalanceModel:
+      type: object
+      properties:
+        accountId:
+          type: string
+          format: uuid
+        balances:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/BalanceModel'
+      additionalProperties: false
+    BalanceAmountModel:
+      type: object
+      properties:
+        amount:
+          type: number
+          format: double
+        currency:
+          type:
+          - string
+          - 'null'
+        localExchange:
+          $ref: '#/components/schemas/BalanceLocalExchangeModel'
+      additionalProperties: false
+    AccountBalanceModelApiResponse:
       type: object
       properties:
         error:
@@ -253,7 +279,7 @@ components:
             items:
               type: string
         data:
-          $ref: '#/components/schemas/AccountBalanceHistoryModel'
+          $ref: '#/components/schemas/AccountBalanceModel'
       additionalProperties: false
     BalanceModel:
       type: object
@@ -279,20 +305,19 @@ components:
         amount:
           $ref: '#/components/schemas/BalanceAmountModel'
       additionalProperties: false
-    AccountBalanceHistoryModel:
+    BalanceDataCreditLineModel:
       type: object
       properties:
-        accountId:
+        included:
+          type:
+          - boolean
+          - 'null'
+        type:
           type:
           - string
           - 'null'
-          format: uuid
-        history:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/BalanceHistoryModel'
+        amount:
+          $ref: '#/components/schemas/BalanceAmountModel'
       additionalProperties: false
     BalanceBaseModel:
       type: object
@@ -304,7 +329,7 @@ components:
         amount:
           $ref: '#/components/schemas/BalanceAmountModel'
       additionalProperties: false
-    AccountBalanceModelApiResponse:
+    AccountBalanceHistoryModelApiResponse:
       type: object
       properties:
         error:
@@ -320,7 +345,7 @@ components:
             items:
               type: string
         data:
-          $ref: '#/components/schemas/AccountBalanceModel'
+          $ref: '#/components/schemas/AccountBalanceHistoryModel'
       additionalProperties: false
     ApiError:
       enum:
@@ -362,6 +387,23 @@ components:
       - CREDITOR_ACCOUNT_NOT_FOUND
       - UNAUTHORIZED_IP_ADDRESS
       type: string
+    ObjectApiResponse:
+      type: object
+      properties:
+        error:
+          $ref: '#/components/schemas/ApiError'
+        errorDescription:
+          type:
+          - object
+          - 'null'
+          additionalProperties:
+            type:
+            - array
+            - 'null'
+            items:
+              type: string
+        data: {}
+      additionalProperties: false
     BalanceLocalExchangeModel:
       type: object
       properties:
@@ -383,18 +425,20 @@ components:
           type: number
           format: double
       additionalProperties: false
-    AccountBalanceModel:
+    AccountBalanceHistoryModel:
       type: object
       properties:
         accountId:
-          type: string
+          type:
+          - string
+          - 'null'
           format: uuid
-        balances:
+        history:
           type:
           - array
           - 'null'
           items:
-            $ref: '#/components/schemas/BalanceModel'
+            $ref: '#/components/schemas/BalanceHistoryModel'
       additionalProperties: false
     BalanceHistoryModel:
       type: object
@@ -410,93 +454,6 @@ components:
           items:
             $ref: '#/components/schemas/BalanceBaseModel'
       additionalProperties: false
-    ObjectApiResponse:
-      type: object
-      properties:
-        error:
-          $ref: '#/components/schemas/ApiError'
-        errorDescription:
-          type:
-          - object
-          - 'null'
-          additionalProperties:
-            type:
-            - array
-            - 'null'
-            items:
-              type: string
-        data: {}
-      additionalProperties: false
-    BalanceDataCreditLineModel:
-      type: object
-      properties:
-        included:
-          type:
-          - boolean
-          - 'null'
-        type:
-          type:
-          - string
-          - 'null'
-        amount:
-          $ref: '#/components/schemas/BalanceAmountModel'
-      additionalProperties: false
-    BalanceAmountModel:
-      type: object
-      properties:
-        amount:
-          type: number
-          format: double
-        currency:
-          type:
-          - string
-          - 'null'
-        localExchange:
-          $ref: '#/components/schemas/BalanceLocalExchangeModel'
-      additionalProperties: false
-    ApiError_2:
-      enum:
-      - INVALID_DATA
-      - INVALID_SIGNATURE
-      - RESOURCE_LOCKED
-      - COUNTRY_NOT_FOUND
-      - CURRENCY_NOT_FOUND
-      - PROVIDER_NOT_FOUND
-      - CONNECTION_NOT_FOUND
-      - INSUFFICIENT_CONSENT_PERMISSIONS
-      - CONSENT_EXPIRED
-      - CONSENT_REVOKED
-      - CONSENT_UNAUTHORIZED
-      - CONSENT_NOT_FOUND
-      - ACCOUNT_INFORMATION_REPORT_NOT_FOUND
-      - MULTIPLE_CURRENCY_NOT_ALLOWED
-      - MULTIPLE_CONSENT_DATE_NOT_ALLOWED
-      - PAYMENT_NOT_FOUND
-      - CONSENT_REJECTED
-      - PAYMENT_REQUEST_NOT_FOUND
-      - CUSTOMER_NOT_FOUND
-      - REAL_ESTATE_VERIFY_NOT_FOUND
-      - REAL_ESTATE_VALIDATE_NOT_FOUND
-      - REAL_ESTATE_SEARCH_NOT_FOUND
-      - CUSTOMER_ALREADY_EXISTS
-      - BANK_ACCOUNT_NOT_FOUND
-      - SERVER_ERROR
-      - PROVIDER_CONNECTION_FAILURE
-      - TRANSACTION_NOT_FOUND
-      - ACCOUNT_INFORMATION_ACCESS_REQUEST_NOT_FOUND
-      - CONSENT_REVOCATION_FAILED
-      - CONSENT_REVOKED_OR_EXPIRED
-      - SUBSCRIPTION_EXPIRED
-      - NOT_SUBSCRIBED_TO_SERVICE
-      - BENEFICIARY_NOT_FOUND
-      - PARTIES_NOT_FOUND
-      - DIRECT_DEBIT_NOT_FOUND
-      - SCHEDULED_PAYMENT_NOT_FOUND
-      - DEBTOR_ACCOUNT_NOT_FOUND
-      - CREDITOR_ACCOUNT_NOT_FOUND
-      - UNAUTHORIZED_IP_ADDRESS
-      - REAL_ESTATE_FAILED
-      type: string
     AccountBalanceModel_2:
       type: object
       properties:
@@ -514,7 +471,7 @@ components:
           items:
             $ref: '#/components/schemas/BalanceModel'
       additionalProperties: false
-    ApiError_3:
+    ApiError_2:
       enum:
       - INVALID_DATA
       - INVALID_SIGNATURE
@@ -574,6 +531,49 @@ components:
           items:
             $ref: '#/components/schemas/BalanceModel'
       additionalProperties: false
+    ApiError_3:
+      enum:
+      - INVALID_DATA
+      - INVALID_SIGNATURE
+      - RESOURCE_LOCKED
+      - COUNTRY_NOT_FOUND
+      - CURRENCY_NOT_FOUND
+      - PROVIDER_NOT_FOUND
+      - CONNECTION_NOT_FOUND
+      - INSUFFICIENT_CONSENT_PERMISSIONS
+      - CONSENT_EXPIRED
+      - CONSENT_REVOKED
+      - CONSENT_UNAUTHORIZED
+      - CONSENT_NOT_FOUND
+      - ACCOUNT_INFORMATION_REPORT_NOT_FOUND
+      - MULTIPLE_CURRENCY_NOT_ALLOWED
+      - MULTIPLE_CONSENT_DATE_NOT_ALLOWED
+      - PAYMENT_NOT_FOUND
+      - CONSENT_REJECTED
+      - PAYMENT_REQUEST_NOT_FOUND
+      - CUSTOMER_NOT_FOUND
+      - REAL_ESTATE_VERIFY_NOT_FOUND
+      - REAL_ESTATE_VALIDATE_NOT_FOUND
+      - REAL_ESTATE_SEARCH_NOT_FOUND
+      - CUSTOMER_ALREADY_EXISTS
+      - BANK_ACCOUNT_NOT_FOUND
+      - SERVER_ERROR
+      - PROVIDER_CONNECTION_FAILURE
+      - TRANSACTION_NOT_FOUND
+      - ACCOUNT_INFORMATION_ACCESS_REQUEST_NOT_FOUND
+      - CONSENT_REVOCATION_FAILED
+      - CONSENT_REVOKED_OR_EXPIRED
+      - SUBSCRIPTION_EXPIRED
+      - NOT_SUBSCRIBED_TO_SERVICE
+      - BENEFICIARY_NOT_FOUND
+      - PARTIES_NOT_FOUND
+      - DIRECT_DEBIT_NOT_FOUND
+      - SCHEDULED_PAYMENT_NOT_FOUND
+      - DEBTOR_ACCOUNT_NOT_FOUND
+      - CREDITOR_ACCOUNT_NOT_FOUND
+      - UNAUTHORIZED_IP_ADDRESS
+      - REAL_ESTATE_FAILED
+      type: string
   securitySchemes:
     Bearer:
       type: apiKey
