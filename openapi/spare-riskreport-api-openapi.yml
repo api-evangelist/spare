@@ -364,6 +364,406 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    AvgMonthlyOutflowDetail:
+      type: object
+      properties:
+        monthlyOutflowValues:
+          type:
+          - array
+          - 'null'
+          items:
+            type: number
+            format: double
+        avgMonthlyOutflow:
+          type: number
+          format: double
+        outflowVariabilityRatio:
+          type:
+          - number
+          - 'null'
+          format: double
+        expenseGrowthRate:
+          type:
+          - number
+          - 'null'
+          format: double
+        expenseBurdenRatio:
+          type:
+          - number
+          - 'null'
+          format: double
+        expenseBurdenScore:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        stabilityScore:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        observationWindowMonths:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        score:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        interpretation:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
+    FeatureSet:
+      type: object
+      properties:
+        salaryCoefficientOfVariation:
+          $ref: '#/components/schemas/DoubleFeatureSignal'
+        salaryRangeDetail:
+          $ref: '#/components/schemas/SalaryRangeDetail'
+        incomeFrequencyDetail:
+          $ref: '#/components/schemas/IncomeFrequencyDetail'
+        employerConsistencyDetail:
+          $ref: '#/components/schemas/EmployerConsistencyDetail'
+        incomeTrendDetail:
+          $ref: '#/components/schemas/IncomeTrendDetail'
+        avgMonthlyInflowDetail:
+          $ref: '#/components/schemas/AvgMonthlyInflowDetail'
+        avgMonthlyOutflowDetail:
+          $ref: '#/components/schemas/AvgMonthlyOutflowDetail'
+        cashFlowRatioDetail:
+          $ref: '#/components/schemas/CashFlowRatioDetail'
+        volatilityIndexDetail:
+          $ref: '#/components/schemas/VolatilityIndexDetail'
+        overdraftFrequencyDetail:
+          $ref: '#/components/schemas/OverdraftFrequencyDetail'
+        fixedVsDiscretionarySpendDetail:
+          $ref: '#/components/schemas/FixedVsDiscretionarySpendDetail'
+        positiveEndOfMonthBalanceDetail:
+          $ref: '#/components/schemas/PositiveEndOfMonthBalanceDetail'
+        savingRatioDetail:
+          $ref: '#/components/schemas/SavingRatioDetail'
+        emergencyBufferDetail:
+          $ref: '#/components/schemas/EmergencyBufferDetail'
+        recurringPaymentLoadDetail:
+          $ref: '#/components/schemas/RecurringPaymentLoadDetail'
+        highRiskCategorySpendDetail:
+          $ref: '#/components/schemas/HighRiskCategorySpendDetail'
+        activeLoanMortgageDetail:
+          $ref: '#/components/schemas/ActiveLoanMortgageDetail'
+        repaymentRegularityDetail:
+          $ref: '#/components/schemas/RepaymentRegularityDetail'
+        debtServiceRatioDetail:
+          $ref: '#/components/schemas/DebtServiceRatioDetail'
+        repaymentScore:
+          $ref: '#/components/schemas/DecimalFeatureSignal'
+        fixedSpendRatio:
+          $ref: '#/components/schemas/DecimalFeatureSignal'
+        incomeTransactionCount:
+          $ref: '#/components/schemas/Int32FeatureSignal'
+        riskyTransactionCount:
+          $ref: '#/components/schemas/Int32FeatureSignal'
+        averageTransactionAmount:
+          $ref: '#/components/schemas/DecimalFeatureSignal'
+        incomeStabilityScore:
+          $ref: '#/components/schemas/DecimalFeatureSignal'
+        estimatedValueByYear:
+          $ref: '#/components/schemas/DecimalFeatureSignal'
+      additionalProperties: false
+    IncomeTrendDetail:
+      type: object
+      properties:
+        firstMonthIncome:
+          type: number
+          format: double
+        lastMonthIncome:
+          type: number
+          format: double
+        normalizedGrowthRate:
+          type: number
+          format: double
+        growthConsistencyRatio:
+          type: number
+          format: double
+        adjustedScore:
+          type: integer
+          format: int32
+        observationWindowMonths:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        score:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        interpretation:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
+    FixedVsDiscretionarySpendDetail:
+      type: object
+      properties:
+        avgFixedSpend:
+          type: number
+          format: double
+        avgDiscretionarySpend:
+          type: number
+          format: double
+        avgTotalSpend:
+          type: number
+          format: double
+        fixedSpendRatio:
+          type: number
+          format: double
+        discretionaryRatio:
+          type: number
+          format: double
+        notApplicable:
+          type: boolean
+        unreliableCategorization:
+          type: boolean
+        observationWindowMonths:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        score:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        interpretation:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
+    RiskScoreResponse:
+      type: object
+      properties:
+        riskLevel:
+          type:
+          - string
+          - 'null'
+        score:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        currency:
+          type:
+          - string
+          - 'null'
+        reportId:
+          type: string
+          format: uuid
+        accountHolderName:
+          type:
+          - string
+          - 'null'
+        requestedBy:
+          type:
+          - string
+          - 'null'
+        createdAt:
+          type: string
+          format: date-time
+        features:
+          $ref: '#/components/schemas/FeatureSet'
+      additionalProperties: false
+    EmployerConsistencyDetail:
+      type: object
+      properties:
+        distinctEmployers:
+          type: integer
+          format: int32
+        primaryEmployer:
+          type:
+          - string
+          - 'null'
+        durationRatio:
+          type: number
+          format: double
+        employerSwitchCount:
+          type: integer
+          format: int32
+        observationWindowMonths:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        score:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        interpretation:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
+    ActiveLoanMortgageDetail:
+      type: object
+      properties:
+        loanDetected:
+          type:
+          - boolean
+          - 'null'
+        loanTypeDetected:
+          type:
+          - string
+          - 'null'
+        monthlyEmiEstimated:
+          type: number
+          format: double
+        notApplicable:
+          type: boolean
+        insufficientData:
+          type:
+          - boolean
+          - 'null'
+        newLoanWithinTwoCycles:
+          type: boolean
+        observationWindowMonths:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        score:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        interpretation:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
+    RiskScoreResponseApiResponse:
+      type: object
+      properties:
+        error:
+          $ref: '#/components/schemas/ApiError'
+        errorDescription:
+          type:
+          - object
+          - 'null'
+          additionalProperties:
+            type:
+            - array
+            - 'null'
+            items:
+              type: string
+        data:
+          $ref: '#/components/schemas/RiskScoreResponse'
+      additionalProperties: false
+    VolatilityIndexDetail:
+      type: object
+      properties:
+        incomeVolatility:
+          type: number
+          format: double
+        expenseVolatility:
+          type: number
+          format: double
+        balanceVolatility:
+          type: number
+          format: double
+        balanceVolatilityFromDailyBalances:
+          type: boolean
+        volatilityIndexRaw:
+          type: number
+          format: double
+        normalizedIndex:
+          type: number
+          format: double
+        observationWindowMonths:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        score:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        interpretation:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
+    RiskReportStatusResponseModel:
+      type: object
+      properties:
+        customerId:
+          type:
+          - string
+          - 'null'
+          format: uuid
+        ReportId:
+          type: string
+          format: uuid
+        status:
+          type:
+          - string
+          - 'null'
+        reason:
+          type:
+          - string
+          - 'null'
+        createdAt:
+          type: string
+          format: date-time
+      additionalProperties: false
+    DebtServiceRatioDetail:
+      type: object
+      properties:
+        avgMonthlyInflow:
+          type: number
+          format: double
+        avgMonthlyDebtPayment:
+          type: number
+          format: double
+        dsrRatio:
+          type: number
+          format: double
+        dsrPercentage:
+          type: number
+          format: double
+        notApplicable:
+          type: boolean
+        insufficientData:
+          type:
+          - boolean
+          - 'null'
+        newLoanGuardrail:
+          type:
+          - boolean
+          - 'null'
+        incomeDecliningAdjustment:
+          type:
+          - boolean
+          - 'null'
+        observationWindowMonths:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        score:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        interpretation:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
     DoubleFeatureSignal:
       type: object
       properties:
@@ -442,35 +842,23 @@ components:
           - string
           - 'null'
       additionalProperties: false
-    DebtServiceRatioDetail:
+    RecurringPaymentLoadDetail:
       type: object
       properties:
         avgMonthlyInflow:
           type: number
           format: double
-        avgMonthlyDebtPayment:
+        avgMonthlyRecurringPayment:
           type: number
           format: double
-        dsrRatio:
+        recurringPaymentLoad:
           type: number
           format: double
-        dsrPercentage:
+        recurringPaymentLoadPercentage:
           type: number
           format: double
         notApplicable:
           type: boolean
-        insufficientData:
-          type:
-          - boolean
-          - 'null'
-        newLoanGuardrail:
-          type:
-          - boolean
-          - 'null'
-        incomeDecliningAdjustment:
-          type:
-          - boolean
-          - 'null'
         observationWindowMonths:
           type:
           - integer
@@ -510,27 +898,161 @@ components:
         meta:
           $ref: '#/components/schemas/PagesModel'
       additionalProperties: false
-    FixedVsDiscretionarySpendDetail:
+    ObjectApiResponse:
       type: object
       properties:
-        avgFixedSpend:
+        error:
+          $ref: '#/components/schemas/ApiError'
+        errorDescription:
+          type:
+          - object
+          - 'null'
+          additionalProperties:
+            type:
+            - array
+            - 'null'
+            items:
+              type: string
+        data: {}
+      additionalProperties: false
+    SalaryRangeDetail:
+      type: object
+      properties:
+        minMonthlySalary:
           type: number
           format: double
-        avgDiscretionarySpend:
+        maxMonthlySalary:
           type: number
           format: double
-        avgTotalSpend:
+        medianMonthlySalary:
           type: number
           format: double
-        fixedSpendRatio:
+        salaryVariabilityRatio:
           type: number
           format: double
-        discretionaryRatio:
+        salaryCoverageRatio:
+          type: number
+          format: double
+        observationWindowMonths:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        score:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        interpretation:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
+    CashFlowRatioDetail:
+      type: object
+      properties:
+        avgMonthlyInflow:
+          type: number
+          format: double
+        avgMonthlyOutflow:
+          type: number
+          format: double
+        ratio:
+          type: number
+          format: double
+        netCashFlow:
+          type: number
+          format: double
+        marginRatio:
+          type:
+          - number
+          - 'null'
+          format: double
+        observationWindowMonths:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        score:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        interpretation:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
+    DecimalFeatureSignal:
+      type: object
+      properties:
+        value:
+          type: number
+          format: double
+        observationWindowMonths:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        score:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        interpretation:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
+    IncomeFrequencyDetail:
+      type: object
+      properties:
+        frequencyType:
+          type:
+          - string
+          - 'null'
+        medianGapDays:
+          type: number
+          format: double
+        gapStabilityRatio:
+          type: number
+          format: double
+        coverageRatio:
+          type: number
+          format: double
+        observationWindowMonths:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        score:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        interpretation:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
+    SavingRatioDetail:
+      type: object
+      properties:
+        avgMonthlyInflow:
+          type: number
+          format: double
+        avgMonthlyClosingBalance:
+          type: number
+          format: double
+        savingRatio:
+          type: number
+          format: double
+        savingRatioPercentage:
           type: number
           format: double
         notApplicable:
           type: boolean
-        unreliableCategorization:
+        usedCurrentBalanceFallback:
           type: boolean
         observationWindowMonths:
           type:
@@ -547,22 +1069,74 @@ components:
           - string
           - 'null'
       additionalProperties: false
-    EmployerConsistencyDetail:
+    Int32FeatureSignal:
       type: object
       properties:
-        distinctEmployers:
+        value:
           type: integer
           format: int32
-        primaryEmployer:
+        observationWindowMonths:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        score:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        interpretation:
           type:
           - string
           - 'null'
-        durationRatio:
+      additionalProperties: false
+    EmergencyBufferDetail:
+      type: object
+      properties:
+        avgAvailableBalance:
           type: number
           format: double
-        employerSwitchCount:
+        avgMonthlyExpense:
+          type: number
+          format: double
+        emergencyBufferMonths:
+          type: number
+          format: double
+        notApplicable:
+          type: boolean
+        usedCurrentBalanceFallback:
+          type: boolean
+        observationWindowMonths:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        score:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        interpretation:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
+    PositiveEndOfMonthBalanceDetail:
+      type: object
+      properties:
+        positiveMonths:
           type: integer
           format: int32
+        negativeMonths:
+          type: integer
+          format: int32
+        positiveMonthPercentage:
+          type: number
+          format: double
+        usedNetCashFlowFallback:
+          type: boolean
+        notApplicable:
+          type: boolean
         observationWindowMonths:
           type:
           - integer
@@ -595,6 +1169,55 @@ components:
           format: double
         insufficientBalanceHistory:
           type: boolean
+        observationWindowMonths:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        score:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        interpretation:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
+    PagesModel:
+      type: object
+      properties:
+        currentPageNumber:
+          type: integer
+          format: int32
+        pageSize:
+          type: integer
+          format: int32
+        totalNumberOfPages:
+          type: integer
+          format: int32
+      additionalProperties: false
+    HighRiskCategorySpendDetail:
+      type: object
+      properties:
+        avgTotalSpend:
+          type: number
+          format: double
+        avgHighRiskSpend:
+          type: number
+          format: double
+        highRiskSpendRatio:
+          type: number
+          format: double
+        highRiskSpendPercentage:
+          type: number
+          format: double
+        notApplicable:
+          type: boolean
+        singleIsolatedRiskyTransactionExcluded:
+          type:
+          - boolean
+          - 'null'
         observationWindowMonths:
           type:
           - integer
@@ -658,305 +1281,7 @@ components:
           - string
           - 'null'
       additionalProperties: false
-    IncomeFrequencyDetail:
-      type: object
-      properties:
-        frequencyType:
-          type:
-          - string
-          - 'null'
-        medianGapDays:
-          type: number
-          format: double
-        gapStabilityRatio:
-          type: number
-          format: double
-        coverageRatio:
-          type: number
-          format: double
-        observationWindowMonths:
-          type:
-          - integer
-          - 'null'
-          format: int32
-        score:
-          type:
-          - integer
-          - 'null'
-          format: int32
-        interpretation:
-          type:
-          - string
-          - 'null'
-      additionalProperties: false
-    IncomeTrendDetail:
-      type: object
-      properties:
-        firstMonthIncome:
-          type: number
-          format: double
-        lastMonthIncome:
-          type: number
-          format: double
-        normalizedGrowthRate:
-          type: number
-          format: double
-        growthConsistencyRatio:
-          type: number
-          format: double
-        adjustedScore:
-          type: integer
-          format: int32
-        observationWindowMonths:
-          type:
-          - integer
-          - 'null'
-          format: int32
-        score:
-          type:
-          - integer
-          - 'null'
-          format: int32
-        interpretation:
-          type:
-          - string
-          - 'null'
-      additionalProperties: false
-    Int32FeatureSignal:
-      type: object
-      properties:
-        value:
-          type: integer
-          format: int32
-        observationWindowMonths:
-          type:
-          - integer
-          - 'null'
-          format: int32
-        score:
-          type:
-          - integer
-          - 'null'
-          format: int32
-        interpretation:
-          type:
-          - string
-          - 'null'
-      additionalProperties: false
-    FeatureSet:
-      type: object
-      properties:
-        salaryCoefficientOfVariation:
-          $ref: '#/components/schemas/DoubleFeatureSignal'
-        salaryRangeDetail:
-          $ref: '#/components/schemas/SalaryRangeDetail'
-        incomeFrequencyDetail:
-          $ref: '#/components/schemas/IncomeFrequencyDetail'
-        employerConsistencyDetail:
-          $ref: '#/components/schemas/EmployerConsistencyDetail'
-        incomeTrendDetail:
-          $ref: '#/components/schemas/IncomeTrendDetail'
-        avgMonthlyInflowDetail:
-          $ref: '#/components/schemas/AvgMonthlyInflowDetail'
-        avgMonthlyOutflowDetail:
-          $ref: '#/components/schemas/AvgMonthlyOutflowDetail'
-        cashFlowRatioDetail:
-          $ref: '#/components/schemas/CashFlowRatioDetail'
-        volatilityIndexDetail:
-          $ref: '#/components/schemas/VolatilityIndexDetail'
-        overdraftFrequencyDetail:
-          $ref: '#/components/schemas/OverdraftFrequencyDetail'
-        fixedVsDiscretionarySpendDetail:
-          $ref: '#/components/schemas/FixedVsDiscretionarySpendDetail'
-        positiveEndOfMonthBalanceDetail:
-          $ref: '#/components/schemas/PositiveEndOfMonthBalanceDetail'
-        savingRatioDetail:
-          $ref: '#/components/schemas/SavingRatioDetail'
-        emergencyBufferDetail:
-          $ref: '#/components/schemas/EmergencyBufferDetail'
-        recurringPaymentLoadDetail:
-          $ref: '#/components/schemas/RecurringPaymentLoadDetail'
-        highRiskCategorySpendDetail:
-          $ref: '#/components/schemas/HighRiskCategorySpendDetail'
-        activeLoanMortgageDetail:
-          $ref: '#/components/schemas/ActiveLoanMortgageDetail'
-        repaymentRegularityDetail:
-          $ref: '#/components/schemas/RepaymentRegularityDetail'
-        debtServiceRatioDetail:
-          $ref: '#/components/schemas/DebtServiceRatioDetail'
-        repaymentScore:
-          $ref: '#/components/schemas/DecimalFeatureSignal'
-        fixedSpendRatio:
-          $ref: '#/components/schemas/DecimalFeatureSignal'
-        incomeTransactionCount:
-          $ref: '#/components/schemas/Int32FeatureSignal'
-        riskyTransactionCount:
-          $ref: '#/components/schemas/Int32FeatureSignal'
-        averageTransactionAmount:
-          $ref: '#/components/schemas/DecimalFeatureSignal'
-        incomeStabilityScore:
-          $ref: '#/components/schemas/DecimalFeatureSignal'
-        estimatedValueByYear:
-          $ref: '#/components/schemas/DecimalFeatureSignal'
-      additionalProperties: false
-    DecimalFeatureSignal:
-      type: object
-      properties:
-        value:
-          type: number
-          format: double
-        observationWindowMonths:
-          type:
-          - integer
-          - 'null'
-          format: int32
-        score:
-          type:
-          - integer
-          - 'null'
-          format: int32
-        interpretation:
-          type:
-          - string
-          - 'null'
-      additionalProperties: false
-    VolatilityIndexDetail:
-      type: object
-      properties:
-        incomeVolatility:
-          type: number
-          format: double
-        expenseVolatility:
-          type: number
-          format: double
-        balanceVolatility:
-          type: number
-          format: double
-        balanceVolatilityFromDailyBalances:
-          type: boolean
-        volatilityIndexRaw:
-          type: number
-          format: double
-        normalizedIndex:
-          type: number
-          format: double
-        observationWindowMonths:
-          type:
-          - integer
-          - 'null'
-          format: int32
-        score:
-          type:
-          - integer
-          - 'null'
-          format: int32
-        interpretation:
-          type:
-          - string
-          - 'null'
-      additionalProperties: false
-    HighRiskCategorySpendDetail:
-      type: object
-      properties:
-        avgTotalSpend:
-          type: number
-          format: double
-        avgHighRiskSpend:
-          type: number
-          format: double
-        highRiskSpendRatio:
-          type: number
-          format: double
-        highRiskSpendPercentage:
-          type: number
-          format: double
-        notApplicable:
-          type: boolean
-        singleIsolatedRiskyTransactionExcluded:
-          type:
-          - boolean
-          - 'null'
-        observationWindowMonths:
-          type:
-          - integer
-          - 'null'
-          format: int32
-        score:
-          type:
-          - integer
-          - 'null'
-          format: int32
-        interpretation:
-          type:
-          - string
-          - 'null'
-      additionalProperties: false
-    SalaryRangeDetail:
-      type: object
-      properties:
-        minMonthlySalary:
-          type: number
-          format: double
-        maxMonthlySalary:
-          type: number
-          format: double
-        medianMonthlySalary:
-          type: number
-          format: double
-        salaryVariabilityRatio:
-          type: number
-          format: double
-        salaryCoverageRatio:
-          type: number
-          format: double
-        observationWindowMonths:
-          type:
-          - integer
-          - 'null'
-          format: int32
-        score:
-          type:
-          - integer
-          - 'null'
-          format: int32
-        interpretation:
-          type:
-          - string
-          - 'null'
-      additionalProperties: false
-    RecurringPaymentLoadDetail:
-      type: object
-      properties:
-        avgMonthlyInflow:
-          type: number
-          format: double
-        avgMonthlyRecurringPayment:
-          type: number
-          format: double
-        recurringPaymentLoad:
-          type: number
-          format: double
-        recurringPaymentLoadPercentage:
-          type: number
-          format: double
-        notApplicable:
-          type: boolean
-        observationWindowMonths:
-          type:
-          - integer
-          - 'null'
-          format: int32
-        score:
-          type:
-          - integer
-          - 'null'
-          format: int32
-        interpretation:
-          type:
-          - string
-          - 'null'
-      additionalProperties: false
-    RiskScoreResponseApiResponse:
+    RiskReportStatusResponseModelApiResponse:
       type: object
       properties:
         error:
@@ -972,7 +1297,7 @@ components:
             items:
               type: string
         data:
-          $ref: '#/components/schemas/RiskScoreResponse'
+          $ref: '#/components/schemas/RiskReportStatusResponseModel'
       additionalProperties: false
     ApiError:
       enum:
@@ -1014,331 +1339,6 @@ components:
       - CREDITOR_ACCOUNT_NOT_FOUND
       - UNAUTHORIZED_IP_ADDRESS
       type: string
-    PositiveEndOfMonthBalanceDetail:
-      type: object
-      properties:
-        positiveMonths:
-          type: integer
-          format: int32
-        negativeMonths:
-          type: integer
-          format: int32
-        positiveMonthPercentage:
-          type: number
-          format: double
-        usedNetCashFlowFallback:
-          type: boolean
-        notApplicable:
-          type: boolean
-        observationWindowMonths:
-          type:
-          - integer
-          - 'null'
-          format: int32
-        score:
-          type:
-          - integer
-          - 'null'
-          format: int32
-        interpretation:
-          type:
-          - string
-          - 'null'
-      additionalProperties: false
-    RiskReportStatusResponseModelApiResponse:
-      type: object
-      properties:
-        error:
-          $ref: '#/components/schemas/ApiError'
-        errorDescription:
-          type:
-          - object
-          - 'null'
-          additionalProperties:
-            type:
-            - array
-            - 'null'
-            items:
-              type: string
-        data:
-          $ref: '#/components/schemas/RiskReportStatusResponseModel'
-      additionalProperties: false
-    RiskReportStatusResponseModel:
-      type: object
-      properties:
-        customerId:
-          type:
-          - string
-          - 'null'
-          format: uuid
-        ReportId:
-          type: string
-          format: uuid
-        status:
-          type:
-          - string
-          - 'null'
-        reason:
-          type:
-          - string
-          - 'null'
-        createdAt:
-          type: string
-          format: date-time
-      additionalProperties: false
-    PagesModel:
-      type: object
-      properties:
-        currentPageNumber:
-          type: integer
-          format: int32
-        pageSize:
-          type: integer
-          format: int32
-        totalNumberOfPages:
-          type: integer
-          format: int32
-      additionalProperties: false
-    EmergencyBufferDetail:
-      type: object
-      properties:
-        avgAvailableBalance:
-          type: number
-          format: double
-        avgMonthlyExpense:
-          type: number
-          format: double
-        emergencyBufferMonths:
-          type: number
-          format: double
-        notApplicable:
-          type: boolean
-        usedCurrentBalanceFallback:
-          type: boolean
-        observationWindowMonths:
-          type:
-          - integer
-          - 'null'
-          format: int32
-        score:
-          type:
-          - integer
-          - 'null'
-          format: int32
-        interpretation:
-          type:
-          - string
-          - 'null'
-      additionalProperties: false
-    ActiveLoanMortgageDetail:
-      type: object
-      properties:
-        loanDetected:
-          type:
-          - boolean
-          - 'null'
-        loanTypeDetected:
-          type:
-          - string
-          - 'null'
-        monthlyEmiEstimated:
-          type: number
-          format: double
-        notApplicable:
-          type: boolean
-        insufficientData:
-          type:
-          - boolean
-          - 'null'
-        newLoanWithinTwoCycles:
-          type: boolean
-        observationWindowMonths:
-          type:
-          - integer
-          - 'null'
-          format: int32
-        score:
-          type:
-          - integer
-          - 'null'
-          format: int32
-        interpretation:
-          type:
-          - string
-          - 'null'
-      additionalProperties: false
-    AvgMonthlyOutflowDetail:
-      type: object
-      properties:
-        monthlyOutflowValues:
-          type:
-          - array
-          - 'null'
-          items:
-            type: number
-            format: double
-        avgMonthlyOutflow:
-          type: number
-          format: double
-        outflowVariabilityRatio:
-          type:
-          - number
-          - 'null'
-          format: double
-        expenseGrowthRate:
-          type:
-          - number
-          - 'null'
-          format: double
-        expenseBurdenRatio:
-          type:
-          - number
-          - 'null'
-          format: double
-        expenseBurdenScore:
-          type:
-          - integer
-          - 'null'
-          format: int32
-        stabilityScore:
-          type:
-          - integer
-          - 'null'
-          format: int32
-        observationWindowMonths:
-          type:
-          - integer
-          - 'null'
-          format: int32
-        score:
-          type:
-          - integer
-          - 'null'
-          format: int32
-        interpretation:
-          type:
-          - string
-          - 'null'
-      additionalProperties: false
-    CashFlowRatioDetail:
-      type: object
-      properties:
-        avgMonthlyInflow:
-          type: number
-          format: double
-        avgMonthlyOutflow:
-          type: number
-          format: double
-        ratio:
-          type: number
-          format: double
-        netCashFlow:
-          type: number
-          format: double
-        marginRatio:
-          type:
-          - number
-          - 'null'
-          format: double
-        observationWindowMonths:
-          type:
-          - integer
-          - 'null'
-          format: int32
-        score:
-          type:
-          - integer
-          - 'null'
-          format: int32
-        interpretation:
-          type:
-          - string
-          - 'null'
-      additionalProperties: false
-    ObjectApiResponse:
-      type: object
-      properties:
-        error:
-          $ref: '#/components/schemas/ApiError'
-        errorDescription:
-          type:
-          - object
-          - 'null'
-          additionalProperties:
-            type:
-            - array
-            - 'null'
-            items:
-              type: string
-        data: {}
-      additionalProperties: false
-    SavingRatioDetail:
-      type: object
-      properties:
-        avgMonthlyInflow:
-          type: number
-          format: double
-        avgMonthlyClosingBalance:
-          type: number
-          format: double
-        savingRatio:
-          type: number
-          format: double
-        savingRatioPercentage:
-          type: number
-          format: double
-        notApplicable:
-          type: boolean
-        usedCurrentBalanceFallback:
-          type: boolean
-        observationWindowMonths:
-          type:
-          - integer
-          - 'null'
-          format: int32
-        score:
-          type:
-          - integer
-          - 'null'
-          format: int32
-        interpretation:
-          type:
-          - string
-          - 'null'
-      additionalProperties: false
-    RiskScoreResponse:
-      type: object
-      properties:
-        riskLevel:
-          type:
-          - string
-          - 'null'
-        score:
-          type:
-          - integer
-          - 'null'
-          format: int32
-        currency:
-          type:
-          - string
-          - 'null'
-        reportId:
-          type: string
-          format: uuid
-        accountHolderName:
-          type:
-          - string
-          - 'null'
-        requestedBy:
-          type:
-          - string
-          - 'null'
-        createdAt:
-          type: string
-          format: date-time
-        features:
-          $ref: '#/components/schemas/FeatureSet'
-      additionalProperties: false
   securitySchemes:
     Bearer:
       type: apiKey

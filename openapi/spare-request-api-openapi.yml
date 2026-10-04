@@ -630,126 +630,11 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    ConsentScope:
+    ProviderStatus:
       enum:
-      - Accounts
-      - Payments
+      - Active
+      - Inactive
       type: string
-    ObConsentsStatus:
-      enum:
-      - AwaitingAuthorization
-      - Authorized
-      - Authorised
-      - Consumed
-      - Rejected
-      - Expired
-      - Revoked
-      type: string
-    AccountInformationPermission:
-      enum:
-      - ReadAccountsBasic
-      - ReadAccountsDetail
-      - ReadBalances
-      - ReadBeneficiariesBasic
-      - ReadBeneficiariesDetail
-      - ReadDirectDebits
-      - ReadTransactionsBasic
-      - ReadTransactionsDetail
-      - ReadTransactionsCredits
-      - ReadTransactionsDebits
-      - ReadStatementsBasic
-      - ReadStatementsDetail
-      - ReadSupplementaryAccountInfo
-      - ReadOffers
-      - ReadParty
-      - ReadPartyCustomer
-      - ReadFutureDatedPaymentsBasic
-      - ReadFutureDatedPaymentsDetail
-      - ReadPAN
-      - ReadPartyPSU
-      - ReadPartyPSUIdentity
-      - ReadScheduledPaymentsBasic
-      - ReadScheduledPaymentsDetail
-      - ReadStandingOrdersBasic
-      - ReadStandingOrdersDetail
-      type: string
-    ConsentStatusHistoryModel:
-      type: object
-      properties:
-        status:
-          $ref: '#/components/schemas/ObConsentsStatus'
-        dateTime:
-          type: string
-          format: date-time
-      additionalProperties: false
-    AccountInformationRequestAccessResponseModelApiResponse:
-      type: object
-      properties:
-        error:
-          $ref: '#/components/schemas/ApiError'
-        errorDescription:
-          type:
-          - object
-          - 'null'
-          additionalProperties:
-            type:
-            - array
-            - 'null'
-            items:
-              type: string
-        data:
-          $ref: '#/components/schemas/AccountInformationRequestAccessResponseModel'
-      additionalProperties: false
-    AccountInformationRequestAccessModel:
-      required:
-      - countryCode
-      - customerId
-      - requestPermissions
-      type: object
-      properties:
-        customerId:
-          type: string
-          format: uuid
-        consentExpiryDate:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        consentTransactionsFromDate:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        consentTransactionsToDate:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        countryCode:
-          minLength: 1
-          pattern: ^[A-Z]{2}
-          type: string
-        requestPermissions:
-          type: array
-          items:
-            $ref: '#/components/schemas/AccountInformationPermission'
-        redirectionFlow:
-          $ref: '#/components/schemas/RedirectionFlow'
-        successRedirectUrl:
-          maxLength: 255
-          type:
-          - string
-          - 'null'
-          format: uri
-        failureRedirectUrl:
-          maxLength: 255
-          type:
-          - string
-          - 'null'
-          format: uri
-        autoRedirect:
-          type: boolean
-      additionalProperties: false
     AccountInformationProviderModel:
       required:
       - englishName
@@ -799,12 +684,206 @@ components:
           - 'null'
           format: uri
       additionalProperties: false
+    CurrencyResponseModel:
+      required:
+      - englishName
+      - iso4117Code
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        englishName:
+          maxLength: 50
+          minLength: 1
+          type: string
+        arabicName:
+          maxLength: 50
+          type:
+          - string
+          - 'null'
+        iso4117Code:
+          maxLength: 3
+          minLength: 1
+          type: string
+        iso4117Number:
+          maxLength: 4
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
     UpdateAccountInformationRequestAccessModel:
       required:
       - countryCode
       - requestPermissions
       type: object
       properties:
+        consentExpiryDate:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        consentTransactionsFromDate:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        consentTransactionsToDate:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        countryCode:
+          minLength: 1
+          pattern: ^[A-Z]{2}
+          type: string
+        requestPermissions:
+          type: array
+          items:
+            $ref: '#/components/schemas/AccountInformationPermission'
+        redirectionFlow:
+          $ref: '#/components/schemas/RedirectionFlow'
+        successRedirectUrl:
+          maxLength: 255
+          type:
+          - string
+          - 'null'
+          format: uri
+        failureRedirectUrl:
+          maxLength: 255
+          type:
+          - string
+          - 'null'
+          format: uri
+        autoRedirect:
+          type: boolean
+      additionalProperties: false
+    RedirectionFlow:
+      enum:
+      - WEB
+      - DECOUPLED
+      type: string
+    AccountInformationRequestAccessResponseModelApiResponse:
+      type: object
+      properties:
+        error:
+          $ref: '#/components/schemas/ApiError'
+        errorDescription:
+          type:
+          - object
+          - 'null'
+          additionalProperties:
+            type:
+            - array
+            - 'null'
+            items:
+              type: string
+        data:
+          $ref: '#/components/schemas/AccountInformationRequestAccessResponseModel'
+      additionalProperties: false
+    ConnectionStatus:
+      enum:
+      - ACTIVE
+      - INACTIVE
+      type: string
+    AccountInformationPermission:
+      enum:
+      - ReadAccountsBasic
+      - ReadAccountsDetail
+      - ReadBalances
+      - ReadBeneficiariesBasic
+      - ReadBeneficiariesDetail
+      - ReadDirectDebits
+      - ReadTransactionsBasic
+      - ReadTransactionsDetail
+      - ReadTransactionsCredits
+      - ReadTransactionsDebits
+      - ReadStatementsBasic
+      - ReadStatementsDetail
+      - ReadSupplementaryAccountInfo
+      - ReadOffers
+      - ReadParty
+      - ReadPartyCustomer
+      - ReadFutureDatedPaymentsBasic
+      - ReadFutureDatedPaymentsDetail
+      - ReadPAN
+      - ReadPartyPSU
+      - ReadPartyPSUIdentity
+      - ReadScheduledPaymentsBasic
+      - ReadScheduledPaymentsDetail
+      - ReadStandingOrdersBasic
+      - ReadStandingOrdersDetail
+      type: string
+    AccountInformationConsentResponseModel:
+      type: object
+      properties:
+        expiryDate:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        transactionsFromDate:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        transactionsToDate:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        permissions:
+          type:
+          - array
+          - 'null'
+          items:
+            type: string
+        statusHistory:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/ConsentStatusHistoryModel'
+        connection:
+          $ref: '#/components/schemas/AccountInformationConnectionResponseModel'
+        id:
+          type: string
+          format: uuid
+        customerId:
+          type:
+          - string
+          - 'null'
+          format: uuid
+        scope:
+          $ref: '#/components/schemas/ConsentScope'
+        createdAt:
+          type: string
+          format: date-time
+        status:
+          $ref: '#/components/schemas/ObConsentsStatus'
+        authorizationLink:
+          type:
+          - string
+          - 'null'
+        successRedirectUrl:
+          type:
+          - string
+          - 'null'
+        failureRedirectUrl:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
+    AccountInformationRequestAccessModel:
+      required:
+      - countryCode
+      - customerId
+      - requestPermissions
+      type: object
+      properties:
+        customerId:
+          type: string
+          format: uuid
         consentExpiryDate:
           type:
           - string
@@ -869,181 +948,28 @@ components:
         meta:
           $ref: '#/components/schemas/PagesModel'
       additionalProperties: false
-    AccountInformationConnectionResponseModel:
+    ObjectApiResponse:
       type: object
       properties:
-        provider:
-          $ref: '#/components/schemas/AccountInformationProviderModel'
-        id:
-          type: string
-          format: uuid
-        status:
-          $ref: '#/components/schemas/ConnectionStatus'
-        createdAt:
-          type: string
-          format: date-time
-        updatedAt:
-          type: string
-          format: date-time
+        error:
+          $ref: '#/components/schemas/ApiError'
+        errorDescription:
+          type:
+          - object
+          - 'null'
+          additionalProperties:
+            type:
+            - array
+            - 'null'
+            items:
+              type: string
+        data: {}
       additionalProperties: false
-    ConnectionStatus:
+    ConsentSource:
       enum:
-      - ACTIVE
-      - INACTIVE
+      - WEB
+      - API
       type: string
-    RequestStatus:
-      enum:
-      - AwaitingApproval
-      - Rejected
-      - Approved
-      - Expired
-      type: string
-    ProviderStatus:
-      enum:
-      - Active
-      - Inactive
-      type: string
-    ApiError:
-      enum:
-      - INVALID_DATA
-      - INVALID_SIGNATURE
-      - RESOURCE_LOCKED
-      - COUNTRY_NOT_FOUND
-      - CURRENCY_NOT_FOUND
-      - PROVIDER_NOT_FOUND
-      - CONNECTION_NOT_FOUND
-      - INSUFFICIENT_CONSENT_PERMISSIONS
-      - CONSENT_EXPIRED
-      - CONSENT_REVOKED
-      - CONSENT_UNAUTHORIZED
-      - CONSENT_NOT_FOUND
-      - RISK_REPORT_NOT_FOUND
-      - ACCOUNT_INFORMATION_REPORT_NOT_FOUND
-      - MULTIPLE_CURRENCY_NOT_ALLOWED
-      - MULTIPLE_CONSENT_DATE_NOT_ALLOWED
-      - PAYMENT_NOT_FOUND
-      - CONSENT_REJECTED
-      - PAYMENT_REQUEST_NOT_FOUND
-      - CUSTOMER_NOT_FOUND
-      - CUSTOMER_ALREADY_EXISTS
-      - BANK_ACCOUNT_NOT_FOUND
-      - SERVER_ERROR
-      - PROVIDER_CONNECTION_FAILURE
-      - TRANSACTION_NOT_FOUND
-      - ACCOUNT_INFORMATION_ACCESS_REQUEST_NOT_FOUND
-      - CONSENT_REVOCATION_FAILED
-      - CONSENT_REVOKED_OR_EXPIRED
-      - SUBSCRIPTION_EXPIRED
-      - NOT_SUBSCRIBED_TO_SERVICE
-      - BENEFICIARY_NOT_FOUND
-      - PARTIES_NOT_FOUND
-      - DIRECT_DEBIT_NOT_FOUND
-      - SCHEDULED_PAYMENT_NOT_FOUND
-      - DEBTOR_ACCOUNT_NOT_FOUND
-      - CREDITOR_ACCOUNT_NOT_FOUND
-      - UNAUTHORIZED_IP_ADDRESS
-      type: string
-    CurrencyResponseModel:
-      required:
-      - englishName
-      - iso4117Code
-      type: object
-      properties:
-        id:
-          type: string
-          format: uuid
-        englishName:
-          maxLength: 50
-          minLength: 1
-          type: string
-        arabicName:
-          maxLength: 50
-          type:
-          - string
-          - 'null'
-        iso4117Code:
-          maxLength: 3
-          minLength: 1
-          type: string
-        iso4117Number:
-          maxLength: 4
-          type:
-          - string
-          - 'null'
-      additionalProperties: false
-    AccountInformationConsentResponseModel:
-      type: object
-      properties:
-        expiryDate:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        transactionsFromDate:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        transactionsToDate:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        permissions:
-          type:
-          - array
-          - 'null'
-          items:
-            type: string
-        statusHistory:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/ConsentStatusHistoryModel'
-        connection:
-          $ref: '#/components/schemas/AccountInformationConnectionResponseModel'
-        id:
-          type: string
-          format: uuid
-        customerId:
-          type:
-          - string
-          - 'null'
-          format: uuid
-        scope:
-          $ref: '#/components/schemas/ConsentScope'
-        createdAt:
-          type: string
-          format: date-time
-        status:
-          $ref: '#/components/schemas/ObConsentsStatus'
-        authorizationLink:
-          type:
-          - string
-          - 'null'
-        successRedirectUrl:
-          type:
-          - string
-          - 'null'
-        failureRedirectUrl:
-          type:
-          - string
-          - 'null'
-      additionalProperties: false
-    PagesModel:
-      type: object
-      properties:
-        currentPageNumber:
-          type: integer
-          format: int32
-        pageSize:
-          type: integer
-          format: int32
-        totalNumberOfPages:
-          type: integer
-          format: int32
-      additionalProperties: false
     CountryResponseModel:
       required:
       - englishName
@@ -1081,15 +1007,22 @@ components:
           minLength: 1
           type: string
       additionalProperties: false
-    ConsentSource:
+    ObConsentsStatus:
       enum:
-      - WEB
-      - API
+      - AwaitingAuthorization
+      - Authorized
+      - Authorised
+      - Consumed
+      - Rejected
+      - Expired
+      - Revoked
       type: string
-    RedirectionFlow:
+    RequestStatus:
       enum:
-      - WEB
-      - DECOUPLED
+      - AwaitingApproval
+      - Rejected
+      - Approved
+      - Expired
       type: string
     AccountInformationRequestAccessResponseModel:
       required:
@@ -1163,7 +1096,95 @@ components:
         autoRedirect:
           type: boolean
       additionalProperties: false
-    ObjectApiResponse:
+    AccountInformationConnectionResponseModel:
+      type: object
+      properties:
+        provider:
+          $ref: '#/components/schemas/AccountInformationProviderModel'
+        id:
+          type: string
+          format: uuid
+        status:
+          $ref: '#/components/schemas/ConnectionStatus'
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+      additionalProperties: false
+    PagesModel:
+      type: object
+      properties:
+        currentPageNumber:
+          type: integer
+          format: int32
+        pageSize:
+          type: integer
+          format: int32
+        totalNumberOfPages:
+          type: integer
+          format: int32
+      additionalProperties: false
+    ConsentStatusHistoryModel:
+      type: object
+      properties:
+        status:
+          $ref: '#/components/schemas/ObConsentsStatus'
+        dateTime:
+          type: string
+          format: date-time
+      additionalProperties: false
+    ConsentScope:
+      enum:
+      - Accounts
+      - Payments
+      type: string
+    ApiError:
+      enum:
+      - INVALID_DATA
+      - INVALID_SIGNATURE
+      - RESOURCE_LOCKED
+      - COUNTRY_NOT_FOUND
+      - CURRENCY_NOT_FOUND
+      - PROVIDER_NOT_FOUND
+      - CONNECTION_NOT_FOUND
+      - INSUFFICIENT_CONSENT_PERMISSIONS
+      - CONSENT_EXPIRED
+      - CONSENT_REVOKED
+      - CONSENT_UNAUTHORIZED
+      - CONSENT_NOT_FOUND
+      - RISK_REPORT_NOT_FOUND
+      - ACCOUNT_INFORMATION_REPORT_NOT_FOUND
+      - MULTIPLE_CURRENCY_NOT_ALLOWED
+      - MULTIPLE_CONSENT_DATE_NOT_ALLOWED
+      - PAYMENT_NOT_FOUND
+      - CONSENT_REJECTED
+      - PAYMENT_REQUEST_NOT_FOUND
+      - CUSTOMER_NOT_FOUND
+      - CUSTOMER_ALREADY_EXISTS
+      - BANK_ACCOUNT_NOT_FOUND
+      - SERVER_ERROR
+      - PROVIDER_CONNECTION_FAILURE
+      - TRANSACTION_NOT_FOUND
+      - ACCOUNT_INFORMATION_ACCESS_REQUEST_NOT_FOUND
+      - CONSENT_REVOCATION_FAILED
+      - CONSENT_REVOKED_OR_EXPIRED
+      - SUBSCRIPTION_EXPIRED
+      - NOT_SUBSCRIBED_TO_SERVICE
+      - BENEFICIARY_NOT_FOUND
+      - PARTIES_NOT_FOUND
+      - DIRECT_DEBIT_NOT_FOUND
+      - SCHEDULED_PAYMENT_NOT_FOUND
+      - DEBTOR_ACCOUNT_NOT_FOUND
+      - CREDITOR_ACCOUNT_NOT_FOUND
+      - UNAUTHORIZED_IP_ADDRESS
+      type: string
+    ConsentPaymentType:
+      enum:
+      - SingleInstantPayment
+      type: string
+    PaymentAccessRequestResponseModelIEnumerablePagesModelMetaApiResponse:
       type: object
       properties:
         error:
@@ -1178,13 +1199,93 @@ components:
             - 'null'
             items:
               type: string
-        data: {}
+        data:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/PaymentAccessRequestResponseModel'
+        meta:
+          $ref: '#/components/schemas/PagesModel'
       additionalProperties: false
-    SchemeName:
-      enum:
-      - IBAN
-      - BBAN
-      type: string
+    PaymentAccessRequestResponseModel:
+      required:
+      - type
+      type: object
+      properties:
+        paymentRequestId:
+          type: string
+          format: uuid
+        status:
+          $ref: '#/components/schemas/RequestStatus'
+        amount:
+          $ref: '#/components/schemas/PaymentAmountResponseModel'
+        consent:
+          $ref: '#/components/schemas/PaymentInitiationConsentResponseModel'
+        country:
+          $ref: '#/components/schemas/CountryResponseModel'
+        debtorAccount:
+          $ref: '#/components/schemas/PaymentAccountResponseModel'
+        creditorAccount:
+          $ref: '#/components/schemas/PaymentAccountResponseModel'
+        hashId:
+          type:
+          - string
+          - 'null'
+        purpose:
+          type:
+          - string
+          - 'null'
+        note:
+          type:
+          - string
+          - 'null'
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+        requestLink:
+          type:
+          - string
+          - 'null'
+        paymentConsentType:
+          $ref: '#/components/schemas/ConsentPaymentType'
+        executionDateTime:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        type:
+          $ref: '#/components/schemas/PaymentType'
+        description:
+          maxLength: 500
+          type:
+          - string
+          - 'null'
+        externalReference:
+          maxLength: 255
+          type:
+          - string
+          - 'null'
+        redirectionFlow:
+          $ref: '#/components/schemas/RedirectionFlow'
+        successRedirectUrl:
+          maxLength: 255
+          type:
+          - string
+          - 'null'
+          format: uri
+        failureRedirectUrl:
+          maxLength: 255
+          type:
+          - string
+          - 'null'
+          format: uri
+        autoRedirect:
+          type: boolean
+      additionalProperties: false
     PaymentInitiationConsentResponseModel:
       type: object
       properties:
@@ -1233,70 +1334,16 @@ components:
           - string
           - 'null'
       additionalProperties: false
-    PaymentInitiationProviderModel:
-      required:
-      - englishName
-      type: object
-      properties:
-        id:
-          type:
-          - string
-          - 'null'
-          format: uuid
-        country:
-          $ref: '#/components/schemas/CountryResponseModel'
-        address:
-          type:
-          - string
-          - 'null'
-        phone:
-          type:
-          - string
-          - 'null'
-        isEnable:
-          type: boolean
-        arabicName:
-          maxLength: 255
-          type:
-          - string
-          - 'null'
-        englishName:
-          maxLength: 255
-          minLength: 1
-          type: string
-        status:
-          $ref: '#/components/schemas/ProviderStatus'
-        logo:
-          maxLength: 255
-          type:
-          - string
-          - 'null'
-          format: uri
-      additionalProperties: false
-    PaymentAccessRequestResponseModelIEnumerablePagesModelMetaApiResponse:
-      type: object
-      properties:
-        error:
-          $ref: '#/components/schemas/ApiError'
-        errorDescription:
-          type:
-          - object
-          - 'null'
-          additionalProperties:
-            type:
-            - array
-            - 'null'
-            items:
-              type: string
-        data:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/PaymentAccessRequestResponseModel'
-        meta:
-          $ref: '#/components/schemas/PagesModel'
-      additionalProperties: false
+    SchemeName:
+      enum:
+      - IBAN
+      - BBAN
+      type: string
+    PaymentType:
+      enum:
+      - SINGLE_DOMESTIC
+      - RECURRENT
+      type: string
     PaymentAccountResponseModel:
       required:
       - identification
@@ -1310,37 +1357,6 @@ components:
           - string
           - 'null'
           format: uuid
-        scheme:
-          $ref: '#/components/schemas/SchemeName'
-        identification:
-          minLength: 1
-          type: string
-        name:
-          type:
-          - string
-          - 'null'
-      additionalProperties: false
-    ConsentPaymentType:
-      enum:
-      - SingleInstantPayment
-      type: string
-    PaymentAmountResponseModel:
-      type: object
-      properties:
-        value:
-          type:
-          - number
-          - 'null'
-          format: double
-        currency:
-          $ref: '#/components/schemas/CurrencyResponseModel'
-      additionalProperties: false
-    AccountRequestModel:
-      required:
-      - identification
-      - scheme
-      type: object
-      properties:
         scheme:
           $ref: '#/components/schemas/SchemeName'
         identification:
@@ -1422,101 +1438,18 @@ components:
           - string
           - 'null'
       additionalProperties: false
-    PaymentAccessRequestResponseModel:
-      required:
-      - type
-      type: object
-      properties:
-        paymentRequestId:
-          type: string
-          format: uuid
-        status:
-          $ref: '#/components/schemas/RequestStatus'
-        amount:
-          $ref: '#/components/schemas/PaymentAmountResponseModel'
-        consent:
-          $ref: '#/components/schemas/PaymentInitiationConsentResponseModel'
-        country:
-          $ref: '#/components/schemas/CountryResponseModel'
-        debtorAccount:
-          $ref: '#/components/schemas/PaymentAccountResponseModel'
-        creditorAccount:
-          $ref: '#/components/schemas/PaymentAccountResponseModel'
-        hashId:
-          type:
-          - string
-          - 'null'
-        purpose:
-          type:
-          - string
-          - 'null'
-        note:
-          type:
-          - string
-          - 'null'
-        createdAt:
-          type: string
-          format: date-time
-        updatedAt:
-          type: string
-          format: date-time
-        requestLink:
-          type:
-          - string
-          - 'null'
-        paymentConsentType:
-          $ref: '#/components/schemas/ConsentPaymentType'
-        executionDateTime:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        type:
-          $ref: '#/components/schemas/PaymentType'
-        description:
-          maxLength: 500
-          type:
-          - string
-          - 'null'
-        externalReference:
-          maxLength: 255
-          type:
-          - string
-          - 'null'
-        redirectionFlow:
-          $ref: '#/components/schemas/RedirectionFlow'
-        successRedirectUrl:
-          maxLength: 255
-          type:
-          - string
-          - 'null'
-          format: uri
-        failureRedirectUrl:
-          maxLength: 255
-          type:
-          - string
-          - 'null'
-          format: uri
-        autoRedirect:
-          type: boolean
-      additionalProperties: false
-    PaymentInitiationConnectionResponseModel:
-      type: object
-      properties:
-        provider:
-          $ref: '#/components/schemas/PaymentInitiationProviderModel'
-        id:
-          type: string
-          format: uuid
-        status:
-          $ref: '#/components/schemas/ConnectionStatus'
-        createdAt:
-          type: string
-          format: date-time
-        updatedAt:
-          type: string
-          format: date-time
-      additionalProperties: false
+    PaymentPurpose:
+      enum:
+      - SELF
+      - ONLP
+      - LORP
+      - BIL
+      - DONA
+      - DUES
+      - GOPT
+      - PERS
+      - PERL
+      type: string
     PaymentAccessRequestResponseModelApiResponse:
       type: object
       properties:
@@ -1535,33 +1468,146 @@ components:
         data:
           $ref: '#/components/schemas/PaymentAccessRequestResponseModel'
       additionalProperties: false
-    PaymentType:
-      enum:
-      - SINGLE_DOMESTIC
-      - RECURRENT
-      type: string
-    PaymentPurpose:
-      enum:
-      - SELF
-      - ONLP
-      - LORP
-      - BIL
-      - DONA
-      - DUES
-      - GOPT
-      - PERS
-      - PERL
-      type: string
-    ObConsentsStatus_2:
-      enum:
-      - AwaitingAuthorization
-      - Authorized
-      - Consumed
-      - Finished
-      - Rejected
-      - Expired
-      - Revoked
-      type: string
+    PaymentAmountResponseModel:
+      type: object
+      properties:
+        value:
+          type:
+          - number
+          - 'null'
+          format: double
+        currency:
+          $ref: '#/components/schemas/CurrencyResponseModel'
+      additionalProperties: false
+    AccountRequestModel:
+      required:
+      - identification
+      - scheme
+      type: object
+      properties:
+        scheme:
+          $ref: '#/components/schemas/SchemeName'
+        identification:
+          minLength: 1
+          type: string
+        name:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
+    PaymentInitiationProviderModel:
+      required:
+      - englishName
+      type: object
+      properties:
+        id:
+          type:
+          - string
+          - 'null'
+          format: uuid
+        country:
+          $ref: '#/components/schemas/CountryResponseModel'
+        address:
+          type:
+          - string
+          - 'null'
+        phone:
+          type:
+          - string
+          - 'null'
+        isEnable:
+          type: boolean
+        arabicName:
+          maxLength: 255
+          type:
+          - string
+          - 'null'
+        englishName:
+          maxLength: 255
+          minLength: 1
+          type: string
+        status:
+          $ref: '#/components/schemas/ProviderStatus'
+        logo:
+          maxLength: 255
+          type:
+          - string
+          - 'null'
+          format: uri
+      additionalProperties: false
+    PaymentInitiationConnectionResponseModel:
+      type: object
+      properties:
+        provider:
+          $ref: '#/components/schemas/PaymentInitiationProviderModel'
+        id:
+          type: string
+          format: uuid
+        status:
+          $ref: '#/components/schemas/ConnectionStatus'
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+      additionalProperties: false
+    LongLivedRequestModel:
+      required:
+      - consentExpiryDate
+      - countryCode
+      - customerId
+      - requestPermissions
+      type: object
+      properties:
+        consentExpiryDate:
+          type: string
+          format: date-time
+        providers:
+          type:
+          - array
+          - 'null'
+          items:
+            type: string
+            format: uuid
+        customerId:
+          type: string
+          format: uuid
+        consentTransactionsFromDate:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        consentTransactionsToDate:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        countryCode:
+          minLength: 1
+          pattern: ^[A-Z]{2}
+          type: string
+        requestPermissions:
+          type: array
+          items:
+            $ref: '#/components/schemas/AccountInformationPermission'
+        redirectionFlow:
+          $ref: '#/components/schemas/RedirectionFlow'
+        successRedirectUrl:
+          maxLength: 255
+          type:
+          - string
+          - 'null'
+          format: uri
+        failureRedirectUrl:
+          maxLength: 255
+          type:
+          - string
+          - 'null'
+          format: uri
+        autoRedirect:
+          type: boolean
+      additionalProperties: false
     AccountInformationProviderModel_2:
       required:
       - englishName
@@ -1613,62 +1659,6 @@ components:
       - requestPermissions
       type: object
       properties:
-        consentTransactionsFromDate:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        consentTransactionsToDate:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        countryCode:
-          minLength: 1
-          pattern: ^[A-Z]{2}
-          type: string
-        requestPermissions:
-          type: array
-          items:
-            $ref: '#/components/schemas/AccountInformationPermission'
-        redirectionFlow:
-          $ref: '#/components/schemas/RedirectionFlow'
-        successRedirectUrl:
-          maxLength: 255
-          type:
-          - string
-          - 'null'
-          format: uri
-        failureRedirectUrl:
-          maxLength: 255
-          type:
-          - string
-          - 'null'
-          format: uri
-        autoRedirect:
-          type: boolean
-      additionalProperties: false
-    LongLivedRequestModel:
-      required:
-      - consentExpiryDate
-      - countryCode
-      - customerId
-      - requestPermissions
-      type: object
-      properties:
-        consentExpiryDate:
-          type: string
-          format: date-time
-        providers:
-          type:
-          - array
-          - 'null'
-          items:
-            type: string
-            format: uuid
-        customerId:
-          type: string
-          format: uuid
         consentTransactionsFromDate:
           type:
           - string
@@ -1756,65 +1746,16 @@ components:
         autoRedirect:
           type: boolean
       additionalProperties: false
-    ApiError_2:
+    ObConsentsStatus_2:
       enum:
-      - INVALID_DATA
-      - INVALID_SIGNATURE
-      - RESOURCE_LOCKED
-      - COUNTRY_NOT_FOUND
-      - CURRENCY_NOT_FOUND
-      - PROVIDER_NOT_FOUND
-      - CONNECTION_NOT_FOUND
-      - INSUFFICIENT_CONSENT_PERMISSIONS
-      - CONSENT_EXPIRED
-      - CONSENT_REVOKED
-      - CONSENT_UNAUTHORIZED
-      - CONSENT_NOT_FOUND
-      - ACCOUNT_INFORMATION_REPORT_NOT_FOUND
-      - MULTIPLE_CURRENCY_NOT_ALLOWED
-      - MULTIPLE_CONSENT_DATE_NOT_ALLOWED
-      - PAYMENT_NOT_FOUND
-      - CONSENT_REJECTED
-      - PAYMENT_REQUEST_NOT_FOUND
-      - CUSTOMER_NOT_FOUND
-      - REAL_ESTATE_VERIFY_NOT_FOUND
-      - REAL_ESTATE_VALIDATE_NOT_FOUND
-      - REAL_ESTATE_SEARCH_NOT_FOUND
-      - CUSTOMER_ALREADY_EXISTS
-      - BANK_ACCOUNT_NOT_FOUND
-      - SERVER_ERROR
-      - PROVIDER_CONNECTION_FAILURE
-      - TRANSACTION_NOT_FOUND
-      - ACCOUNT_INFORMATION_ACCESS_REQUEST_NOT_FOUND
-      - CONSENT_REVOCATION_FAILED
-      - CONSENT_REVOKED_OR_EXPIRED
-      - SUBSCRIPTION_EXPIRED
-      - NOT_SUBSCRIBED_TO_SERVICE
-      - BENEFICIARY_NOT_FOUND
-      - PARTIES_NOT_FOUND
-      - DIRECT_DEBIT_NOT_FOUND
-      - SCHEDULED_PAYMENT_NOT_FOUND
-      - DEBTOR_ACCOUNT_NOT_FOUND
-      - CREDITOR_ACCOUNT_NOT_FOUND
-      - UNAUTHORIZED_IP_ADDRESS
-      - REAL_ESTATE_FAILED
+      - AwaitingAuthorization
+      - Authorized
+      - Consumed
+      - Finished
+      - Rejected
+      - Expired
+      - Revoked
       type: string
-    PagesModel_2:
-      type: object
-      properties:
-        currentPageNumber:
-          type: integer
-          format: int32
-        pageSize:
-          type: integer
-          format: int32
-        totalNumberOfPages:
-          type: integer
-          format: int32
-        totalItems:
-          type: integer
-          format: int32
-      additionalProperties: false
     AccountInformationRequestAccessResponseModel_2:
       required:
       - countryCode
@@ -1885,6 +1826,65 @@ components:
         autoRedirect:
           type: boolean
       additionalProperties: false
+    PagesModel_2:
+      type: object
+      properties:
+        currentPageNumber:
+          type: integer
+          format: int32
+        pageSize:
+          type: integer
+          format: int32
+        totalNumberOfPages:
+          type: integer
+          format: int32
+        totalItems:
+          type: integer
+          format: int32
+      additionalProperties: false
+    ApiError_2:
+      enum:
+      - INVALID_DATA
+      - INVALID_SIGNATURE
+      - RESOURCE_LOCKED
+      - COUNTRY_NOT_FOUND
+      - CURRENCY_NOT_FOUND
+      - PROVIDER_NOT_FOUND
+      - CONNECTION_NOT_FOUND
+      - INSUFFICIENT_CONSENT_PERMISSIONS
+      - CONSENT_EXPIRED
+      - CONSENT_REVOKED
+      - CONSENT_UNAUTHORIZED
+      - CONSENT_NOT_FOUND
+      - ACCOUNT_INFORMATION_REPORT_NOT_FOUND
+      - MULTIPLE_CURRENCY_NOT_ALLOWED
+      - MULTIPLE_CONSENT_DATE_NOT_ALLOWED
+      - PAYMENT_NOT_FOUND
+      - CONSENT_REJECTED
+      - PAYMENT_REQUEST_NOT_FOUND
+      - CUSTOMER_NOT_FOUND
+      - REAL_ESTATE_VERIFY_NOT_FOUND
+      - REAL_ESTATE_VALIDATE_NOT_FOUND
+      - REAL_ESTATE_SEARCH_NOT_FOUND
+      - CUSTOMER_ALREADY_EXISTS
+      - BANK_ACCOUNT_NOT_FOUND
+      - SERVER_ERROR
+      - PROVIDER_CONNECTION_FAILURE
+      - TRANSACTION_NOT_FOUND
+      - ACCOUNT_INFORMATION_ACCESS_REQUEST_NOT_FOUND
+      - CONSENT_REVOCATION_FAILED
+      - CONSENT_REVOKED_OR_EXPIRED
+      - SUBSCRIPTION_EXPIRED
+      - NOT_SUBSCRIBED_TO_SERVICE
+      - BENEFICIARY_NOT_FOUND
+      - PARTIES_NOT_FOUND
+      - DIRECT_DEBIT_NOT_FOUND
+      - SCHEDULED_PAYMENT_NOT_FOUND
+      - DEBTOR_ACCOUNT_NOT_FOUND
+      - CREDITOR_ACCOUNT_NOT_FOUND
+      - UNAUTHORIZED_IP_ADDRESS
+      - REAL_ESTATE_FAILED
+      type: string
   securitySchemes:
     Bearer:
       type: apiKey

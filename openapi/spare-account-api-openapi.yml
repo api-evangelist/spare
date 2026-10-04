@@ -299,7 +299,132 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    BankAccountResponseModelApiResponse:
+    ObjectApiResponse:
+      type: object
+      properties:
+        error:
+          $ref: '#/components/schemas/ApiError'
+        errorDescription:
+          type:
+          - object
+          - 'null'
+          additionalProperties:
+            type:
+            - array
+            - 'null'
+            items:
+              type: string
+        data: {}
+      additionalProperties: false
+    CurrencyResponseModel:
+      required:
+      - englishName
+      - iso4117Code
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        englishName:
+          maxLength: 50
+          minLength: 1
+          type: string
+        arabicName:
+          maxLength: 50
+          type:
+          - string
+          - 'null'
+        iso4117Code:
+          maxLength: 3
+          minLength: 1
+          type: string
+        iso4117Number:
+          maxLength: 4
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
+    BankAccountResponseModel:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        currency:
+          $ref: '#/components/schemas/CurrencyResponseModel'
+        servicer:
+          $ref: '#/components/schemas/ServicerResponseModel'
+        accounts:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/SubAccountsResponseModel'
+        status:
+          type:
+          - string
+          - 'null'
+        statusUpdatedDateTime:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        type:
+          type:
+          - string
+          - 'null'
+        subType:
+          type:
+          - string
+          - 'null'
+        description:
+          type:
+          - string
+          - 'null'
+        openingDate:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        maturityDate:
+          type:
+          - string
+          - 'null'
+          format: date-time
+      additionalProperties: false
+    SubAccountsResponseModel:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        scheme:
+          type:
+          - string
+          - 'null'
+        identification:
+          type:
+          - string
+          - 'null'
+        name:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
+    PagesModel:
+      type: object
+      properties:
+        currentPageNumber:
+          type: integer
+          format: int32
+        pageSize:
+          type: integer
+          format: int32
+        totalNumberOfPages:
+          type: integer
+          format: int32
+      additionalProperties: false
+    BankAccountResponseModelIEnumerablePagesModelMetaApiResponse:
       type: object
       properties:
         error:
@@ -315,7 +440,30 @@ components:
             items:
               type: string
         data:
-          $ref: '#/components/schemas/BankAccountResponseModel'
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/BankAccountResponseModel'
+        meta:
+          $ref: '#/components/schemas/PagesModel'
+      additionalProperties: false
+    ServicerResponseModel:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        address:
+          $ref: '#/components/schemas/ServicerAddressResponseModel'
+        scheme:
+          type:
+          - string
+          - 'null'
+        identification:
+          type:
+          - string
+          - 'null'
       additionalProperties: false
     ServicerAddressResponseModel:
       type: object
@@ -382,53 +530,23 @@ components:
           - string
           - 'null'
       additionalProperties: false
-    BankAccountResponseModel:
+    BankAccountResponseModelApiResponse:
       type: object
       properties:
-        id:
-          type: string
-          format: uuid
-        currency:
-          $ref: '#/components/schemas/CurrencyResponseModel'
-        servicer:
-          $ref: '#/components/schemas/ServicerResponseModel'
-        accounts:
+        error:
+          $ref: '#/components/schemas/ApiError'
+        errorDescription:
           type:
-          - array
+          - object
           - 'null'
-          items:
-            $ref: '#/components/schemas/SubAccountsResponseModel'
-        status:
-          type:
-          - string
-          - 'null'
-        statusUpdatedDateTime:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        type:
-          type:
-          - string
-          - 'null'
-        subType:
-          type:
-          - string
-          - 'null'
-        description:
-          type:
-          - string
-          - 'null'
-        openingDate:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        maturityDate:
-          type:
-          - string
-          - 'null'
-          format: date-time
+          additionalProperties:
+            type:
+            - array
+            - 'null'
+            items:
+              type: string
+        data:
+          $ref: '#/components/schemas/BankAccountResponseModel'
       additionalProperties: false
     ApiError:
       enum:
@@ -470,124 +588,6 @@ components:
       - CREDITOR_ACCOUNT_NOT_FOUND
       - UNAUTHORIZED_IP_ADDRESS
       type: string
-    CurrencyResponseModel:
-      required:
-      - englishName
-      - iso4117Code
-      type: object
-      properties:
-        id:
-          type: string
-          format: uuid
-        englishName:
-          maxLength: 50
-          minLength: 1
-          type: string
-        arabicName:
-          maxLength: 50
-          type:
-          - string
-          - 'null'
-        iso4117Code:
-          maxLength: 3
-          minLength: 1
-          type: string
-        iso4117Number:
-          maxLength: 4
-          type:
-          - string
-          - 'null'
-      additionalProperties: false
-    ObjectApiResponse:
-      type: object
-      properties:
-        error:
-          $ref: '#/components/schemas/ApiError'
-        errorDescription:
-          type:
-          - object
-          - 'null'
-          additionalProperties:
-            type:
-            - array
-            - 'null'
-            items:
-              type: string
-        data: {}
-      additionalProperties: false
-    ServicerResponseModel:
-      type: object
-      properties:
-        id:
-          type: string
-          format: uuid
-        address:
-          $ref: '#/components/schemas/ServicerAddressResponseModel'
-        scheme:
-          type:
-          - string
-          - 'null'
-        identification:
-          type:
-          - string
-          - 'null'
-      additionalProperties: false
-    SubAccountsResponseModel:
-      type: object
-      properties:
-        id:
-          type: string
-          format: uuid
-        scheme:
-          type:
-          - string
-          - 'null'
-        identification:
-          type:
-          - string
-          - 'null'
-        name:
-          type:
-          - string
-          - 'null'
-      additionalProperties: false
-    PagesModel:
-      type: object
-      properties:
-        currentPageNumber:
-          type: integer
-          format: int32
-        pageSize:
-          type: integer
-          format: int32
-        totalNumberOfPages:
-          type: integer
-          format: int32
-      additionalProperties: false
-    BankAccountResponseModelIEnumerablePagesModelMetaApiResponse:
-      type: object
-      properties:
-        error:
-          $ref: '#/components/schemas/ApiError'
-        errorDescription:
-          type:
-          - object
-          - 'null'
-          additionalProperties:
-            type:
-            - array
-            - 'null'
-            items:
-              type: string
-        data:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/BankAccountResponseModel'
-        meta:
-          $ref: '#/components/schemas/PagesModel'
-      additionalProperties: false
     BankAccountResponseModel_2:
       type: object
       properties:
@@ -640,6 +640,22 @@ components:
           - 'null'
           format: date-time
       additionalProperties: false
+    PagesModel_2:
+      type: object
+      properties:
+        currentPageNumber:
+          type: integer
+          format: int32
+        pageSize:
+          type: integer
+          format: int32
+        totalNumberOfPages:
+          type: integer
+          format: int32
+        totalItems:
+          type: integer
+          format: int32
+      additionalProperties: false
     ApiError_2:
       enum:
       - INVALID_DATA
@@ -683,22 +699,6 @@ components:
       - UNAUTHORIZED_IP_ADDRESS
       - REAL_ESTATE_FAILED
       type: string
-    PagesModel_2:
-      type: object
-      properties:
-        currentPageNumber:
-          type: integer
-          format: int32
-        pageSize:
-          type: integer
-          format: int32
-        totalNumberOfPages:
-          type: integer
-          format: int32
-        totalItems:
-          type: integer
-          format: int32
-      additionalProperties: false
     BankAccountResponseModel_3:
       type: object
       properties:
@@ -751,6 +751,22 @@ components:
           - 'null'
           format: date-time
       additionalProperties: false
+    PagesModel_3:
+      type: object
+      properties:
+        currentPageNumber:
+          type: integer
+          format: int32
+        pageSize:
+          type: integer
+          format: int32
+        totalNumberOfPages:
+          type: integer
+          format: int32
+        totalItems:
+          type: integer
+          format: int32
+      additionalProperties: false
     ApiError_3:
       enum:
       - INVALID_DATA
@@ -794,22 +810,6 @@ components:
       - UNAUTHORIZED_IP_ADDRESS
       - REAL_ESTATE_FAILED
       type: string
-    PagesModel_3:
-      type: object
-      properties:
-        currentPageNumber:
-          type: integer
-          format: int32
-        pageSize:
-          type: integer
-          format: int32
-        totalNumberOfPages:
-          type: integer
-          format: int32
-        totalItems:
-          type: integer
-          format: int32
-      additionalProperties: false
   securitySchemes:
     Bearer:
       type: apiKey

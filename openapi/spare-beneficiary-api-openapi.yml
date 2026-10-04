@@ -70,6 +70,133 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    ObjectApiResponse:
+      type: object
+      properties:
+        error:
+          $ref: '#/components/schemas/ApiError'
+        errorDescription:
+          type:
+          - object
+          - 'null'
+          additionalProperties:
+            type:
+            - array
+            - 'null'
+            items:
+              type: string
+        data: {}
+      additionalProperties: false
+    SubAccountsResponseModel:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        scheme:
+          type:
+          - string
+          - 'null'
+        identification:
+          type:
+          - string
+          - 'null'
+        name:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
+    BeneficiaryResponseModel:
+      type: object
+      properties:
+        id:
+          type:
+          - string
+          - 'null'
+          format: uuid
+        accountId:
+          type:
+          - string
+          - 'null'
+          format: uuid
+        createdAt:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        updatedAt:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        accountHolderName:
+          type:
+          - string
+          - 'null'
+        accountHolderShortName:
+          type:
+          - string
+          - 'null'
+        beneficiaryType:
+          type:
+          - string
+          - 'null'
+        reference:
+          type:
+          - string
+          - 'null'
+        creditorAccount:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/SubAccountsResponseModel'
+        creditorAgent:
+          $ref: '#/components/schemas/BeneficiaryServicerResponseModel'
+      additionalProperties: false
+    BeneficiaryResponseModelIEnumerableApiResponse:
+      type: object
+      properties:
+        error:
+          $ref: '#/components/schemas/ApiError'
+        errorDescription:
+          type:
+          - object
+          - 'null'
+          additionalProperties:
+            type:
+            - array
+            - 'null'
+            items:
+              type: string
+        data:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/BeneficiaryResponseModel'
+      additionalProperties: false
+    BeneficiaryServicerResponseModel:
+      type: object
+      properties:
+        name:
+          type:
+          - string
+          - 'null'
+        id:
+          type: string
+          format: uuid
+        address:
+          $ref: '#/components/schemas/ServicerAddressResponseModel'
+        scheme:
+          type:
+          - string
+          - 'null'
+        identification:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
     ServicerAddressResponseModel:
       type: object
       properties:
@@ -135,28 +262,6 @@ components:
           - string
           - 'null'
       additionalProperties: false
-    BeneficiaryResponseModelIEnumerableApiResponse:
-      type: object
-      properties:
-        error:
-          $ref: '#/components/schemas/ApiError'
-        errorDescription:
-          type:
-          - object
-          - 'null'
-          additionalProperties:
-            type:
-            - array
-            - 'null'
-            items:
-              type: string
-        data:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/BeneficiaryResponseModel'
-      additionalProperties: false
     ApiError:
       enum:
       - INVALID_DATA
@@ -197,111 +302,6 @@ components:
       - CREDITOR_ACCOUNT_NOT_FOUND
       - UNAUTHORIZED_IP_ADDRESS
       type: string
-    ObjectApiResponse:
-      type: object
-      properties:
-        error:
-          $ref: '#/components/schemas/ApiError'
-        errorDescription:
-          type:
-          - object
-          - 'null'
-          additionalProperties:
-            type:
-            - array
-            - 'null'
-            items:
-              type: string
-        data: {}
-      additionalProperties: false
-    BeneficiaryServicerResponseModel:
-      type: object
-      properties:
-        name:
-          type:
-          - string
-          - 'null'
-        id:
-          type: string
-          format: uuid
-        address:
-          $ref: '#/components/schemas/ServicerAddressResponseModel'
-        scheme:
-          type:
-          - string
-          - 'null'
-        identification:
-          type:
-          - string
-          - 'null'
-      additionalProperties: false
-    BeneficiaryResponseModel:
-      type: object
-      properties:
-        id:
-          type:
-          - string
-          - 'null'
-          format: uuid
-        accountId:
-          type:
-          - string
-          - 'null'
-          format: uuid
-        createdAt:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        updatedAt:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        accountHolderName:
-          type:
-          - string
-          - 'null'
-        accountHolderShortName:
-          type:
-          - string
-          - 'null'
-        beneficiaryType:
-          type:
-          - string
-          - 'null'
-        reference:
-          type:
-          - string
-          - 'null'
-        creditorAccount:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/SubAccountsResponseModel'
-        creditorAgent:
-          $ref: '#/components/schemas/BeneficiaryServicerResponseModel'
-      additionalProperties: false
-    SubAccountsResponseModel:
-      type: object
-      properties:
-        id:
-          type: string
-          format: uuid
-        scheme:
-          type:
-          - string
-          - 'null'
-        identification:
-          type:
-          - string
-          - 'null'
-        name:
-          type:
-          - string
-          - 'null'
-      additionalProperties: false
     ApiError_2:
       enum:
       - INVALID_DATA

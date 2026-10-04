@@ -250,6 +250,62 @@ components:
           items:
             $ref: '#/components/schemas/BalanceModel'
       additionalProperties: false
+    ObjectApiResponse:
+      type: object
+      properties:
+        error:
+          $ref: '#/components/schemas/ApiError'
+        errorDescription:
+          type:
+          - object
+          - 'null'
+          additionalProperties:
+            type:
+            - array
+            - 'null'
+            items:
+              type: string
+        data: {}
+      additionalProperties: false
+    BalanceModel:
+      type: object
+      properties:
+        creditDebitIndicator:
+          type:
+          - string
+          - 'null'
+        dateTime:
+          type:
+          - string
+          - 'null'
+        creditLine:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/BalanceDataCreditLineModel'
+        type:
+          type:
+          - string
+          - 'null'
+        amount:
+          $ref: '#/components/schemas/BalanceAmountModel'
+      additionalProperties: false
+    AccountBalanceHistoryModel:
+      type: object
+      properties:
+        accountId:
+          type:
+          - string
+          - 'null'
+          format: uuid
+        history:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/BalanceHistoryModel'
+      additionalProperties: false
     BalanceAmountModel:
       type: object
       properties:
@@ -281,29 +337,50 @@ components:
         data:
           $ref: '#/components/schemas/AccountBalanceModel'
       additionalProperties: false
-    BalanceModel:
+    BalanceLocalExchangeModel:
       type: object
       properties:
-        creditDebitIndicator:
+        sourceCurrency:
           type:
           - string
           - 'null'
-        dateTime:
+        targetCurrency:
           type:
           - string
           - 'null'
-        creditLine:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/BalanceDataCreditLineModel'
+        rate:
+          type: number
+          format: double
+        date:
+          type: string
+          format: date
+        value:
+          type: number
+          format: double
+      additionalProperties: false
+    BalanceBaseModel:
+      type: object
+      properties:
         type:
           type:
           - string
           - 'null'
         amount:
           $ref: '#/components/schemas/BalanceAmountModel'
+      additionalProperties: false
+    BalanceHistoryModel:
+      type: object
+      properties:
+        date:
+          type:
+          - string
+          - 'null'
+        balances:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/BalanceBaseModel'
       additionalProperties: false
     BalanceDataCreditLineModel:
       type: object
@@ -312,16 +389,6 @@ components:
           type:
           - boolean
           - 'null'
-        type:
-          type:
-          - string
-          - 'null'
-        amount:
-          $ref: '#/components/schemas/BalanceAmountModel'
-      additionalProperties: false
-    BalanceBaseModel:
-      type: object
-      properties:
         type:
           type:
           - string
@@ -387,73 +454,6 @@ components:
       - CREDITOR_ACCOUNT_NOT_FOUND
       - UNAUTHORIZED_IP_ADDRESS
       type: string
-    ObjectApiResponse:
-      type: object
-      properties:
-        error:
-          $ref: '#/components/schemas/ApiError'
-        errorDescription:
-          type:
-          - object
-          - 'null'
-          additionalProperties:
-            type:
-            - array
-            - 'null'
-            items:
-              type: string
-        data: {}
-      additionalProperties: false
-    BalanceLocalExchangeModel:
-      type: object
-      properties:
-        sourceCurrency:
-          type:
-          - string
-          - 'null'
-        targetCurrency:
-          type:
-          - string
-          - 'null'
-        rate:
-          type: number
-          format: double
-        date:
-          type: string
-          format: date
-        value:
-          type: number
-          format: double
-      additionalProperties: false
-    AccountBalanceHistoryModel:
-      type: object
-      properties:
-        accountId:
-          type:
-          - string
-          - 'null'
-          format: uuid
-        history:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/BalanceHistoryModel'
-      additionalProperties: false
-    BalanceHistoryModel:
-      type: object
-      properties:
-        date:
-          type:
-          - string
-          - 'null'
-        balances:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/BalanceBaseModel'
-      additionalProperties: false
     AccountBalanceModel_2:
       type: object
       properties:

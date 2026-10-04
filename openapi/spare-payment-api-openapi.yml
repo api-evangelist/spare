@@ -141,41 +141,89 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    ConsentScope:
+    ConsentPaymentType:
       enum:
-      - Accounts
-      - Payments
+      - SingleInstantPayment
       type: string
-    ObConsentsStatus:
+    DomesticPaymentResponseModelIEnumerablePagesModelMetaApiResponse:
+      type: object
+      properties:
+        error:
+          $ref: '#/components/schemas/ApiError'
+        errorDescription:
+          type:
+          - object
+          - 'null'
+          additionalProperties:
+            type:
+            - array
+            - 'null'
+            items:
+              type: string
+        data:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/DomesticPaymentResponseModel'
+        meta:
+          $ref: '#/components/schemas/PagesModel'
+      additionalProperties: false
+    ProviderStatus:
       enum:
-      - AwaitingAuthorization
-      - Authorized
-      - Authorised
-      - Consumed
-      - Rejected
-      - Expired
-      - Revoked
+      - Active
+      - Inactive
       type: string
-    PaymentTransactionStatus:
-      enum:
-      - CREATED
-      - ACCEPTED
-      - CANCELLED
-      - PENDING
-      - RECEIVED
-      - REJECTED
-      - COMPLETED
-      type: string
-    SchemeName:
-      enum:
-      - IBAN
-      - BBAN
-      type: string
-    FilterOrder:
-      enum:
-      - ASCENDING
-      - DESCENDING
-      type: string
+    PaymentAccountModel:
+      required:
+      - identification
+      - scheme
+      type: object
+      properties:
+        id:
+          type:
+          - string
+          - 'null'
+          format: uuid
+        scheme:
+          $ref: '#/components/schemas/SchemeName'
+        identification:
+          minLength: 1
+          type: string
+        name:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
+    PaymentFilterModel:
+      type: object
+      properties:
+        fromDateTime:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        toDateTime:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        status:
+          $ref: '#/components/schemas/PaymentTransactionStatus'
+        amount:
+          type:
+          - number
+          - 'null'
+          format: double
+        accountName:
+          type:
+          - string
+          - 'null'
+        paymentType:
+          $ref: '#/components/schemas/ObTransactionType'
+        order:
+          $ref: '#/components/schemas/FilterOrder'
+      additionalProperties: false
     PaymentInitiationConsentResponseModel:
       type: object
       properties:
@@ -224,46 +272,16 @@ components:
           - string
           - 'null'
       additionalProperties: false
-    PaymentInitiationProviderModel:
-      required:
-      - englishName
-      type: object
-      properties:
-        id:
-          type:
-          - string
-          - 'null'
-          format: uuid
-        country:
-          $ref: '#/components/schemas/CountryResponseModel'
-        address:
-          type:
-          - string
-          - 'null'
-        phone:
-          type:
-          - string
-          - 'null'
-        isEnable:
-          type: boolean
-        arabicName:
-          maxLength: 255
-          type:
-          - string
-          - 'null'
-        englishName:
-          maxLength: 255
-          minLength: 1
-          type: string
-        status:
-          $ref: '#/components/schemas/ProviderStatus'
-        logo:
-          maxLength: 255
-          type:
-          - string
-          - 'null'
-          format: uri
-      additionalProperties: false
+    SchemeName:
+      enum:
+      - IBAN
+      - BBAN
+      type: string
+    FilterOrder:
+      enum:
+      - ASCENDING
+      - DESCENDING
+      type: string
     DomesticPaymentResponseModel:
       type: object
       properties:
@@ -313,7 +331,17 @@ components:
         consent:
           $ref: '#/components/schemas/PaymentInitiationConsentResponseModel'
       additionalProperties: false
-    DomesticPaymentResponseModelApiResponse:
+    ConnectionStatus:
+      enum:
+      - ACTIVE
+      - INACTIVE
+      type: string
+    ObTransactionType:
+      enum:
+      - CREDIT
+      - DEBIT
+      type: string
+    ObjectApiResponse:
       type: object
       properties:
         error:
@@ -328,39 +356,8 @@ components:
             - 'null'
             items:
               type: string
-        data:
-          $ref: '#/components/schemas/DomesticPaymentResponseModel'
+        data: {}
       additionalProperties: false
-    ObTransactionType:
-      enum:
-      - CREDIT
-      - DEBIT
-      type: string
-    ConnectionStatus:
-      enum:
-      - ACTIVE
-      - INACTIVE
-      type: string
-    ConsentPaymentType:
-      enum:
-      - SingleInstantPayment
-      type: string
-    PaymentAmountResponseModel:
-      type: object
-      properties:
-        value:
-          type:
-          - number
-          - 'null'
-          format: double
-        currency:
-          $ref: '#/components/schemas/CurrencyResponseModel'
-      additionalProperties: false
-    ProviderStatus:
-      enum:
-      - Active
-      - Inactive
-      type: string
     ApiError:
       enum:
       - INVALID_DATA
@@ -401,71 +398,6 @@ components:
       - CREDITOR_ACCOUNT_NOT_FOUND
       - UNAUTHORIZED_IP_ADDRESS
       type: string
-    CurrencyResponseModel:
-      required:
-      - englishName
-      - iso4117Code
-      type: object
-      properties:
-        id:
-          type: string
-          format: uuid
-        englishName:
-          maxLength: 50
-          minLength: 1
-          type: string
-        arabicName:
-          maxLength: 50
-          type:
-          - string
-          - 'null'
-        iso4117Code:
-          maxLength: 3
-          minLength: 1
-          type: string
-        iso4117Number:
-          maxLength: 4
-          type:
-          - string
-          - 'null'
-      additionalProperties: false
-    DomesticPaymentResponseModelIEnumerablePagesModelMetaApiResponse:
-      type: object
-      properties:
-        error:
-          $ref: '#/components/schemas/ApiError'
-        errorDescription:
-          type:
-          - object
-          - 'null'
-          additionalProperties:
-            type:
-            - array
-            - 'null'
-            items:
-              type: string
-        data:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/DomesticPaymentResponseModel'
-        meta:
-          $ref: '#/components/schemas/PagesModel'
-      additionalProperties: false
-    PagesModel:
-      type: object
-      properties:
-        currentPageNumber:
-          type: integer
-          format: int32
-        pageSize:
-          type: integer
-          format: int32
-        totalNumberOfPages:
-          type: integer
-          format: int32
-      additionalProperties: false
     CountryResponseModel:
       required:
       - englishName
@@ -503,6 +435,108 @@ components:
           minLength: 1
           type: string
       additionalProperties: false
+    ObConsentsStatus:
+      enum:
+      - AwaitingAuthorization
+      - Authorized
+      - Authorised
+      - Consumed
+      - Rejected
+      - Expired
+      - Revoked
+      type: string
+    DomesticPaymentResponseModelApiResponse:
+      type: object
+      properties:
+        error:
+          $ref: '#/components/schemas/ApiError'
+        errorDescription:
+          type:
+          - object
+          - 'null'
+          additionalProperties:
+            type:
+            - array
+            - 'null'
+            items:
+              type: string
+        data:
+          $ref: '#/components/schemas/DomesticPaymentResponseModel'
+      additionalProperties: false
+    PaymentTransactionStatus:
+      enum:
+      - CREATED
+      - ACCEPTED
+      - CANCELLED
+      - PENDING
+      - RECEIVED
+      - REJECTED
+      - COMPLETED
+      type: string
+    PaymentAmountResponseModel:
+      type: object
+      properties:
+        value:
+          type:
+          - number
+          - 'null'
+          format: double
+        currency:
+          $ref: '#/components/schemas/CurrencyResponseModel'
+      additionalProperties: false
+    PagesModel:
+      type: object
+      properties:
+        currentPageNumber:
+          type: integer
+          format: int32
+        pageSize:
+          type: integer
+          format: int32
+        totalNumberOfPages:
+          type: integer
+          format: int32
+      additionalProperties: false
+    PaymentInitiationProviderModel:
+      required:
+      - englishName
+      type: object
+      properties:
+        id:
+          type:
+          - string
+          - 'null'
+          format: uuid
+        country:
+          $ref: '#/components/schemas/CountryResponseModel'
+        address:
+          type:
+          - string
+          - 'null'
+        phone:
+          type:
+          - string
+          - 'null'
+        isEnable:
+          type: boolean
+        arabicName:
+          maxLength: 255
+          type:
+          - string
+          - 'null'
+        englishName:
+          maxLength: 255
+          minLength: 1
+          type: string
+        status:
+          $ref: '#/components/schemas/ProviderStatus'
+        logo:
+          maxLength: 255
+          type:
+          - string
+          - 'null'
+          format: uri
+      additionalProperties: false
     PaymentInitiationConnectionResponseModel:
       type: object
       properties:
@@ -520,69 +554,35 @@ components:
           type: string
           format: date-time
       additionalProperties: false
-    PaymentFilterModel:
-      type: object
-      properties:
-        fromDateTime:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        toDateTime:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        status:
-          $ref: '#/components/schemas/PaymentTransactionStatus'
-        amount:
-          type:
-          - number
-          - 'null'
-          format: double
-        accountName:
-          type:
-          - string
-          - 'null'
-        paymentType:
-          $ref: '#/components/schemas/ObTransactionType'
-        order:
-          $ref: '#/components/schemas/FilterOrder'
-      additionalProperties: false
-    ObjectApiResponse:
-      type: object
-      properties:
-        error:
-          $ref: '#/components/schemas/ApiError'
-        errorDescription:
-          type:
-          - object
-          - 'null'
-          additionalProperties:
-            type:
-            - array
-            - 'null'
-            items:
-              type: string
-        data: {}
-      additionalProperties: false
-    PaymentAccountModel:
+    ConsentScope:
+      enum:
+      - Accounts
+      - Payments
+      type: string
+    CurrencyResponseModel:
       required:
-      - identification
-      - scheme
+      - englishName
+      - iso4117Code
       type: object
       properties:
         id:
+          type: string
+          format: uuid
+        englishName:
+          maxLength: 50
+          minLength: 1
+          type: string
+        arabicName:
+          maxLength: 50
           type:
           - string
           - 'null'
-          format: uuid
-        scheme:
-          $ref: '#/components/schemas/SchemeName'
-        identification:
+        iso4117Code:
+          maxLength: 3
           minLength: 1
           type: string
-        name:
+        iso4117Number:
+          maxLength: 4
           type:
           - string
           - 'null'
