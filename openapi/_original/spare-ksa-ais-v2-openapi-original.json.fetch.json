@@ -1,0 +1,12 @@
+{
+ "url": "https://docs.tryspare.com/openapi/ksa/ais-v2.json",
+ "requested_url": "https://docs.tryspare.com/openapi/ksa/ais-v2.json",
+ "status": 200,
+ "content_type": "application/json; charset=utf-8",
+ "bytes": 49110,
+ "sha256": "6a4c43b847fd5d0890eddf0fc8d3352266a7985ab5e17440d137b9e746bc7a4c",
+ "fetched_at": "2026-10-04",
+ "fetched_by": "APIEvangelist-Harvest/1.0 (+https://apievangelist.com)",
+ "match": "equivalent",
+ "note": "Re-fetched from the provider by verify-openapi-sources.py; the provider's current document describes the same operations (Jaccard 1.0), but the bytes differ, so the archive is an earlier or reformatted copy."
+}

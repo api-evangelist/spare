@@ -1,0 +1,12 @@
+{
+ "url": "https://docs.tryspare.com/openapi/ksa/auth.json",
+ "requested_url": "https://docs.tryspare.com/openapi/ksa/auth.json",
+ "status": 200,
+ "content_type": "application/json; charset=utf-8",
+ "bytes": 12439,
+ "sha256": "3ad34b4f6389b84d3e67a543c1b1fcd6759a0819b0eac211f55f0c4ca7828e94",
+ "fetched_at": "2026-10-04",
+ "fetched_by": "APIEvangelist-Harvest/1.0 (+https://apievangelist.com)",
+ "match": "equivalent",
+ "note": "Re-fetched from the provider by verify-openapi-sources.py; the provider's current document describes the same operations (Jaccard 1.0), but the bytes differ, so the archive is an earlier or reformatted copy."
+}
