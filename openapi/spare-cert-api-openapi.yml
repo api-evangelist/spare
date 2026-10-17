@@ -60,16 +60,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    SpJsonWebKeySet:
-      type: object
-      properties:
-        keys:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/SpJsonWebKey'
-      additionalProperties: false
     SpJsonWebKey:
       type: object
       properties:
@@ -143,6 +133,16 @@ components:
           - 'null'
           items:
             type: string
+      additionalProperties: false
+    SpJsonWebKeySet:
+      type: object
+      properties:
+        keys:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/SpJsonWebKey'
       additionalProperties: false
     ProblemDetails:
       type: object

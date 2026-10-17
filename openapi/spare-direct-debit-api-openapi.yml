@@ -68,28 +68,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    DirectDebitsResponseModelIEnumerableApiResponse:
-      type: object
-      properties:
-        error:
-          $ref: '#/components/schemas/ApiError'
-        errorDescription:
-          type:
-          - object
-          - 'null'
-          additionalProperties:
-            type:
-            - array
-            - 'null'
-            items:
-              type: string
-        data:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/DirectDebitsResponseModel'
-      additionalProperties: false
     DirectDebitsResponseModel:
       type: object
       properties:
@@ -143,7 +121,7 @@ components:
           - string
           - 'null'
       additionalProperties: false
-    ObjectApiResponse:
+    DirectDebitsResponseModelIEnumerableApiResponse:
       type: object
       properties:
         error:
@@ -158,7 +136,12 @@ components:
             - 'null'
             items:
               type: string
-        data: {}
+        data:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/DirectDebitsResponseModel'
       additionalProperties: false
     ApiError:
       enum:
@@ -200,6 +183,23 @@ components:
       - CREDITOR_ACCOUNT_NOT_FOUND
       - UNAUTHORIZED_IP_ADDRESS
       type: string
+    ObjectApiResponse:
+      type: object
+      properties:
+        error:
+          $ref: '#/components/schemas/ApiError'
+        errorDescription:
+          type:
+          - object
+          - 'null'
+          additionalProperties:
+            type:
+            - array
+            - 'null'
+            items:
+              type: string
+        data: {}
+      additionalProperties: false
     ApiError_2:
       enum:
       - INVALID_DATA

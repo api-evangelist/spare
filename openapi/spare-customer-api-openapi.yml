@@ -328,29 +328,126 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    CustomerUpdateModel:
-      required:
-      - email
+    CustomerDetailsResponseModel:
       type: object
       properties:
-        email:
-          minLength: 1
+        id:
           type: string
-          format: email
-        phone:
-          maxLength: 16
-          minLength: 6
-          pattern: ^(\+|00)(\d{1,4})([0-9]+)$
+          format: uuid
+        fullName:
           type:
           - string
           - 'null'
-        fullName:
-          maxLength: 50
-          minLength: 2
+        phone:
           type:
           - string
+          - 'null'
+        email:
+          type:
+          - string
+          - 'null'
+        nationalId:
+          type:
+          - string
+          - 'null'
+        registrationNumber:
+          type:
+          - string
+          - 'null'
+        type:
+          $ref: '#/components/schemas/CustomerType'
+        externalId:
+          type:
+          - string
+          - 'null'
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+        archived:
+          type:
+          - boolean
           - 'null'
       additionalProperties: false
+    CustomerResponseModelIEnumerablePagesModelMetaApiResponse:
+      type: object
+      properties:
+        error:
+          $ref: '#/components/schemas/ApiError'
+        errorDescription:
+          type:
+          - object
+          - 'null'
+          additionalProperties:
+            type:
+            - array
+            - 'null'
+            items:
+              type: string
+        data:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/CustomerResponseModel'
+        meta:
+          $ref: '#/components/schemas/PagesModel'
+      additionalProperties: false
+    PagesModel:
+      type: object
+      properties:
+        currentPageNumber:
+          type: integer
+          format: int32
+        pageSize:
+          type: integer
+          format: int32
+        totalNumberOfPages:
+          type: integer
+          format: int32
+      additionalProperties: false
+    ApiError:
+      enum:
+      - INVALID_DATA
+      - INVALID_SIGNATURE
+      - RESOURCE_LOCKED
+      - COUNTRY_NOT_FOUND
+      - CURRENCY_NOT_FOUND
+      - PROVIDER_NOT_FOUND
+      - CONNECTION_NOT_FOUND
+      - INSUFFICIENT_CONSENT_PERMISSIONS
+      - CONSENT_EXPIRED
+      - CONSENT_REVOKED
+      - CONSENT_UNAUTHORIZED
+      - CONSENT_NOT_FOUND
+      - RISK_REPORT_NOT_FOUND
+      - ACCOUNT_INFORMATION_REPORT_NOT_FOUND
+      - MULTIPLE_CURRENCY_NOT_ALLOWED
+      - MULTIPLE_CONSENT_DATE_NOT_ALLOWED
+      - PAYMENT_NOT_FOUND
+      - CONSENT_REJECTED
+      - PAYMENT_REQUEST_NOT_FOUND
+      - CUSTOMER_NOT_FOUND
+      - CUSTOMER_ALREADY_EXISTS
+      - BANK_ACCOUNT_NOT_FOUND
+      - SERVER_ERROR
+      - PROVIDER_CONNECTION_FAILURE
+      - TRANSACTION_NOT_FOUND
+      - ACCOUNT_INFORMATION_ACCESS_REQUEST_NOT_FOUND
+      - CONSENT_REVOCATION_FAILED
+      - CONSENT_REVOKED_OR_EXPIRED
+      - SUBSCRIPTION_EXPIRED
+      - NOT_SUBSCRIBED_TO_SERVICE
+      - BENEFICIARY_NOT_FOUND
+      - PARTIES_NOT_FOUND
+      - DIRECT_DEBIT_NOT_FOUND
+      - SCHEDULED_PAYMENT_NOT_FOUND
+      - DEBTOR_ACCOUNT_NOT_FOUND
+      - CREDITOR_ACCOUNT_NOT_FOUND
+      - UNAUTHORIZED_IP_ADDRESS
+      type: string
     ObjectApiResponse:
       type: object
       properties:
@@ -367,6 +464,50 @@ components:
             items:
               type: string
         data: {}
+      additionalProperties: false
+    CustomerType:
+      enum:
+      - Retail
+      - Business
+      type: string
+    CustomerRequestModel:
+      required:
+      - email
+      - type
+      type: object
+      properties:
+        email:
+          minLength: 1
+          type: string
+          format: email
+        fullName:
+          maxLength: 50
+          minLength: 2
+          type:
+          - string
+          - 'null'
+        phone:
+          maxLength: 16
+          minLength: 6
+          pattern: ^(\+|00)(\d{1,4})([0-9]+)$
+          type:
+          - string
+          - 'null'
+        nationalId:
+          type:
+          - string
+          - 'null'
+        type:
+          $ref: '#/components/schemas/CustomerType'
+        registrationNumber:
+          type:
+          - string
+          - 'null'
+        externalId:
+          maxLength: 50
+          type:
+          - string
+          - 'null'
       additionalProperties: false
     CustomerResponseModel:
       type: object
@@ -429,78 +570,15 @@ components:
         data:
           $ref: '#/components/schemas/CustomerDetailsResponseModel'
       additionalProperties: false
-    CustomerDetailsResponseModel:
-      type: object
-      properties:
-        id:
-          type: string
-          format: uuid
-        fullName:
-          type:
-          - string
-          - 'null'
-        phone:
-          type:
-          - string
-          - 'null'
-        email:
-          type:
-          - string
-          - 'null'
-        nationalId:
-          type:
-          - string
-          - 'null'
-        registrationNumber:
-          type:
-          - string
-          - 'null'
-        type:
-          $ref: '#/components/schemas/CustomerType'
-        externalId:
-          type:
-          - string
-          - 'null'
-        createdAt:
-          type: string
-          format: date-time
-        updatedAt:
-          type: string
-          format: date-time
-        archived:
-          type:
-          - boolean
-          - 'null'
-      additionalProperties: false
-    PagesModel:
-      type: object
-      properties:
-        currentPageNumber:
-          type: integer
-          format: int32
-        pageSize:
-          type: integer
-          format: int32
-        totalNumberOfPages:
-          type: integer
-          format: int32
-      additionalProperties: false
-    CustomerRequestModel:
+    CustomerUpdateModel:
       required:
       - email
-      - type
       type: object
       properties:
         email:
           minLength: 1
           type: string
           format: email
-        fullName:
-          maxLength: 50
-          minLength: 2
-          type:
-          - string
-          - 'null'
         phone:
           maxLength: 16
           minLength: 6
@@ -508,91 +586,13 @@ components:
           type:
           - string
           - 'null'
-        nationalId:
-          type:
-          - string
-          - 'null'
-        type:
-          $ref: '#/components/schemas/CustomerType'
-        registrationNumber:
-          type:
-          - string
-          - 'null'
-        externalId:
+        fullName:
           maxLength: 50
+          minLength: 2
           type:
           - string
           - 'null'
       additionalProperties: false
-    CustomerResponseModelIEnumerablePagesModelMetaApiResponse:
-      type: object
-      properties:
-        error:
-          $ref: '#/components/schemas/ApiError'
-        errorDescription:
-          type:
-          - object
-          - 'null'
-          additionalProperties:
-            type:
-            - array
-            - 'null'
-            items:
-              type: string
-        data:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/CustomerResponseModel'
-        meta:
-          $ref: '#/components/schemas/PagesModel'
-      additionalProperties: false
-    CustomerType:
-      enum:
-      - Retail
-      - Business
-      type: string
-    ApiError:
-      enum:
-      - INVALID_DATA
-      - INVALID_SIGNATURE
-      - RESOURCE_LOCKED
-      - COUNTRY_NOT_FOUND
-      - CURRENCY_NOT_FOUND
-      - PROVIDER_NOT_FOUND
-      - CONNECTION_NOT_FOUND
-      - INSUFFICIENT_CONSENT_PERMISSIONS
-      - CONSENT_EXPIRED
-      - CONSENT_REVOKED
-      - CONSENT_UNAUTHORIZED
-      - CONSENT_NOT_FOUND
-      - RISK_REPORT_NOT_FOUND
-      - ACCOUNT_INFORMATION_REPORT_NOT_FOUND
-      - MULTIPLE_CURRENCY_NOT_ALLOWED
-      - MULTIPLE_CONSENT_DATE_NOT_ALLOWED
-      - PAYMENT_NOT_FOUND
-      - CONSENT_REJECTED
-      - PAYMENT_REQUEST_NOT_FOUND
-      - CUSTOMER_NOT_FOUND
-      - CUSTOMER_ALREADY_EXISTS
-      - BANK_ACCOUNT_NOT_FOUND
-      - SERVER_ERROR
-      - PROVIDER_CONNECTION_FAILURE
-      - TRANSACTION_NOT_FOUND
-      - ACCOUNT_INFORMATION_ACCESS_REQUEST_NOT_FOUND
-      - CONSENT_REVOCATION_FAILED
-      - CONSENT_REVOKED_OR_EXPIRED
-      - SUBSCRIPTION_EXPIRED
-      - NOT_SUBSCRIBED_TO_SERVICE
-      - BENEFICIARY_NOT_FOUND
-      - PARTIES_NOT_FOUND
-      - DIRECT_DEBIT_NOT_FOUND
-      - SCHEDULED_PAYMENT_NOT_FOUND
-      - DEBTOR_ACCOUNT_NOT_FOUND
-      - CREDITOR_ACCOUNT_NOT_FOUND
-      - UNAUTHORIZED_IP_ADDRESS
-      type: string
     PagesModel_2:
       type: object
       properties:
@@ -608,44 +608,6 @@ components:
         totalItems:
           type: integer
           format: int32
-      additionalProperties: false
-    CustomerRequestModel_2:
-      required:
-      - email
-      - fullName
-      - type
-      type: object
-      properties:
-        email:
-          minLength: 1
-          type: string
-          format: email
-        fullName:
-          maxLength: 50
-          minLength: 2
-          type: string
-        phone:
-          maxLength: 16
-          minLength: 6
-          pattern: ^(\+|00)(\d{1,4})([0-9]+)$
-          type:
-          - string
-          - 'null'
-        nationalId:
-          type:
-          - string
-          - 'null'
-        type:
-          $ref: '#/components/schemas/CustomerType'
-        registrationNumber:
-          type:
-          - string
-          - 'null'
-        externalId:
-          maxLength: 50
-          type:
-          - string
-          - 'null'
       additionalProperties: false
     ApiError_2:
       enum:
@@ -690,6 +652,44 @@ components:
       - UNAUTHORIZED_IP_ADDRESS
       - REAL_ESTATE_FAILED
       type: string
+    CustomerRequestModel_2:
+      required:
+      - email
+      - fullName
+      - type
+      type: object
+      properties:
+        email:
+          minLength: 1
+          type: string
+          format: email
+        fullName:
+          maxLength: 50
+          minLength: 2
+          type: string
+        phone:
+          maxLength: 16
+          minLength: 6
+          pattern: ^(\+|00)(\d{1,4})([0-9]+)$
+          type:
+          - string
+          - 'null'
+        nationalId:
+          type:
+          - string
+          - 'null'
+        type:
+          $ref: '#/components/schemas/CustomerType'
+        registrationNumber:
+          type:
+          - string
+          - 'null'
+        externalId:
+          maxLength: 50
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
   securitySchemes:
     Bearer:
       type: apiKey
