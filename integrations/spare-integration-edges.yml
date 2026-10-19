@@ -1,16 +1,53 @@
 generated: '2026-10-12'
-method: none
+method: searched
 source:
 - https://zapier.com/apps/spare/integrations
 - https://n8n.io/integrations/spare/
 - https://composio.dev/toolkits/spare
 - https://monid.ai/tools/spare
 checked:
+- https://api.nuget.org/v3
 - https://composio.dev/toolkits/spare
+- https://crates.io/api/v1
 - https://monid.ai/tools/spare
 - https://n8n.io/integrations/spare/
+- https://proxy.golang.org
+- https://pypi.org/pypi
+- https://registry.npmjs.org
+- https://repo1.maven.org/maven2
+- https://rubygems.org/api/v1
 - https://zapier.com/apps/spare/integrations
 summary: null
 marketplace_apps: []
-edges: []
+edges:
+- partner_name: Maven Central
+  partner: maven-central
+  partner_match: register
+  type: register
+  direction: provider-built
+  category: official SDK (Java/JVM)
+  evidence: https://central.sonatype.com/artifact/com.tryspare/java.sdk
+  channel: package-registry
+  relationship: distribution-channel
+  contract_reference:
+    register: Maven Central (public registry JSON)
+    spec_file: null
+    language: Java/JVM
+    packages:
+    - name: com.tryspare:java.sdk
+      version: 1.1.1
+      released: '2022-12-03'
+      released_field: lastUpdated
+      lapsed: true
+      page: https://central.sonatype.com/artifact/com.tryspare/java.sdk
+      repo_leg: domain:tryspare.com
+      publisher_leg: groupId:tryspare.com
+      matched_by: domain
+    current: false
+    signal_note: 'an official package on the registry: distribution, not an integration; lapsed = no release in
+      24 months'
+    detected_by: sweep-official-sdks.py
+    detected: '2026-10-18'
+  detected_by: sweep-official-sdks.py
+  first_seen: '2026-10-18'
 templates: []
