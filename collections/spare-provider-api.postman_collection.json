@@ -1,674 +1,734 @@
 {
+  "info": {
+    "_postman_id": "b6595fcc-cfdc-4bbd-9256-f476abd94f8b",
+    "name": "Spare Provider API",
+    "description": "Operations tagged Provider across 3 of this provider's published API definitions: spare-bahrain-ais-openapi-original.json, spare-bahrain-pis-openapi-original.json, spare-ksa-ais-openapi-original.json. Each path carries the servers of the definition it was published in.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T01:21:39.000Z",
+    "updatedAt": "2026-10-22T01:21:39.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-b6595fcc-cfdc-4bbd-9256-f476abd94f8b"
+  },
   "item": [
     {
-      "id": "993cc354-8700-4dea-a4da-5aa136120905",
-      "name": "Provider",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
+      "name": "api",
       "item": [
         {
-          "id": "4e25cf7b-d112-4366-8b3d-d6adc0d1300b",
-          "name": "List open banking providers",
-          "request": {
-            "name": "List open banking providers",
-            "description": {
-              "content": "**Unique resource name :** ais.v1.provider.list",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "api",
-                "v1.0",
-                "ais",
-                "Provider",
-                "List"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "countryCode",
-                  "value": "<string>",
-                  "description": "(Required) Country ISO 3166 alpha-2 code"
-                }
-              ],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "v1.0",
+          "item": [
             {
-              "id": "e62e3bc5-f491-49c3-a15f-d2f6eb531454",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1.0",
-                    "ais",
-                    "Provider",
-                    "List"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
+              "name": "ais",
+              "item": [
+                {
+                  "name": "Provider",
+                  "item": [
                     {
-                      "key": "countryCode",
-                      "value": "<string>"
+                      "name": "List",
+                      "item": [
+                        {
+                          "name": "List open banking providers",
+                          "id": "990a49f5-d406-44be-838f-b63a67005fb4",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1.0/ais/Provider/List?countryCode=Ot",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1.0",
+                                "ais",
+                                "Provider",
+                                "List"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) Country ISO 3166 alpha-2 code",
+                                  "key": "countryCode",
+                                  "value": "Ot"
+                                }
+                              ]
+                            },
+                            "description": "**Unique resource name :** ais.v1.provider.list"
+                          },
+                          "response": [
+                            {
+                              "id": "4e5ccbca-4341-4bca-9959-05cc9070ece9",
+                              "name": "New Response",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Authorization",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1.0/ais/Provider/List?countryCode=Ot",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1.0",
+                                    "ais",
+                                    "Provider",
+                                    "List"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "(Required) Country ISO 3166 alpha-2 code",
+                                      "key": "countryCode",
+                                      "value": "Ot"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"error\": \"CONNECTION_NOT_FOUND\",\n  \"errorDescription\": \"<object,null>\",\n  \"data\": \"<array,null>\"\n}",
+                              "createdAt": "2026-10-22T01:21:39.000Z",
+                              "updatedAt": "2026-10-22T01:21:39.000Z",
+                              "uid": "35240-4e5ccbca-4341-4bca-9959-05cc9070ece9"
+                            },
+                            {
+                              "id": "b3837e90-6cf4-48d9-88a6-cb7c293cde39",
+                              "name": "- If country code is not a valid ISO 3166 alpha-2 code.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Authorization",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1.0/ais/Provider/List?countryCode=Ot",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1.0",
+                                    "ais",
+                                    "Provider",
+                                    "List"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "(Required) Country ISO 3166 alpha-2 code",
+                                      "key": "countryCode",
+                                      "value": "Ot"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Bad Request",
+                              "code": 400,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"error\": \"MULTIPLE_CONSENT_DATE_NOT_ALLOWED\",\n  \"errorDescription\": \"<object,null>\",\n  \"data\": {}\n}",
+                              "createdAt": "2026-10-22T01:21:39.000Z",
+                              "updatedAt": "2026-10-22T01:21:39.000Z",
+                              "uid": "35240-b3837e90-6cf4-48d9-88a6-cb7c293cde39"
+                            },
+                            {
+                              "id": "9db7585a-fe5b-4e59-8afd-4fd5459d85fa",
+                              "name": "Unauthorized",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Authorization",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1.0/ais/Provider/List?countryCode=Ot",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1.0",
+                                    "ais",
+                                    "Provider",
+                                    "List"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "(Required) Country ISO 3166 alpha-2 code",
+                                      "key": "countryCode",
+                                      "value": "Ot"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Unauthorized",
+                              "code": 401,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"error\": \"MULTIPLE_CONSENT_DATE_NOT_ALLOWED\",\n  \"errorDescription\": \"<object,null>\",\n  \"data\": {}\n}",
+                              "createdAt": "2026-10-22T01:21:39.000Z",
+                              "updatedAt": "2026-10-22T01:21:39.000Z",
+                              "uid": "35240-9db7585a-fe5b-4e59-8afd-4fd5459d85fa"
+                            },
+                            {
+                              "id": "035ebf3a-f679-4572-8110-47cbb8c261de",
+                              "name": "Payment Required",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Authorization",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1.0/ais/Provider/List?countryCode=Ot",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1.0",
+                                    "ais",
+                                    "Provider",
+                                    "List"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "(Required) Country ISO 3166 alpha-2 code",
+                                      "key": "countryCode",
+                                      "value": "Ot"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Payment Required",
+                              "code": 402,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"error\": \"MULTIPLE_CONSENT_DATE_NOT_ALLOWED\",\n  \"errorDescription\": \"<object,null>\",\n  \"data\": {}\n}",
+                              "createdAt": "2026-10-22T01:21:39.000Z",
+                              "updatedAt": "2026-10-22T01:21:39.000Z",
+                              "uid": "35240-035ebf3a-f679-4572-8110-47cbb8c261de"
+                            },
+                            {
+                              "id": "df8962c4-063c-42e6-834a-6daa1f6aed3f",
+                              "name": "Forbidden",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Authorization",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1.0/ais/Provider/List?countryCode=Ot",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1.0",
+                                    "ais",
+                                    "Provider",
+                                    "List"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "(Required) Country ISO 3166 alpha-2 code",
+                                      "key": "countryCode",
+                                      "value": "Ot"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Forbidden",
+                              "code": 403,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"error\": \"MULTIPLE_CONSENT_DATE_NOT_ALLOWED\",\n  \"errorDescription\": \"<object,null>\",\n  \"data\": {}\n}",
+                              "createdAt": "2026-10-22T01:21:39.000Z",
+                              "updatedAt": "2026-10-22T01:21:39.000Z",
+                              "uid": "35240-df8962c4-063c-42e6-834a-6daa1f6aed3f"
+                            },
+                            {
+                              "id": "e0f056cc-92b0-4be5-a543-5db11424c8b6",
+                              "name": "Internal Server Error",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Authorization",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1.0/ais/Provider/List?countryCode=Ot",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1.0",
+                                    "ais",
+                                    "Provider",
+                                    "List"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "(Required) Country ISO 3166 alpha-2 code",
+                                      "key": "countryCode",
+                                      "value": "Ot"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Internal Server Error",
+                              "code": 500,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-10-22T01:21:39.000Z",
+                              "updatedAt": "2026-10-22T01:21:39.000Z",
+                              "uid": "35240-e0f056cc-92b0-4be5-a543-5db11424c8b6"
+                            }
+                          ],
+                          "createdAt": "2026-10-22T01:21:39.000Z",
+                          "updatedAt": "2026-10-22T01:21:39.000Z",
+                          "uid": "35240-990a49f5-d406-44be-838f-b63a67005fb4"
+                        }
+                      ],
+                      "id": "9cfe9646-7786-4822-9767-95a49d2940ad",
+                      "createdAt": "2026-10-22T01:21:39.000Z",
+                      "updatedAt": "2026-10-22T01:21:39.000Z",
+                      "uid": "35240-9cfe9646-7786-4822-9767-95a49d2940ad"
                     }
                   ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  "id": "286c7775-37cc-45ee-b7e1-090144e59598",
+                  "createdAt": "2026-10-22T01:21:39.000Z",
+                  "updatedAt": "2026-10-22T01:21:39.000Z",
+                  "uid": "35240-286c7775-37cc-45ee-b7e1-090144e59598"
                 }
               ],
-              "body": "{\n  \"error\": \"PAYMENT_REQUEST_NOT_FOUND\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key_1\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": [\n    {\n      \"englishName\": \"string\",\n      \"isEnable\": true,\n      \"id\": \"f17f089c-0aa1-60ad-5cc9-b465b01570e0\",\n      \"country\": {\n        \"englishName\": \"string\",\n        \"iso3166Code\": \"RG\",\n        \"timeZone\": \"string\",\n        \"id\": \"87bc23a2-12d7-3271-dc69-3db64aafdb4f\",\n        \"createdAt\": \"2008-02-05T12:12:10.660Z\",\n        \"updatedAt\": \"2021-10-04T17:37:05.918Z\",\n        \"currency\": {\n          \"englishName\": \"string\",\n          \"iso4117Code\": \"st\",\n          \"id\": \"d2b759e9-d107-5971-420d-043aa81eb707\",\n          \"arabicName\": \"string\",\n          \"iso4117Number\": \"stri\"\n        },\n        \"arabicName\": \"string\"\n      },\n      \"allowedPermissions\": [\n        \"ReadScheduledPaymentsDetail\",\n        \"ReadParty\"\n      ],\n      \"address\": \"string\",\n      \"phone\": \"string\",\n      \"useBenefit\": false,\n      \"arabicName\": \"string\",\n      \"status\": \"Active\",\n      \"logo\": \"https://BN.rhiqsfh\"\n    },\n    {\n      \"englishName\": \"string\",\n      \"isEnable\": false,\n      \"id\": \"f8240ff7-45f1-0169-c29d-942b396bfcb9\",\n      \"country\": {\n        \"englishName\": \"string\",\n        \"iso3166Code\": \"AC\",\n        \"timeZone\": \"string\",\n        \"id\": \"c6927197-5882-ea61-942d-28b96591e79f\",\n        \"createdAt\": \"1955-09-15T10:21:12.231Z\",\n        \"updatedAt\": \"1974-06-01T13:49:22.879Z\",\n        \"currency\": {\n          \"englishName\": \"string\",\n          \"iso4117Code\": \"str\",\n          \"id\": \"03884a07-9867-e771-6879-890f781f9175\",\n          \"arabicName\": \"string\",\n          \"iso4117Number\": \"stri\"\n        },\n        \"arabicName\": \"string\"\n      },\n      \"allowedPermissions\": [\n        \"ReadBeneficiariesBasic\",\n        \"ReadOffers\"\n      ],\n      \"address\": \"string\",\n      \"phone\": \"string\",\n      \"useBenefit\": false,\n      \"arabicName\": \"string\",\n      \"status\": \"Active\",\n      \"logo\": \"http://qoCNqTolxAFIznrkMNsntjaayWAbNKut.qqkinY5fBtNeXnL4h6JMO+E7oO7rATiYFguD5Jci.2.emlzICN0oxqVIh0\"\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
+              "id": "e91921ce-a05e-43c7-9642-459dfe155ba2",
+              "createdAt": "2026-10-22T01:21:39.000Z",
+              "updatedAt": "2026-10-22T01:21:39.000Z",
+              "uid": "35240-e91921ce-a05e-43c7-9642-459dfe155ba2"
             },
             {
-              "id": "dca2653a-5e0a-4c48-8b9f-dcff275028b8",
-              "name": "- If country code is not a valid ISO 3166 alpha-2 code.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1.0",
-                    "ais",
-                    "Provider",
-                    "List"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
+              "name": "pis",
+              "item": [
+                {
+                  "name": "Provider",
+                  "item": [
                     {
-                      "key": "countryCode",
-                      "value": "<string>"
+                      "name": "List",
+                      "item": [
+                        {
+                          "name": "List open banking providers",
+                          "id": "6f258d2d-a0ca-4286-8b11-20cd3873cd7b",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1.0/pis/Provider/List?countryCode=JS",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1.0",
+                                "pis",
+                                "Provider",
+                                "List"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) Country ISO 3166 alpha-2 code",
+                                  "key": "countryCode",
+                                  "value": "JS"
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "084a0a46-3180-4ff4-ab7f-acdd00f46748",
+                              "name": "New Response",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Authorization",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1.0/pis/Provider/List?countryCode=JS",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1.0",
+                                    "pis",
+                                    "Provider",
+                                    "List"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "(Required) Country ISO 3166 alpha-2 code",
+                                      "key": "countryCode",
+                                      "value": "JS"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"error\": \"PAYMENT_REQUEST_NOT_FOUND\",\n  \"errorDescription\": \"<object,null>\",\n  \"data\": \"<array,null>\"\n}",
+                              "createdAt": "2026-10-22T01:21:39.000Z",
+                              "updatedAt": "2026-10-22T01:21:39.000Z",
+                              "uid": "35240-084a0a46-3180-4ff4-ab7f-acdd00f46748"
+                            },
+                            {
+                              "id": "bbdf8ca2-53bd-45e5-845a-fe837fd3b386",
+                              "name": "- If country code is not a valid ISO 3166 alpha-2 code.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Authorization",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1.0/pis/Provider/List?countryCode=JS",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1.0",
+                                    "pis",
+                                    "Provider",
+                                    "List"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "(Required) Country ISO 3166 alpha-2 code",
+                                      "key": "countryCode",
+                                      "value": "JS"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Bad Request",
+                              "code": 400,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"error\": \"PAYMENT_REQUEST_NOT_FOUND\",\n  \"errorDescription\": \"<object,null>\",\n  \"data\": \"<array,null>\"\n}",
+                              "createdAt": "2026-10-22T01:21:39.000Z",
+                              "updatedAt": "2026-10-22T01:21:39.000Z",
+                              "uid": "35240-bbdf8ca2-53bd-45e5-845a-fe837fd3b386"
+                            },
+                            {
+                              "id": "356ec086-f551-4e7c-b271-50f19168f492",
+                              "name": "Unauthorized",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Authorization",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1.0/pis/Provider/List?countryCode=JS",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1.0",
+                                    "pis",
+                                    "Provider",
+                                    "List"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "(Required) Country ISO 3166 alpha-2 code",
+                                      "key": "countryCode",
+                                      "value": "JS"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Unauthorized",
+                              "code": 401,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"error\": \"MULTIPLE_CONSENT_DATE_NOT_ALLOWED\",\n  \"errorDescription\": \"<object,null>\",\n  \"data\": {}\n}",
+                              "createdAt": "2026-10-22T01:21:39.000Z",
+                              "updatedAt": "2026-10-22T01:21:39.000Z",
+                              "uid": "35240-356ec086-f551-4e7c-b271-50f19168f492"
+                            },
+                            {
+                              "id": "8466cd5a-a4e2-4189-8a14-79c0b661d56e",
+                              "name": "Forbidden",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Authorization",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1.0/pis/Provider/List?countryCode=JS",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1.0",
+                                    "pis",
+                                    "Provider",
+                                    "List"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "(Required) Country ISO 3166 alpha-2 code",
+                                      "key": "countryCode",
+                                      "value": "JS"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Forbidden",
+                              "code": 403,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"error\": \"MULTIPLE_CONSENT_DATE_NOT_ALLOWED\",\n  \"errorDescription\": \"<object,null>\",\n  \"data\": {}\n}",
+                              "createdAt": "2026-10-22T01:21:39.000Z",
+                              "updatedAt": "2026-10-22T01:21:39.000Z",
+                              "uid": "35240-8466cd5a-a4e2-4189-8a14-79c0b661d56e"
+                            },
+                            {
+                              "id": "dc675344-6461-4f37-a56e-6897b82eb6a7",
+                              "name": "Internal Server Error",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Authorization",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1.0/pis/Provider/List?countryCode=JS",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1.0",
+                                    "pis",
+                                    "Provider",
+                                    "List"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "(Required) Country ISO 3166 alpha-2 code",
+                                      "key": "countryCode",
+                                      "value": "JS"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Internal Server Error",
+                              "code": 500,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-10-22T01:21:39.000Z",
+                              "updatedAt": "2026-10-22T01:21:39.000Z",
+                              "uid": "35240-dc675344-6461-4f37-a56e-6897b82eb6a7"
+                            }
+                          ],
+                          "createdAt": "2026-10-22T01:21:39.000Z",
+                          "updatedAt": "2026-10-22T01:21:39.000Z",
+                          "uid": "35240-6f258d2d-a0ca-4286-8b11-20cd3873cd7b"
+                        }
+                      ],
+                      "id": "e68e0872-01a2-4de5-ba80-bef91d971830",
+                      "createdAt": "2026-10-22T01:21:39.000Z",
+                      "updatedAt": "2026-10-22T01:21:39.000Z",
+                      "uid": "35240-e68e0872-01a2-4de5-ba80-bef91d971830"
                     }
                   ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  "id": "675c40e4-7372-4463-8bbf-f1f3480abf06",
+                  "createdAt": "2026-10-22T01:21:39.000Z",
+                  "updatedAt": "2026-10-22T01:21:39.000Z",
+                  "uid": "35240-675c40e4-7372-4463-8bbf-f1f3480abf06"
                 }
               ],
-              "body": "{\n  \"error\": \"CONSENT_REVOCATION_FAILED\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key_1\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "24da341c-b1ac-474f-93b9-719770cf5545",
-              "name": "Unauthorized",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1.0",
-                    "ais",
-                    "Provider",
-                    "List"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "countryCode",
-                      "value": "<string>"
-                    }
-                  ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"error\": \"CONSENT_REVOCATION_FAILED\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "2d1387ad-d0cf-42bb-addc-672562a922f3",
-              "name": "Payment Required",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1.0",
-                    "ais",
-                    "Provider",
-                    "List"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "countryCode",
-                      "value": "<string>"
-                    }
-                  ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Payment Required",
-              "code": 402,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"error\": \"CONSENT_REVOCATION_FAILED\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "52dbf478-c848-4cd2-b0e4-0b65da1c530d",
-              "name": "Forbidden",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1.0",
-                    "ais",
-                    "Provider",
-                    "List"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "countryCode",
-                      "value": "<string>"
-                    }
-                  ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Forbidden",
-              "code": 403,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"error\": \"CONSENT_REVOCATION_FAILED\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "5c562aa8-8092-4b2e-884b-a7395f58d19e",
-              "name": "Internal Server Error",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1.0",
-                    "ais",
-                    "Provider",
-                    "List"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "countryCode",
-                      "value": "<string>"
-                    }
-                  ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Internal Server Error",
-              "code": 500,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
+              "id": "c4b8810c-38f4-45dd-8892-1b53aecde470",
+              "createdAt": "2026-10-22T01:21:39.000Z",
+              "updatedAt": "2026-10-22T01:21:39.000Z",
+              "uid": "35240-c4b8810c-38f4-45dd-8892-1b53aecde470"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "2bd41a25-7a5b-4dff-8225-ecdd934097d1",
-          "name": "List open banking providers",
-          "request": {
-            "name": "List open banking providers",
-            "description": {},
-            "url": {
-              "path": [
-                "api",
-                "v1.0",
-                "pis",
-                "Provider",
-                "List"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "countryCode",
-                  "value": "<string>",
-                  "description": "(Required) Country ISO 3166 alpha-2 code"
-                }
-              ],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "6f91310b-2534-425c-99f7-e860590d9040",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1.0",
-                    "pis",
-                    "Provider",
-                    "List"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "countryCode",
-                      "value": "<string>"
-                    }
-                  ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"error\": \"DEBTOR_ACCOUNT_NOT_FOUND\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key_1\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": [\n    {\n      \"englishName\": \"string\",\n      \"id\": \"b4ee0cbe-c1d3-c370-57de-b2c3b586fcc2\",\n      \"country\": {\n        \"englishName\": \"string\",\n        \"iso3166Code\": \"ET\",\n        \"timeZone\": \"string\",\n        \"id\": \"03c9d671-8a3c-a5b5-d290-6aee9b5eccf9\",\n        \"createdAt\": \"1947-09-23T18:09:27.922Z\",\n        \"updatedAt\": \"1949-01-05T23:38:32.307Z\",\n        \"currency\": {\n          \"englishName\": \"string\",\n          \"iso4117Code\": \"s\",\n          \"id\": \"86f61afb-5c9a-8dac-6d16-9dc7e53bc6f6\",\n          \"arabicName\": \"string\",\n          \"iso4117Number\": \"stri\"\n        },\n        \"arabicName\": \"string\"\n      },\n      \"address\": \"string\",\n      \"phone\": \"string\",\n      \"isEnable\": true,\n      \"arabicName\": \"string\",\n      \"status\": \"Inactive\",\n      \"logo\": \"https://eqySlTXiKaQYjGlpR.cxqTvmMkxicApVDmZoiPtZQYbN5JSD-HIOWHm7HP7J,9McSp6ZN84GxrkRNeXKSKN0sqlfo\"\n    },\n    {\n      \"englishName\": \"string\",\n      \"id\": \"154c3ce6-f7c7-6878-7e46-d3cdb89fa402\",\n      \"country\": {\n        \"englishName\": \"string\",\n        \"iso3166Code\": \"CH\",\n        \"timeZone\": \"string\",\n        \"id\": \"c49fe5dc-9ac7-cc66-1d75-7e69cd8e9cc0\",\n        \"createdAt\": \"1998-10-21T23:44:39.945Z\",\n        \"updatedAt\": \"1952-11-11T09:03:17.926Z\",\n        \"currency\": {\n          \"englishName\": \"string\",\n          \"iso4117Code\": \"st\",\n          \"id\": \"07a10c53-2d59-d997-9668-b1da5bffcd36\",\n          \"arabicName\": \"string\",\n          \"iso4117Number\": \"stri\"\n        },\n        \"arabicName\": \"string\"\n      },\n      \"address\": \"string\",\n      \"phone\": \"string\",\n      \"isEnable\": false,\n      \"arabicName\": \"string\",\n      \"status\": \"Active\",\n      \"logo\": \"https://BTdOrnfVprCtAWoIPOzm.wzngQUER6.Ig\"\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "6698e559-99eb-4d5f-825f-d8785c0b1178",
-              "name": "- If country code is not a valid ISO 3166 alpha-2 code.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1.0",
-                    "pis",
-                    "Provider",
-                    "List"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "countryCode",
-                      "value": "<string>"
-                    }
-                  ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"error\": \"INVALID_DATA\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key_1\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": [\n    {\n      \"englishName\": \"string\",\n      \"id\": \"bf130da0-f663-6237-4cb7-e949a7b35fbf\",\n      \"country\": {\n        \"englishName\": \"string\",\n        \"iso3166Code\": \"CH\",\n        \"timeZone\": \"string\",\n        \"id\": \"e997a14b-e9ca-20a8-2f57-023e7d9feb82\",\n        \"createdAt\": \"1965-12-13T09:44:51.732Z\",\n        \"updatedAt\": \"1976-05-03T05:17:44.988Z\",\n        \"currency\": {\n          \"englishName\": \"string\",\n          \"iso4117Code\": \"s\",\n          \"id\": \"f4ffd04e-8249-5ee9-bbab-6a92c98286b5\",\n          \"arabicName\": \"string\",\n          \"iso4117Number\": \"stri\"\n        },\n        \"arabicName\": \"string\"\n      },\n      \"address\": \"string\",\n      \"phone\": \"string\",\n      \"isEnable\": true,\n      \"arabicName\": \"string\",\n      \"status\": \"Active\",\n      \"logo\": \"https://PkyCyzSTiYURoRcxSDVmvs.gkbpFwXxj8YvyUWHlDoNbtYcmLFbZYXiS2jXmPpOUoMwUV9Y6zbhvQ7ERi7\"\n    },\n    {\n      \"englishName\": \"string\",\n      \"id\": \"e0d9d0c8-2913-31dc-7b1b-26c62ce57142\",\n      \"country\": {\n        \"englishName\": \"string\",\n        \"iso3166Code\": \"WK\",\n        \"timeZone\": \"string\",\n        \"id\": \"45a86def-07c5-6e6f-b870-1fe731b0ec0b\",\n        \"createdAt\": \"1957-09-15T19:15:10.867Z\",\n        \"updatedAt\": \"1949-10-27T14:51:41.642Z\",\n        \"currency\": {\n          \"englishName\": \"string\",\n          \"iso4117Code\": \"st\",\n          \"id\": \"ccd01e72-66e5-02b3-5442-296a4a39babf\",\n          \"arabicName\": \"string\",\n          \"iso4117Number\": \"stri\"\n        },\n        \"arabicName\": \"string\"\n      },\n      \"address\": \"string\",\n      \"phone\": \"string\",\n      \"isEnable\": false,\n      \"arabicName\": \"string\",\n      \"status\": \"Active\",\n      \"logo\": \"http://MviiusgAsSWGJPhPPQlv.masJs3PwkiiADai5\"\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "099d3143-2cc7-4984-a2be-e333e00ade30",
-              "name": "Unauthorized",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1.0",
-                    "pis",
-                    "Provider",
-                    "List"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "countryCode",
-                      "value": "<string>"
-                    }
-                  ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"error\": \"CONSENT_REVOCATION_FAILED\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "2154692f-7661-4088-801f-67933f186f08",
-              "name": "Forbidden",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1.0",
-                    "pis",
-                    "Provider",
-                    "List"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "countryCode",
-                      "value": "<string>"
-                    }
-                  ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Forbidden",
-              "code": 403,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"error\": \"CONSENT_REVOCATION_FAILED\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "f5d02eb6-fe32-4b15-aec8-327c14c807a9",
-              "name": "Internal Server Error",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1.0",
-                    "pis",
-                    "Provider",
-                    "List"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "countryCode",
-                      "value": "<string>"
-                    }
-                  ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Internal Server Error",
-              "code": 500,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "c5015b8d-402b-433e-9a7b-5f2b49bc2bec",
+          "createdAt": "2026-10-22T01:21:39.000Z",
+          "updatedAt": "2026-10-22T01:21:39.000Z",
+          "uid": "35240-c5015b8d-402b-433e-9a7b-5f2b49bc2bec"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "/",
-      "key": "baseUrl"
+      "id": "56d37073-379c-4696-a7b7-3facfeb49046",
+      "createdAt": "2026-10-22T01:21:39.000Z",
+      "updatedAt": "2026-10-22T01:21:39.000Z",
+      "uid": "35240-56d37073-379c-4696-a7b7-3facfeb49046"
     }
   ],
   "auth": {
@@ -676,25 +736,25 @@
     "apikey": [
       {
         "key": "key",
-        "value": "Authorization"
+        "value": "Authorization",
+        "type": "string"
       },
       {
         "key": "value",
-        "value": "{{apiKey}}"
+        "value": "{{apiKey}}",
+        "type": "string"
       },
       {
         "key": "in",
-        "value": "header"
+        "value": "header",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "20b179e1-6fe7-49d9-8496-8b76710881ce",
-    "name": "Information Account Provider API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "Spare account information API documentation\n\nContact Support:\n Name: Spare Technologies WLL.\n Email: hello@tryspare.com",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "/"
     }
-  }
+  ]
 }

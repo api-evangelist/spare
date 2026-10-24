@@ -1,1306 +1,1396 @@
 {
+  "info": {
+    "_postman_id": "7134f249-2643-4aee-92db-8621fc8ef53d",
+    "name": "Spare Balance API",
+    "description": "Operations tagged Balance across 3 of this provider's published API definitions: spare-bahrain-ais-openapi-original.json, spare-ksa-ais-openapi-original.json, spare-ksa-ais-v2-openapi-original.json. Each path carries the servers of the definition it was published in.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T01:20:34.000Z",
+    "updatedAt": "2026-10-22T01:20:34.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-7134f249-2643-4aee-92db-8621fc8ef53d"
+  },
   "item": [
     {
-      "id": "69b20c93-aa75-4df6-a2c5-e2c38364ebda",
-      "name": "Balance",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
+      "name": "api",
       "item": [
         {
-          "id": "734afdcb-a40e-42cf-8db2-e9cf4d5e700b",
-          "name": "Get account balance",
-          "request": {
-            "name": "Get account balance",
-            "description": {
-              "content": "**Unique resource name :** ais.v1.balance.get\n            \n**Important!:**\n            \nThe permissions bellow are required on the consent:\n- `ReadAccountsBasic`\n- `ReadAccountsDetail`\n- `ReadBalances`",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "api",
-                "v1.0",
-                "ais",
-                "Balance",
-                "Get"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "accountId",
-                  "value": "<uuid>",
-                  "description": "(Required) Account id"
-                }
-              ],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "v1.0",
+          "item": [
             {
-              "id": "79985c76-a519-44ba-abd8-db726f4bfcfe",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1.0",
-                    "ais",
-                    "Balance",
-                    "Get"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
+              "name": "ais",
+              "item": [
+                {
+                  "name": "Balance",
+                  "item": [
                     {
-                      "key": "accountId",
-                      "value": "<uuid>"
+                      "name": "Get",
+                      "item": [
+                        {
+                          "name": "Get account balance",
+                          "id": "66fc87da-6db8-4b2f-be46-b9d935ac9e52",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1.0/ais/Balance/Get?accountId=<uuid>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1.0",
+                                "ais",
+                                "Balance",
+                                "Get"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) Account id",
+                                  "key": "accountId",
+                                  "value": "<uuid>"
+                                }
+                              ]
+                            },
+                            "description": "**Unique resource name :** ais.v1.balance.get\n\n**Important!:**\n\nThe permissions bellow are required on the consent:\n- `ReadAccountsBasic`\n- `ReadAccountsDetail`\n- `ReadBalances`"
+                          },
+                          "response": [
+                            {
+                              "id": "39986a3e-cd93-4aba-ad03-f11594cb7bc8",
+                              "name": "New Response",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Authorization",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1.0/ais/Balance/Get?accountId=<uuid>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1.0",
+                                    "ais",
+                                    "Balance",
+                                    "Get"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "(Required) Account id",
+                                      "key": "accountId",
+                                      "value": "<uuid>"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"error\": \"NOT_SUBSCRIBED_TO_SERVICE\",\n  \"errorDescription\": \"<object,null>\",\n  \"data\": {\n    \"accountId\": \"<uuid>\",\n    \"balances\": \"<array,null>\"\n  }\n}",
+                              "createdAt": "2026-10-22T01:20:35.000Z",
+                              "updatedAt": "2026-10-22T01:20:35.000Z",
+                              "uid": "35240-39986a3e-cd93-4aba-ad03-f11594cb7bc8"
+                            },
+                            {
+                              "id": "e80ad434-3a72-40d2-9909-a654965b93d1",
+                              "name": "- If account id is not valid",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Authorization",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1.0/ais/Balance/Get?accountId=<uuid>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1.0",
+                                    "ais",
+                                    "Balance",
+                                    "Get"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "(Required) Account id",
+                                      "key": "accountId",
+                                      "value": "<uuid>"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Bad Request",
+                              "code": 400,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"error\": \"CONNECTION_NOT_FOUND\",\n  \"errorDescription\": \"<object,null>\",\n  \"data\": {}\n}",
+                              "createdAt": "2026-10-22T01:20:35.000Z",
+                              "updatedAt": "2026-10-22T01:20:35.000Z",
+                              "uid": "35240-e80ad434-3a72-40d2-9909-a654965b93d1"
+                            },
+                            {
+                              "id": "002c0d25-dc01-439e-9486-66f64e10c463",
+                              "name": "Unauthorized",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Authorization",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1.0/ais/Balance/Get?accountId=<uuid>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1.0",
+                                    "ais",
+                                    "Balance",
+                                    "Get"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "(Required) Account id",
+                                      "key": "accountId",
+                                      "value": "<uuid>"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Unauthorized",
+                              "code": 401,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"error\": \"CONNECTION_NOT_FOUND\",\n  \"errorDescription\": \"<object,null>\",\n  \"data\": {}\n}",
+                              "createdAt": "2026-10-22T01:20:35.000Z",
+                              "updatedAt": "2026-10-22T01:20:35.000Z",
+                              "uid": "35240-002c0d25-dc01-439e-9486-66f64e10c463"
+                            },
+                            {
+                              "id": "bd4c87e4-4a55-4690-9baa-71748bd10756",
+                              "name": "Payment Required",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Authorization",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1.0/ais/Balance/Get?accountId=<uuid>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1.0",
+                                    "ais",
+                                    "Balance",
+                                    "Get"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "(Required) Account id",
+                                      "key": "accountId",
+                                      "value": "<uuid>"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Payment Required",
+                              "code": 402,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"error\": \"CONNECTION_NOT_FOUND\",\n  \"errorDescription\": \"<object,null>\",\n  \"data\": {}\n}",
+                              "createdAt": "2026-10-22T01:20:35.000Z",
+                              "updatedAt": "2026-10-22T01:20:35.000Z",
+                              "uid": "35240-bd4c87e4-4a55-4690-9baa-71748bd10756"
+                            },
+                            {
+                              "id": "e155b76a-c6f0-4eed-b0d8-a8b9b3a111fd",
+                              "name": "Forbidden",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Authorization",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1.0/ais/Balance/Get?accountId=<uuid>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1.0",
+                                    "ais",
+                                    "Balance",
+                                    "Get"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "(Required) Account id",
+                                      "key": "accountId",
+                                      "value": "<uuid>"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Forbidden",
+                              "code": 403,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"error\": \"CONNECTION_NOT_FOUND\",\n  \"errorDescription\": \"<object,null>\",\n  \"data\": {}\n}",
+                              "createdAt": "2026-10-22T01:20:35.000Z",
+                              "updatedAt": "2026-10-22T01:20:35.000Z",
+                              "uid": "35240-e155b76a-c6f0-4eed-b0d8-a8b9b3a111fd"
+                            },
+                            {
+                              "id": "a143e5a7-1658-44e7-a58c-ebbc91da5a9c",
+                              "name": "- If account does not exist",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Authorization",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1.0/ais/Balance/Get?accountId=<uuid>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1.0",
+                                    "ais",
+                                    "Balance",
+                                    "Get"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "(Required) Account id",
+                                      "key": "accountId",
+                                      "value": "<uuid>"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Not Found",
+                              "code": 404,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"error\": \"CONNECTION_NOT_FOUND\",\n  \"errorDescription\": \"<object,null>\",\n  \"data\": {}\n}",
+                              "createdAt": "2026-10-22T01:20:35.000Z",
+                              "updatedAt": "2026-10-22T01:20:35.000Z",
+                              "uid": "35240-a143e5a7-1658-44e7-a58c-ebbc91da5a9c"
+                            },
+                            {
+                              "id": "777f0778-42c2-44f7-b120-062459a46c59",
+                              "name": "Internal Server Error",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Authorization",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1.0/ais/Balance/Get?accountId=<uuid>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1.0",
+                                    "ais",
+                                    "Balance",
+                                    "Get"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "(Required) Account id",
+                                      "key": "accountId",
+                                      "value": "<uuid>"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Internal Server Error",
+                              "code": 500,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-10-22T01:20:35.000Z",
+                              "updatedAt": "2026-10-22T01:20:35.000Z",
+                              "uid": "35240-777f0778-42c2-44f7-b120-062459a46c59"
+                            }
+                          ],
+                          "createdAt": "2026-10-22T01:20:35.000Z",
+                          "updatedAt": "2026-10-22T01:20:35.000Z",
+                          "uid": "35240-66fc87da-6db8-4b2f-be46-b9d935ac9e52"
+                        }
+                      ],
+                      "id": "9f5745da-c09a-4cde-aa67-ba24242f8ff8",
+                      "createdAt": "2026-10-22T01:20:35.000Z",
+                      "updatedAt": "2026-10-22T01:20:35.000Z",
+                      "uid": "35240-9f5745da-c09a-4cde-aa67-ba24242f8ff8"
+                    },
+                    {
+                      "name": "History",
+                      "item": [
+                        {
+                          "name": "Get account balance history",
+                          "id": "ba281fdb-908d-4ab6-a853-9ff9c37e36d0",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1.0/ais/Balance/History?accountId=<uuid>&fromBookingDateTime=<dateTime>&toBookingDateTime=<dateTime>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1.0",
+                                "ais",
+                                "Balance",
+                                "History"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) Account id",
+                                  "key": "accountId",
+                                  "value": "<uuid>"
+                                },
+                                {
+                                  "description": "From booking date time",
+                                  "key": "fromBookingDateTime",
+                                  "value": "<dateTime>"
+                                },
+                                {
+                                  "description": "To booking date time",
+                                  "key": "toBookingDateTime",
+                                  "value": "<dateTime>"
+                                }
+                              ]
+                            },
+                            "description": "**Unique resource name :** ais.v1.balance.history\n\n**Important!:**\n\n- The maximum allowed date range period is one year.\n- `toDate` need to be greater than `fromDate`\n\nThe permissions bellow are required on the consent:\n- `ReadAccountsBasic`\n- `ReadAccountsDetail`\n- `ReadBalances`\n- `ReadTransactionsBasic`\n- `ReadTransactionsDetail`\n- `ReadTransactionsDebits`\n- `ReadTransactionsCredits`"
+                          },
+                          "response": [
+                            {
+                              "id": "dc68716b-817c-4381-b42d-5ede9a61ba9a",
+                              "name": "New Response",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Authorization",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1.0/ais/Balance/History?accountId=<uuid>&fromBookingDateTime=<dateTime>&toBookingDateTime=<dateTime>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1.0",
+                                    "ais",
+                                    "Balance",
+                                    "History"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "(Required) Account id",
+                                      "key": "accountId",
+                                      "value": "<uuid>"
+                                    },
+                                    {
+                                      "description": "From booking date time",
+                                      "key": "fromBookingDateTime",
+                                      "value": "<dateTime>"
+                                    },
+                                    {
+                                      "description": "To booking date time",
+                                      "key": "toBookingDateTime",
+                                      "value": "<dateTime>"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"error\": \"CONSENT_REJECTED\",\n  \"errorDescription\": \"<object,null>\",\n  \"data\": {\n    \"accountId\": \"<string,null-uuid>\",\n    \"history\": \"<array,null>\"\n  }\n}",
+                              "createdAt": "2026-10-22T01:20:35.000Z",
+                              "updatedAt": "2026-10-22T01:20:35.000Z",
+                              "uid": "35240-dc68716b-817c-4381-b42d-5ede9a61ba9a"
+                            },
+                            {
+                              "id": "0755f8ce-b331-4222-81b9-440a21b28751",
+                              "name": "- If account id is not valid",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Authorization",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1.0/ais/Balance/History?accountId=<uuid>&fromBookingDateTime=<dateTime>&toBookingDateTime=<dateTime>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1.0",
+                                    "ais",
+                                    "Balance",
+                                    "History"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "(Required) Account id",
+                                      "key": "accountId",
+                                      "value": "<uuid>"
+                                    },
+                                    {
+                                      "description": "From booking date time",
+                                      "key": "fromBookingDateTime",
+                                      "value": "<dateTime>"
+                                    },
+                                    {
+                                      "description": "To booking date time",
+                                      "key": "toBookingDateTime",
+                                      "value": "<dateTime>"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Bad Request",
+                              "code": 400,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"error\": \"CONNECTION_NOT_FOUND\",\n  \"errorDescription\": \"<object,null>\",\n  \"data\": {}\n}",
+                              "createdAt": "2026-10-22T01:20:35.000Z",
+                              "updatedAt": "2026-10-22T01:20:35.000Z",
+                              "uid": "35240-0755f8ce-b331-4222-81b9-440a21b28751"
+                            },
+                            {
+                              "id": "1db897ca-04d9-4ea1-9fdb-dba080149704",
+                              "name": "Unauthorized",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Authorization",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1.0/ais/Balance/History?accountId=<uuid>&fromBookingDateTime=<dateTime>&toBookingDateTime=<dateTime>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1.0",
+                                    "ais",
+                                    "Balance",
+                                    "History"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "(Required) Account id",
+                                      "key": "accountId",
+                                      "value": "<uuid>"
+                                    },
+                                    {
+                                      "description": "From booking date time",
+                                      "key": "fromBookingDateTime",
+                                      "value": "<dateTime>"
+                                    },
+                                    {
+                                      "description": "To booking date time",
+                                      "key": "toBookingDateTime",
+                                      "value": "<dateTime>"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Unauthorized",
+                              "code": 401,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"error\": \"CONNECTION_NOT_FOUND\",\n  \"errorDescription\": \"<object,null>\",\n  \"data\": {}\n}",
+                              "createdAt": "2026-10-22T01:20:35.000Z",
+                              "updatedAt": "2026-10-22T01:20:35.000Z",
+                              "uid": "35240-1db897ca-04d9-4ea1-9fdb-dba080149704"
+                            },
+                            {
+                              "id": "2fc9633c-73c8-430d-9c0e-a6ab0ccb9ab4",
+                              "name": "Payment Required",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Authorization",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1.0/ais/Balance/History?accountId=<uuid>&fromBookingDateTime=<dateTime>&toBookingDateTime=<dateTime>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1.0",
+                                    "ais",
+                                    "Balance",
+                                    "History"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "(Required) Account id",
+                                      "key": "accountId",
+                                      "value": "<uuid>"
+                                    },
+                                    {
+                                      "description": "From booking date time",
+                                      "key": "fromBookingDateTime",
+                                      "value": "<dateTime>"
+                                    },
+                                    {
+                                      "description": "To booking date time",
+                                      "key": "toBookingDateTime",
+                                      "value": "<dateTime>"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Payment Required",
+                              "code": 402,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"error\": \"CONNECTION_NOT_FOUND\",\n  \"errorDescription\": \"<object,null>\",\n  \"data\": {}\n}",
+                              "createdAt": "2026-10-22T01:20:35.000Z",
+                              "updatedAt": "2026-10-22T01:20:35.000Z",
+                              "uid": "35240-2fc9633c-73c8-430d-9c0e-a6ab0ccb9ab4"
+                            },
+                            {
+                              "id": "9b4b3cc0-9106-4376-88a3-4ac83af8d432",
+                              "name": "Forbidden",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Authorization",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1.0/ais/Balance/History?accountId=<uuid>&fromBookingDateTime=<dateTime>&toBookingDateTime=<dateTime>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1.0",
+                                    "ais",
+                                    "Balance",
+                                    "History"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "(Required) Account id",
+                                      "key": "accountId",
+                                      "value": "<uuid>"
+                                    },
+                                    {
+                                      "description": "From booking date time",
+                                      "key": "fromBookingDateTime",
+                                      "value": "<dateTime>"
+                                    },
+                                    {
+                                      "description": "To booking date time",
+                                      "key": "toBookingDateTime",
+                                      "value": "<dateTime>"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Forbidden",
+                              "code": 403,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"error\": \"CONNECTION_NOT_FOUND\",\n  \"errorDescription\": \"<object,null>\",\n  \"data\": {}\n}",
+                              "createdAt": "2026-10-22T01:20:35.000Z",
+                              "updatedAt": "2026-10-22T01:20:35.000Z",
+                              "uid": "35240-9b4b3cc0-9106-4376-88a3-4ac83af8d432"
+                            },
+                            {
+                              "id": "1aaaa211-c67d-4fba-b62f-4a418f1cb179",
+                              "name": "- If account does not exist",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Authorization",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1.0/ais/Balance/History?accountId=<uuid>&fromBookingDateTime=<dateTime>&toBookingDateTime=<dateTime>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1.0",
+                                    "ais",
+                                    "Balance",
+                                    "History"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "(Required) Account id",
+                                      "key": "accountId",
+                                      "value": "<uuid>"
+                                    },
+                                    {
+                                      "description": "From booking date time",
+                                      "key": "fromBookingDateTime",
+                                      "value": "<dateTime>"
+                                    },
+                                    {
+                                      "description": "To booking date time",
+                                      "key": "toBookingDateTime",
+                                      "value": "<dateTime>"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Not Found",
+                              "code": 404,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"error\": \"CONNECTION_NOT_FOUND\",\n  \"errorDescription\": \"<object,null>\",\n  \"data\": {}\n}",
+                              "createdAt": "2026-10-22T01:20:35.000Z",
+                              "updatedAt": "2026-10-22T01:20:35.000Z",
+                              "uid": "35240-1aaaa211-c67d-4fba-b62f-4a418f1cb179"
+                            },
+                            {
+                              "id": "f44c1dcb-4e8d-4730-aeff-cd2c12694282",
+                              "name": "Internal Server Error",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Authorization",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1.0/ais/Balance/History?accountId=<uuid>&fromBookingDateTime=<dateTime>&toBookingDateTime=<dateTime>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1.0",
+                                    "ais",
+                                    "Balance",
+                                    "History"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "(Required) Account id",
+                                      "key": "accountId",
+                                      "value": "<uuid>"
+                                    },
+                                    {
+                                      "description": "From booking date time",
+                                      "key": "fromBookingDateTime",
+                                      "value": "<dateTime>"
+                                    },
+                                    {
+                                      "description": "To booking date time",
+                                      "key": "toBookingDateTime",
+                                      "value": "<dateTime>"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Internal Server Error",
+                              "code": 500,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-10-22T01:20:35.000Z",
+                              "updatedAt": "2026-10-22T01:20:35.000Z",
+                              "uid": "35240-f44c1dcb-4e8d-4730-aeff-cd2c12694282"
+                            }
+                          ],
+                          "createdAt": "2026-10-22T01:20:35.000Z",
+                          "updatedAt": "2026-10-22T01:20:35.000Z",
+                          "uid": "35240-ba281fdb-908d-4ab6-a853-9ff9c37e36d0"
+                        }
+                      ],
+                      "id": "6f45e0f1-1275-4822-987d-8b2a8758b789",
+                      "createdAt": "2026-10-22T01:20:35.000Z",
+                      "updatedAt": "2026-10-22T01:20:35.000Z",
+                      "uid": "35240-6f45e0f1-1275-4822-987d-8b2a8758b789"
                     }
                   ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  "id": "3c094318-2f31-4083-a4c5-e4b8896370aa",
+                  "createdAt": "2026-10-22T01:20:35.000Z",
+                  "updatedAt": "2026-10-22T01:20:35.000Z",
+                  "uid": "35240-3c094318-2f31-4083-a4c5-e4b8896370aa"
                 }
               ],
-              "body": "{\n  \"error\": \"INSUFFICIENT_CONSENT_PERMISSIONS\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key_1\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key_2\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key_3\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {\n    \"accountId\": \"626bfad2-0595-5937-bd00-2f35b5c1e8fb\",\n    \"balances\": [\n      {\n        \"creditDebitIndicator\": \"string\",\n        \"dateTime\": \"string\",\n        \"creditLine\": [\n          {\n            \"included\": false,\n            \"type\": \"string\",\n            \"amount\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"included\": false,\n            \"type\": \"string\",\n            \"amount\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"type\": \"string\",\n        \"amount\": {\n          \"amount\": 6419.077611150906,\n          \"currency\": \"string\",\n          \"localExchange\": {\n            \"sourceCurrency\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"targetCurrency\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"rate\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"date\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"value\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        }\n      },\n      {\n        \"creditDebitIndicator\": \"string\",\n        \"dateTime\": \"string\",\n        \"creditLine\": [\n          {\n            \"included\": true,\n            \"type\": \"string\",\n            \"amount\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"included\": true,\n            \"type\": \"string\",\n            \"amount\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"type\": \"string\",\n        \"amount\": {\n          \"amount\": 3583.3256434443592,\n          \"currency\": \"string\",\n          \"localExchange\": {\n            \"sourceCurrency\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"targetCurrency\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"rate\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"date\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"value\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        }\n      }\n    ]\n  }\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "ebb9dbf3-01b9-40db-8380-b6516fe087cd",
-              "name": "- If account id is not valid",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1.0",
-                    "ais",
-                    "Balance",
-                    "Get"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "accountId",
-                      "value": "<uuid>"
-                    }
-                  ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"error\": \"PAYMENT_NOT_FOUND\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "3046492d-25ae-490c-bcc7-7b31ea0c799c",
-              "name": "Unauthorized",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1.0",
-                    "ais",
-                    "Balance",
-                    "Get"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "accountId",
-                      "value": "<uuid>"
-                    }
-                  ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"error\": \"RESOURCE_LOCKED\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "b96bf1d2-6386-4e63-9dd7-f3c238f8bc8c",
-              "name": "Payment Required",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1.0",
-                    "ais",
-                    "Balance",
-                    "Get"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "accountId",
-                      "value": "<uuid>"
-                    }
-                  ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Payment Required",
-              "code": 402,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"error\": \"RESOURCE_LOCKED\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "85f790f8-6e5f-4259-932f-cbea3d59a64d",
-              "name": "Forbidden",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1.0",
-                    "ais",
-                    "Balance",
-                    "Get"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "accountId",
-                      "value": "<uuid>"
-                    }
-                  ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Forbidden",
-              "code": 403,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"error\": \"RESOURCE_LOCKED\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "46efa6ed-e6d3-4734-9f74-29cbebf69c06",
-              "name": "- If account does not exist",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1.0",
-                    "ais",
-                    "Balance",
-                    "Get"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "accountId",
-                      "value": "<uuid>"
-                    }
-                  ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Not Found",
-              "code": 404,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"error\": \"RESOURCE_LOCKED\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "4fea2f0a-d924-4f1b-926f-53af16987ace",
-              "name": "Internal Server Error",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1.0",
-                    "ais",
-                    "Balance",
-                    "Get"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "accountId",
-                      "value": "<uuid>"
-                    }
-                  ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Internal Server Error",
-              "code": 500,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
+              "id": "93963f63-b910-46da-a8c1-fe7bdf585f4c",
+              "createdAt": "2026-10-22T01:20:35.000Z",
+              "updatedAt": "2026-10-22T01:20:35.000Z",
+              "uid": "35240-93963f63-b910-46da-a8c1-fe7bdf585f4c"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "83e39a38-60f1-461d-9579-0ecc2ae10133",
+          "createdAt": "2026-10-22T01:20:35.000Z",
+          "updatedAt": "2026-10-22T01:20:35.000Z",
+          "uid": "35240-83e39a38-60f1-461d-9579-0ecc2ae10133"
         },
         {
-          "id": "6562f1a9-9480-4fd8-ae1d-7f295735d156",
-          "name": "Get account balance history",
-          "request": {
-            "name": "Get account balance history",
-            "description": {
-              "content": "**Unique resource name :** ais.v1.balance.history\n            \n**Important!:**\n            \n- The maximum allowed date range period is one year.\n- `toDate` need to be greater than `fromDate`\n            \nThe permissions bellow are required on the consent:\n- `ReadAccountsBasic`\n- `ReadAccountsDetail`\n- `ReadBalances`\n- `ReadTransactionsBasic`\n- `ReadTransactionsDetail`\n- `ReadTransactionsDebits`\n- `ReadTransactionsCredits`",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "api",
-                "v1.0",
-                "ais",
-                "Balance",
-                "History"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "accountId",
-                  "value": "<uuid>",
-                  "description": "(Required) Account id"
-                },
-                {
-                  "disabled": false,
-                  "key": "fromBookingDateTime",
-                  "value": "<dateTime>",
-                  "description": "From booking date time"
-                },
-                {
-                  "disabled": false,
-                  "key": "toBookingDateTime",
-                  "value": "<dateTime>",
-                  "description": "To booking date time"
-                }
-              ],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "v2.0",
+          "item": [
             {
-              "id": "3dfae5e7-4fc8-48bf-b472-63860cca8268",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1.0",
-                    "ais",
-                    "Balance",
-                    "History"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
+              "name": "ais",
+              "item": [
+                {
+                  "name": "Balance",
+                  "item": [
                     {
-                      "key": "accountId",
-                      "value": "<uuid>"
-                    },
-                    {
-                      "key": "fromBookingDateTime",
-                      "value": "<dateTime>"
-                    },
-                    {
-                      "key": "toBookingDateTime",
-                      "value": "<dateTime>"
+                      "name": "Get",
+                      "item": [
+                        {
+                          "name": "Get account balance for long-lived consent",
+                          "id": "76264837-5bba-4c57-8720-edcd939b1db3",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v2.0/ais/Balance/Get?accountId=<uuid>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v2.0",
+                                "ais",
+                                "Balance",
+                                "Get"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) Account id",
+                                  "key": "accountId",
+                                  "value": "<uuid>"
+                                }
+                              ]
+                            },
+                            "description": "**Unique resource name :** ais.v2.balance.get\n\n**Important!:**\n\nThe permissions below are required on the consent:\n- `ReadAccountsBasic`\n- `ReadAccountsDetail`\n- `ReadBalances`"
+                          },
+                          "response": [
+                            {
+                              "id": "c04fa40f-6991-4701-8569-7ffbe4ca9862",
+                              "name": "New Response",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Authorization",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v2.0/ais/Balance/Get?accountId=<uuid>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v2.0",
+                                    "ais",
+                                    "Balance",
+                                    "Get"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "(Required) Account id",
+                                      "key": "accountId",
+                                      "value": "<uuid>"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"error\": \"NOT_SUBSCRIBED_TO_SERVICE\",\n  \"errorDescription\": \"<object,null>\",\n  \"data\": {\n    \"accountId\": \"<uuid>\",\n    \"balances\": \"<array,null>\"\n  }\n}",
+                              "createdAt": "2026-10-22T01:20:35.000Z",
+                              "updatedAt": "2026-10-22T01:20:35.000Z",
+                              "uid": "35240-c04fa40f-6991-4701-8569-7ffbe4ca9862"
+                            },
+                            {
+                              "id": "c4ae69ec-d99c-4259-931d-6278803e2959",
+                              "name": "- If account id is not valid",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Authorization",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v2.0/ais/Balance/Get?accountId=<uuid>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v2.0",
+                                    "ais",
+                                    "Balance",
+                                    "Get"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "(Required) Account id",
+                                      "key": "accountId",
+                                      "value": "<uuid>"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Bad Request",
+                              "code": 400,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"error\": \"CONNECTION_NOT_FOUND\",\n  \"errorDescription\": \"<object,null>\",\n  \"data\": {}\n}",
+                              "createdAt": "2026-10-22T01:20:35.000Z",
+                              "updatedAt": "2026-10-22T01:20:35.000Z",
+                              "uid": "35240-c4ae69ec-d99c-4259-931d-6278803e2959"
+                            },
+                            {
+                              "id": "516d30c1-f96b-4f9f-aece-7466db58901b",
+                              "name": "Unauthorized",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Authorization",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v2.0/ais/Balance/Get?accountId=<uuid>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v2.0",
+                                    "ais",
+                                    "Balance",
+                                    "Get"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "(Required) Account id",
+                                      "key": "accountId",
+                                      "value": "<uuid>"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Unauthorized",
+                              "code": 401,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"error\": \"CONNECTION_NOT_FOUND\",\n  \"errorDescription\": \"<object,null>\",\n  \"data\": {}\n}",
+                              "createdAt": "2026-10-22T01:20:35.000Z",
+                              "updatedAt": "2026-10-22T01:20:35.000Z",
+                              "uid": "35240-516d30c1-f96b-4f9f-aece-7466db58901b"
+                            },
+                            {
+                              "id": "73fc64f7-0474-4343-a83d-6084c7ae220d",
+                              "name": "Payment Required",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Authorization",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v2.0/ais/Balance/Get?accountId=<uuid>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v2.0",
+                                    "ais",
+                                    "Balance",
+                                    "Get"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "(Required) Account id",
+                                      "key": "accountId",
+                                      "value": "<uuid>"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Payment Required",
+                              "code": 402,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"error\": \"CONNECTION_NOT_FOUND\",\n  \"errorDescription\": \"<object,null>\",\n  \"data\": {}\n}",
+                              "createdAt": "2026-10-22T01:20:35.000Z",
+                              "updatedAt": "2026-10-22T01:20:35.000Z",
+                              "uid": "35240-73fc64f7-0474-4343-a83d-6084c7ae220d"
+                            },
+                            {
+                              "id": "cb75e5b0-15d3-49aa-b9b5-ccfeaac2da8e",
+                              "name": "Forbidden",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Authorization",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v2.0/ais/Balance/Get?accountId=<uuid>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v2.0",
+                                    "ais",
+                                    "Balance",
+                                    "Get"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "(Required) Account id",
+                                      "key": "accountId",
+                                      "value": "<uuid>"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Forbidden",
+                              "code": 403,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"error\": \"CONNECTION_NOT_FOUND\",\n  \"errorDescription\": \"<object,null>\",\n  \"data\": {}\n}",
+                              "createdAt": "2026-10-22T01:20:35.000Z",
+                              "updatedAt": "2026-10-22T01:20:35.000Z",
+                              "uid": "35240-cb75e5b0-15d3-49aa-b9b5-ccfeaac2da8e"
+                            },
+                            {
+                              "id": "47532e92-dfe6-48c0-8d54-c358696c5a51",
+                              "name": "- If an account does not exist",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Authorization",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v2.0/ais/Balance/Get?accountId=<uuid>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v2.0",
+                                    "ais",
+                                    "Balance",
+                                    "Get"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "(Required) Account id",
+                                      "key": "accountId",
+                                      "value": "<uuid>"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Not Found",
+                              "code": 404,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"error\": \"CONNECTION_NOT_FOUND\",\n  \"errorDescription\": \"<object,null>\",\n  \"data\": {}\n}",
+                              "createdAt": "2026-10-22T01:20:35.000Z",
+                              "updatedAt": "2026-10-22T01:20:35.000Z",
+                              "uid": "35240-47532e92-dfe6-48c0-8d54-c358696c5a51"
+                            },
+                            {
+                              "id": "cfd71553-e6da-45c1-ad0e-cfe4519ed271",
+                              "name": "Internal Server Error",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Authorization",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v2.0/ais/Balance/Get?accountId=<uuid>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v2.0",
+                                    "ais",
+                                    "Balance",
+                                    "Get"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "(Required) Account id",
+                                      "key": "accountId",
+                                      "value": "<uuid>"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Internal Server Error",
+                              "code": 500,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-10-22T01:20:35.000Z",
+                              "updatedAt": "2026-10-22T01:20:35.000Z",
+                              "uid": "35240-cfd71553-e6da-45c1-ad0e-cfe4519ed271"
+                            }
+                          ],
+                          "createdAt": "2026-10-22T01:20:35.000Z",
+                          "updatedAt": "2026-10-22T01:20:35.000Z",
+                          "uid": "35240-76264837-5bba-4c57-8720-edcd939b1db3"
+                        }
+                      ],
+                      "id": "d40db96d-38d9-490f-8888-46544b079137",
+                      "createdAt": "2026-10-22T01:20:35.000Z",
+                      "updatedAt": "2026-10-22T01:20:35.000Z",
+                      "uid": "35240-d40db96d-38d9-490f-8888-46544b079137"
                     }
                   ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  "id": "07a7baec-c483-4427-a210-74b5e3b8c05c",
+                  "createdAt": "2026-10-22T01:20:35.000Z",
+                  "updatedAt": "2026-10-22T01:20:35.000Z",
+                  "uid": "35240-07a7baec-c483-4427-a210-74b5e3b8c05c"
                 }
               ],
-              "body": "{\n  \"error\": \"CONSENT_REJECTED\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {\n    \"accountId\": \"4888b994-d5a3-3df3-3c16-7aecff9bc9bf\",\n    \"history\": [\n      {\n        \"date\": \"string\",\n        \"balances\": [\n          {\n            \"type\": \"string\",\n            \"amount\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"type\": \"string\",\n            \"amount\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ]\n      },\n      {\n        \"date\": \"string\",\n        \"balances\": [\n          {\n            \"type\": \"string\",\n            \"amount\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"type\": \"string\",\n            \"amount\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ]\n      }\n    ]\n  }\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "fd19bbda-ceba-47ff-b30d-4594037b6be9",
-              "name": "- If account id is not valid",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1.0",
-                    "ais",
-                    "Balance",
-                    "History"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "accountId",
-                      "value": "<uuid>"
-                    },
-                    {
-                      "key": "fromBookingDateTime",
-                      "value": "<dateTime>"
-                    },
-                    {
-                      "key": "toBookingDateTime",
-                      "value": "<dateTime>"
-                    }
-                  ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"error\": \"RESOURCE_LOCKED\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "e5d5d94c-2786-48cb-be3c-27bc450f98a0",
-              "name": "Unauthorized",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1.0",
-                    "ais",
-                    "Balance",
-                    "History"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "accountId",
-                      "value": "<uuid>"
-                    },
-                    {
-                      "key": "fromBookingDateTime",
-                      "value": "<dateTime>"
-                    },
-                    {
-                      "key": "toBookingDateTime",
-                      "value": "<dateTime>"
-                    }
-                  ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"error\": \"RESOURCE_LOCKED\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "03a4d737-b364-42da-b8c6-0da06e1c3678",
-              "name": "Payment Required",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1.0",
-                    "ais",
-                    "Balance",
-                    "History"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "accountId",
-                      "value": "<uuid>"
-                    },
-                    {
-                      "key": "fromBookingDateTime",
-                      "value": "<dateTime>"
-                    },
-                    {
-                      "key": "toBookingDateTime",
-                      "value": "<dateTime>"
-                    }
-                  ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Payment Required",
-              "code": 402,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"error\": \"RESOURCE_LOCKED\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "f9e3c81c-9795-46b7-b9a8-ac1f5a454cc0",
-              "name": "Forbidden",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1.0",
-                    "ais",
-                    "Balance",
-                    "History"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "accountId",
-                      "value": "<uuid>"
-                    },
-                    {
-                      "key": "fromBookingDateTime",
-                      "value": "<dateTime>"
-                    },
-                    {
-                      "key": "toBookingDateTime",
-                      "value": "<dateTime>"
-                    }
-                  ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Forbidden",
-              "code": 403,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"error\": \"RESOURCE_LOCKED\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "dac624d8-435d-432c-941d-9eb8bd862300",
-              "name": "- If account does not exist",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1.0",
-                    "ais",
-                    "Balance",
-                    "History"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "accountId",
-                      "value": "<uuid>"
-                    },
-                    {
-                      "key": "fromBookingDateTime",
-                      "value": "<dateTime>"
-                    },
-                    {
-                      "key": "toBookingDateTime",
-                      "value": "<dateTime>"
-                    }
-                  ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Not Found",
-              "code": 404,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"error\": \"RESOURCE_LOCKED\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "7f9b08b7-59ea-4291-9fdb-3ef216289012",
-              "name": "Internal Server Error",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1.0",
-                    "ais",
-                    "Balance",
-                    "History"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "accountId",
-                      "value": "<uuid>"
-                    },
-                    {
-                      "key": "fromBookingDateTime",
-                      "value": "<dateTime>"
-                    },
-                    {
-                      "key": "toBookingDateTime",
-                      "value": "<dateTime>"
-                    }
-                  ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Internal Server Error",
-              "code": 500,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
+              "id": "7a638452-41fb-4fe2-875b-aff310d43750",
+              "createdAt": "2026-10-22T01:20:35.000Z",
+              "updatedAt": "2026-10-22T01:20:35.000Z",
+              "uid": "35240-7a638452-41fb-4fe2-875b-aff310d43750"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "cb933f40-20d3-45ff-904c-e6caf732cd66",
-          "name": "Get account balance for long-lived consent",
-          "request": {
-            "name": "Get account balance for long-lived consent",
-            "description": {
-              "content": "**Unique resource name :** ais.v2.balance.get\r\n            \r\n**Important!:**\r\n            \r\nThe permissions below are required on the consent:\r\n- `ReadAccountsBasic`\r\n- `ReadAccountsDetail`\r\n- `ReadBalances`",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "api",
-                "v2.0",
-                "ais",
-                "Balance",
-                "Get"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "accountId",
-                  "value": "<uuid>",
-                  "description": "(Required) Account id"
-                }
-              ],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "7068d346-8c02-48f3-b7b0-8f1409225f5a",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v2.0",
-                    "ais",
-                    "Balance",
-                    "Get"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "accountId",
-                      "value": "<uuid>"
-                    }
-                  ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"error\": \"CONNECTION_NOT_FOUND\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key_1\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {\n    \"accountId\": \"0f7890bb-d191-9048-dcca-862387df73bf\",\n    \"balances\": [\n      {\n        \"creditDebitIndicator\": \"string\",\n        \"dateTime\": \"string\",\n        \"creditLine\": [\n          {\n            \"included\": false,\n            \"type\": \"string\",\n            \"amount\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"included\": true,\n            \"type\": \"string\",\n            \"amount\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"type\": \"string\",\n        \"amount\": {\n          \"amount\": 5356.975570506579,\n          \"currency\": \"string\",\n          \"localExchange\": {\n            \"sourceCurrency\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"targetCurrency\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"rate\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"date\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"value\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        }\n      },\n      {\n        \"creditDebitIndicator\": \"string\",\n        \"dateTime\": \"string\",\n        \"creditLine\": [\n          {\n            \"included\": false,\n            \"type\": \"string\",\n            \"amount\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"included\": false,\n            \"type\": \"string\",\n            \"amount\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"type\": \"string\",\n        \"amount\": {\n          \"amount\": 9297.801108094229,\n          \"currency\": \"string\",\n          \"localExchange\": {\n            \"sourceCurrency\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"targetCurrency\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"rate\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"date\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"value\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        }\n      }\n    ]\n  }\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "80c9b398-28f3-4d4c-891b-07e621581f3e",
-              "name": "- If account id is not valid",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v2.0",
-                    "ais",
-                    "Balance",
-                    "Get"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "accountId",
-                      "value": "<uuid>"
-                    }
-                  ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"error\": \"RESOURCE_LOCKED\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "e494917f-4507-4454-9bbb-7d819a595752",
-              "name": "Unauthorized",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v2.0",
-                    "ais",
-                    "Balance",
-                    "Get"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "accountId",
-                      "value": "<uuid>"
-                    }
-                  ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"error\": \"RESOURCE_LOCKED\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "495e02bb-22b1-4307-a13b-d1cb40c95ce2",
-              "name": "Payment Required",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v2.0",
-                    "ais",
-                    "Balance",
-                    "Get"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "accountId",
-                      "value": "<uuid>"
-                    }
-                  ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Payment Required",
-              "code": 402,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"error\": \"RESOURCE_LOCKED\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "bf2f3d60-1afb-4c4a-8a98-9664854ed762",
-              "name": "Forbidden",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v2.0",
-                    "ais",
-                    "Balance",
-                    "Get"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "accountId",
-                      "value": "<uuid>"
-                    }
-                  ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Forbidden",
-              "code": 403,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"error\": \"RESOURCE_LOCKED\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "5490e7f9-ab43-4b83-b64a-eb3e6817d130",
-              "name": "- If an account does not exist",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v2.0",
-                    "ais",
-                    "Balance",
-                    "Get"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "accountId",
-                      "value": "<uuid>"
-                    }
-                  ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Not Found",
-              "code": 404,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"error\": \"RESOURCE_LOCKED\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "b8453c0e-9bd0-4852-a1ce-b7fca198dc65",
-              "name": "Internal Server Error",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v2.0",
-                    "ais",
-                    "Balance",
-                    "Get"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "accountId",
-                      "value": "<uuid>"
-                    }
-                  ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Internal Server Error",
-              "code": 500,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "446d0225-ebb5-49e0-979c-dcf767d409ef",
+          "createdAt": "2026-10-22T01:20:35.000Z",
+          "updatedAt": "2026-10-22T01:20:35.000Z",
+          "uid": "35240-446d0225-ebb5-49e0-979c-dcf767d409ef"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "/",
-      "key": "baseUrl"
+      "id": "21c7059e-308e-4474-a2e1-8bb1d043fe42",
+      "createdAt": "2026-10-22T01:20:35.000Z",
+      "updatedAt": "2026-10-22T01:20:35.000Z",
+      "uid": "35240-21c7059e-308e-4474-a2e1-8bb1d043fe42"
     }
   ],
   "auth": {
@@ -1308,25 +1398,25 @@
     "apikey": [
       {
         "key": "key",
-        "value": "Authorization"
+        "value": "Authorization",
+        "type": "string"
       },
       {
         "key": "value",
-        "value": "{{apiKey}}"
+        "value": "{{apiKey}}",
+        "type": "string"
       },
       {
         "key": "in",
-        "value": "header"
+        "value": "header",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "3cfb79c4-2dd1-43ce-bebd-c390829fed41",
-    "name": "Information Account Balance API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "Spare account information API documentation\n\nContact Support:\n Name: Spare Technologies WLL.\n Email: hello@tryspare.com",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "/"
     }
-  }
+  ]
 }

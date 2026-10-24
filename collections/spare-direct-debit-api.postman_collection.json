@@ -1,0 +1,436 @@
+{
+  "info": {
+    "_postman_id": "f1827ed4-721a-4cab-baf4-6cff59ece039",
+    "name": "Spare Direct Debit API",
+    "description": "Operations tagged DirectDebit across 2 of this provider's published API definitions: spare-bahrain-ais-openapi-original.json, spare-ksa-ais-openapi-original.json. Each path carries the servers of the definition it was published in.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T01:22:16.000Z",
+    "updatedAt": "2026-10-22T01:22:17.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-f1827ed4-721a-4cab-baf4-6cff59ece039"
+  },
+  "item": [
+    {
+      "name": "api",
+      "item": [
+        {
+          "name": "v1.0",
+          "item": [
+            {
+              "name": "ais",
+              "item": [
+                {
+                  "name": "DirectDebit",
+                  "item": [
+                    {
+                      "name": "Get",
+                      "item": [
+                        {
+                          "name": "Get account direct debits",
+                          "id": "f3200284-08c2-4172-b450-ae1d00e42245",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1.0/ais/DirectDebit/Get?accountId=<uuid>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1.0",
+                                "ais",
+                                "DirectDebit",
+                                "Get"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) Account id",
+                                  "key": "accountId",
+                                  "value": "<uuid>"
+                                }
+                              ]
+                            },
+                            "description": "**Unique resource name :** ais.v1.direct_debit.get\n\n**Important!:**\n\nThe permissions bellow are required on the consent:\n- `ReadDirectDebits`"
+                          },
+                          "response": [
+                            {
+                              "id": "e5bc4328-0d03-41b7-9bcb-8a45e60f0e1d",
+                              "name": "New Response",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Authorization",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1.0/ais/DirectDebit/Get?accountId=<uuid>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1.0",
+                                    "ais",
+                                    "DirectDebit",
+                                    "Get"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "(Required) Account id",
+                                      "key": "accountId",
+                                      "value": "<uuid>"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"error\": \"CURRENCY_NOT_FOUND\",\n  \"errorDescription\": \"<object,null>\",\n  \"data\": \"<array,null>\"\n}",
+                              "createdAt": "2026-10-22T01:22:17.000Z",
+                              "updatedAt": "2026-10-22T01:22:17.000Z",
+                              "uid": "35240-e5bc4328-0d03-41b7-9bcb-8a45e60f0e1d"
+                            },
+                            {
+                              "id": "bbafac10-8335-425f-8b4e-3c0edf74cc86",
+                              "name": "- If account id is not valid",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Authorization",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1.0/ais/DirectDebit/Get?accountId=<uuid>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1.0",
+                                    "ais",
+                                    "DirectDebit",
+                                    "Get"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "(Required) Account id",
+                                      "key": "accountId",
+                                      "value": "<uuid>"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Bad Request",
+                              "code": 400,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"error\": \"CONSENT_EXPIRED\",\n  \"errorDescription\": \"<object,null>\",\n  \"data\": {}\n}",
+                              "createdAt": "2026-10-22T01:22:17.000Z",
+                              "updatedAt": "2026-10-22T01:22:17.000Z",
+                              "uid": "35240-bbafac10-8335-425f-8b4e-3c0edf74cc86"
+                            },
+                            {
+                              "id": "3c60dfcf-7518-4108-8e98-93782d87f5c9",
+                              "name": "Unauthorized",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Authorization",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1.0/ais/DirectDebit/Get?accountId=<uuid>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1.0",
+                                    "ais",
+                                    "DirectDebit",
+                                    "Get"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "(Required) Account id",
+                                      "key": "accountId",
+                                      "value": "<uuid>"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Unauthorized",
+                              "code": 401,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"error\": \"CONSENT_EXPIRED\",\n  \"errorDescription\": \"<object,null>\",\n  \"data\": {}\n}",
+                              "createdAt": "2026-10-22T01:22:17.000Z",
+                              "updatedAt": "2026-10-22T01:22:17.000Z",
+                              "uid": "35240-3c60dfcf-7518-4108-8e98-93782d87f5c9"
+                            },
+                            {
+                              "id": "5fa6eb60-9097-420f-b3a8-f4af15ee5d96",
+                              "name": "Forbidden",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Authorization",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1.0/ais/DirectDebit/Get?accountId=<uuid>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1.0",
+                                    "ais",
+                                    "DirectDebit",
+                                    "Get"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "(Required) Account id",
+                                      "key": "accountId",
+                                      "value": "<uuid>"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Forbidden",
+                              "code": 403,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"error\": \"CONSENT_EXPIRED\",\n  \"errorDescription\": \"<object,null>\",\n  \"data\": {}\n}",
+                              "createdAt": "2026-10-22T01:22:17.000Z",
+                              "updatedAt": "2026-10-22T01:22:17.000Z",
+                              "uid": "35240-5fa6eb60-9097-420f-b3a8-f4af15ee5d96"
+                            },
+                            {
+                              "id": "d7988886-975e-44f0-a065-05e4931abcaa",
+                              "name": "- If account does not exist",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Authorization",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1.0/ais/DirectDebit/Get?accountId=<uuid>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1.0",
+                                    "ais",
+                                    "DirectDebit",
+                                    "Get"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "(Required) Account id",
+                                      "key": "accountId",
+                                      "value": "<uuid>"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Not Found",
+                              "code": 404,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"error\": \"CONSENT_EXPIRED\",\n  \"errorDescription\": \"<object,null>\",\n  \"data\": {}\n}",
+                              "createdAt": "2026-10-22T01:22:17.000Z",
+                              "updatedAt": "2026-10-22T01:22:17.000Z",
+                              "uid": "35240-d7988886-975e-44f0-a065-05e4931abcaa"
+                            },
+                            {
+                              "id": "bb71e312-e767-4063-9b54-b0b31868cb4b",
+                              "name": "Internal Server Error",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Authorization",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1.0/ais/DirectDebit/Get?accountId=<uuid>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1.0",
+                                    "ais",
+                                    "DirectDebit",
+                                    "Get"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "(Required) Account id",
+                                      "key": "accountId",
+                                      "value": "<uuid>"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Internal Server Error",
+                              "code": 500,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-10-22T01:22:17.000Z",
+                              "updatedAt": "2026-10-22T01:22:17.000Z",
+                              "uid": "35240-bb71e312-e767-4063-9b54-b0b31868cb4b"
+                            }
+                          ],
+                          "createdAt": "2026-10-22T01:22:17.000Z",
+                          "updatedAt": "2026-10-22T01:22:17.000Z",
+                          "uid": "35240-f3200284-08c2-4172-b450-ae1d00e42245"
+                        }
+                      ],
+                      "id": "cf1435c0-46d0-4e03-bf1f-0d0a6d2bfff2",
+                      "createdAt": "2026-10-22T01:22:17.000Z",
+                      "updatedAt": "2026-10-22T01:22:17.000Z",
+                      "uid": "35240-cf1435c0-46d0-4e03-bf1f-0d0a6d2bfff2"
+                    }
+                  ],
+                  "id": "8f232b8a-eb3c-4131-9f83-730fff013b3a",
+                  "createdAt": "2026-10-22T01:22:17.000Z",
+                  "updatedAt": "2026-10-22T01:22:17.000Z",
+                  "uid": "35240-8f232b8a-eb3c-4131-9f83-730fff013b3a"
+                }
+              ],
+              "id": "697d1a37-b038-46f5-99d7-2379b440bff2",
+              "createdAt": "2026-10-22T01:22:17.000Z",
+              "updatedAt": "2026-10-22T01:22:17.000Z",
+              "uid": "35240-697d1a37-b038-46f5-99d7-2379b440bff2"
+            }
+          ],
+          "id": "e6bb49b3-222f-43a9-a5c1-cb123b6e12ea",
+          "createdAt": "2026-10-22T01:22:17.000Z",
+          "updatedAt": "2026-10-22T01:22:17.000Z",
+          "uid": "35240-e6bb49b3-222f-43a9-a5c1-cb123b6e12ea"
+        }
+      ],
+      "id": "6e473ab4-c77c-49b7-9794-31bd38610855",
+      "createdAt": "2026-10-22T01:22:17.000Z",
+      "updatedAt": "2026-10-22T01:22:17.000Z",
+      "uid": "35240-6e473ab4-c77c-49b7-9794-31bd38610855"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "/"
+    }
+  ]
+}

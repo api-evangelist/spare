@@ -1,428 +1,463 @@
 {
+  "info": {
+    "_postman_id": "d62f40b0-e07c-4b88-a255-346d592fd736",
+    "name": "Spare Statement API",
+    "description": "Operations tagged Statement across 2 of this provider's published API definitions: spare-bahrain-ais-openapi-original.json, spare-ksa-ais-openapi-original.json. Each path carries the servers of the definition it was published in.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T01:21:59.000Z",
+    "updatedAt": "2026-10-22T01:21:59.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-d62f40b0-e07c-4b88-a255-346d592fd736"
+  },
   "item": [
     {
-      "id": "0e02ed41-450b-43d5-a04f-c15839c90fc1",
-      "name": "Statement",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
+      "name": "api",
       "item": [
         {
-          "id": "e0b7fc41-205a-4238-a133-2c034417f387",
-          "name": "Download account statement",
-          "request": {
-            "name": "Download account statement",
-            "description": {
-              "content": "**Unique resource name :** ais.v1.statement.file\n            \n**Important!:**\n            \n- The permissions bellow are required on the consent:\n- `ReadBalances`\n- `ReadTransactionsBasic`\n- `ReadTransactionsDetail`\n- `ReadTransactionsDebits`\n- `ReadTransactionsCredits`",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "api",
-                "v1.0",
-                "ais",
-                "Statement",
-                "File"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "accountId",
-                  "value": "<uuid>",
-                  "description": "(Required) Account id"
-                }
-              ],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/pdf"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "v1.0",
+          "item": [
             {
-              "id": "72eb22ac-c3e7-4d86-ab3d-b6ac87be6867",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1.0",
-                    "ais",
-                    "Statement",
-                    "File"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
+              "name": "ais",
+              "item": [
+                {
+                  "name": "Statement",
+                  "item": [
                     {
-                      "key": "accountId",
-                      "value": "<uuid>"
+                      "name": "File",
+                      "item": [
+                        {
+                          "name": "Download account statement",
+                          "id": "7a1b1000-dd40-4d04-9e98-b7ff25d315ad",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/pdf"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1.0/ais/Statement/File?accountId=<uuid>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1.0",
+                                "ais",
+                                "Statement",
+                                "File"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) Account id",
+                                  "key": "accountId",
+                                  "value": "<uuid>"
+                                }
+                              ]
+                            },
+                            "description": "**Unique resource name :** ais.v1.statement.file\n\n**Important!:**\n\n- The permissions bellow are required on the consent:\n- `ReadBalances`\n- `ReadTransactionsBasic`\n- `ReadTransactionsDetail`\n- `ReadTransactionsDebits`\n- `ReadTransactionsCredits`"
+                          },
+                          "response": [
+                            {
+                              "id": "7b0f8a55-14bf-42af-bdec-2251550d250c",
+                              "name": "New Response",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/pdf"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Authorization",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1.0/ais/Statement/File?accountId=<uuid>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1.0",
+                                    "ais",
+                                    "Statement",
+                                    "File"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "(Required) Account id",
+                                      "key": "accountId",
+                                      "value": "<uuid>"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "<binary>",
+                              "createdAt": "2026-10-22T01:21:59.000Z",
+                              "updatedAt": "2026-10-22T01:21:59.000Z",
+                              "uid": "35240-7b0f8a55-14bf-42af-bdec-2251550d250c"
+                            },
+                            {
+                              "id": "36d9dd61-0b11-4b0e-a684-0482164e794f",
+                              "name": "- If accountId is null or invalid UUID\n- if fromBookingDateTime is null\n- if toBookingDateTime is null",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/pdf"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Authorization",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1.0/ais/Statement/File?accountId=<uuid>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1.0",
+                                    "ais",
+                                    "Statement",
+                                    "File"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "(Required) Account id",
+                                      "key": "accountId",
+                                      "value": "<uuid>"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Bad Request",
+                              "code": 400,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"error\": \"CONNECTION_NOT_FOUND\",\n  \"errorDescription\": \"<object,null>\",\n  \"data\": {}\n}",
+                              "createdAt": "2026-10-22T01:21:59.000Z",
+                              "updatedAt": "2026-10-22T01:21:59.000Z",
+                              "uid": "35240-36d9dd61-0b11-4b0e-a684-0482164e794f"
+                            },
+                            {
+                              "id": "f2553789-7ac2-44ec-92a6-cae312b9a700",
+                              "name": "Unauthorized",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/pdf"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Authorization",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1.0/ais/Statement/File?accountId=<uuid>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1.0",
+                                    "ais",
+                                    "Statement",
+                                    "File"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "(Required) Account id",
+                                      "key": "accountId",
+                                      "value": "<uuid>"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Unauthorized",
+                              "code": 401,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"error\": \"CONNECTION_NOT_FOUND\",\n  \"errorDescription\": \"<object,null>\",\n  \"data\": {}\n}",
+                              "createdAt": "2026-10-22T01:21:59.000Z",
+                              "updatedAt": "2026-10-22T01:21:59.000Z",
+                              "uid": "35240-f2553789-7ac2-44ec-92a6-cae312b9a700"
+                            },
+                            {
+                              "id": "80959a21-0019-4458-a426-89dcc8a58232",
+                              "name": "Payment Required",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/pdf"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Authorization",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1.0/ais/Statement/File?accountId=<uuid>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1.0",
+                                    "ais",
+                                    "Statement",
+                                    "File"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "(Required) Account id",
+                                      "key": "accountId",
+                                      "value": "<uuid>"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Payment Required",
+                              "code": 402,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"error\": \"CONNECTION_NOT_FOUND\",\n  \"errorDescription\": \"<object,null>\",\n  \"data\": {}\n}",
+                              "createdAt": "2026-10-22T01:21:59.000Z",
+                              "updatedAt": "2026-10-22T01:21:59.000Z",
+                              "uid": "35240-80959a21-0019-4458-a426-89dcc8a58232"
+                            },
+                            {
+                              "id": "d5273db2-dfff-4ab6-8dd3-1cf3dbe5b136",
+                              "name": "Forbidden",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/pdf"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Authorization",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1.0/ais/Statement/File?accountId=<uuid>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1.0",
+                                    "ais",
+                                    "Statement",
+                                    "File"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "(Required) Account id",
+                                      "key": "accountId",
+                                      "value": "<uuid>"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Forbidden",
+                              "code": 403,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"error\": \"CONNECTION_NOT_FOUND\",\n  \"errorDescription\": \"<object,null>\",\n  \"data\": {}\n}",
+                              "createdAt": "2026-10-22T01:21:59.000Z",
+                              "updatedAt": "2026-10-22T01:21:59.000Z",
+                              "uid": "35240-d5273db2-dfff-4ab6-8dd3-1cf3dbe5b136"
+                            },
+                            {
+                              "id": "8a80dafe-2e7f-4f06-9e0a-158eae229cc8",
+                              "name": "- If account not exist",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/pdf"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Authorization",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1.0/ais/Statement/File?accountId=<uuid>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1.0",
+                                    "ais",
+                                    "Statement",
+                                    "File"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "(Required) Account id",
+                                      "key": "accountId",
+                                      "value": "<uuid>"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Not Found",
+                              "code": 404,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"error\": \"CONNECTION_NOT_FOUND\",\n  \"errorDescription\": \"<object,null>\",\n  \"data\": {}\n}",
+                              "createdAt": "2026-10-22T01:21:59.000Z",
+                              "updatedAt": "2026-10-22T01:21:59.000Z",
+                              "uid": "35240-8a80dafe-2e7f-4f06-9e0a-158eae229cc8"
+                            },
+                            {
+                              "id": "a8c30351-6a36-4233-ad5b-19aa19d206d4",
+                              "name": "Internal Server Error",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Authorization",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1.0/ais/Statement/File?accountId=<uuid>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1.0",
+                                    "ais",
+                                    "Statement",
+                                    "File"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "(Required) Account id",
+                                      "key": "accountId",
+                                      "value": "<uuid>"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Internal Server Error",
+                              "code": 500,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-10-22T01:21:59.000Z",
+                              "updatedAt": "2026-10-22T01:21:59.000Z",
+                              "uid": "35240-a8c30351-6a36-4233-ad5b-19aa19d206d4"
+                            }
+                          ],
+                          "createdAt": "2026-10-22T01:21:59.000Z",
+                          "updatedAt": "2026-10-22T01:21:59.000Z",
+                          "uid": "35240-7a1b1000-dd40-4d04-9e98-b7ff25d315ad"
+                        }
+                      ],
+                      "id": "286cd158-6312-40dc-94d7-3d4d5bee36c3",
+                      "createdAt": "2026-10-22T01:21:59.000Z",
+                      "updatedAt": "2026-10-22T01:21:59.000Z",
+                      "uid": "35240-286cd158-6312-40dc-94d7-3d4d5bee36c3"
                     }
                   ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/pdf"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  "id": "70a61ae0-d22d-4b69-abd3-b8a63149cd76",
+                  "createdAt": "2026-10-22T01:21:59.000Z",
+                  "updatedAt": "2026-10-22T01:21:59.000Z",
+                  "uid": "35240-70a61ae0-d22d-4b69-abd3-b8a63149cd76"
                 }
               ],
-              "body": "\"string\"",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "4f407b29-dc0c-4a98-8b87-6f70264837c8",
-              "name": "- If accountId is null or invalid UUID\n- if fromBookingDateTime is null\n- if toBookingDateTime is null",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1.0",
-                    "ais",
-                    "Statement",
-                    "File"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "accountId",
-                      "value": "<uuid>"
-                    }
-                  ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/pdf"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"error\": \"SUBSCRIPTION_EXPIRED\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key_1\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "4e5b9f7e-8d3c-4b94-9ca1-00443d07f692",
-              "name": "Unauthorized",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1.0",
-                    "ais",
-                    "Statement",
-                    "File"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "accountId",
-                      "value": "<uuid>"
-                    }
-                  ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/pdf"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"error\": \"CUSTOMER_NOT_FOUND\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "223d4682-f53b-4570-aaa2-f664718f0f50",
-              "name": "Payment Required",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1.0",
-                    "ais",
-                    "Statement",
-                    "File"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "accountId",
-                      "value": "<uuid>"
-                    }
-                  ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/pdf"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Payment Required",
-              "code": 402,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"error\": \"CUSTOMER_NOT_FOUND\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "150e5b7f-9555-4c73-bb8e-d30bdbdd9800",
-              "name": "Forbidden",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1.0",
-                    "ais",
-                    "Statement",
-                    "File"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "accountId",
-                      "value": "<uuid>"
-                    }
-                  ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/pdf"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Forbidden",
-              "code": 403,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"error\": \"CUSTOMER_NOT_FOUND\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "3bb6f0fb-d908-40ee-bb16-07980420b12a",
-              "name": "- If account not exist",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1.0",
-                    "ais",
-                    "Statement",
-                    "File"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "accountId",
-                      "value": "<uuid>"
-                    }
-                  ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/pdf"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Not Found",
-              "code": 404,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"error\": \"CUSTOMER_NOT_FOUND\",\n  \"errorDescription\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"data\": {}\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "80124f34-472e-4c0b-b9a0-d802b5c66d55",
-              "name": "Internal Server Error",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1.0",
-                    "ais",
-                    "Statement",
-                    "File"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "accountId",
-                      "value": "<uuid>"
-                    }
-                  ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Internal Server Error",
-              "code": 500,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
+              "id": "e71d2d7e-1249-421b-9a4a-38968c157ea8",
+              "createdAt": "2026-10-22T01:21:59.000Z",
+              "updatedAt": "2026-10-22T01:21:59.000Z",
+              "uid": "35240-e71d2d7e-1249-421b-9a4a-38968c157ea8"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "a2758df0-92df-45d7-8000-abad91b7cc2d",
+          "createdAt": "2026-10-22T01:21:59.000Z",
+          "updatedAt": "2026-10-22T01:21:59.000Z",
+          "uid": "35240-a2758df0-92df-45d7-8000-abad91b7cc2d"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "/",
-      "key": "baseUrl"
+      "id": "e0d4c64e-3a93-430b-aa2d-42fb8775f8ba",
+      "createdAt": "2026-10-22T01:21:59.000Z",
+      "updatedAt": "2026-10-22T01:21:59.000Z",
+      "uid": "35240-e0d4c64e-3a93-430b-aa2d-42fb8775f8ba"
     }
   ],
   "auth": {
@@ -430,25 +465,25 @@
     "apikey": [
       {
         "key": "key",
-        "value": "Authorization"
+        "value": "Authorization",
+        "type": "string"
       },
       {
         "key": "value",
-        "value": "{{apiKey}}"
+        "value": "{{apiKey}}",
+        "type": "string"
       },
       {
         "key": "in",
-        "value": "header"
+        "value": "header",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "031f5192-f2b1-47e8-8db4-0ea7a6ec2f18",
-    "name": "Information Account Statement API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "Spare account information API documentation\n\nContact Support:\n Name: Spare Technologies WLL.\n Email: hello@tryspare.com",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "/"
     }
-  }
+  ]
 }

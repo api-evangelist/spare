@@ -1,267 +1,240 @@
 {
+  "info": {
+    "_postman_id": "83497a4e-5d7a-4e68-982f-d60bf8f28826",
+    "name": "Authentication Cert API",
+    "description": "Spare api authentication API documentation\n\nContact Support:\n Name: Spare Technologies WLL.\n Email: hello@tryspare.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T01:20:47.000Z",
+    "updatedAt": "2026-10-22T01:20:47.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-83497a4e-5d7a-4e68-982f-d60bf8f28826"
+  },
   "item": [
     {
-      "id": "da603a60-e9e0-4dc5-9b09-4e323daf62b6",
-      "name": "Cert",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
+      "name": "api",
       "item": [
         {
-          "id": "abbf883a-02be-41cc-a1a7-19216a391dfe",
-          "name": "Retrieves the JSON Web Key Set (JWKS) used for token, payloads and webhook signature verification.",
-          "request": {
-            "name": "Retrieves the JSON Web Key Set (JWKS) used for token, payloads and webhook signature verification.",
-            "description": {
-              "content": "**Unique resource name:** api_authentication.v1.cert.jwks\r\n            \r\nThis endpoint provides a set of JSON Web Keys (JWK) as defined in\r\n<a href=\"https://www.rfc-editor.org/rfc/rfc7517\" target=\"_blank\">RFC 7517</a>.\r\n            \r\n**Usage:**\r\n- Used to verify the signature of access tokens and refresh tokens.\r\n- Used to validate the `x-signature` header in the API responses or webhook events.\r\n- Ensures secure cryptographic verification of API interactions.\r\n            \r\nThe response includes RSA and ECC-based public keys required for token and data signature validation.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "api",
-                "v1.0",
-                "authentication",
-                "Jwks"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "v1.0",
+          "item": [
             {
-              "id": "eb9e7b34-3310-4a48-b554-7e6fc44fd6f2",
-              "name": "- Successfully returns the JSON Web Key Set.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1.0",
-                    "authentication",
-                    "Jwks"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
+              "name": "authentication",
+              "item": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  "name": "Jwks",
+                  "item": [
+                    {
+                      "name": "Retrieves the JSON Web Key Set (JWKS) used for token, payloads and webhook\u2026",
+                      "id": "629bfbd3-3438-499b-8046-309cf5b83a27",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1.0/authentication/Jwks",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1.0",
+                            "authentication",
+                            "Jwks"
+                          ]
+                        },
+                        "description": "**Unique resource name:** api_authentication.v1.cert.jwks\n\nThis endpoint provides a set of JSON Web Keys (JWK) as defined in\nRFC 7517.\n\n**Usage:**\n- Used to verify the signature of access tokens and refresh tokens.\n- Used to validate the `x-signature` header in the API responses or webhook events.\n- Ensures secure cryptographic verification of API interactions.\n\nThe response includes RSA and ECC-based public keys required for token and data signature validation."
+                      },
+                      "response": [
+                        {
+                          "id": "0756cf12-729f-4556-aa50-91d6a512f5d0",
+                          "name": "- Successfully returns the JSON Web Key Set.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1.0/authentication/Jwks",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1.0",
+                                "authentication",
+                                "Jwks"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"keys\": \"<array,null>\"\n}",
+                          "createdAt": "2026-10-22T01:20:48.000Z",
+                          "updatedAt": "2026-10-22T01:20:48.000Z",
+                          "uid": "35240-0756cf12-729f-4556-aa50-91d6a512f5d0"
+                        },
+                        {
+                          "id": "f674df33-bce6-408d-b4f1-f4e30884e821",
+                          "name": "Unauthorized",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1.0/authentication/Jwks",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1.0",
+                                "authentication",
+                                "Jwks"
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"type\": \"<string,null>\",\n  \"title\": \"<string,null>\",\n  \"status\": \"<integer,null>\",\n  \"detail\": \"<string,null>\",\n  \"instance\": \"<string,null>\",\n  \"voluptate_9\": {},\n  \"ut_b\": {}\n}",
+                          "createdAt": "2026-10-22T01:20:48.000Z",
+                          "updatedAt": "2026-10-22T01:20:48.000Z",
+                          "uid": "35240-f674df33-bce6-408d-b4f1-f4e30884e821"
+                        },
+                        {
+                          "id": "776bb5a1-3761-4e1c-8da5-a3d5494805ca",
+                          "name": "Forbidden",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1.0/authentication/Jwks",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1.0",
+                                "authentication",
+                                "Jwks"
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"type\": \"<string,null>\",\n  \"title\": \"<string,null>\",\n  \"status\": \"<integer,null>\",\n  \"detail\": \"<string,null>\",\n  \"instance\": \"<string,null>\",\n  \"voluptate_9\": {},\n  \"ut_b\": {}\n}",
+                          "createdAt": "2026-10-22T01:20:48.000Z",
+                          "updatedAt": "2026-10-22T01:20:48.000Z",
+                          "uid": "35240-776bb5a1-3761-4e1c-8da5-a3d5494805ca"
+                        },
+                        {
+                          "id": "34d3c9cd-37af-4d46-a31f-520397113566",
+                          "name": "Internal Server Error",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1.0/authentication/Jwks",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1.0",
+                                "authentication",
+                                "Jwks"
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-10-22T01:20:48.000Z",
+                          "updatedAt": "2026-10-22T01:20:48.000Z",
+                          "uid": "35240-34d3c9cd-37af-4d46-a31f-520397113566"
+                        }
+                      ],
+                      "createdAt": "2026-10-22T01:20:48.000Z",
+                      "updatedAt": "2026-10-22T01:20:48.000Z",
+                      "uid": "35240-629bfbd3-3438-499b-8046-309cf5b83a27"
+                    }
+                  ],
+                  "id": "fc63add9-7282-4e6d-99f2-f1061be077ab",
+                  "createdAt": "2026-10-22T01:20:48.000Z",
+                  "updatedAt": "2026-10-22T01:20:48.000Z",
+                  "uid": "35240-fc63add9-7282-4e6d-99f2-f1061be077ab"
                 }
               ],
-              "body": "{\n  \"keys\": [\n    {\n      \"p\": \"string\",\n      \"kty\": \"string\",\n      \"q\": \"string\",\n      \"d\": \"string\",\n      \"e\": \"string\",\n      \"use\": \"string\",\n      \"kid\": \"string\",\n      \"qi\": \"string\",\n      \"dp\": \"string\",\n      \"alg\": \"string\",\n      \"dq\": \"string\",\n      \"n\": \"string\",\n      \"x\": \"string\",\n      \"y\": \"string\",\n      \"crv\": \"string\",\n      \"x5t\": \"string\",\n      \"x5c\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"p\": \"string\",\n      \"kty\": \"string\",\n      \"q\": \"string\",\n      \"d\": \"string\",\n      \"e\": \"string\",\n      \"use\": \"string\",\n      \"kid\": \"string\",\n      \"qi\": \"string\",\n      \"dp\": \"string\",\n      \"alg\": \"string\",\n      \"dq\": \"string\",\n      \"n\": \"string\",\n      \"x\": \"string\",\n      \"y\": \"string\",\n      \"crv\": \"string\",\n      \"x5t\": \"string\",\n      \"x5c\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "796b6df1-1065-4771-90d7-0d86efedc725",
-              "name": "Unauthorized",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1.0",
-                    "authentication",
-                    "Jwks"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 6786,\n  \"detail\": \"string\",\n  \"instance\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "66dd33f8-46d7-42bf-966d-980c122659df",
-              "name": "Forbidden",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1.0",
-                    "authentication",
-                    "Jwks"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Forbidden",
-              "code": 403,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 6786,\n  \"detail\": \"string\",\n  \"instance\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "a0673efe-4c3d-4b68-a92b-3498dbe963b6",
-              "name": "Internal Server Error",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1.0",
-                    "authentication",
-                    "Jwks"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Internal Server Error",
-              "code": 500,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
+              "id": "4feeaf1e-707d-49a7-bcc3-71a1ba328969",
+              "createdAt": "2026-10-22T01:20:48.000Z",
+              "updatedAt": "2026-10-22T01:20:48.000Z",
+              "uid": "35240-4feeaf1e-707d-49a7-bcc3-71a1ba328969"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "352dbd96-bfca-422e-8faf-27ddb4d4be03",
+          "createdAt": "2026-10-22T01:20:48.000Z",
+          "updatedAt": "2026-10-22T01:20:48.000Z",
+          "uid": "35240-352dbd96-bfca-422e-8faf-27ddb4d4be03"
         }
       ],
-      "event": []
+      "id": "08b67487-1b0c-44bc-9f68-a5232060df0f",
+      "createdAt": "2026-10-22T01:20:48.000Z",
+      "updatedAt": "2026-10-22T01:20:48.000Z",
+      "uid": "35240-08b67487-1b0c-44bc-9f68-a5232060df0f"
     }
   ],
-  "event": [],
   "variable": [
     {
-      "type": "string",
-      "value": "/",
-      "key": "baseUrl"
+      "key": "baseUrl",
+      "value": "/"
     }
-  ],
-  "auth": {
-    "type": "apikey",
-    "apikey": [
-      {
-        "key": "key",
-        "value": "Authorization"
-      },
-      {
-        "key": "value",
-        "value": "{{apiKey}}"
-      },
-      {
-        "key": "in",
-        "value": "header"
-      }
-    ]
-  },
-  "info": {
-    "_postman_id": "f78f1e84-b564-48f0-af44-8038f3ca72f1",
-    "name": "Information Account Cert API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "Spare account information API documentation\n\nContact Support:\n Name: Spare Technologies WLL.\n Email: hello@tryspare.com",
-      "type": "text/plain"
-    }
-  }
+  ]
 }
